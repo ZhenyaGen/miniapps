@@ -1,0 +1,67 @@
+name: Сборка мини-приложения
+
+# Собирает готовую статику и кладёт архивом в артефакты запуска:
+# скачать → распаковать на любой хостинг с https → указать адрес
+# в настройках приложения на dev.vk.ru.
+
+on:
+  push:
+    branches: ['**']
+    paths:
+      - 'apps/vk-audit/**'
+      - '.github/workflows/build-miniapp.yml'
+  workflow_dispatch:
+    inputs:
+      vk_app_id:
+        description: 'ID приложения ВКонтакте (число с dev.vk.ru)'
+        required: true
+        type: string
+      vk_bot_group_id:
+        description: 'ID сообщества бота (можно оставить пустым)'
+        required: false
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/vk-audit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: apps/vk-audit/package-lock.json
+
+      - name: Установить зависимости
+        run: npm ci
+
+      - name: Сверить расчёт с десктопной версией
+        run: npm test
+
+      - name: Собрать
+        # ID приложения не секрет — он виден в адресной строке при любом входе,
+        # поэтому берётся из переменных репозитория, а не из secrets
+        env:
+          VITE_VK_APP_ID: ${{ inputs.vk_app_id || vars.VK_APP_ID }}
+          VITE_VK_BOT_GROUP_ID: ${{ inputs.vk_bot_group_id || vars.VK_BOT_GROUP_ID }}
+        run: npm run build
+
+      - name: Проверить, что ID приложения попал в сборку
+        run: |
+          if grep -rq "VITE_VK_APP_ID" dist/; then
+            echo "::error::ID приложения не подставился — задайте переменную VK_APP_ID в настройках репозитория"
+            exit 1
+          fi
+          echo "Сборка готова: $(du -sh dist | cut -f1)"
+
+      - name: Выложить архивом
+        uses: actions/upload-artifact@v4
+        with:
+          name: vk-audit-dist
+          path: apps/vk-audit/dist
+          retention-days: 30
