@@ -1,0 +1,10828 @@
+{
+ "meta": {
+  "generated_at": "2026-08-01T10:23:36+00:00",
+  "target": "demo_marketing",
+  "kind": "group",
+  "owner_id": -100500,
+  "period_days": 180,
+  "since_ts": 1769990400,
+  "until_ts": 1785579816,
+  "api_calls": 0,
+  "source": "demo"
+ },
+ "profile": {
+  "kind": "group",
+  "id": -100500,
+  "name": "Демо-сообщество · Маркетинг без магии",
+  "screen_name": "demo_marketing",
+  "url": "https://vk.com/demo_marketing",
+  "photo": null,
+  "audience": 2840,
+  "audience_label": "подписчиков",
+  "friends": null,
+  "verified": false,
+  "is_closed": false,
+  "about": "Практика продвижения малого бизнеса.",
+  "status": "",
+  "site": "",
+  "city": null,
+  "occupation": "Маркетинг",
+  "has_photo": false,
+  "has_cover": false,
+  "has_contacts": false,
+  "has_links": false,
+  "can_message": false,
+  "counters": {
+   "photos": 120,
+   "videos": 4
+  }
+ },
+ "posts": [
+  {
+   "id": 1036,
+   "date": 1785312000,
+   "text": "5 ошибок в описании товара, которые стоят вам денег",
+   "likes": {
+    "count": 5
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 474
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1035,
+   "date": 1785092400,
+   "text": "Что изменилось в алгоритмах ВК этой весной",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 556
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1034,
+   "date": 1784800800,
+   "text": "Разбор: почему заявки есть, а продаж нет\n\nА как у вас с этим? #маркетинг",
+   "likes": {
+    "count": 5
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 417
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1033,
+   "date": 1783882800,
+   "text": "Как мы подняли конверсию карточки на 34% за две недели\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 4
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 680
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1032,
+   "date": 1783494000,
+   "text": "Пост-знакомство: чем мы занимаемся и кому полезны\n\nА как у вас с этим?",
+   "likes": {
+    "count": 1
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 243
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1031,
+   "date": 1783094400,
+   "text": "Инструкция: настраиваем сообщения сообщества за 10 минут\n\nА как у вас с этим? #маркетинг\n\nhttps://example.com/article",
+   "likes": {
+    "count": 3
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 391
+   },
+   "attachments": [
+    {
+     "type": "link"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1030,
+   "date": 1782907200,
+   "text": "5 ошибок в описании товара, которые стоят вам денег\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 4
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 619
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1029,
+   "date": 1781539200,
+   "text": "",
+   "likes": {
+    "count": 3
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 441
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0,
+   "copy_history": [
+    {
+     "text": "Репост партнёрского материала"
+    }
+   ]
+  },
+  {
+   "id": 1028,
+   "date": 1781337600,
+   "text": "5 ошибок в описании товара, которые стоят вам денег\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 672
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1027,
+   "date": 1781024400,
+   "text": "Разбираем чужую посадочную страницу по косточкам\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.\n\nА как у вас с этим?",
+   "likes": {
+    "count": 8
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 683
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1026,
+   "date": 1780765200,
+   "text": "Три формата постов, которые всегда собирают комментарии",
+   "likes": {
+    "count": 16
+   },
+   "comments": {
+    "count": 3
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 820
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1025,
+   "date": 1780462800,
+   "text": "5 ошибок в описании товара, которые стоят вам денег",
+   "likes": {
+    "count": 5
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 539
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1024,
+   "date": 1779523200,
+   "text": "Кейс клиента: с 40 до 210 заявок в месяц",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 432
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1023,
+   "date": 1779469200,
+   "text": "Как мы подняли конверсию карточки на 34% за две недели\n\nА как у вас с этим?",
+   "likes": {
+    "count": 13
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 669
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1022,
+   "date": 1779098400,
+   "text": "Кейс клиента: с 40 до 210 заявок в месяц\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 8
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 758
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1021,
+   "date": 1778864400,
+   "text": "Разбираем чужую посадочную страницу по косточкам\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 4
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 495
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1020,
+   "date": 1777482000,
+   "text": "Как мы подняли конверсию карточки на 34% за две недели\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 20
+   },
+   "comments": {
+    "count": 3
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 739
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1019,
+   "date": 1777014000,
+   "text": "Что изменилось в алгоритмах ВК этой весной\n\nhttps://example.com/article",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 755
+   },
+   "attachments": [
+    {
+     "type": "link"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1018,
+   "date": 1776668400,
+   "text": "Пост-знакомство: чем мы занимаемся и кому полезны #маркетинг",
+   "likes": {
+    "count": 7
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 653
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1017,
+   "date": 1776358800,
+   "text": "Кейс клиента: с 40 до 210 заявок в месяц",
+   "likes": {
+    "count": 11
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 689
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1016,
+   "date": 1775401200,
+   "text": "Чек-лист запуска рекламы: 12 пунктов перед стартом",
+   "likes": {
+    "count": 7
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 527
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1015,
+   "date": 1774465200,
+   "text": "Три формата постов, которые всегда собирают комментарии\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.\n\nА как у вас с этим?",
+   "likes": {
+    "count": 11
+   },
+   "comments": {
+    "count": 3
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 691
+   },
+   "attachments": [
+    {
+     "type": "poll"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1014,
+   "date": 1774267200,
+   "text": "Сколько стоит подписчик в нише и как считать\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.\n\nА как у вас с этим?",
+   "likes": {
+    "count": 8
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 848
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1013,
+   "date": 1773637200,
+   "text": "Инструкция: настраиваем сообщения сообщества за 10 минут\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 9
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 742
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1012,
+   "date": 1773291600,
+   "text": "Пост-знакомство: чем мы занимаемся и кому полезны\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.\n\nА как у вас с этим?",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 464
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1011,
+   "date": 1772910000,
+   "text": "",
+   "likes": {
+    "count": 1
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 546
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0,
+   "copy_history": [
+    {
+     "text": "Репост партнёрского материала"
+    }
+   ]
+  },
+  {
+   "id": 1010,
+   "date": 1772704800,
+   "text": "Отвечаю на вопрос из комментариев про сроки окупаемости\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 6
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 809
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1009,
+   "date": 1772557200,
+   "text": "Кейс клиента: с 40 до 210 заявок в месяц",
+   "likes": {
+    "count": 13
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 699
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1008,
+   "date": 1772377200,
+   "text": "Как мы подняли конверсию карточки на 34% за две недели",
+   "likes": {
+    "count": 8
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 835
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1007,
+   "date": 1771779600,
+   "text": "Инструкция: настраиваем сообщения сообщества за 10 минут\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 32
+   },
+   "comments": {
+    "count": 4
+   },
+   "reposts": {
+    "count": 1
+   },
+   "views": {
+    "count": 1000
+   },
+   "attachments": [
+    {
+     "type": "video"
+    }
+   ],
+   "marked_as_ads": 1,
+   "is_pinned": 0
+  },
+  {
+   "id": 1006,
+   "date": 1771527600,
+   "text": "Пост-знакомство: чем мы занимаемся и кому полезны #маркетинг",
+   "likes": {
+    "count": 5
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 524
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1005,
+   "date": 1771329600,
+   "text": "Что изменилось в алгоритмах ВК этой весной\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 10
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 948
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1004,
+   "date": 1771149600,
+   "text": "Инструкция: настраиваем сообщения сообщества за 10 минут\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день.",
+   "likes": {
+    "count": 9
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 679
+   },
+   "attachments": [],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1003,
+   "date": 1771070400,
+   "text": "Пост-знакомство: чем мы занимаемся и кому полезны",
+   "likes": {
+    "count": 8
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 508
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  },
+  {
+   "id": 1002,
+   "date": 1770872400,
+   "text": "Разбор: почему заявки есть, а продаж нет\n\nhttps://example.com/article",
+   "likes": {
+    "count": 3
+   },
+   "comments": {
+    "count": 1
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 848
+   },
+   "attachments": [
+    {
+     "type": "link"
+    }
+   ],
+   "marked_as_ads": 1,
+   "is_pinned": 0
+  },
+  {
+   "id": 1001,
+   "date": 1770451200,
+   "text": "Чек-лист запуска рекламы: 12 пунктов перед стартом\n\nРазбираем по шагам, без воды. Первое — смотрим на цифры за прошлый месяц и находим точку, где теряются люди. Второе — формулируем гипотезу и меняем ровно один элемент. Третье — считаем результат через неделю, а не через день. #маркетинг",
+   "likes": {
+    "count": 11
+   },
+   "comments": {
+    "count": 2
+   },
+   "reposts": {
+    "count": 0
+   },
+   "views": {
+    "count": 1085
+   },
+   "attachments": [
+    {
+     "type": "photo"
+    }
+   ],
+   "marked_as_ads": 0,
+   "is_pinned": 0
+  }
+ ],
+ "stats": [
+  {
+   "period_from": 1769990400,
+   "visitors": {
+    "views": 514,
+    "visitors": 156,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 708,
+    "reach_subscribers": 794,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 75
+     },
+     {
+      "value": "m 25-34",
+      "count": 55
+     },
+     {
+      "value": "f 35-44",
+      "count": 27
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 18,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1770076800,
+   "visitors": {
+    "views": 434,
+    "visitors": 230,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 24
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 860,
+    "reach_subscribers": 737,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 48
+     },
+     {
+      "value": "m 25-34",
+      "count": 65
+     },
+     {
+      "value": "f 35-44",
+      "count": 32
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 40,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1770163200,
+   "visitors": {
+    "views": 343,
+    "visitors": 151,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 420,
+    "reach_subscribers": 722,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 64
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 8,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1770249600,
+   "visitors": {
+    "views": 322,
+    "visitors": 237,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 494,
+    "reach_subscribers": 577,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 55
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 2,
+    "likes": 6,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1770336000,
+   "visitors": {
+    "views": 196,
+    "visitors": 198,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 400,
+    "reach_subscribers": 374,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 29
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 0,
+    "likes": 19,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1770422400,
+   "visitors": {
+    "views": 257,
+    "visitors": 223,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 26
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 33
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 487,
+    "reach_subscribers": 864,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 89
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 40
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 4,
+    "likes": 7,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1770508800,
+   "visitors": {
+    "views": 245,
+    "visitors": 250,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 514,
+    "reach_subscribers": 401,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 44
+     },
+     {
+      "value": "m 25-34",
+      "count": 49
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 3,
+    "likes": 21,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1770595200,
+   "visitors": {
+    "views": 487,
+    "visitors": 90,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 20
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 871,
+    "reach_subscribers": 585,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 45
+     },
+     {
+      "value": "f 35-44",
+      "count": 50
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 6,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1770681600,
+   "visitors": {
+    "views": 512,
+    "visitors": 168,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 23
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 910,
+    "reach_subscribers": 730,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 45
+     },
+     {
+      "value": "m 25-34",
+      "count": 46
+     },
+     {
+      "value": "f 35-44",
+      "count": 34
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 36,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1770768000,
+   "visitors": {
+    "views": 353,
+    "visitors": 197,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 602,
+    "reach_subscribers": 306,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 58
+     },
+     {
+      "value": "m 25-34",
+      "count": 62
+     },
+     {
+      "value": "f 35-44",
+      "count": 24
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 17,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1770854400,
+   "visitors": {
+    "views": 418,
+    "visitors": 146,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 511,
+    "reach_subscribers": 807,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 79
+     },
+     {
+      "value": "m 25-34",
+      "count": 41
+     },
+     {
+      "value": "f 35-44",
+      "count": 34
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 14,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1770940800,
+   "visitors": {
+    "views": 207,
+    "visitors": 144,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 825,
+    "reach_subscribers": 353,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 85
+     },
+     {
+      "value": "m 25-34",
+      "count": 33
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 27
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 2,
+    "likes": 12,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1771027200,
+   "visitors": {
+    "views": 264,
+    "visitors": 174,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 32
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 432,
+    "reach_subscribers": 619,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 82
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 43
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 5,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1771113600,
+   "visitors": {
+    "views": 323,
+    "visitors": 110,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 23
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 974,
+    "reach_subscribers": 512,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 64
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 39
+     },
+     {
+      "value": "m 35-44",
+      "count": 41
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 35,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1771200000,
+   "visitors": {
+    "views": 370,
+    "visitors": 228,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 48
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 772,
+    "reach_subscribers": 785,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 41
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 46
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 3,
+    "likes": 7,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1771286400,
+   "visitors": {
+    "views": 197,
+    "visitors": 208,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 24
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 663,
+    "reach_subscribers": 499,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 87
+     },
+     {
+      "value": "m 25-34",
+      "count": 34
+     },
+     {
+      "value": "f 35-44",
+      "count": 58
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 7,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1771372800,
+   "visitors": {
+    "views": 342,
+    "visitors": 160,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 424,
+    "reach_subscribers": 539,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 46
+     },
+     {
+      "value": "m 25-34",
+      "count": 60
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 32,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1771459200,
+   "visitors": {
+    "views": 247,
+    "visitors": 217,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 31
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 554,
+    "reach_subscribers": 541,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 50
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 4,
+    "likes": 17,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1771545600,
+   "visitors": {
+    "views": 261,
+    "visitors": 153,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 46
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 12
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 893,
+    "reach_subscribers": 865,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 74
+     },
+     {
+      "value": "m 25-34",
+      "count": 50
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 2,
+    "likes": 10,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1771632000,
+   "visitors": {
+    "views": 229,
+    "visitors": 197,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 51
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 577,
+    "reach_subscribers": 539,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 48
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 34
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 12,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1771718400,
+   "visitors": {
+    "views": 330,
+    "visitors": 161,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 660,
+    "reach_subscribers": 566,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 52
+     },
+     {
+      "value": "m 25-34",
+      "count": 58
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 1,
+    "likes": 23,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1771804800,
+   "visitors": {
+    "views": 347,
+    "visitors": 106,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 919,
+    "reach_subscribers": 838,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 54
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 16
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 3,
+    "likes": 19,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1771891200,
+   "visitors": {
+    "views": 371,
+    "visitors": 100,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 17
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 451,
+    "reach_subscribers": 494,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 78
+     },
+     {
+      "value": "m 25-34",
+      "count": 67
+     },
+     {
+      "value": "f 35-44",
+      "count": 32
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 4,
+    "likes": 16,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1771977600,
+   "visitors": {
+    "views": 488,
+    "visitors": 156,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 20
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 622,
+    "reach_subscribers": 338,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 63
+     },
+     {
+      "value": "m 25-34",
+      "count": 51
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 16
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 0,
+    "likes": 18,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1772064000,
+   "visitors": {
+    "views": 347,
+    "visitors": 194,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 479,
+    "reach_subscribers": 508,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 42
+     },
+     {
+      "value": "m 25-34",
+      "count": 61
+     },
+     {
+      "value": "f 35-44",
+      "count": 55
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 0,
+    "likes": 30,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1772150400,
+   "visitors": {
+    "views": 259,
+    "visitors": 253,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 54
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 12
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 807,
+    "reach_subscribers": 577,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 66
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 39
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 27,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1772236800,
+   "visitors": {
+    "views": 393,
+    "visitors": 94,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 800,
+    "reach_subscribers": 714,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 53
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 47
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 0,
+    "likes": 10,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1772323200,
+   "visitors": {
+    "views": 475,
+    "visitors": 183,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 49
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 533,
+    "reach_subscribers": 315,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 43
+     },
+     {
+      "value": "m 25-34",
+      "count": 65
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 4,
+    "likes": 28,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1772409600,
+   "visitors": {
+    "views": 267,
+    "visitors": 127,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 19
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 933,
+    "reach_subscribers": 475,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 44
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 44
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 7,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1772496000,
+   "visitors": {
+    "views": 341,
+    "visitors": 103,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 488,
+    "reach_subscribers": 464,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 80
+     },
+     {
+      "value": "m 25-34",
+      "count": 44
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 27
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 1,
+    "likes": 35,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1772582400,
+   "visitors": {
+    "views": 469,
+    "visitors": 145,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 22
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 792,
+    "reach_subscribers": 667,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 47
+     },
+     {
+      "value": "m 25-34",
+      "count": 39
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 4,
+    "likes": 7,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1772668800,
+   "visitors": {
+    "views": 240,
+    "visitors": 189,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 24
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1064,
+    "reach_subscribers": 730,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 59
+     },
+     {
+      "value": "m 25-34",
+      "count": 67
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 2,
+    "likes": 33,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1772755200,
+   "visitors": {
+    "views": 404,
+    "visitors": 135,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 876,
+    "reach_subscribers": 540,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 69
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 41
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 3,
+    "likes": 30,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1772841600,
+   "visitors": {
+    "views": 214,
+    "visitors": 122,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 23
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 493,
+    "reach_subscribers": 752,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 72
+     },
+     {
+      "value": "m 25-34",
+      "count": 62
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 16
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 25,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1772928000,
+   "visitors": {
+    "views": 220,
+    "visitors": 103,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 426,
+    "reach_subscribers": 367,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 79
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 32
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 19,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1773014400,
+   "visitors": {
+    "views": 359,
+    "visitors": 246,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1028,
+    "reach_subscribers": 581,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 39
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 4,
+    "likes": 21,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1773100800,
+   "visitors": {
+    "views": 301,
+    "visitors": 171,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 586,
+    "reach_subscribers": 713,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 50
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 37
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 1,
+    "likes": 21,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1773187200,
+   "visitors": {
+    "views": 451,
+    "visitors": 102,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 968,
+    "reach_subscribers": 833,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 77
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 3,
+    "likes": 28,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1773273600,
+   "visitors": {
+    "views": 372,
+    "visitors": 184,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 738,
+    "reach_subscribers": 383,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 44
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 34
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 4,
+    "likes": 21,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1773360000,
+   "visitors": {
+    "views": 507,
+    "visitors": 239,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 40
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 33
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 434,
+    "reach_subscribers": 526,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 49
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 4,
+    "likes": 28,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1773446400,
+   "visitors": {
+    "views": 247,
+    "visitors": 215,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 422,
+    "reach_subscribers": 355,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 66
+     },
+     {
+      "value": "f 35-44",
+      "count": 42
+     },
+     {
+      "value": "m 35-44",
+      "count": 24
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 2,
+    "likes": 39,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1773532800,
+   "visitors": {
+    "views": 391,
+    "visitors": 239,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 609,
+    "reach_subscribers": 675,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 79
+     },
+     {
+      "value": "m 25-34",
+      "count": 60
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 10
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 1,
+    "likes": 14,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1773619200,
+   "visitors": {
+    "views": 229,
+    "visitors": 106,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 811,
+    "reach_subscribers": 570,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 33
+     },
+     {
+      "value": "f 35-44",
+      "count": 55
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 5,
+    "likes": 33,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1773705600,
+   "visitors": {
+    "views": 432,
+    "visitors": 153,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 30
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 463,
+    "reach_subscribers": 844,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 41
+     },
+     {
+      "value": "m 25-34",
+      "count": 55
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 5,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1773792000,
+   "visitors": {
+    "views": 516,
+    "visitors": 140,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 29
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 23
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 930,
+    "reach_subscribers": 819,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 81
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 26
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 0,
+    "likes": 24,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1773878400,
+   "visitors": {
+    "views": 424,
+    "visitors": 227,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 20
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 876,
+    "reach_subscribers": 382,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 87
+     },
+     {
+      "value": "m 25-34",
+      "count": 58
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 7,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1773964800,
+   "visitors": {
+    "views": 351,
+    "visitors": 157,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 23
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 935,
+    "reach_subscribers": 571,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 58
+     },
+     {
+      "value": "m 25-34",
+      "count": 43
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 26
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 1,
+    "likes": 21,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1774051200,
+   "visitors": {
+    "views": 283,
+    "visitors": 130,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 40
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 736,
+    "reach_subscribers": 544,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 64
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 54
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 4,
+    "likes": 5,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1774137600,
+   "visitors": {
+    "views": 403,
+    "visitors": 149,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 19
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 800,
+    "reach_subscribers": 899,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 44
+     },
+     {
+      "value": "m 25-34",
+      "count": 66
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 11,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1774224000,
+   "visitors": {
+    "views": 356,
+    "visitors": 126,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 541,
+    "reach_subscribers": 343,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 84
+     },
+     {
+      "value": "m 25-34",
+      "count": 34
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 17
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 17,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1774310400,
+   "visitors": {
+    "views": 520,
+    "visitors": 106,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 44
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 610,
+    "reach_subscribers": 508,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 47
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 5,
+    "likes": 23,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1774396800,
+   "visitors": {
+    "views": 231,
+    "visitors": 123,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 26
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 701,
+    "reach_subscribers": 626,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 61
+     },
+     {
+      "value": "m 25-34",
+      "count": 57
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 15
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 8,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1774483200,
+   "visitors": {
+    "views": 344,
+    "visitors": 244,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1033,
+    "reach_subscribers": 331,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 90
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 21
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 26
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 0,
+    "likes": 27,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1774569600,
+   "visitors": {
+    "views": 204,
+    "visitors": 227,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 988,
+    "reach_subscribers": 594,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 50
+     },
+     {
+      "value": "m 25-34",
+      "count": 57
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 0,
+    "likes": 5,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1774656000,
+   "visitors": {
+    "views": 431,
+    "visitors": 114,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 51
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 906,
+    "reach_subscribers": 655,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 72
+     },
+     {
+      "value": "m 25-34",
+      "count": 46
+     },
+     {
+      "value": "f 35-44",
+      "count": 56
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 19,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1774742400,
+   "visitors": {
+    "views": 264,
+    "visitors": 118,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 902,
+    "reach_subscribers": 874,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 90
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 60
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 3,
+    "likes": 30,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1774828800,
+   "visitors": {
+    "views": 396,
+    "visitors": 255,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 710,
+    "reach_subscribers": 569,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 67
+     },
+     {
+      "value": "m 25-34",
+      "count": 64
+     },
+     {
+      "value": "f 35-44",
+      "count": 52
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 1,
+    "likes": 34,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1774915200,
+   "visitors": {
+    "views": 452,
+    "visitors": 242,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 756,
+    "reach_subscribers": 895,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 25,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1775001600,
+   "visitors": {
+    "views": 417,
+    "visitors": 202,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 529,
+    "reach_subscribers": 642,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 45
+     },
+     {
+      "value": "f 35-44",
+      "count": 52
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 14,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1775088000,
+   "visitors": {
+    "views": 306,
+    "visitors": 173,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 564,
+    "reach_subscribers": 541,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 11,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1775174400,
+   "visitors": {
+    "views": 376,
+    "visitors": 128,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 29
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 704,
+    "reach_subscribers": 745,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 57
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 26
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 29,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1775260800,
+   "visitors": {
+    "views": 197,
+    "visitors": 93,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 627,
+    "reach_subscribers": 812,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 80
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 15
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 4,
+    "likes": 30,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1775347200,
+   "visitors": {
+    "views": 304,
+    "visitors": 200,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 634,
+    "reach_subscribers": 897,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 54
+     },
+     {
+      "value": "m 25-34",
+      "count": 41
+     },
+     {
+      "value": "f 35-44",
+      "count": 27
+     },
+     {
+      "value": "m 35-44",
+      "count": 29
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 11,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1775433600,
+   "visitors": {
+    "views": 304,
+    "visitors": 192,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 833,
+    "reach_subscribers": 794,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 31
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 5,
+    "likes": 16,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1775520000,
+   "visitors": {
+    "views": 185,
+    "visitors": 189,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 51
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 657,
+    "reach_subscribers": 856,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 53
+     },
+     {
+      "value": "m 25-34",
+      "count": 40
+     },
+     {
+      "value": "f 35-44",
+      "count": 32
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 4,
+    "likes": 34,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1775606400,
+   "visitors": {
+    "views": 284,
+    "visitors": 211,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 934,
+    "reach_subscribers": 651,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 66
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 33
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 4,
+    "likes": 12,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1775692800,
+   "visitors": {
+    "views": 506,
+    "visitors": 104,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 809,
+    "reach_subscribers": 362,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 34
+     },
+     {
+      "value": "f 35-44",
+      "count": 46
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 5,
+    "likes": 27,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1775779200,
+   "visitors": {
+    "views": 235,
+    "visitors": 147,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 33
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 939,
+    "reach_subscribers": 524,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 33
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 0,
+    "likes": 17,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1775865600,
+   "visitors": {
+    "views": 508,
+    "visitors": 233,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1082,
+    "reach_subscribers": 723,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 55
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 3,
+    "likes": 27,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1775952000,
+   "visitors": {
+    "views": 316,
+    "visitors": 186,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 36
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 23
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 893,
+    "reach_subscribers": 302,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 86
+     },
+     {
+      "value": "m 25-34",
+      "count": 47
+     },
+     {
+      "value": "f 35-44",
+      "count": 42
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 35,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1776038400,
+   "visitors": {
+    "views": 399,
+    "visitors": 249,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 12
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 556,
+    "reach_subscribers": 610,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 64
+     },
+     {
+      "value": "m 25-34",
+      "count": 33
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 41
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 38,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1776124800,
+   "visitors": {
+    "views": 504,
+    "visitors": 239,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 20
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 614,
+    "reach_subscribers": 373,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 81
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 34
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 19,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1776211200,
+   "visitors": {
+    "views": 411,
+    "visitors": 178,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 29
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 947,
+    "reach_subscribers": 471,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 79
+     },
+     {
+      "value": "m 25-34",
+      "count": 68
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 5,
+    "likes": 24,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1776297600,
+   "visitors": {
+    "views": 433,
+    "visitors": 144,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 53
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 12
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1087,
+    "reach_subscribers": 419,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 75
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 1,
+    "likes": 35,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1776384000,
+   "visitors": {
+    "views": 465,
+    "visitors": 104,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 24
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 903,
+    "reach_subscribers": 552,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 71
+     },
+     {
+      "value": "m 25-34",
+      "count": 40
+     },
+     {
+      "value": "f 35-44",
+      "count": 54
+     },
+     {
+      "value": "m 35-44",
+      "count": 34
+     },
+     {
+      "value": "f 18-24",
+      "count": 10
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 34,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1776470400,
+   "visitors": {
+    "views": 520,
+    "visitors": 165,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 49
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 828,
+    "reach_subscribers": 377,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 51
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 43
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 7,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1776556800,
+   "visitors": {
+    "views": 228,
+    "visitors": 220,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 434,
+    "reach_subscribers": 518,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 85
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 60
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 5,
+    "likes": 28,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1776643200,
+   "visitors": {
+    "views": 422,
+    "visitors": 224,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 55
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 690,
+    "reach_subscribers": 745,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 61
+     },
+     {
+      "value": "m 25-34",
+      "count": 57
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 23,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1776729600,
+   "visitors": {
+    "views": 432,
+    "visitors": 193,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 41
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 918,
+    "reach_subscribers": 653,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 53
+     },
+     {
+      "value": "m 25-34",
+      "count": 61
+     },
+     {
+      "value": "f 35-44",
+      "count": 27
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 24,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1776816000,
+   "visitors": {
+    "views": 480,
+    "visitors": 252,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 25
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 808,
+    "reach_subscribers": 867,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 64
+     },
+     {
+      "value": "f 35-44",
+      "count": 56
+     },
+     {
+      "value": "m 35-44",
+      "count": 16
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 0,
+    "likes": 5,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1776902400,
+   "visitors": {
+    "views": 277,
+    "visitors": 211,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 912,
+    "reach_subscribers": 856,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 79
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 5,
+    "likes": 10,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1776988800,
+   "visitors": {
+    "views": 200,
+    "visitors": 260,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 24
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 503,
+    "reach_subscribers": 485,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 42
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 26
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 2,
+    "likes": 13,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1777075200,
+   "visitors": {
+    "views": 467,
+    "visitors": 156,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 435,
+    "reach_subscribers": 626,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 41
+     },
+     {
+      "value": "m 25-34",
+      "count": 57
+     },
+     {
+      "value": "f 35-44",
+      "count": 56
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 3,
+    "likes": 38,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1777161600,
+   "visitors": {
+    "views": 240,
+    "visitors": 197,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 857,
+    "reach_subscribers": 368,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 58
+     },
+     {
+      "value": "m 35-44",
+      "count": 33
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 3,
+    "likes": 40,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1777248000,
+   "visitors": {
+    "views": 222,
+    "visitors": 254,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1041,
+    "reach_subscribers": 315,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 67
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 0,
+    "likes": 18,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1777334400,
+   "visitors": {
+    "views": 246,
+    "visitors": 210,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 861,
+    "reach_subscribers": 491,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 43
+     },
+     {
+      "value": "m 25-34",
+      "count": 53
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 40,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1777420800,
+   "visitors": {
+    "views": 415,
+    "visitors": 155,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 23
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 411,
+    "reach_subscribers": 362,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 69
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 27
+     },
+     {
+      "value": "f 18-24",
+      "count": 19
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 15,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1777507200,
+   "visitors": {
+    "views": 491,
+    "visitors": 105,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 40
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 881,
+    "reach_subscribers": 470,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 49
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 43
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 31,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1777593600,
+   "visitors": {
+    "views": 377,
+    "visitors": 205,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 37
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 699,
+    "reach_subscribers": 586,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 43
+     },
+     {
+      "value": "m 25-34",
+      "count": 69
+     },
+     {
+      "value": "f 35-44",
+      "count": 58
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 14,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1777680000,
+   "visitors": {
+    "views": 479,
+    "visitors": 199,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 35
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 785,
+    "reach_subscribers": 539,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 3,
+    "likes": 15,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1777766400,
+   "visitors": {
+    "views": 327,
+    "visitors": 126,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 960,
+    "reach_subscribers": 811,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 62
+     },
+     {
+      "value": "m 25-34",
+      "count": 64
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 3,
+    "likes": 17,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1777852800,
+   "visitors": {
+    "views": 338,
+    "visitors": 245,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 23
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 876,
+    "reach_subscribers": 511,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 56
+     },
+     {
+      "value": "m 25-34",
+      "count": 67
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 40
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 4,
+    "likes": 10,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1777939200,
+   "visitors": {
+    "views": 361,
+    "visitors": 106,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 934,
+    "reach_subscribers": 628,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 70
+     },
+     {
+      "value": "m 25-34",
+      "count": 62
+     },
+     {
+      "value": "f 35-44",
+      "count": 57
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 1,
+    "likes": 10,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1778025600,
+   "visitors": {
+    "views": 328,
+    "visitors": 182,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 812,
+    "reach_subscribers": 829,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 49
+     },
+     {
+      "value": "m 25-34",
+      "count": 45
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 0,
+    "likes": 28,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1778112000,
+   "visitors": {
+    "views": 221,
+    "visitors": 129,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 40
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 753,
+    "reach_subscribers": 587,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 73
+     },
+     {
+      "value": "m 25-34",
+      "count": 68
+     },
+     {
+      "value": "f 35-44",
+      "count": 21
+     },
+     {
+      "value": "m 35-44",
+      "count": 18
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 4,
+    "likes": 36,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1778198400,
+   "visitors": {
+    "views": 313,
+    "visitors": 161,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1007,
+    "reach_subscribers": 434,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 56
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 41
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 0,
+    "likes": 6,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1778284800,
+   "visitors": {
+    "views": 197,
+    "visitors": 232,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 898,
+    "reach_subscribers": 365,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 78
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 21,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1778371200,
+   "visitors": {
+    "views": 469,
+    "visitors": 149,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 25
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 587,
+    "reach_subscribers": 759,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 50
+     },
+     {
+      "value": "m 25-34",
+      "count": 53
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 21,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1778457600,
+   "visitors": {
+    "views": 210,
+    "visitors": 231,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 925,
+    "reach_subscribers": 795,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 43
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 10
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 24,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1778544000,
+   "visitors": {
+    "views": 514,
+    "visitors": 116,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 20
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 663,
+    "reach_subscribers": 699,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 47
+     },
+     {
+      "value": "m 25-34",
+      "count": 53
+     },
+     {
+      "value": "f 35-44",
+      "count": 50
+     },
+     {
+      "value": "m 35-44",
+      "count": 27
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 1,
+    "likes": 14,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1778630400,
+   "visitors": {
+    "views": 419,
+    "visitors": 139,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 22
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 479,
+    "reach_subscribers": 682,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 87
+     },
+     {
+      "value": "m 25-34",
+      "count": 38
+     },
+     {
+      "value": "f 35-44",
+      "count": 48
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 0,
+    "likes": 9,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1778716800,
+   "visitors": {
+    "views": 353,
+    "visitors": 172,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1043,
+    "reach_subscribers": 674,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 49
+     },
+     {
+      "value": "m 25-34",
+      "count": 51
+     },
+     {
+      "value": "f 35-44",
+      "count": 34
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 33,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1778803200,
+   "visitors": {
+    "views": 254,
+    "visitors": 202,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 29
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 821,
+    "reach_subscribers": 552,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 49
+     },
+     {
+      "value": "m 25-34",
+      "count": 31
+     },
+     {
+      "value": "f 35-44",
+      "count": 37
+     },
+     {
+      "value": "m 35-44",
+      "count": 33
+     },
+     {
+      "value": "f 18-24",
+      "count": 19
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 21,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1778889600,
+   "visitors": {
+    "views": 235,
+    "visitors": 171,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 49
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 557,
+    "reach_subscribers": 825,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 43
+     },
+     {
+      "value": "m 25-34",
+      "count": 70
+     },
+     {
+      "value": "f 35-44",
+      "count": 33
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 12,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1778976000,
+   "visitors": {
+    "views": 283,
+    "visitors": 183,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 643,
+    "reach_subscribers": 399,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 64
+     },
+     {
+      "value": "m 25-34",
+      "count": 48
+     },
+     {
+      "value": "f 35-44",
+      "count": 46
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 5,
+    "likes": 23,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1779062400,
+   "visitors": {
+    "views": 507,
+    "visitors": 94,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 48
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 923,
+    "reach_subscribers": 443,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 24
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 3,
+    "likes": 7,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1779148800,
+   "visitors": {
+    "views": 291,
+    "visitors": 160,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 584,
+    "reach_subscribers": 834,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 89
+     },
+     {
+      "value": "m 25-34",
+      "count": 44
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 21
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 36,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1779235200,
+   "visitors": {
+    "views": 269,
+    "visitors": 142,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 28
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 996,
+    "reach_subscribers": 615,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 52
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 24
+     },
+     {
+      "value": "m 35-44",
+      "count": 37
+     },
+     {
+      "value": "f 18-24",
+      "count": 26
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 5,
+    "likes": 8,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1779321600,
+   "visitors": {
+    "views": 357,
+    "visitors": 175,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 492,
+    "reach_subscribers": 315,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 66
+     },
+     {
+      "value": "m 25-34",
+      "count": 60
+     },
+     {
+      "value": "f 35-44",
+      "count": 28
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 1,
+    "likes": 28,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1779408000,
+   "visitors": {
+    "views": 263,
+    "visitors": 185,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 764,
+    "reach_subscribers": 832,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 24
+     },
+     {
+      "value": "m 35-44",
+      "count": 18
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 1,
+    "likes": 25,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1779494400,
+   "visitors": {
+    "views": 475,
+    "visitors": 105,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 857,
+    "reach_subscribers": 825,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 41
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 54
+     },
+     {
+      "value": "m 35-44",
+      "count": 19
+     },
+     {
+      "value": "f 18-24",
+      "count": 10
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 19,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1779580800,
+   "visitors": {
+    "views": 265,
+    "visitors": 116,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 419,
+    "reach_subscribers": 398,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 84
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 15
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 34,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1779667200,
+   "visitors": {
+    "views": 302,
+    "visitors": 203,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 26
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 583,
+    "reach_subscribers": 346,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 57
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 2,
+    "likes": 12,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1779753600,
+   "visitors": {
+    "views": 242,
+    "visitors": 193,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 28
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 632,
+    "reach_subscribers": 450,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 82
+     },
+     {
+      "value": "m 25-34",
+      "count": 66
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 29,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1779840000,
+   "visitors": {
+    "views": 485,
+    "visitors": 244,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 53
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 453,
+    "reach_subscribers": 671,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 61
+     },
+     {
+      "value": "m 25-34",
+      "count": 55
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 41
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 3,
+    "likes": 25,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1779926400,
+   "visitors": {
+    "views": 467,
+    "visitors": 103,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 40
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1096,
+    "reach_subscribers": 661,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 55
+     },
+     {
+      "value": "m 25-34",
+      "count": 57
+     },
+     {
+      "value": "f 35-44",
+      "count": 60
+     },
+     {
+      "value": "m 35-44",
+      "count": 15
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 4,
+    "likes": 16,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1780012800,
+   "visitors": {
+    "views": 346,
+    "visitors": 200,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 32
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 630,
+    "reach_subscribers": 442,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 66
+     },
+     {
+      "value": "m 25-34",
+      "count": 55
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 0,
+    "likes": 7,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1780099200,
+   "visitors": {
+    "views": 499,
+    "visitors": 159,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1036,
+    "reach_subscribers": 402,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 56
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 15
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 23,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1780185600,
+   "visitors": {
+    "views": 336,
+    "visitors": 178,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 30
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 13
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1008,
+    "reach_subscribers": 826,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 57
+     },
+     {
+      "value": "m 25-34",
+      "count": 35
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 33
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 3,
+    "likes": 12,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1780272000,
+   "visitors": {
+    "views": 247,
+    "visitors": 165,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 46
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 680,
+    "reach_subscribers": 549,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 87
+     },
+     {
+      "value": "m 25-34",
+      "count": 35
+     },
+     {
+      "value": "f 35-44",
+      "count": 54
+     },
+     {
+      "value": "m 35-44",
+      "count": 24
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 5,
+    "likes": 19,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1780358400,
+   "visitors": {
+    "views": 283,
+    "visitors": 230,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 24
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1027,
+    "reach_subscribers": 789,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 70
+     },
+     {
+      "value": "m 25-34",
+      "count": 49
+     },
+     {
+      "value": "f 35-44",
+      "count": 21
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 1,
+    "likes": 37,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1780444800,
+   "visitors": {
+    "views": 376,
+    "visitors": 239,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 566,
+    "reach_subscribers": 544,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 65
+     },
+     {
+      "value": "f 35-44",
+      "count": 40
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 1,
+    "likes": 23,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1780531200,
+   "visitors": {
+    "views": 191,
+    "visitors": 130,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 55
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 12
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 850,
+    "reach_subscribers": 363,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 73
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 48
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 14,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1780617600,
+   "visitors": {
+    "views": 352,
+    "visitors": 180,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 28
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1031,
+    "reach_subscribers": 583,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 73
+     },
+     {
+      "value": "m 25-34",
+      "count": 36
+     },
+     {
+      "value": "f 35-44",
+      "count": 50
+     },
+     {
+      "value": "m 35-44",
+      "count": 23
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 5,
+    "likes": 13,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1780704000,
+   "visitors": {
+    "views": 232,
+    "visitors": 91,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 46
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 909,
+    "reach_subscribers": 707,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 39
+     },
+     {
+      "value": "f 35-44",
+      "count": 46
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 4,
+    "likes": 12,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1780790400,
+   "visitors": {
+    "views": 411,
+    "visitors": 207,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 33
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 699,
+    "reach_subscribers": 661,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 55
+     },
+     {
+      "value": "m 35-44",
+      "count": 34
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 2,
+    "likes": 5,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1780876800,
+   "visitors": {
+    "views": 374,
+    "visitors": 203,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 548,
+    "reach_subscribers": 746,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 54
+     },
+     {
+      "value": "f 35-44",
+      "count": 57
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 25,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1780963200,
+   "visitors": {
+    "views": 346,
+    "visitors": 142,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 448,
+    "reach_subscribers": 562,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 61
+     },
+     {
+      "value": "f 35-44",
+      "count": 39
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 2,
+    "likes": 39,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1781049600,
+   "visitors": {
+    "views": 444,
+    "visitors": 222,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 766,
+    "reach_subscribers": 341,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 78
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 48
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 10
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 38,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1781136000,
+   "visitors": {
+    "views": 230,
+    "visitors": 194,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1064,
+    "reach_subscribers": 874,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 39
+     },
+     {
+      "value": "f 35-44",
+      "count": 32
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 3,
+    "likes": 33,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1781222400,
+   "visitors": {
+    "views": 451,
+    "visitors": 113,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 30
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 21
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 775,
+    "reach_subscribers": 376,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 59
+     },
+     {
+      "value": "m 25-34",
+      "count": 62
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 18
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 26,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1781308800,
+   "visitors": {
+    "views": 395,
+    "visitors": 251,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 30
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 923,
+    "reach_subscribers": 512,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 72
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 46
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 11,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1781395200,
+   "visitors": {
+    "views": 471,
+    "visitors": 251,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 33
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 821,
+    "reach_subscribers": 310,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 90
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 39
+     },
+     {
+      "value": "m 35-44",
+      "count": 37
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 2,
+    "likes": 30,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1781481600,
+   "visitors": {
+    "views": 480,
+    "visitors": 93,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 909,
+    "reach_subscribers": 866,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 47
+     },
+     {
+      "value": "f 35-44",
+      "count": 54
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 31,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1781568000,
+   "visitors": {
+    "views": 254,
+    "visitors": 130,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 53
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 429,
+    "reach_subscribers": 402,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 44
+     },
+     {
+      "value": "m 25-34",
+      "count": 40
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 3,
+    "likes": 8,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1781654400,
+   "visitors": {
+    "views": 476,
+    "visitors": 172,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 29
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 762,
+    "reach_subscribers": 582,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 50
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 37
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 4,
+    "likes": 9,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1781740800,
+   "visitors": {
+    "views": 278,
+    "visitors": 205,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 59
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 22
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 455,
+    "reach_subscribers": 525,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 67
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 29
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 20,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1781827200,
+   "visitors": {
+    "views": 202,
+    "visitors": 130,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 57
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 15
+     }
+    ]
+   },
+   "reach": {
+    "reach": 406,
+    "reach_subscribers": 766,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 59
+     },
+     {
+      "value": "m 25-34",
+      "count": 56
+     },
+     {
+      "value": "f 35-44",
+      "count": 58
+     },
+     {
+      "value": "m 35-44",
+      "count": 23
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 1,
+    "likes": 29,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1781913600,
+   "visitors": {
+    "views": 391,
+    "visitors": 169,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 422,
+    "reach_subscribers": 549,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 45
+     },
+     {
+      "value": "m 25-34",
+      "count": 41
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 0,
+    "likes": 23,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1782000000,
+   "visitors": {
+    "views": 467,
+    "visitors": 182,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 27
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 20
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 743,
+    "reach_subscribers": 712,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 81
+     },
+     {
+      "value": "m 25-34",
+      "count": 34
+     },
+     {
+      "value": "f 35-44",
+      "count": 27
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 1,
+    "likes": 29,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1782086400,
+   "visitors": {
+    "views": 419,
+    "visitors": 162,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 17
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 435,
+    "reach_subscribers": 585,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 82
+     },
+     {
+      "value": "m 25-34",
+      "count": 31
+     },
+     {
+      "value": "f 35-44",
+      "count": 41
+     },
+     {
+      "value": "m 35-44",
+      "count": 40
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 13,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1782172800,
+   "visitors": {
+    "views": 280,
+    "visitors": 159,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 54
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 35
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 968,
+    "reach_subscribers": 753,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 45
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 30,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1782259200,
+   "visitors": {
+    "views": 502,
+    "visitors": 238,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 33
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 19
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 916,
+    "reach_subscribers": 509,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 54
+     },
+     {
+      "value": "m 25-34",
+      "count": 58
+     },
+     {
+      "value": "f 35-44",
+      "count": 28
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 3,
+    "likes": 28,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1782345600,
+   "visitors": {
+    "views": 306,
+    "visitors": 193,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 528,
+    "reach_subscribers": 425,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 83
+     },
+     {
+      "value": "m 25-34",
+      "count": 62
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 3,
+    "likes": 6,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1782432000,
+   "visitors": {
+    "views": 339,
+    "visitors": 93,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 44
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 581,
+    "reach_subscribers": 537,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 26
+     },
+     {
+      "value": "m 35-44",
+      "count": 17
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 4,
+    "likes": 24,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1782518400,
+   "visitors": {
+    "views": 213,
+    "visitors": 169,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 25
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 17
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 529,
+    "reach_subscribers": 708,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 58
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 5,
+    "likes": 13,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1782604800,
+   "visitors": {
+    "views": 270,
+    "visitors": 97,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 822,
+    "reach_subscribers": 325,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 82
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 35
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 22
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 5,
+    "likes": 11,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1782691200,
+   "visitors": {
+    "views": 329,
+    "visitors": 119,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 37
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1093,
+    "reach_subscribers": 341,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 58
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 14,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1782777600,
+   "visitors": {
+    "views": 200,
+    "visitors": 231,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 30
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 978,
+    "reach_subscribers": 533,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 61
+     },
+     {
+      "value": "f 35-44",
+      "count": 53
+     },
+     {
+      "value": "m 35-44",
+      "count": 23
+     },
+     {
+      "value": "f 18-24",
+      "count": 23
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 5,
+    "likes": 27,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1782864000,
+   "visitors": {
+    "views": 237,
+    "visitors": 257,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 650,
+    "reach_subscribers": 413,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 42
+     },
+     {
+      "value": "m 25-34",
+      "count": 50
+     },
+     {
+      "value": "f 35-44",
+      "count": 33
+     },
+     {
+      "value": "m 35-44",
+      "count": 39
+     },
+     {
+      "value": "f 18-24",
+      "count": 21
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 31,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1782950400,
+   "visitors": {
+    "views": 495,
+    "visitors": 146,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 37
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 757,
+    "reach_subscribers": 734,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 51
+     },
+     {
+      "value": "f 35-44",
+      "count": 52
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 3,
+    "likes": 37,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1783036800,
+   "visitors": {
+    "views": 285,
+    "visitors": 199,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 34
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 9
+     }
+    ]
+   },
+   "reach": {
+    "reach": 901,
+    "reach_subscribers": 493,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 42
+     },
+     {
+      "value": "m 25-34",
+      "count": 65
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 20
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 20,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1783123200,
+   "visitors": {
+    "views": 313,
+    "visitors": 153,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 23
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 755,
+    "reach_subscribers": 721,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 45
+     },
+     {
+      "value": "m 25-34",
+      "count": 42
+     },
+     {
+      "value": "f 35-44",
+      "count": 60
+     },
+     {
+      "value": "m 35-44",
+      "count": 24
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 5,
+    "likes": 36,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1783209600,
+   "visitors": {
+    "views": 301,
+    "visitors": 151,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 20
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 536,
+    "reach_subscribers": 659,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 84
+     },
+     {
+      "value": "m 25-34",
+      "count": 49
+     },
+     {
+      "value": "f 35-44",
+      "count": 28
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 4,
+    "likes": 20,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1783296000,
+   "visitors": {
+    "views": 502,
+    "visitors": 120,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 55
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 23
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1093,
+    "reach_subscribers": 458,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 78
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 41
+     },
+     {
+      "value": "f 18-24",
+      "count": 16
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 5,
+    "likes": 23,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1783382400,
+   "visitors": {
+    "views": 364,
+    "visitors": 214,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 33
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 687,
+    "reach_subscribers": 611,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 52
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 39
+     },
+     {
+      "value": "m 35-44",
+      "count": 29
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 33,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1783468800,
+   "visitors": {
+    "views": 471,
+    "visitors": 182,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 38
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 15
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 7
+     }
+    ]
+   },
+   "reach": {
+    "reach": 446,
+    "reach_subscribers": 311,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 61
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 38
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 21,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1783555200,
+   "visitors": {
+    "views": 510,
+    "visitors": 215,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 956,
+    "reach_subscribers": 629,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 25
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 19
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 4,
+    "likes": 21,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1783641600,
+   "visitors": {
+    "views": 220,
+    "visitors": 125,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 21
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 10
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 548,
+    "reach_subscribers": 603,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 63
+     },
+     {
+      "value": "m 25-34",
+      "count": 41
+     },
+     {
+      "value": "f 35-44",
+      "count": 60
+     },
+     {
+      "value": "m 35-44",
+      "count": 31
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 5,
+    "likes": 24,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1783728000,
+   "visitors": {
+    "views": 374,
+    "visitors": 137,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 20
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 777,
+    "reach_subscribers": 439,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 75
+     },
+     {
+      "value": "m 25-34",
+      "count": 53
+     },
+     {
+      "value": "f 35-44",
+      "count": 36
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 11
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 0,
+    "likes": 30,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1783814400,
+   "visitors": {
+    "views": 290,
+    "visitors": 216,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 47
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 10
+     }
+    ]
+   },
+   "reach": {
+    "reach": 706,
+    "reach_subscribers": 895,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 80
+     },
+     {
+      "value": "m 25-34",
+      "count": 35
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 37
+     },
+     {
+      "value": "f 18-24",
+      "count": 17
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 1,
+    "likes": 33,
+    "comments": 6
+   }
+  },
+  {
+   "period_from": 1783900800,
+   "visitors": {
+    "views": 225,
+    "visitors": 100,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 48
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 25
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 623,
+    "reach_subscribers": 681,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 40
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 59
+     },
+     {
+      "value": "m 35-44",
+      "count": 42
+     },
+     {
+      "value": "f 18-24",
+      "count": 26
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 1,
+    "likes": 23,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1783987200,
+   "visitors": {
+    "views": 518,
+    "visitors": 104,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 32
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 18
+     }
+    ]
+   },
+   "reach": {
+    "reach": 746,
+    "reach_subscribers": 364,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 31
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 2,
+    "likes": 5,
+    "comments": 7
+   }
+  },
+  {
+   "period_from": 1784073600,
+   "visitors": {
+    "views": 468,
+    "visitors": 179,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 56
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 20
+     }
+    ]
+   },
+   "reach": {
+    "reach": 487,
+    "reach_subscribers": 855,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 60
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 49
+     },
+     {
+      "value": "m 35-44",
+      "count": 28
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 1,
+    "likes": 30,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1784160000,
+   "visitors": {
+    "views": 210,
+    "visitors": 174,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 58
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 31
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 14
+     }
+    ]
+   },
+   "reach": {
+    "reach": 978,
+    "reach_subscribers": 884,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 66
+     },
+     {
+      "value": "m 25-34",
+      "count": 53
+     },
+     {
+      "value": "f 35-44",
+      "count": 50
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 30
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 2,
+    "likes": 26,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1784246400,
+   "visitors": {
+    "views": 504,
+    "visitors": 97,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 32
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 17
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 487,
+    "reach_subscribers": 450,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 82
+     },
+     {
+      "value": "m 25-34",
+      "count": 67
+     },
+     {
+      "value": "f 35-44",
+      "count": 43
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 2,
+    "likes": 38,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1784332800,
+   "visitors": {
+    "views": 469,
+    "visitors": 202,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 45
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 18
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 632,
+    "reach_subscribers": 484,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 52
+     },
+     {
+      "value": "m 25-34",
+      "count": 65
+     },
+     {
+      "value": "f 35-44",
+      "count": 27
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 18
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 17,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1784419200,
+   "visitors": {
+    "views": 308,
+    "visitors": 215,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 34
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 631,
+    "reach_subscribers": 854,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 52
+     },
+     {
+      "value": "m 35-44",
+      "count": 44
+     },
+     {
+      "value": "f 18-24",
+      "count": 28
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 0,
+    "likes": 31,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1784505600,
+   "visitors": {
+    "views": 405,
+    "visitors": 124,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 52
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1041,
+    "reach_subscribers": 827,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 46
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 32
+     },
+     {
+      "value": "f 18-24",
+      "count": 15
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 4,
+    "likes": 35,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1784592000,
+   "visitors": {
+    "views": 250,
+    "visitors": 185,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 59
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 11
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 642,
+    "reach_subscribers": 348,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 63
+     },
+     {
+      "value": "m 25-34",
+      "count": 32
+     },
+     {
+      "value": "f 35-44",
+      "count": 20
+     },
+     {
+      "value": "m 35-44",
+      "count": 37
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 3,
+    "likes": 24,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1784678400,
+   "visitors": {
+    "views": 249,
+    "visitors": 199,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 25
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 11
+     }
+    ]
+   },
+   "reach": {
+    "reach": 976,
+    "reach_subscribers": 417,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 86
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 30
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 20
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 6,
+    "unsubscribed": 5,
+    "likes": 5,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1784764800,
+   "visitors": {
+    "views": 242,
+    "visitors": 151,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 43
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 16
+     }
+    ]
+   },
+   "reach": {
+    "reach": 900,
+    "reach_subscribers": 344,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 78
+     },
+     {
+      "value": "m 25-34",
+      "count": 52
+     },
+     {
+      "value": "f 35-44",
+      "count": 26
+     },
+     {
+      "value": "m 35-44",
+      "count": 26
+     },
+     {
+      "value": "f 18-24",
+      "count": 27
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 4,
+    "likes": 12,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1784851200,
+   "visitors": {
+    "views": 304,
+    "visitors": 155,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 19
+     }
+    ]
+   },
+   "reach": {
+    "reach": 421,
+    "reach_subscribers": 895,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 37
+     },
+     {
+      "value": "f 35-44",
+      "count": 21
+     },
+     {
+      "value": "m 35-44",
+      "count": 30
+     },
+     {
+      "value": "f 18-24",
+      "count": 13
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 0,
+    "unsubscribed": 2,
+    "likes": 16,
+    "comments": 2
+   }
+  },
+  {
+   "period_from": 1784937600,
+   "visitors": {
+    "views": 463,
+    "visitors": 164,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 44
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 951,
+    "reach_subscribers": 575,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 68
+     },
+     {
+      "value": "m 25-34",
+      "count": 30
+     },
+     {
+      "value": "f 35-44",
+      "count": 21
+     },
+     {
+      "value": "m 35-44",
+      "count": 25
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 4,
+    "likes": 35,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1785024000,
+   "visitors": {
+    "views": 198,
+    "visitors": 109,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 31
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 29
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 887,
+    "reach_subscribers": 462,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 84
+     },
+     {
+      "value": "m 25-34",
+      "count": 58
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 22
+     },
+     {
+      "value": "f 18-24",
+      "count": 29
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 0,
+    "likes": 28,
+    "comments": 5
+   }
+  },
+  {
+   "period_from": 1785110400,
+   "visitors": {
+    "views": 450,
+    "visitors": 145,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 39
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 14
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 6
+     }
+    ]
+   },
+   "reach": {
+    "reach": 616,
+    "reach_subscribers": 473,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 63
+     },
+     {
+      "value": "m 25-34",
+      "count": 59
+     },
+     {
+      "value": "f 35-44",
+      "count": 41
+     },
+     {
+      "value": "m 35-44",
+      "count": 33
+     },
+     {
+      "value": "f 18-24",
+      "count": 24
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 3,
+    "unsubscribed": 2,
+    "likes": 25,
+    "comments": 0
+   }
+  },
+  {
+   "period_from": 1785196800,
+   "visitors": {
+    "views": 351,
+    "visitors": 238,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 50
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 20
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 12
+     }
+    ]
+   },
+   "reach": {
+    "reach": 421,
+    "reach_subscribers": 554,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 69
+     },
+     {
+      "value": "m 25-34",
+      "count": 68
+     },
+     {
+      "value": "f 35-44",
+      "count": 22
+     },
+     {
+      "value": "m 35-44",
+      "count": 35
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 5,
+    "likes": 14,
+    "comments": 4
+   }
+  },
+  {
+   "period_from": 1785283200,
+   "visitors": {
+    "views": 376,
+    "visitors": 159,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 24
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 26
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 13
+     }
+    ]
+   },
+   "reach": {
+    "reach": 765,
+    "reach_subscribers": 882,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 76
+     },
+     {
+      "value": "m 25-34",
+      "count": 63
+     },
+     {
+      "value": "f 35-44",
+      "count": 57
+     },
+     {
+      "value": "m 35-44",
+      "count": 45
+     },
+     {
+      "value": "f 18-24",
+      "count": 14
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 5,
+    "unsubscribed": 0,
+    "likes": 40,
+    "comments": 1
+   }
+  },
+  {
+   "period_from": 1785369600,
+   "visitors": {
+    "views": 282,
+    "visitors": 199,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 60
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 28
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 8
+     }
+    ]
+   },
+   "reach": {
+    "reach": 771,
+    "reach_subscribers": 588,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 90
+     },
+     {
+      "value": "m 25-34",
+      "count": 45
+     },
+     {
+      "value": "f 35-44",
+      "count": 29
+     },
+     {
+      "value": "m 35-44",
+      "count": 36
+     },
+     {
+      "value": "f 18-24",
+      "count": 12
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 2,
+    "unsubscribed": 2,
+    "likes": 28,
+    "comments": 8
+   }
+  },
+  {
+   "period_from": 1785456000,
+   "visitors": {
+    "views": 505,
+    "visitors": 152,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 42
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 27
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 17
+     }
+    ]
+   },
+   "reach": {
+    "reach": 742,
+    "reach_subscribers": 361,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 85
+     },
+     {
+      "value": "m 25-34",
+      "count": 51
+     },
+     {
+      "value": "f 35-44",
+      "count": 40
+     },
+     {
+      "value": "m 35-44",
+      "count": 43
+     },
+     {
+      "value": "f 18-24",
+      "count": 25
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 4,
+    "unsubscribed": 2,
+    "likes": 20,
+    "comments": 3
+   }
+  },
+  {
+   "period_from": 1785542400,
+   "visitors": {
+    "views": 358,
+    "visitors": 128,
+    "cities": [
+     {
+      "name": "Москва",
+      "count": 28
+     },
+     {
+      "name": "Санкт-Петербург",
+      "count": 16
+     },
+     {
+      "name": "Екатеринбург",
+      "count": 5
+     }
+    ]
+   },
+   "reach": {
+    "reach": 1087,
+    "reach_subscribers": 764,
+    "sex_age": [
+     {
+      "value": "f 25-34",
+      "count": 65
+     },
+     {
+      "value": "m 25-34",
+      "count": 58
+     },
+     {
+      "value": "f 35-44",
+      "count": 45
+     },
+     {
+      "value": "m 35-44",
+      "count": 33
+     },
+     {
+      "value": "f 18-24",
+      "count": 19
+     }
+    ]
+   },
+   "activity": {
+    "subscribed": 1,
+    "unsubscribed": 4,
+    "likes": 9,
+    "comments": 2
+   }
+  }
+ ],
+ "post_reach": {
+  "1036": {
+   "post_id": 1036,
+   "reach_total": 485,
+   "reach_subscribers": 452,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 2,
+   "hide": 1,
+   "links": 11
+  },
+  "1035": {
+   "post_id": 1035,
+   "reach_total": 505,
+   "reach_subscribers": 459,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 0
+  },
+  "1034": {
+   "post_id": 1034,
+   "reach_total": 376,
+   "reach_subscribers": 363,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 0,
+   "hide": 0,
+   "links": 4
+  },
+  "1033": {
+   "post_id": 1033,
+   "reach_total": 607,
+   "reach_subscribers": 534,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 0,
+   "links": 7
+  },
+  "1032": {
+   "post_id": 1032,
+   "reach_total": 220,
+   "reach_subscribers": 205,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 2,
+   "hide": 0,
+   "links": 1
+  },
+  "1031": {
+   "post_id": 1031,
+   "reach_total": 353,
+   "reach_subscribers": 307,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 2,
+   "hide": 0,
+   "links": 6
+  },
+  "1030": {
+   "post_id": 1030,
+   "reach_total": 528,
+   "reach_subscribers": 471,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 0,
+   "hide": 4,
+   "links": 8
+  },
+  "1029": {
+   "post_id": 1029,
+   "reach_total": 450,
+   "reach_subscribers": 394,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 2
+  },
+  "1028": {
+   "post_id": 1028,
+   "reach_total": 609,
+   "reach_subscribers": 565,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 0,
+   "hide": 4,
+   "links": 10
+  },
+  "1027": {
+   "post_id": 1027,
+   "reach_total": 639,
+   "reach_subscribers": 598,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 2,
+   "hide": 4,
+   "links": 9
+  },
+  "1026": {
+   "post_id": 1026,
+   "reach_total": 833,
+   "reach_subscribers": 790,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 0,
+   "hide": 0,
+   "links": 0
+  },
+  "1025": {
+   "post_id": 1025,
+   "reach_total": 472,
+   "reach_subscribers": 424,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 8
+  },
+  "1024": {
+   "post_id": 1024,
+   "reach_total": 371,
+   "reach_subscribers": 319,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 1,
+   "hide": 2,
+   "links": 0
+  },
+  "1023": {
+   "post_id": 1023,
+   "reach_total": 629,
+   "reach_subscribers": 545,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 2,
+   "hide": 4,
+   "links": 1
+  },
+  "1022": {
+   "post_id": 1022,
+   "reach_total": 757,
+   "reach_subscribers": 690,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 1,
+   "hide": 1,
+   "links": 11
+  },
+  "1021": {
+   "post_id": 1021,
+   "reach_total": 495,
+   "reach_subscribers": 438,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 1
+  },
+  "1020": {
+   "post_id": 1020,
+   "reach_total": 698,
+   "reach_subscribers": 652,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 2,
+   "hide": 1,
+   "links": 1
+  },
+  "1019": {
+   "post_id": 1019,
+   "reach_total": 732,
+   "reach_subscribers": 656,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 2,
+   "hide": 4,
+   "links": 2
+  },
+  "1018": {
+   "post_id": 1018,
+   "reach_total": 556,
+   "reach_subscribers": 481,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 2,
+   "hide": 0,
+   "links": 11
+  },
+  "1017": {
+   "post_id": 1017,
+   "reach_total": 615,
+   "reach_subscribers": 562,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 7
+  },
+  "1016": {
+   "post_id": 1016,
+   "reach_total": 528,
+   "reach_subscribers": 511,
+   "reach_ads": 0,
+   "join_group": 1,
+   "unsubscribe": 1,
+   "hide": 0,
+   "links": 7
+  },
+  "1015": {
+   "post_id": 1015,
+   "reach_total": 589,
+   "reach_subscribers": 536,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 3
+  },
+  "1014": {
+   "post_id": 1014,
+   "reach_total": 876,
+   "reach_subscribers": 843,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 2,
+   "hide": 0,
+   "links": 2
+  },
+  "1013": {
+   "post_id": 1013,
+   "reach_total": 741,
+   "reach_subscribers": 658,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 0,
+   "hide": 4,
+   "links": 10
+  },
+  "1012": {
+   "post_id": 1012,
+   "reach_total": 441,
+   "reach_subscribers": 422,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 0,
+   "hide": 3,
+   "links": 7
+  },
+  "1011": {
+   "post_id": 1011,
+   "reach_total": 507,
+   "reach_subscribers": 444,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 2,
+   "hide": 3,
+   "links": 6
+  },
+  "1010": {
+   "post_id": 1010,
+   "reach_total": 736,
+   "reach_subscribers": 644,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 2,
+   "links": 1
+  },
+  "1009": {
+   "post_id": 1009,
+   "reach_total": 711,
+   "reach_subscribers": 611,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 0,
+   "links": 3
+  },
+  "1008": {
+   "post_id": 1008,
+   "reach_total": 828,
+   "reach_subscribers": 794,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 2,
+   "links": 1
+  },
+  "1007": {
+   "post_id": 1007,
+   "reach_total": 928,
+   "reach_subscribers": 900,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 1,
+   "hide": 3,
+   "links": 12
+  },
+  "1006": {
+   "post_id": 1006,
+   "reach_total": 474,
+   "reach_subscribers": 410,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 0,
+   "hide": 2,
+   "links": 10
+  },
+  "1005": {
+   "post_id": 1005,
+   "reach_total": 983,
+   "reach_subscribers": 872,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 4,
+   "links": 5
+  },
+  "1004": {
+   "post_id": 1004,
+   "reach_total": 602,
+   "reach_subscribers": 542,
+   "reach_ads": 0,
+   "join_group": 3,
+   "unsubscribe": 0,
+   "hide": 3,
+   "links": 8
+  },
+  "1003": {
+   "post_id": 1003,
+   "reach_total": 487,
+   "reach_subscribers": 457,
+   "reach_ads": 0,
+   "join_group": 0,
+   "unsubscribe": 2,
+   "hide": 3,
+   "links": 7
+  },
+  "1002": {
+   "post_id": 1002,
+   "reach_total": 825,
+   "reach_subscribers": 722,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 0,
+   "links": 8
+  },
+  "1001": {
+   "post_id": 1001,
+   "reach_total": 949,
+   "reach_subscribers": 865,
+   "reach_ads": 0,
+   "join_group": 2,
+   "unsubscribe": 1,
+   "hide": 2,
+   "links": 4
+  }
+ },
+ "warnings": [
+  "Демо-режим: данные сгенерированы, а не получены из ВК."
+ ]
+}
