@@ -15,6 +15,8 @@ import {
 } from './vk/auth';
 import { collect, listAdminGroups, type AdminGroup } from './vk/collect';
 import { buildDemoSnapshot } from './vk/demo';
+import { buildDemoRivals, collectRivals, parseRivalList } from './vk/rivals';
+import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
   snapshot: Snapshot;
@@ -44,6 +46,9 @@ export function App() {
   const [stage, setStage] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<Report | null>(null);
+  const [rivals, setRivals] = useState<RivalsReport | null>(null);
+  const [rivalsBusy, setRivalsBusy] = useState(false);
+  const [rivalsStage, setRivalsStage] = useState('');
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -83,6 +88,7 @@ export function App() {
       return;
     }
     setError(null);
+    setRivals(null);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -99,8 +105,31 @@ export function App() {
 
   const runDemo = useCallback(() => {
     setError(null);
+    setRivals(null);
     setReport(buildReport(buildDemoSnapshot()));
     setPanel('report');
+  }, []);
+
+  const runRivals = useCallback(async (raw: string) => {
+    if (!session || !report) return;
+    const targets = parseRivalList(raw);
+    if (!targets.length) return;
+    setRivalsBusy(true);
+    setRivalsStage('');
+    try {
+      const api = new VKApi(session.token, session.transport);
+      setRivals(await collectRivals(api, report.snapshot.meta.target, targets, {
+        onProgress: setRivalsStage,
+      }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось собрать сравнение');
+    } finally {
+      setRivalsBusy(false);
+    }
+  }, [session, report]);
+
+  const runDemoRivals = useCallback(async () => {
+    setRivals(await buildDemoRivals());
   }, []);
 
   return (
@@ -122,7 +151,19 @@ export function App() {
             <LoadingPanel stage={stage} />
           </Panel>
           <Panel id="report">
-            {report && <ReportPanel report={report} onBack={() => setPanel('start')} />}
+            {report && (
+              <ReportPanel
+                report={report}
+                rivals={rivals}
+                rivalsBusy={rivalsBusy}
+                rivalsStage={rivalsStage}
+                canCollectRivals={Boolean(session)}
+                onCollectRivals={runRivals}
+                onDemoRivals={runDemoRivals}
+                onResetRivals={() => setRivals(null)}
+                onBack={() => setPanel('start')}
+              />
+            )}
           </Panel>
         </View>
       </SplitCol>

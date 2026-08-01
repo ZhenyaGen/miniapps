@@ -1,9 +1,10 @@
 /** Бриф для чата с ИИ: весь контекст отчёта текстом, без ключей и без сети. */
 
 import type { Report } from '../App';
+import type { RivalsReport } from '../engine/rivals';
 import { f } from '../engine/util';
 
-export function buildBrief(report: Report): string {
+export function buildBrief(report: Report, rivals?: RivalsReport | null): string {
   const { metrics: m, snapshot, findings, plan, targets } = report;
   const p = snapshot.profile;
   const lines: string[] = [];
@@ -51,6 +52,25 @@ export function buildBrief(report: Report): string {
 
   lines.push('', '## Цели на 90 дней',
     ...targets.map((t) => `- ${t.label}: ${t.now} → ${t.goal}`));
+
+  if (rivals && rivals.rivals.length) {
+    lines.push('', `## На фоне конкурентов (медианы за ${rivals.period_days} дней)`,
+      `Сравнивались: ${rivals.rivals.map((r) => r.name).join(', ')}`);
+    rivals.rows.forEach((row) => {
+      const verdict = row.verdict === 'behind' ? 'отстаём'
+        : row.verdict === 'ahead' ? 'впереди'
+          : row.verdict === 'even' ? 'наравне' : '';
+      lines.push(`- ${row.label}: у нас ${row.mine}${row.unit}, `
+        + `у конкурентов ${row.median}${row.unit}, лучший ${row.best}${row.unit}`
+        + (verdict ? ` — ${verdict}` : ''));
+    });
+
+    const rivalPosts = rivals.rivals.flatMap((r) => r.top_posts.slice(0, 1)
+      .map((p) => `--- ${r.name}, ER ${f(p.er ?? 0, 2)}%\n${p.text.slice(0, 400)}`));
+    if (rivalPosts.length) {
+      lines.push('', '## Лучшие посты конкурентов', ...rivalPosts);
+    }
+  }
 
   if (m.top_posts.length) {
     lines.push('', '## Лучшие посты (тексты для разбора)');

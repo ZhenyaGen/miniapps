@@ -1,35 +1,53 @@
 import { useState } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  Avatar, Banner, Button, Div, Group, PanelHeader, PanelHeaderBack, Snackbar,
-  Tabs, TabsItem,
+  Avatar, Banner, Button, Div, Group, HorizontalScroll, PanelHeader,
+  PanelHeaderBack, Snackbar, Tabs, TabsItem,
 } from '@vkontakte/vkui';
 
 import type { Report } from '../App';
+import type { RivalsReport } from '../engine/rivals';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
+import { RivalsView } from '../components/RivalsView';
 import { Summary } from '../components/Summary';
 import { buildBrief } from '../report/brief';
 
-type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'audience';
+type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
 const TABS: Array<[Tab, string]> = [
-  ['summary', 'Итог'],
-  ['zones', 'Рост'],
+  ['summary', 'Сводка'],
+  ['zones', 'Зоны роста'],
   ['plan', 'План'],
-  ['content', 'Посты'],
-  ['audience', 'Люди'],
+  ['content', 'Контент'],
+  ['rivals', 'Конкуренты'],
+  ['audience', 'Аудитория'],
 ];
 
-export function ReportPanel({ report, onBack }: { report: Report; onBack: () => void }) {
+interface Props {
+  report: Report;
+  rivals: RivalsReport | null;
+  rivalsBusy: boolean;
+  rivalsStage: string;
+  canCollectRivals: boolean;
+  onCollectRivals: (targets: string) => void;
+  onDemoRivals: () => void;
+  onResetRivals: () => void;
+  onBack: () => void;
+}
+
+export function ReportPanel({
+  report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
+  onCollectRivals, onDemoRivals, onResetRivals, onBack,
+}: Props) {
   const [tab, setTab] = useState<Tab>('summary');
   const [toast, setToast] = useState<string | null>(null);
   const { profile } = report.snapshot;
 
   const copyBrief = async () => {
-    const text = buildBrief(report);
+    const text = buildBrief(report, rivals);
     try {
       await bridge.send('VKWebAppCopyText', { text });
       setToast('Бриф скопирован — можно вставить в чат с ИИ');
@@ -55,12 +73,18 @@ export function ReportPanel({ report, onBack }: { report: Report; onBack: () => 
           title={profile.name}
           subtitle={`${profile.url.replace('https://', '')} · период ${report.metrics.period.from} — ${report.metrics.period.to}`}
         />
-        <Tabs withScrollToSelectedTab scrollBehaviorToSelectedTab="center">
-          {TABS.map(([id, label]) => (
-            <TabsItem key={id} selected={tab === id} onClick={() => setTab(id)}>
-              {label}
-            </TabsItem>
-          ))}
+        <Tabs
+          layoutFillMode="shrinked"
+          withScrollToSelectedTab
+          scrollBehaviorToSelectedTab="center"
+        >
+          <HorizontalScroll arrowSize="m">
+            {TABS.map(([id, label]) => (
+              <TabsItem key={id} id={id} selected={tab === id} onClick={() => setTab(id)}>
+                {label}
+              </TabsItem>
+            ))}
+          </HorizontalScroll>
         </Tabs>
       </Group>
 
@@ -68,6 +92,18 @@ export function ReportPanel({ report, onBack }: { report: Report; onBack: () => 
       {tab === 'zones' && <GrowthZones findings={report.findings} />}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
+      {tab === 'rivals' && (
+        <RivalsView
+          report={rivals}
+          busy={rivalsBusy}
+          stage={rivalsStage}
+          canCollect={canCollectRivals}
+          isDemo={report.snapshot.meta.source === 'demo'}
+          onCollect={onCollectRivals}
+          onDemo={onDemoRivals}
+          onReset={onResetRivals}
+        />
+      )}
       {tab === 'audience' && <AudienceView metrics={report.metrics} />}
 
       <Group>
