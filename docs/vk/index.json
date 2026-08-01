@@ -1,0 +1,6061 @@
+[
+ {
+  "category": "api",
+  "title": "account.getAppPermissions",
+  "breadcrumb": "account.getAppPermissions",
+  "path": "api/account-getapppermissions.md",
+  "parts": [
+   "account.getAppPermissions"
+  ],
+  "chars": 1540
+ },
+ {
+  "category": "api",
+  "title": "ads",
+  "breadcrumb": "ads",
+  "path": "api/ads.md",
+  "parts": [
+   "ads"
+  ],
+  "chars": 6654
+ },
+ {
+  "category": "api",
+  "title": "apps",
+  "breadcrumb": "apps",
+  "path": "api/apps.md",
+  "parts": [
+   "apps"
+  ],
+  "chars": 4975
+ },
+ {
+  "category": "api",
+  "title": "appWidgets",
+  "breadcrumb": "appWidgets",
+  "path": "api/appwidgets.md",
+  "parts": [
+   "appWidgets"
+  ],
+  "chars": 2795
+ },
+ {
+  "category": "api",
+  "title": "board",
+  "breadcrumb": "board",
+  "path": "api/board.md",
+  "parts": [
+   "board"
+  ],
+  "chars": 823
+ },
+ {
+  "category": "api",
+  "title": "bugtracker",
+  "breadcrumb": "bugtracker",
+  "path": "api/bugtracker.md",
+  "parts": [
+   "bugtracker"
+  ],
+  "chars": 3279
+ },
+ {
+  "category": "api",
+  "title": "Быстрый старт",
+  "breadcrumb": "Использование API → Быстрый старт",
+  "path": "api/bystryy-start.md",
+  "parts": [
+   "Использование API",
+   "Быстрый старт"
+  ],
+  "chars": 3888
+ },
+ {
+  "category": "api",
+  "title": "crowdCustomer",
+  "breadcrumb": "crowdCustomer",
+  "path": "api/crowdcustomer.md",
+  "parts": [
+   "crowdCustomer"
+  ],
+  "chars": 237
+ },
+ {
+  "category": "api",
+  "title": "database",
+  "breadcrumb": "database",
+  "path": "api/database.md",
+  "parts": [
+   "database"
+  ],
+  "chars": 331
+ },
+ {
+  "category": "api",
+  "title": "docs",
+  "breadcrumb": "docs",
+  "path": "api/docs.md",
+  "parts": [
+   "docs"
+  ],
+  "chars": 891
+ },
+ {
+  "category": "api",
+  "title": "donut",
+  "breadcrumb": "donut",
+  "path": "api/donut.md",
+  "parts": [
+   "donut"
+  ],
+  "chars": 551
+ },
+ {
+  "category": "api",
+  "title": "Формат запросов",
+  "breadcrumb": "Использование API → Формат запросов",
+  "path": "api/format-zaprosov.md",
+  "parts": [
+   "Использование API",
+   "Формат запросов"
+  ],
+  "chars": 7350
+ },
+ {
+  "category": "api",
+  "title": "friends",
+  "breadcrumb": "friends",
+  "path": "api/friends.md",
+  "parts": [
+   "friends"
+  ],
+  "chars": 1638
+ },
+ {
+  "category": "api",
+  "title": "gifts",
+  "breadcrumb": "gifts",
+  "path": "api/gifts.md",
+  "parts": [
+   "gifts"
+  ],
+  "chars": 108
+ },
+ {
+  "category": "api",
+  "title": "groups",
+  "breadcrumb": "groups",
+  "path": "api/groups.md",
+  "parts": [
+   "groups"
+  ],
+  "chars": 6349
+ },
+ {
+  "category": "api",
+  "title": "API историй",
+  "breadcrumb": "API ВКонтакте → Истории → API историй",
+  "path": "api/istorii-api-istoriy.md",
+  "parts": [
+   "API ВКонтакте",
+   "Истории",
+   "API историй"
+  ],
+  "chars": 1537
+ },
+ {
+  "category": "api",
+  "title": "Ключ доступа пользователя",
+  "breadcrumb": "Использование API → Ключи доступа → Ключ доступа пользователя",
+  "path": "api/klyuchi-dostupa-klyuch-dostupa-polzovatelya.md",
+  "parts": [
+   "Использование API",
+   "Ключи доступа",
+   "Ключ доступа пользователя"
+  ],
+  "chars": 4918
+ },
+ {
+  "category": "api",
+  "title": "Ключ доступа сообщества",
+  "breadcrumb": "Использование API → Ключи доступа → Ключ доступа сообщества",
+  "path": "api/klyuchi-dostupa-klyuch-dostupa-soobschestva.md",
+  "parts": [
+   "Использование API",
+   "Ключи доступа",
+   "Ключ доступа сообщества"
+  ],
+  "chars": 4341
+ },
+ {
+  "category": "api",
+  "title": "Общие сведения",
+  "breadcrumb": "Использование API → Ключи доступа → Общие сведения",
+  "path": "api/klyuchi-dostupa-obschie-svedeniya.md",
+  "parts": [
+   "Использование API",
+   "Ключи доступа",
+   "Общие сведения"
+  ],
+  "chars": 3309
+ },
+ {
+  "category": "api",
+  "title": "Права доступа и приватность",
+  "breadcrumb": "Использование API → Ключи доступа → Права доступа и приватность",
+  "path": "api/klyuchi-dostupa-prava-dostupa-i-privatnost.md",
+  "parts": [
+   "Использование API",
+   "Ключи доступа",
+   "Права доступа и приватность"
+  ],
+  "chars": 4666
+ },
+ {
+  "category": "api",
+  "title": "Сервисный ключ доступа",
+  "breadcrumb": "Использование API → Ключи доступа → Сервисный ключ доступа",
+  "path": "api/klyuchi-dostupa-servisnyy-klyuch-dostupa.md",
+  "parts": [
+   "Использование API",
+   "Ключи доступа",
+   "Сервисный ключ доступа"
+  ],
+  "chars": 2465
+ },
+ {
+  "category": "api",
+  "title": "likes",
+  "breadcrumb": "likes",
+  "path": "api/likes.md",
+  "parts": [
+   "likes"
+  ],
+  "chars": 308
+ },
+ {
+  "category": "api",
+  "title": "loyaltyTeen",
+  "breadcrumb": "loyaltyTeen",
+  "path": "api/loyaltyteen.md",
+  "parts": [
+   "loyaltyTeen"
+  ],
+  "chars": 841
+ },
+ {
+  "category": "api",
+  "title": "market",
+  "breadcrumb": "market",
+  "path": "api/market.md",
+  "parts": [
+   "market"
+  ],
+  "chars": 4985
+ },
+ {
+  "category": "api",
+  "title": "messages",
+  "breadcrumb": "messages",
+  "path": "api/messages.md",
+  "parts": [
+   "messages"
+  ],
+  "chars": 7529
+ },
+ {
+  "category": "api",
+  "title": "notifications",
+  "breadcrumb": "notifications",
+  "path": "api/notifications.md",
+  "parts": [
+   "notifications"
+  ],
+  "chars": 381
+ },
+ {
+  "category": "api",
+  "title": "Ошибка с Captcha",
+  "breadcrumb": "Использование API → Обработка ошибок → Ошибка с Captcha",
+  "path": "api/obrabotka-oshibok-oshibka-s-captcha.md",
+  "parts": [
+   "Использование API",
+   "Обработка ошибок",
+   "Ошибка с Captcha"
+  ],
+  "chars": 5585
+ },
+ {
+  "category": "api",
+  "title": "Подтверждение действия пользователем",
+  "breadcrumb": "Использование API → Обработка ошибок → Подтверждение действия пользователем",
+  "path": "api/obrabotka-oshibok-podtverzhdenie-deystviya-polzovatelem.md",
+  "parts": [
+   "Использование API",
+   "Обработка ошибок",
+   "Подтверждение действия пользователем"
+  ],
+  "chars": 616
+ },
+ {
+  "category": "api",
+  "title": "Валидация действия",
+  "breadcrumb": "Использование API → Обработка ошибок → Валидация действия",
+  "path": "api/obrabotka-oshibok-validaciya-deystviya.md",
+  "parts": [
+   "Использование API",
+   "Обработка ошибок",
+   "Валидация действия"
+  ],
+  "chars": 2373
+ },
+ {
+  "category": "api",
+  "title": "Обзор",
+  "breadcrumb": "Использование API → Обзор",
+  "path": "api/obzor.md",
+  "parts": [
+   "Использование API",
+   "Обзор"
+  ],
+  "chars": 4057
+ },
+ {
+  "category": "api",
+  "title": "Описание методов API",
+  "breadcrumb": "Описание методов API",
+  "path": "api/opisanie-metodov-api.md",
+  "parts": [
+   "Описание методов API"
+  ],
+  "chars": 68731
+ },
+ {
+  "category": "api",
+  "title": "orders",
+  "breadcrumb": "orders",
+  "path": "api/orders.md",
+  "parts": [
+   "orders"
+  ],
+  "chars": 1058
+ },
+ {
+  "category": "api",
+  "title": "pages",
+  "breadcrumb": "pages",
+  "path": "api/pages.md",
+  "parts": [
+   "pages"
+  ],
+  "chars": 1052
+ },
+ {
+  "category": "api",
+  "title": "Параметры запуска приложения",
+  "breadcrumb": "Использование API → Параметры запуска приложения",
+  "path": "api/parametry-zapuska-prilozheniya.md",
+  "parts": [
+   "Использование API",
+   "Параметры запуска приложения"
+  ],
+  "chars": 691
+ },
+ {
+  "category": "api",
+  "title": "photos",
+  "breadcrumb": "photos",
+  "path": "api/photos.md",
+  "parts": [
+   "photos"
+  ],
+  "chars": 6326
+ },
+ {
+  "category": "api",
+  "title": "podcasts",
+  "breadcrumb": "podcasts",
+  "path": "api/podcasts.md",
+  "parts": [
+   "podcasts"
+  ],
+  "chars": 115
+ },
+ {
+  "category": "api",
+  "title": "polls",
+  "breadcrumb": "polls",
+  "path": "api/polls.md",
+  "parts": [
+   "polls"
+  ],
+  "chars": 930
+ },
+ {
+  "category": "api",
+  "title": "prettyCards",
+  "breadcrumb": "prettyCards",
+  "path": "api/prettycards.md",
+  "parts": [
+   "prettyCards"
+  ],
+  "chars": 1055
+ },
+ {
+  "category": "api",
+  "title": "Рекламный API",
+  "breadcrumb": "API ВКонтакте → Реклама → Рекламный API",
+  "path": "api/reklama-reklamnyy-api.md",
+  "parts": [
+   "API ВКонтакте",
+   "Реклама",
+   "Рекламный API"
+  ],
+  "chars": 2672
+ },
+ {
+  "category": "api",
+  "title": "search",
+  "breadcrumb": "search",
+  "path": "api/search.md",
+  "parts": [
+   "search"
+  ],
+  "chars": 177
+ },
+ {
+  "category": "api",
+  "title": "stats",
+  "breadcrumb": "stats",
+  "path": "api/stats.md",
+  "parts": [
+   "stats"
+  ],
+  "chars": 387
+ },
+ {
+  "category": "api",
+  "title": "status",
+  "breadcrumb": "status",
+  "path": "api/status.md",
+  "parts": [
+   "status"
+  ],
+  "chars": 142
+ },
+ {
+  "category": "api",
+  "title": "storage",
+  "breadcrumb": "storage",
+  "path": "api/storage.md",
+  "parts": [
+   "storage"
+  ],
+  "chars": 546
+ },
+ {
+  "category": "api",
+  "title": "store",
+  "breadcrumb": "store",
+  "path": "api/store.md",
+  "parts": [
+   "store"
+  ],
+  "chars": 582
+ },
+ {
+  "category": "api",
+  "title": "stories",
+  "breadcrumb": "stories",
+  "path": "api/stories.md",
+  "parts": [
+   "stories"
+  ],
+  "chars": 2210
+ },
+ {
+  "category": "api",
+  "title": "API для товаров",
+  "breadcrumb": "API ВКонтакте → Товары → API для товаров",
+  "path": "api/tovary-api-dlya-tovarov.md",
+  "parts": [
+   "API ВКонтакте",
+   "Товары",
+   "API для товаров"
+  ],
+  "chars": 13089
+ },
+ {
+  "category": "api",
+  "title": "translations",
+  "breadcrumb": "translations",
+  "path": "api/translations.md",
+  "parts": [
+   "translations"
+  ],
+  "chars": 141
+ },
+ {
+  "category": "captcha",
+  "title": "Общее описание",
+  "breadcrumb": "VK Captcha → Android → Общее описание",
+  "path": "captcha/android-obschee-opisanie.md",
+  "parts": [
+   "VK Captcha",
+   "Android",
+   "Общее описание"
+  ],
+  "chars": 371
+ },
+ {
+  "category": "captcha",
+  "title": "Подключение VK Captcha Android",
+  "breadcrumb": "VK Captcha → Android → Подключение VK Captcha Android",
+  "path": "captcha/android-podklyuchenie-vk-captcha-android.md",
+  "parts": [
+   "VK Captcha",
+   "Android",
+   "Подключение VK Captcha Android"
+  ],
+  "chars": 3178
+ },
+ {
+  "category": "captcha",
+  "title": "Ручная обработка капчи",
+  "breadcrumb": "VK Captcha → Android → Ручная обработка капчи",
+  "path": "captcha/android-ruchnaya-obrabotka-kapchi.md",
+  "parts": [
+   "VK Captcha",
+   "Android",
+   "Ручная обработка капчи"
+  ],
+  "chars": 13937
+ },
+ {
+  "category": "captcha",
+  "title": "Сценарий взаимодействия",
+  "breadcrumb": "VK Captcha → Android → Сценарий взаимодействия",
+  "path": "captcha/android-scenariy-vzaimodeystviya.md",
+  "parts": [
+   "VK Captcha",
+   "Android",
+   "Сценарий взаимодействия"
+  ],
+  "chars": 10039
+ },
+ {
+  "category": "captcha",
+  "title": "Справочник SDK",
+  "breadcrumb": "VK Captcha → Android → Справочник SDK",
+  "path": "captcha/android-spravochnik-sdk.md",
+  "parts": [
+   "VK Captcha",
+   "Android",
+   "Справочник SDK"
+  ],
+  "chars": 4690
+ },
+ {
+  "category": "captcha",
+  "title": "Общее описание",
+  "breadcrumb": "VK Captcha → iOS → Общее описание",
+  "path": "captcha/ios-obschee-opisanie.md",
+  "parts": [
+   "VK Captcha",
+   "iOS",
+   "Общее описание"
+  ],
+  "chars": 355
+ },
+ {
+  "category": "captcha",
+  "title": "Подключение",
+  "breadcrumb": "VK Captcha → iOS → Подключение",
+  "path": "captcha/ios-podklyuchenie.md",
+  "parts": [
+   "VK Captcha",
+   "iOS",
+   "Подключение"
+  ],
+  "chars": 13915
+ },
+ {
+  "category": "captcha",
+  "title": "Сценарий взаимодействия",
+  "breadcrumb": "VK Captcha → iOS → Сценарий взаимодействия",
+  "path": "captcha/ios-scenariy-vzaimodeystviya.md",
+  "parts": [
+   "VK Captcha",
+   "iOS",
+   "Сценарий взаимодействия"
+  ],
+  "chars": 3239
+ },
+ {
+  "category": "captcha",
+  "title": "О VK ID Captcha",
+  "breadcrumb": "VK Captcha → О VK ID Captcha",
+  "path": "captcha/o-vk-id-captcha.md",
+  "parts": [
+   "VK Captcha",
+   "О VK ID Captcha"
+  ],
+  "chars": 952
+ },
+ {
+  "category": "captcha",
+  "title": "Server-to-server",
+  "breadcrumb": "VK ID Captcha → Server-to-server",
+  "path": "captcha/server-to-server.md",
+  "parts": [
+   "VK ID Captcha",
+   "Server-to-server"
+  ],
+  "chars": 1687
+ },
+ {
+  "category": "captcha",
+  "title": "Общее описание",
+  "breadcrumb": "VK ID Captcha → Web → Общее описание",
+  "path": "captcha/web-obschee-opisanie.md",
+  "parts": [
+   "VK ID Captcha",
+   "Web",
+   "Общее описание"
+  ],
+  "chars": 627
+ },
+ {
+  "category": "captcha",
+  "title": "Подключение",
+  "breadcrumb": "VK ID Captcha → Web → Подключение",
+  "path": "captcha/web-podklyuchenie.md",
+  "parts": [
+   "VK ID Captcha",
+   "Web",
+   "Подключение"
+  ],
+  "chars": 14309
+ },
+ {
+  "category": "captcha",
+  "title": "Сценарий взаимодействия",
+  "breadcrumb": "VK Captcha → web → Сценарий взаимодействия",
+  "path": "captcha/web-scenariy-vzaimodeystviya.md",
+  "parts": [
+   "VK Captcha",
+   "web",
+   "Сценарий взаимодействия"
+  ],
+  "chars": 3210
+ },
+ {
+  "category": "integration",
+  "title": "Боты для сообществ",
+  "breadcrumb": "Интеграция → Чат-боты → Боты для сообществ",
+  "path": "integration/chat-boty-boty-dlya-soobschestv.md",
+  "parts": [
+   "Интеграция",
+   "Чат-боты",
+   "Боты для сообществ"
+  ],
+  "chars": 2277
+ },
+ {
+  "category": "integration",
+  "title": "Быстрый старт",
+  "breadcrumb": "Интеграция → Чат-боты → Быстрый старт",
+  "path": "integration/chat-boty-bystryy-start.md",
+  "parts": [
+   "Интеграция",
+   "Чат-боты",
+   "Быстрый старт"
+  ],
+  "chars": 11507
+ },
+ {
+  "category": "integration",
+  "title": "Клавиатура",
+  "breadcrumb": "Интеграция → Чат-боты → Разработка → Клавиатура",
+  "path": "integration/chat-boty-razrabotka-klaviatura.md",
+  "parts": [
+   "Интеграция",
+   "Чат-боты",
+   "Разработка",
+   "Клавиатура"
+  ],
+  "chars": 19133
+ },
+ {
+  "category": "integration",
+  "title": "Сообщения",
+  "breadcrumb": "Интеграция → Чат-боты → Разработка → Сообщения",
+  "path": "integration/chat-boty-razrabotka-soobscheniya.md",
+  "parts": [
+   "Интеграция",
+   "Чат-боты",
+   "Разработка",
+   "Сообщения"
+  ],
+  "chars": 15843
+ },
+ {
+  "category": "integration",
+  "title": "Изменение статуса подписки",
+  "breadcrumb": "Интеграция → Платежи голосами ВКонтакте → Изменение статуса подписки",
+  "path": "integration/platezhi-golosami-vkontakte-izmenenie-statusa-podpiski.md",
+  "parts": [
+   "Интеграция",
+   "Платежи голосами ВКонтакте",
+   "Изменение статуса подписки"
+  ],
+  "chars": 8787
+ },
+ {
+  "category": "integration",
+  "title": "Изменение статуса заказа",
+  "breadcrumb": "Интеграция → Платежи голосами ВКонтакте → Изменение статуса заказа",
+  "path": "integration/platezhi-golosami-vkontakte-izmenenie-statusa-zakaza.md",
+  "parts": [
+   "Интеграция",
+   "Платежи голосами ВКонтакте",
+   "Изменение статуса заказа"
+  ],
+  "chars": 9867
+ },
+ {
+  "category": "integration",
+  "title": "Получение информации о товаре",
+  "breadcrumb": "Интеграция → Платежи голосами ВКонтакте → Платёжные уведомления → Получение информации о товаре",
+  "path": "integration/platezhi-golosami-vkontakte-platezhnye-uvedomleniya-poluchen.md",
+  "parts": [
+   "Интеграция",
+   "Платежи голосами ВКонтакте",
+   "Платёжные уведомления",
+   "Получение информации о товаре"
+  ],
+  "chars": 8824
+ },
+ {
+  "category": "integration",
+  "title": "Получение информации о подписке",
+  "breadcrumb": "Интеграция → Платежи → Платёжный API → Получение информации о подписке",
+  "path": "integration/platezhi-platezhnyy-api-poluchenie-informacii-o-podpiske.md",
+  "parts": [
+   "Интеграция",
+   "Платежи",
+   "Платёжный API",
+   "Получение информации о подписке"
+  ],
+  "chars": 8821
+ },
+ {
+  "category": "integration",
+  "title": "Обработка платёжных уведомлений ВКонтакте",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Обработка платёжных уведомлений ВКонтакте",
+  "path": "integration/platezhi-virtualnoy-valyutoy-obrabotka-platezhnyh-uvedomleni-2.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Обработка платёжных уведомлений ВКонтакте"
+  ],
+  "chars": 19004
+ },
+ {
+  "category": "integration",
+  "title": "Обработка платёжных уведомлений в Одноклассниках",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Обработка платёжных уведомлений в Одноклассниках",
+  "path": "integration/platezhi-virtualnoy-valyutoy-obrabotka-platezhnyh-uvedomleni.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Обработка платёжных уведомлений в Одноклассниках"
+  ],
+  "chars": 8521
+ },
+ {
+  "category": "integration",
+  "title": "Обзор",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Обзор",
+  "path": "integration/platezhi-virtualnoy-valyutoy-obzor.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Обзор"
+  ],
+  "chars": 2250
+ },
+ {
+  "category": "integration",
+  "title": "Продажа подписок",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Платежи в Одноклассниках → Продажа подписок",
+  "path": "integration/platezhi-virtualnoy-valyutoy-platezhi-v-odnoklassnikah-proda.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Платежи в Одноклассниках",
+   "Продажа подписок"
+  ],
+  "chars": 7412
+ },
+ {
+  "category": "integration",
+  "title": "Продажа подписок",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Платежи ВКонтакте → Продажа подписок",
+  "path": "integration/platezhi-virtualnoy-valyutoy-platezhi-vkontakte-prodazha-pod.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Платежи ВКонтакте",
+   "Продажа подписок"
+  ],
+  "chars": 11283
+ },
+ {
+  "category": "integration",
+  "title": "Продажа виртуальных товаров в Одноклассниках",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Продажа виртуальных товаров в Одноклассниках",
+  "path": "integration/platezhi-virtualnoy-valyutoy-prodazha-virtualnyh-tovarov-v-o.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Продажа виртуальных товаров в Одноклассниках"
+  ],
+  "chars": 10644
+ },
+ {
+  "category": "integration",
+  "title": "Продажа виртуальных товаров ВКонтакте",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Продажа виртуальных товаров ВКонтакте",
+  "path": "integration/platezhi-virtualnoy-valyutoy-prodazha-virtualnyh-tovarov-vko.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Продажа виртуальных товаров ВКонтакте"
+  ],
+  "chars": 8219
+ },
+ {
+  "category": "integration",
+  "title": "Тестирование платежей",
+  "breadcrumb": "Интеграция → Платежи виртуальной валютой → Тестирование платежей",
+  "path": "integration/platezhi-virtualnoy-valyutoy-testirovanie-platezhey.md",
+  "parts": [
+   "Интеграция",
+   "Платежи виртуальной валютой",
+   "Тестирование платежей"
+  ],
+  "chars": 5000
+ },
+ {
+  "category": "integration",
+  "title": "VK Донат API",
+  "breadcrumb": "Интеграция → Платежи → VK Донат API",
+  "path": "integration/platezhi-vk-donat-api.md",
+  "parts": [
+   "Интеграция",
+   "Платежи",
+   "VK Донат API"
+  ],
+  "chars": 9801
+ },
+ {
+  "category": "integration",
+  "title": "Публикации",
+  "breadcrumb": "Интеграция → Публикации → Публикации",
+  "path": "integration/publikacii-publikacii.md",
+  "parts": [
+   "Интеграция",
+   "Публикации",
+   "Публикации"
+  ],
+  "chars": 6356
+ },
+ {
+  "category": "integration",
+  "title": "Обзор",
+  "breadcrumb": "Интеграция → Публикации → Загрузка файлов → Обзор",
+  "path": "integration/publikacii-zagruzka-faylov-obzor.md",
+  "parts": [
+   "Интеграция",
+   "Публикации",
+   "Загрузка файлов",
+   "Обзор"
+  ],
+  "chars": 1894
+ },
+ {
+  "category": "integration",
+  "title": "Bots Long Poll API",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Bots Long Poll API",
+  "path": "integration/soobschestva-i-polzovateli-bots-long-poll-api.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Bots Long Poll API"
+  ],
+  "chars": 5554
+ },
+ {
+  "category": "integration",
+  "title": "Callback API",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Callback API",
+  "path": "integration/soobschestva-i-polzovateli-callback-api.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Callback API"
+  ],
+  "chars": 15779
+ },
+ {
+  "category": "integration",
+  "title": "Open API",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Open API",
+  "path": "integration/soobschestva-i-polzovateli-open-api.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Open API"
+  ],
+  "chars": 17672
+ },
+ {
+  "category": "integration",
+  "title": "События пользователей и сообществ",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → События пользователей и сообществ",
+  "path": "integration/soobschestva-i-polzovateli-sobytiya-polzovateley-i-soobsches.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "События пользователей и сообществ"
+  ],
+  "chars": 1483
+ },
+ {
+  "category": "integration",
+  "title": "События в сообществах",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → События в сообществах",
+  "path": "integration/soobschestva-i-polzovateli-sobytiya-v-soobschestvah.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "События в сообществах"
+  ],
+  "chars": 18159
+ },
+ {
+  "category": "integration",
+  "title": "Сообщение _Deprecated version_",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Сообщение _Deprecated version_",
+  "path": "integration/soobschestva-i-polzovateli-soobschenie-deprecated-version.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Сообщение _Deprecated version_"
+  ],
+  "chars": 1880
+ },
+ {
+  "category": "integration",
+  "title": "Сообщения сообществ",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Сообщения сообществ",
+  "path": "integration/soobschestva-i-polzovateli-soobscheniya-soobschestv.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Сообщения сообществ"
+  ],
+  "chars": 11074
+ },
+ {
+  "category": "integration",
+  "title": "User Long Poll API",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → User Long Poll API",
+  "path": "integration/soobschestva-i-polzovateli-user-long-poll-api.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "User Long Poll API"
+  ],
+  "chars": 18794
+ },
+ {
+  "category": "integration",
+  "title": "Виджеты сообществ",
+  "breadcrumb": "Интеграция → Сообщества и пользователи → Виджеты сообществ",
+  "path": "integration/soobschestva-i-polzovateli-vidzhety-soobschestv.md",
+  "parts": [
+   "Интеграция",
+   "Сообщества и пользователи",
+   "Виджеты сообществ"
+  ],
+  "chars": 9852
+ },
+ {
+  "category": "integration",
+  "title": "Эпизод подкаста",
+  "breadcrumb": "Интеграция → Виджеты → Эпизод подкаста",
+  "path": "integration/vidzhety-epizod-podkasta.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Эпизод подкаста"
+  ],
+  "chars": 2886
+ },
+ {
+  "category": "integration",
+  "title": "Комментарии",
+  "breadcrumb": "Интеграция → Виджеты → Комментарии",
+  "path": "integration/vidzhety-kommentarii.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Комментарии"
+  ],
+  "chars": 12183
+ },
+ {
+  "category": "integration",
+  "title": "Напишите нам",
+  "breadcrumb": "Интеграция → Виджеты → Напишите нам",
+  "path": "integration/vidzhety-napishite-nam.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Напишите нам"
+  ],
+  "chars": 3615
+ },
+ {
+  "category": "integration",
+  "title": "Нравится",
+  "breadcrumb": "Интеграция → Виджеты → Нравится",
+  "path": "integration/vidzhety-nravitsya.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Нравится"
+  ],
+  "chars": 6271
+ },
+ {
+  "category": "integration",
+  "title": "Опрос",
+  "breadcrumb": "Интеграция → Виджеты → Опрос",
+  "path": "integration/vidzhety-opros.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Опрос"
+  ],
+  "chars": 4652
+ },
+ {
+  "category": "integration",
+  "title": "Плейлист",
+  "breadcrumb": "Интеграция → Виджеты → Плейлист",
+  "path": "integration/vidzhety-pleylist.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Плейлист"
+  ],
+  "chars": 3637
+ },
+ {
+  "category": "integration",
+  "title": "Подписаться на автора",
+  "breadcrumb": "Интеграция → Виджеты → Подписаться на автора",
+  "path": "integration/vidzhety-podpisatsya-na-avtora.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Подписаться на автора"
+  ],
+  "chars": 3630
+ },
+ {
+  "category": "integration",
+  "title": "Приложение",
+  "breadcrumb": "Интеграция → Виджеты → Приложение",
+  "path": "integration/vidzhety-prilozhenie.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Приложение"
+  ],
+  "chars": 3146
+ },
+ {
+  "category": "integration",
+  "title": "Публикация ссылок",
+  "breadcrumb": "Интеграция → Виджеты → Публикация ссылок",
+  "path": "integration/vidzhety-publikaciya-ssylok.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Публикация ссылок"
+  ],
+  "chars": 8331
+ },
+ {
+  "category": "integration",
+  "title": "Разрешить сообщения от сообщества",
+  "breadcrumb": "Интеграция → Виджеты → Разрешить сообщения от сообщества",
+  "path": "integration/vidzhety-razreshit-soobscheniya-ot-soobschestva.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Разрешить сообщения от сообщества"
+  ],
+  "chars": 3335
+ },
+ {
+  "category": "integration",
+  "title": "Рекомендации",
+  "breadcrumb": "Интеграция → Виджеты → Рекомендации",
+  "path": "integration/vidzhety-rekomendacii.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Рекомендации"
+  ],
+  "chars": 4334
+ },
+ {
+  "category": "integration",
+  "title": "Сообщения сообщества",
+  "breadcrumb": "Интеграция → Виджеты → Сообщения сообщества",
+  "path": "integration/vidzhety-soobscheniya-soobschestva.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Сообщения сообщества"
+  ],
+  "chars": 19386
+ },
+ {
+  "category": "integration",
+  "title": "Статья",
+  "breadcrumb": "Интеграция → Виджеты → Статья",
+  "path": "integration/vidzhety-statya.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Статья"
+  ],
+  "chars": 2657
+ },
+ {
+  "category": "integration",
+  "title": "Видео",
+  "breadcrumb": "Интеграция → Виджеты → Видео",
+  "path": "integration/vidzhety-video.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Видео"
+  ],
+  "chars": 6707
+ },
+ {
+  "category": "integration",
+  "title": "Виджет для сообществ",
+  "breadcrumb": "Интеграция → Виджеты → Виджет для сообществ",
+  "path": "integration/vidzhety-vidzhet-dlya-soobschestv.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Виджет для сообществ"
+  ],
+  "chars": 4827
+ },
+ {
+  "category": "integration",
+  "title": "Все виджеты",
+  "breadcrumb": "Интеграция → Виджеты → Все виджеты",
+  "path": "integration/vidzhety-vse-vidzhety.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Все виджеты"
+  ],
+  "chars": 2948
+ },
+ {
+  "category": "integration",
+  "title": "Запись на стене",
+  "breadcrumb": "Интеграция → Виджеты → Запись на стене",
+  "path": "integration/vidzhety-zapis-na-stene.md",
+  "parts": [
+   "Интеграция",
+   "Виджеты",
+   "Запись на стене"
+  ],
+  "chars": 4199
+ },
+ {
+  "category": "libraries",
+  "title": "Работа с open-source библиотеками ВКонтакте",
+  "breadcrumb": "Библиотеки → Работа с open-source библиотеками ВКонтакте",
+  "path": "libraries/rabota-s-open-source-bibliotekami-vkontakte.md",
+  "parts": [
+   "Библиотеки",
+   "Работа с open-source библиотеками ВКонтакте"
+  ],
+  "chars": 2568
+ },
+ {
+  "category": "libraries",
+  "title": "Android SDK",
+  "breadcrumb": "Библиотеки → SDK → Android SDK",
+  "path": "libraries/sdk-android-sdk.md",
+  "parts": [
+   "Библиотеки",
+   "SDK",
+   "Android SDK"
+  ],
+  "chars": 12782
+ },
+ {
+  "category": "libraries",
+  "title": "iOS SDK",
+  "breadcrumb": "Библиотеки → SDK → iOS SDK",
+  "path": "libraries/sdk-ios-sdk.md",
+  "parts": [
+   "Библиотеки",
+   "SDK",
+   "iOS SDK"
+  ],
+  "chars": 16734
+ },
+ {
+  "category": "libraries",
+  "title": "Java SDK",
+  "breadcrumb": "Библиотеки → SDK → Java SDK",
+  "path": "libraries/sdk-java-sdk.md",
+  "parts": [
+   "Библиотеки",
+   "SDK",
+   "Java SDK"
+  ],
+  "chars": 12798
+ },
+ {
+  "category": "libraries",
+  "title": "Обзор SDK",
+  "breadcrumb": "Библиотеки → SDK → Обзор SDK",
+  "path": "libraries/sdk-obzor-sdk.md",
+  "parts": [
+   "Библиотеки",
+   "SDK",
+   "Обзор SDK"
+  ],
+  "chars": 3151
+ },
+ {
+  "category": "libraries",
+  "title": "PHP SDK",
+  "breadcrumb": "Библиотеки → SDK → PHP SDK",
+  "path": "libraries/sdk-php-sdk.md",
+  "parts": [
+   "Библиотеки",
+   "SDK",
+   "PHP SDK"
+  ],
+  "chars": 12714
+ },
+ {
+  "category": "libraries",
+  "title": "Утилита VK Tunnel",
+  "breadcrumb": "Библиотеки → Утилита VK Tunnel",
+  "path": "libraries/utilita-vk-tunnel.md",
+  "parts": [
+   "Библиотеки",
+   "Утилита VK Tunnel"
+  ],
+  "chars": 8312
+ },
+ {
+  "category": "libraries",
+  "title": "Блокировка навигации",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Блокировка навигации",
+  "path": "libraries/vk-mini-apps-router-blokirovka-navigacii.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Блокировка навигации"
+  ],
+  "chars": 5630
+ },
+ {
+  "category": "libraries",
+  "title": "Формат внешних и внутренних ссылок",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Формат внешних и внутренних ссылок",
+  "path": "libraries/vk-mini-apps-router-format-vneshnih-i-vnutrennih-ssylok.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Формат внешних и внутренних ссылок"
+  ],
+  "chars": 9063
+ },
+ {
+  "category": "libraries",
+  "title": "Использование параметров",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Использование параметров",
+  "path": "libraries/vk-mini-apps-router-ispolzovanie-parametrov.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Использование параметров"
+  ],
+  "chars": 9038
+ },
+ {
+  "category": "libraries",
+  "title": "История навигации",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → История навигации",
+  "path": "libraries/vk-mini-apps-router-istoriya-navigacii.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "История навигации"
+  ],
+  "chars": 2799
+ },
+ {
+  "category": "libraries",
+  "title": "Настройка маршрутов",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Настройка маршрутов",
+  "path": "libraries/vk-mini-apps-router-nastroyka-marshrutov.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Настройка маршрутов"
+  ],
+  "chars": 7289
+ },
+ {
+  "category": "libraries",
+  "title": "Навигация в приложении",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Навигация в приложении",
+  "path": "libraries/vk-mini-apps-router-navigaciya-v-prilozhenii.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Навигация в приложении"
+  ],
+  "chars": 12149
+ },
+ {
+  "category": "libraries",
+  "title": "Обработка ошибок",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Обработка ошибок",
+  "path": "libraries/vk-mini-apps-router-obrabotka-oshibok.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Обработка ошибок"
+  ],
+  "chars": 3879
+ },
+ {
+  "category": "libraries",
+  "title": "Поддержка анимации",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Поддержка анимации",
+  "path": "libraries/vk-mini-apps-router-podderzhka-animacii.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Поддержка анимации"
+  ],
+  "chars": 2215
+ },
+ {
+  "category": "libraries",
+  "title": "Поддержка модальных и всплывающих окон",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Поддержка модальных и всплывающих окон",
+  "path": "libraries/vk-mini-apps-router-podderzhka-modalnyh-i-vsplyvayuschih-oko.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Поддержка модальных и всплывающих окон"
+  ],
+  "chars": 2238
+ },
+ {
+  "category": "libraries",
+  "title": "createBrowserRouter",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Функции → createBrowserRouter",
+  "path": "libraries/vk-mini-apps-router-spravochnik-funkcii-createbrowserrouter.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Функции",
+   "createBrowserRouter"
+  ],
+  "chars": 3166
+ },
+ {
+  "category": "libraries",
+  "title": "createHashParamRouter",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Функции → createHashParamRouter",
+  "path": "libraries/vk-mini-apps-router-spravochnik-funkcii-createhashparamroute.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Функции",
+   "createHashParamRouter"
+  ],
+  "chars": 3631
+ },
+ {
+  "category": "libraries",
+  "title": "createHashRouter",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Функции → createHashRouter",
+  "path": "libraries/vk-mini-apps-router-spravochnik-funkcii-createhashrouter.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Функции",
+   "createHashRouter"
+  ],
+  "chars": 3645
+ },
+ {
+  "category": "libraries",
+  "title": "useActiveVkuiLocation",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useActiveVkuiLocation",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-useactivevkuilocation.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useActiveVkuiLocation"
+  ],
+  "chars": 4383
+ },
+ {
+  "category": "libraries",
+  "title": "useBlocker",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useBlocker",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-useblocker.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useBlocker"
+  ],
+  "chars": 2825
+ },
+ {
+  "category": "libraries",
+  "title": "useEnableSwipeBack",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useEnableSwipeBack",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-useenableswipeback.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useEnableSwipeBack"
+  ],
+  "chars": 2503
+ },
+ {
+  "category": "libraries",
+  "title": "useFirstPageCheck",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useFirstPageCheck",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-usefirstpagecheck.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useFirstPageCheck"
+  ],
+  "chars": 1649
+ },
+ {
+  "category": "libraries",
+  "title": "useGetPanelForView",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useGetPanelForView",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-usegetpanelforview.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useGetPanelForView"
+  ],
+  "chars": 3431
+ },
+ {
+  "category": "libraries",
+  "title": "useHistoryManager",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useHistoryManager",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-usehistorymanager.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useHistoryManager"
+  ],
+  "chars": 1225
+ },
+ {
+  "category": "libraries",
+  "title": "useHref",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useHref",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-usehref.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useHref"
+  ],
+  "chars": 3635
+ },
+ {
+  "category": "libraries",
+  "title": "useLinkClickHandler",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useLinkClickHandler",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-uselinkclickhandler.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useLinkClickHandler"
+  ],
+  "chars": 3211
+ },
+ {
+  "category": "libraries",
+  "title": "useParams",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useParams",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-useparams.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useParams"
+  ],
+  "chars": 4953
+ },
+ {
+  "category": "libraries",
+  "title": "useRouteNavigator",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useRouteNavigator",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-useroutenavigator.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useRouteNavigator"
+  ],
+  "chars": 1284
+ },
+ {
+  "category": "libraries",
+  "title": "useSearchParams",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hooks → useSearchParams",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hooks-usesearchparams.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hooks",
+   "useSearchParams"
+  ],
+  "chars": 1865
+ },
+ {
+  "category": "libraries",
+  "title": "useMetaParams",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hoos → useMetaParams",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hoos-usemetaparams.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hoos",
+   "useMetaParams"
+  ],
+  "chars": 4031
+ },
+ {
+  "category": "libraries",
+  "title": "usePopout",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Hoos → usePopout",
+  "path": "libraries/vk-mini-apps-router-spravochnik-hoos-usepopout.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Hoos",
+   "usePopout"
+  ],
+  "chars": 1523
+ },
+ {
+  "category": "libraries",
+  "title": "RouterLink",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Компоненты → RouterLink",
+  "path": "libraries/vk-mini-apps-router-spravochnik-komponenty-routerlink.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Компоненты",
+   "RouterLink"
+  ],
+  "chars": 3541
+ },
+ {
+  "category": "libraries",
+  "title": "RouterProvider",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Компоненты → RouterProvider",
+  "path": "libraries/vk-mini-apps-router-spravochnik-komponenty-routerprovider.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Компоненты",
+   "RouterProvider"
+  ],
+  "chars": 8191
+ },
+ {
+  "category": "libraries",
+  "title": "HistoryManager.getCurrentPosition",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → HistoryManager.getCurrentPosition",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-historymanager-getcur.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "HistoryManager.getCurrentPosition"
+  ],
+  "chars": 1105
+ },
+ {
+  "category": "libraries",
+  "title": "HistoryManager.getHistory",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → HistoryManager.getHistory",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-historymanager-gethis.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "HistoryManager.getHistory"
+  ],
+  "chars": 1508
+ },
+ {
+  "category": "libraries",
+  "title": "HistoryManager",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → HistoryManager",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-historymanager.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "HistoryManager"
+  ],
+  "chars": 1551
+ },
+ {
+  "category": "libraries",
+  "title": "NavigationOptions",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → NavigationOptions",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-navigationoptions.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "NavigationOptions"
+  ],
+  "chars": 1728
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.back",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.back",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-back.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.back"
+  ],
+  "chars": 1738
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.backToFirst",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.backToFirst",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-backto.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.backToFirst"
+  ],
+  "chars": 1398
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.go",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.go",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-go.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.go"
+  ],
+  "chars": 1961
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.hideModal",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.hideModal",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-hidemo.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.hideModal"
+  ],
+  "chars": 2225
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.hidePopout",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.hidePopout",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-hidepo.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.hidePopout"
+  ],
+  "chars": 1553
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.push",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.push",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-push.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.push"
+  ],
+  "chars": 6535
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.replace",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.replace",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-replac.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.replace"
+  ],
+  "chars": 6300
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.block",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator → RouteNavigator.block",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-routen.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator",
+   "RouteNavigator.block"
+  ],
+  "chars": 1898
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.runSync",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.runSync",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-runsyn.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.runSync"
+  ],
+  "chars": 2136
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.showModal",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.showModal",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-showmo.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.showModal"
+  ],
+  "chars": 2311
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator.showPopout",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator.showPopout",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator-showpo.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator.showPopout"
+  ],
+  "chars": 3326
+ },
+ {
+  "category": "libraries",
+  "title": "RouteNavigator",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteNavigator",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routenavigator.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteNavigator"
+  ],
+  "chars": 3012
+ },
+ {
+  "category": "libraries",
+  "title": "RouteWithoutRoot",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteWithoutRoot",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routewithoutroot.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteWithoutRoot"
+  ],
+  "chars": 3570
+ },
+ {
+  "category": "libraries",
+  "title": "RouteWithRoot",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник → Объекты → RouteWithRoot",
+  "path": "libraries/vk-mini-apps-router-spravochnik-obekty-routewithroot.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник",
+   "Объекты",
+   "RouteWithRoot"
+  ],
+  "chars": 4022
+ },
+ {
+  "category": "libraries",
+  "title": "Справочник",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Справочник",
+  "path": "libraries/vk-mini-apps-router-spravochnik.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Справочник"
+  ],
+  "chars": 6099
+ },
+ {
+  "category": "libraries",
+  "title": "Типы роутеров",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Типы роутеров",
+  "path": "libraries/vk-mini-apps-router-tipy-routerov.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Типы роутеров"
+  ],
+  "chars": 4102
+ },
+ {
+  "category": "libraries",
+  "title": "Установка и подключение",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router → Установка и подключение",
+  "path": "libraries/vk-mini-apps-router-ustanovka-i-podklyuchenie.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router",
+   "Установка и подключение"
+  ],
+  "chars": 6733
+ },
+ {
+  "category": "libraries",
+  "title": "vk-mini-apps-router",
+  "breadcrumb": "Библиотеки → vk-mini-apps-router",
+  "path": "libraries/vk-mini-apps-router.md",
+  "parts": [
+   "Библиотеки",
+   "vk-mini-apps-router"
+  ],
+  "chars": 3717
+ },
+ {
+  "category": "libraries",
+  "title": "VK QR",
+  "breadcrumb": "Библиотеки → VK QR",
+  "path": "libraries/vk-qr.md",
+  "parts": [
+   "Библиотеки",
+   "VK QR"
+  ],
+  "chars": 2284
+ },
+ {
+  "category": "libraries",
+  "title": "VKUI",
+  "breadcrumb": "Библиотеки → VKUI",
+  "path": "libraries/vkui.md",
+  "parts": [
+   "Библиотеки",
+   "VKUI"
+  ],
+  "chars": 1809
+ },
+ {
+  "category": "masks",
+  "title": "Первые шаги",
+  "breadcrumb": "Маски → Первые шаги",
+  "path": "masks/pervye-shagi.md",
+  "parts": [
+   "Маски",
+   "Первые шаги"
+  ],
+  "chars": 4960
+ },
+ {
+  "category": "masks",
+  "title": "Платформа",
+  "breadcrumb": "Маски → Платформа",
+  "path": "masks/platforma.md",
+  "parts": [
+   "Маски",
+   "Платформа"
+  ],
+  "chars": 2043
+ },
+ {
+  "category": "masks",
+  "title": "Экспорт 3D-модели",
+  "breadcrumb": "Маски → Подготовка → Экспорт 3D-модели",
+  "path": "masks/podgotovka-eksport-3d-modeli.md",
+  "parts": [
+   "Маски",
+   "Подготовка",
+   "Экспорт 3D-модели"
+  ],
+  "chars": 5084
+ },
+ {
+  "category": "masks",
+  "title": "Инструменты",
+  "breadcrumb": "Маски → Подготовка → Инструменты",
+  "path": "masks/podgotovka-instrumenty.md",
+  "parts": [
+   "Маски",
+   "Подготовка",
+   "Инструменты"
+  ],
+  "chars": 1273
+ },
+ {
+  "category": "masks",
+  "title": "Просмотр маски",
+  "breadcrumb": "Маски → Подготовка → Просмотр маски",
+  "path": "masks/podgotovka-prosmotr-maski.md",
+  "parts": [
+   "Маски",
+   "Подготовка",
+   "Просмотр маски"
+  ],
+  "chars": 5844
+ },
+ {
+  "category": "masks",
+  "title": "Примеры",
+  "breadcrumb": "Маски → Примеры",
+  "path": "masks/primery.md",
+  "parts": [
+   "Маски",
+   "Примеры"
+  ],
+  "chars": 7562
+ },
+ {
+  "category": "masks",
+  "title": "Дерево сцены",
+  "breadcrumb": "Маски → Продвинутые возможности → Дерево сцены",
+  "path": "masks/prodvinutye-vozmozhnosti-derevo-sceny.md",
+  "parts": [
+   "Маски",
+   "Продвинутые возможности",
+   "Дерево сцены"
+  ],
+  "chars": 1603
+ },
+ {
+  "category": "masks",
+  "title": "Обзор возможностей",
+  "breadcrumb": "Маски → Продвинутые возможности → Обзор возможностей",
+  "path": "masks/prodvinutye-vozmozhnosti-obzor-vozmozhnostey.md",
+  "parts": [
+   "Маски",
+   "Продвинутые возможности",
+   "Обзор возможностей"
+  ],
+  "chars": 1173
+ },
+ {
+  "category": "masks",
+  "title": "Встроенные ресурсы",
+  "breadcrumb": "Маски → Продвинутые возможности → Встроенные ресурсы",
+  "path": "masks/prodvinutye-vozmozhnosti-vstroennye-resursy.md",
+  "parts": [
+   "Маски",
+   "Продвинутые возможности",
+   "Встроенные ресурсы"
+  ],
+  "chars": 1668
+ },
+ {
+  "category": "masks",
+  "title": "Конфигурационный файл",
+  "breadcrumb": "Маски → Создание → Конфигурационный файл",
+  "path": "masks/sozdanie-konfiguracionnyy-fayl.md",
+  "parts": [
+   "Маски",
+   "Создание",
+   "Конфигурационный файл"
+  ],
+  "chars": 5058
+ },
+ {
+  "category": "mini-apps",
+  "title": "Пакет vk-mini-app",
+  "breadcrumb": "Мини-приложения → Начало работы → Пакет vk-mini-app",
+  "path": "mini-apps/nachalo-raboty-paket-vk-mini-app.md",
+  "parts": [
+   "Мини-приложения",
+   "Начало работы",
+   "Пакет vk-mini-app"
+  ],
+  "chars": 5739
+ },
+ {
+  "category": "mini-apps",
+  "title": "Первые шаги",
+  "breadcrumb": "Мини-приложения → Начало работы → Первые шаги",
+  "path": "mini-apps/nachalo-raboty-pervye-shagi.md",
+  "parts": [
+   "Мини-приложения",
+   "Начало работы",
+   "Первые шаги"
+  ],
+  "chars": 30413
+ },
+ {
+  "category": "mini-apps",
+  "title": "Пример «Магазин»",
+  "breadcrumb": "Мини-приложения → Начало работы → Примеры проектов → Пример «Магазин»",
+  "path": "mini-apps/nachalo-raboty-primery-proektov-primer-magazin.md",
+  "parts": [
+   "Мини-приложения",
+   "Начало работы",
+   "Примеры проектов",
+   "Пример «Магазин»"
+  ],
+  "chars": 22583
+ },
+ {
+  "category": "mini-apps",
+  "title": "Все примеры",
+  "breadcrumb": "Мини-приложения → Начало работы → Примеры проектов → Все примеры",
+  "path": "mini-apps/nachalo-raboty-primery-proektov-vse-primery.md",
+  "parts": [
+   "Мини-приложения",
+   "Начало работы",
+   "Примеры проектов",
+   "Все примеры"
+  ],
+  "chars": 2845
+ },
+ {
+  "category": "mini-apps",
+  "title": "Советы по созданию и продвижению",
+  "breadcrumb": "Мини-приложения → Начало работы → Советы по созданию и продвижению",
+  "path": "mini-apps/nachalo-raboty-sovety-po-sozdaniyu-i-prodvizheniyu.md",
+  "parts": [
+   "Мини-приложения",
+   "Начало работы",
+   "Советы по созданию и продвижению"
+  ],
+  "chars": 8657
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Платформа VK Mini Apps",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 1. Знакомство → Урок 1. Платформа VK Mini Apps",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-1-znakomstvo-urok-1.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 1. Знакомство",
+   "Урок 1. Платформа VK Mini Apps"
+  ],
+  "chars": 1175
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Процесс создания мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 1. Знакомство → Урок 2. Процесс создания мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-1-znakomstvo-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 1. Знакомство",
+   "Урок 2. Процесс создания мини-приложения"
+  ],
+  "chars": 1330
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Формируем команду для создания мини-приложений",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 1. Знакомство → Урок 3. Формируем команду для создания мини-приложений",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-1-znakomstvo-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 1. Знакомство",
+   "Урок 3. Формируем команду для создания мини-приложений"
+  ],
+  "chars": 1507
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 1. Знакомство",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 1. Знакомство",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-1-znakomstvo.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 1. Знакомство"
+  ],
+  "chars": 740
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Виды мини-приложений",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи → Урок 1. Виды мини-приложений",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei-urok-1.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи",
+   "Урок 1. Виды мини-приложений"
+  ],
+  "chars": 991
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Социальные механики",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи → Урок 2. Социальные механики",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи",
+   "Урок 2. Социальные механики"
+  ],
+  "chars": 841
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Поиск идеи мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи → Урок 3. Поиск идеи мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи",
+   "Урок 3. Поиск идеи мини-приложения"
+  ],
+  "chars": 1120
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Анализ рынка",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи → Урок 4. Анализ рынка",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи",
+   "Урок 4. Анализ рынка"
+  ],
+  "chars": 916
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Тестирование идей",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи → Урок 5. Тестирование идей",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи",
+   "Урок 5. Тестирование идей"
+  ],
+  "chars": 1177
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 2. Выбор идеи",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 2. Выбор идеи",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-2-vybor-idei.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 2. Выбор идеи"
+  ],
+  "chars": 994
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Этапы создания дизайна мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 1. Этапы создания дизайна мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-1-eta.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 1. Этапы создания дизайна мини-приложения"
+  ],
+  "chars": 1028
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Построение пути пользователя",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 2. Построение пути пользователя",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-2-pos.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 2. Построение пути пользователя"
+  ],
+  "chars": 1178
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Создание прототипа",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 3. Создание прототипа",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-3-soz.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 3. Создание прототипа"
+  ],
+  "chars": 1214
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Дизайн UI мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 4. Дизайн UI мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-4-diz.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 4. Дизайн UI мини-приложения"
+  ],
+  "chars": 2130
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Аналитика и исследования",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 5. Аналитика и исследования",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-5-ana.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 5. Аналитика и исследования"
+  ],
+  "chars": 927
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 6. Дизайн-поддержка",
+  "breadcrumb": "Мини-приложений → Образовательные материалы → Видеокурс → Модуль 3. Дизайн → Урок 6. Дизайн-поддержка",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn-urok-6-diz.md",
+  "parts": [
+   "Мини-приложений",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн",
+   "Урок 6. Дизайн-поддержка"
+  ],
+  "chars": 1154
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 3. Дизайн",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 3. Дизайн",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-3-dizayn.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 3. Дизайн"
+  ],
+  "chars": 1169
+ },
+ {
+  "category": "mini-apps",
+  "title": "10. ODR",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 10. ODR",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-10-odr.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "10. ODR"
+  ],
+  "chars": 971
+ },
+ {
+  "category": "mini-apps",
+  "title": "11. Работа с API ВКонтакте в клиентской части приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 11. Работа с API ВКонтакте в клиентской части приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-11-rab.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "11. Работа с API ВКонтакте в клиентской части приложения"
+  ],
+  "chars": 2954
+ },
+ {
+  "category": "mini-apps",
+  "title": "12. Особенности разработки для мобильных устройств",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 12. Особенности разработки для мобильных устройств",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-12-oso.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "12. Особенности разработки для мобильных устройств"
+  ],
+  "chars": 2258
+ },
+ {
+  "category": "mini-apps",
+  "title": "13. Уведомления",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 13. Уведомления",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-13-uve.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "13. Уведомления"
+  ],
+  "chars": 3359
+ },
+ {
+  "category": "mini-apps",
+  "title": "15. Онбординг",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 15. Онбординг",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-15-onb.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "15. Онбординг"
+  ],
+  "chars": 1839
+ },
+ {
+  "category": "mini-apps",
+  "title": "16. Работа с VK Storage",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 16. Работа с VK Storage",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-16-rab.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "16. Работа с VK Storage"
+  ],
+  "chars": 1858
+ },
+ {
+  "category": "mini-apps",
+  "title": "18. Счётчики и бейджи",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 18. Счётчики и бейджи",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-18-sch.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "18. Счётчики и бейджи"
+  ],
+  "chars": 1291
+ },
+ {
+  "category": "mini-apps",
+  "title": "19. Эффективная работа с API ВКонтакте",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 19. Эффективная работа с API ВКонтакте",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-19-eff.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "19. Эффективная работа с API ВКонтакте"
+  ],
+  "chars": 2579
+ },
+ {
+  "category": "mini-apps",
+  "title": "20. Заключение",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 20. Заключение",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-20-zak.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "20. Заключение"
+  ],
+  "chars": 763
+ },
+ {
+  "category": "mini-apps",
+  "title": "7. Вёрстка под vk.com и m.vk.com",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 7. Вёрстка под vk.com и m.vk.com",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-7-vers.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "7. Вёрстка под vk.com и m.vk.com"
+  ],
+  "chars": 2479
+ },
+ {
+  "category": "mini-apps",
+  "title": "8. Работа с внешним API",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 8. Работа с внешним API",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-8-rabo.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "8. Работа с внешним API"
+  ],
+  "chars": 2565
+ },
+ {
+  "category": "mini-apps",
+  "title": "9. Авторизация запросов к серверу мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → 9. Авторизация запросов к серверу мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-9-avto.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "9. Авторизация запросов к серверу мини-приложения"
+  ],
+  "chars": 2793
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Создание и регистрация мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 1. Создание и регистрация мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-1.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 1. Создание и регистрация мини-приложения"
+  ],
+  "chars": 3899
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Знакомство с VKUI",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 2. Знакомство с VKUI",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 2. Знакомство с VKUI"
+  ],
+  "chars": 2117
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Роутинг",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 3. Роутинг",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 3. Роутинг"
+  ],
+  "chars": 2984
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Модальные окна",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 4. Модальные окна",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 4. Модальные окна"
+  ],
+  "chars": 3269
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Основы работы с VK Bridge",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 5. Основы работы с VK Bridge",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 5. Основы работы с VK Bridge"
+  ],
+  "chars": 1659
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 6. Подписка на события VK Bridge и их особенности",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка → Урок 6. Подписка на события VK Bridge и их особенности",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka-urok-6.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка",
+   "Урок 6. Подписка на события VK Bridge и их особенности"
+  ],
+  "chars": 2208
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 4. Разработка",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 4. Разработка",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-4-razrabotka.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 4. Разработка"
+  ],
+  "chars": 3691
+ },
+ {
+  "category": "mini-apps",
+  "title": "10. Безопасность мини-приложений",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → 10. Безопасность мини-приложений",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-10-b.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "10. Безопасность мини-приложений"
+  ],
+  "chars": 1492
+ },
+ {
+  "category": "mini-apps",
+  "title": "11. Тестирование новых версий мини-приложений",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → 11. Тестирование новых версий мини-приложений",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-11-t.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "11. Тестирование новых версий мини-приложений"
+  ],
+  "chars": 717
+ },
+ {
+  "category": "mini-apps",
+  "title": "7. Тестирование ODR в VK Mini Apps",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → 7. Тестирование ODR в VK Mini Apps",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-7-te.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "7. Тестирование ODR в VK Mini Apps"
+  ],
+  "chars": 988
+ },
+ {
+  "category": "mini-apps",
+  "title": "9. Тестирование на локальном хосте",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → 9. Тестирование на локальном хосте",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-9-te.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "9. Тестирование на локальном хосте"
+  ],
+  "chars": 1519
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Тестирование требований",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → Урок 3. Тестирование требований",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "Урок 3. Тестирование требований"
+  ],
+  "chars": 1590
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Инструменты тестирования и отладки",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → Урок 4. Инструменты тестирования и отладки",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "Урок 4. Инструменты тестирования и отладки"
+  ],
+  "chars": 1150
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Нагрузочное тестирование",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → Урок 5. Нагрузочное тестирование",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "Урок 5. Нагрузочное тестирование"
+  ],
+  "chars": 1055
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 5. Тестирование_ Урок 1. Планирование тестирования_ выявление приоритетов",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование_ Урок 1. Планирование тестирования_ выявление приоритетов",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование_ Урок 1. Планирование тестирования_ выявление приоритетов"
+  ],
+  "chars": 747
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Планирование тестирования_ определение сценариев",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование → Урок 2. Планирование тестирования_ определение сценариев",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie-urok.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование",
+   "Урок 2. Планирование тестирования_ определение сценариев"
+  ],
+  "chars": 985
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 5. Тестирование",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 5. Тестирование",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-5-testirovanie.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 5. Тестирование"
+  ],
+  "chars": 1885
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Подготовка к модерации в каталог",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 6. Модерация → Урок 2. Подготовка к модерации в каталог",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-6-moderaciya-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 6. Модерация",
+   "Урок 2. Подготовка к модерации в каталог"
+  ],
+  "chars": 1126
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Правила публикации в каталоге",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 6. Модерация → Урок 3. Правила публикации в каталоге",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-6-moderaciya-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 6. Модерация",
+   "Урок 3. Правила публикации в каталоге"
+  ],
+  "chars": 1776
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Процесс модерации",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 6. Модерация → Урок 4. Процесс модерации",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-6-moderaciya-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 6. Модерация",
+   "Урок 4. Процесс модерации"
+  ],
+  "chars": 1451
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 6. Модерация_ Урок 5. Ответы на вопросы",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 6. Модерация_ Урок 5. Ответы на вопросы",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-6-moderaciya-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 6. Модерация_ Урок 5. Ответы на вопросы"
+  ],
+  "chars": 720
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 6. Модерация",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 6. Модерация",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-6-moderaciya.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 6. Модерация"
+  ],
+  "chars": 1100
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Реклама_ подключение в мини-приложении",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 2. Реклама_ подключение в мини-приложении",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 2. Реклама_ подключение в мини-приложении"
+  ],
+  "chars": 2275
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Продажа виртуальных ценностей за голоса",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 3. Продажа виртуальных ценностей за голоса",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 3. Продажа виртуальных ценностей за голоса"
+  ],
+  "chars": 1843
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Продажа виртуальных ценностей_ реализация взаимодействия",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 4. Продажа виртуальных ценностей_ реализация взаимодействия",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 4. Продажа виртуальных ценностей_ реализация взаимодействия"
+  ],
+  "chars": 1786
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Продажа виртуальных ценностей_ разовая оплата и подписки",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 5. Продажа виртуальных ценностей_ разовая оплата и подписки",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 5. Продажа виртуальных ценностей_ разовая оплата и подписки"
+  ],
+  "chars": 2481
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 6. Продажа цифровых и физических товаров_ особенности и правила",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 6. Продажа цифровых и физических товаров_ особенности и правила",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-6.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 6. Продажа цифровых и физических товаров_ особенности и правила"
+  ],
+  "chars": 1788
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 7. Продажа цифровых и физических товаров_ реализация",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 7. Продажа цифровых и физических товаров_ реализация",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-7.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 7. Продажа цифровых и физических товаров_ реализация"
+  ],
+  "chars": 2777
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 8. Вывод средств из мини-приложения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 8. Вывод средств из мини-приложения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-8.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 8. Вывод средств из мини-приложения"
+  ],
+  "chars": 1944
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 9. Заключение",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 9. Заключение",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok-9.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 9. Заключение"
+  ],
+  "chars": 1099
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Реклама_ особенности и правила использования",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация → Урок 1. Реклама_ особенности и правила использования",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya-urok.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация",
+   "Урок 1. Реклама_ особенности и правила использования"
+  ],
+  "chars": 1505
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 7. Монетизация",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 7. Монетизация",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-7-monetizaciya.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 7. Монетизация"
+  ],
+  "chars": 2530
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 1. Эффективные коммуникации с аудиторией",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 1. Эффективные коммуникации с аудиторией",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok-2.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 1. Эффективные коммуникации с аудиторией"
+  ],
+  "chars": 1129
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 2. Как бесплатно привлечь новую аудиторию",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 2. Как бесплатно привлечь новую аудиторию",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok-3.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 2. Как бесплатно привлечь новую аудиторию"
+  ],
+  "chars": 993
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 3. Как удержать активную аудиторию",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 3. Как удержать активную аудиторию",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok-4.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 3. Как удержать активную аудиторию"
+  ],
+  "chars": 1095
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 4. Принципы запуска рекламной кампании",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 4. Принципы запуска рекламной кампании",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok-5.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 4. Принципы запуска рекламной кампании"
+  ],
+  "chars": 1144
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 5. Что нужно сделать до запуска продвижения",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 5. Что нужно сделать до запуска продвижения",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok-6.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 5. Что нужно сделать до запуска продвижения"
+  ],
+  "chars": 1060
+ },
+ {
+  "category": "mini-apps",
+  "title": "Урок 6. Главное в продвижении мини-приложений",
+  "breadcrumb": "Мини-приложений → Образовательные материалы → Видеокурс → Модуль 8. Продвижение → Урок 6. Главное в продвижении мини-приложений",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie-urok.md",
+  "parts": [
+   "Мини-приложений",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение",
+   "Урок 6. Главное в продвижении мини-приложений"
+  ],
+  "chars": 518
+ },
+ {
+  "category": "mini-apps",
+  "title": "Модуль 8. Продвижение",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Модуль 8. Продвижение",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-modul-8-prodvizhenie.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Модуль 8. Продвижение"
+  ],
+  "chars": 1230
+ },
+ {
+  "category": "mini-apps",
+  "title": "Разработка мини-приложений ВКонтакте",
+  "breadcrumb": "Мини-приложения → Образовательные материалы → Видеокурс → Разработка мини-приложений ВКонтакте",
+  "path": "mini-apps/obrazovatelnye-materialy-videokurs-razrabotka-mini-prilozhen.md",
+  "parts": [
+   "Мини-приложения",
+   "Образовательные материалы",
+   "Видеокурс",
+   "Разработка мини-приложений ВКонтакте"
+  ],
+  "chars": 1686
+ },
+ {
+  "category": "mini-apps",
+  "title": "Обзор",
+  "breadcrumb": "Мини-приложения → Обзор",
+  "path": "mini-apps/obzor.md",
+  "parts": [
+   "Мини-приложения",
+   "Обзор"
+  ],
+  "chars": 3602
+ },
+ {
+  "category": "mini-apps",
+  "title": "Переход на LongID",
+  "breadcrumb": "О приложениях → Переход на LongID",
+  "path": "mini-apps/perehod-na-longid.md",
+  "parts": [
+   "О приложениях",
+   "Переход на LongID"
+  ],
+  "chars": 22860
+ },
+ {
+  "category": "mini-apps",
+  "title": "Образовательные курсы в Lerna",
+  "breadcrumb": "Мини-приложения → Поддержка разработчиков → Образовательные курсы в Lerna",
+  "path": "mini-apps/podderzhka-razrabotchikov-obrazovatelnye-kursy-v-lerna.md",
+  "parts": [
+   "Мини-приложения",
+   "Поддержка разработчиков",
+   "Образовательные курсы в Lerna"
+  ],
+  "chars": 1308
+ },
+ {
+  "category": "mini-apps",
+  "title": "Обзор",
+  "breadcrumb": "Мини-приложения → Поддержка разработчиков → Обзор",
+  "path": "mini-apps/podderzhka-razrabotchikov-obzor.md",
+  "parts": [
+   "Мини-приложения",
+   "Поддержка разработчиков",
+   "Обзор"
+  ],
+  "chars": 1837
+ },
+ {
+  "category": "mini-apps",
+  "title": "Q&A-сессии",
+  "breadcrumb": "Мини-приложения → Поддержка разработчиков → Q&A-сессии",
+  "path": "mini-apps/podderzhka-razrabotchikov-q-a-sessii.md",
+  "parts": [
+   "Мини-приложения",
+   "Поддержка разработчиков",
+   "Q&A-сессии"
+  ],
+  "chars": 4778
+ },
+ {
+  "category": "mini-apps",
+  "title": "Разработка_ Библиотека VK Bridge",
+  "breadcrumb": "Мини-приложения → Разработка_ Библиотека VK Bridge",
+  "path": "mini-apps/razrabotka-biblioteka-vk-bridge.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка_ Библиотека VK Bridge"
+  ],
+  "chars": 1058
+ },
+ {
+  "category": "mini-apps",
+  "title": "vk_ref",
+  "breadcrumb": "Мини-приложения → Разработка → Параметры запуска → vk_ref",
+  "path": "mini-apps/razrabotka-parametry-zapuska-vk-ref.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Параметры запуска",
+   "vk_ref"
+  ],
+  "chars": 4745
+ },
+ {
+  "category": "mini-apps",
+  "title": "Управление группами тестировщиков",
+  "breadcrumb": "Мини-приложения → Разработка → Управление группами тестировщиков",
+  "path": "mini-apps/razrabotka-upravlenie-gruppami-testirovschikov.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Управление группами тестировщиков"
+  ],
+  "chars": 3384
+ },
+ {
+  "category": "mini-apps",
+  "title": "Установка ПО",
+  "breadcrumb": "Мини-приложения → Разработка → Установка ПО",
+  "path": "mini-apps/razrabotka-ustanovka-po.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Установка ПО"
+  ],
+  "chars": 3046
+ },
+ {
+  "category": "mini-apps",
+  "title": "Экран запуска приложения",
+  "breadcrumb": "Мини-приложения → Разработка → Запуск → Экран запуска приложения",
+  "path": "mini-apps/razrabotka-zapusk-ekran-zapuska-prilozheniya.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Запуск",
+   "Экран запуска приложения"
+  ],
+  "chars": 2906
+ },
+ {
+  "category": "mini-apps",
+  "title": "Использование iframe и WebView",
+  "breadcrumb": "Мини-приложения → Разработка → Запуск → Использование iframe и WebView",
+  "path": "mini-apps/razrabotka-zapusk-ispolzovanie-iframe-i-webview.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Запуск",
+   "Использование iframe и WebView"
+  ],
+  "chars": 2704
+ },
+ {
+  "category": "mini-apps",
+  "title": "Значения параметра vk_ref",
+  "breadcrumb": "Мини-приложения → Разработка → Запуск → Параметры запуска → Значения параметра vk_ref",
+  "path": "mini-apps/razrabotka-zapusk-parametry-zapuska-znacheniya-parametra-vk.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Запуск",
+   "Параметры запуска",
+   "Значения параметра vk_ref"
+  ],
+  "chars": 10793
+ },
+ {
+  "category": "mini-apps",
+  "title": "Подпись параметров запуска",
+  "breadcrumb": "Мини-приложения → Разработка → Запуск → Подпись параметров запуска",
+  "path": "mini-apps/razrabotka-zapusk-podpis-parametrov-zapuska.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Запуск",
+   "Подпись параметров запуска"
+  ],
+  "chars": 10508
+ },
+ {
+  "category": "mini-apps",
+  "title": "Работа кеша приложений",
+  "breadcrumb": "Мини-приложения → Разработка → Запуск → Работа кеша приложений",
+  "path": "mini-apps/razrabotka-zapusk-rabota-kesha-prilozheniy.md",
+  "parts": [
+   "Мини-приложения",
+   "Разработка",
+   "Запуск",
+   "Работа кеша приложений"
+  ],
+  "chars": 4033
+ },
+ {
+  "category": "mini-apps",
+  "title": "Типы приложений ВКонтакте",
+  "breadcrumb": "О приложениях → Типы приложений ВКонтакте",
+  "path": "mini-apps/tipy-prilozheniy-vkontakte.md",
+  "parts": [
+   "О приложениях",
+   "Типы приложений ВКонтакте"
+  ],
+  "chars": 3026
+ },
+ {
+  "category": "misc",
+  "title": "Документация",
+  "breadcrumb": "Документация",
+  "path": "misc/dokumentaciya.md",
+  "parts": [
+   "Документация"
+  ],
+  "chars": 2122
+ },
+ {
+  "category": "misc",
+  "title": "Поддержка",
+  "breadcrumb": "Поддержка",
+  "path": "misc/podderzhka.md",
+  "parts": [
+   "Поддержка"
+  ],
+  "chars": 1623
+ },
+ {
+  "category": "misc",
+  "title": "VK для разработчиков",
+  "breadcrumb": "VK для разработчиков",
+  "path": "misc/vk-dlya-razrabotchikov.md",
+  "parts": [
+   "VK для разработчиков"
+  ],
+  "chars": 1291
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Администрирование приложений",
+  "breadcrumb": "Одноклассники → Администрирование приложений",
+  "path": "odnoklassniki/administrirovanie-prilozheniy.md",
+  "parts": [
+   "Одноклассники",
+   "Администрирование приложений"
+  ],
+  "chars": 4310
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Приложения в Одноклассниках",
+  "breadcrumb": "Приложения в Одноклассниках",
+  "path": "odnoklassniki/prilozheniya-v-odnoklassnikah.md",
+  "parts": [
+   "Приложения в Одноклассниках"
+  ],
+  "chars": 5183
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Другие способы продвижения игр",
+  "breadcrumb": "Одноклассники → Продвижение → Другие способы продвижения игр",
+  "path": "odnoklassniki/prodvizhenie-drugie-sposoby-prodvizheniya-igr.md",
+  "parts": [
+   "Одноклассники",
+   "Продвижение",
+   "Другие способы продвижения игр"
+  ],
+  "chars": 10730
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Фичеринг игр в Одноклассниках",
+  "breadcrumb": "Одноклассники → Продвижение → Фичеринг игр в Одноклассниках",
+  "path": "odnoklassniki/prodvizhenie-fichering-igr-v-odnoklassnikah.md",
+  "parts": [
+   "Одноклассники",
+   "Продвижение",
+   "Фичеринг игр в Одноклассниках"
+  ],
+  "chars": 6526
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Продвижение игр в Одноклассниках",
+  "breadcrumb": "Одноклассники → Продвижение игр в Одноклассниках",
+  "path": "odnoklassniki/prodvizhenie-igr-v-odnoklassnikah.md",
+  "parts": [
+   "Одноклассники",
+   "Продвижение игр в Одноклассниках"
+  ],
+  "chars": 2312
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Как подать заявку",
+  "breadcrumb": "Одноклассники → Продвижение → Как подать заявку",
+  "path": "odnoklassniki/prodvizhenie-kak-podat-zayavku.md",
+  "parts": [
+   "Одноклассники",
+   "Продвижение",
+   "Как подать заявку"
+  ],
+  "chars": 2281
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Публикация в Одноклассниках",
+  "breadcrumb": "Одноклассники → Публикация в Одноклассниках",
+  "path": "odnoklassniki/publikaciya-v-odnoklassnikah.md",
+  "parts": [
+   "Одноклассники",
+   "Публикация в Одноклассниках"
+  ],
+  "chars": 4285
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Cобытия VK Bridge в Одноклассниках",
+  "breadcrumb": "Одноклассники → Разработка → Cобытия VK Bridge в Одноклассниках",
+  "path": "odnoklassniki/razrabotka-cobytiya-vk-bridge-v-odnoklassnikah.md",
+  "parts": [
+   "Одноклассники",
+   "Разработка",
+   "Cобытия VK Bridge в Одноклассниках"
+  ],
+  "chars": 14804
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Параметры запуска",
+  "breadcrumb": "Одноклассники → Разработка → Параметры запуска",
+  "path": "odnoklassniki/razrabotka-parametry-zapuska.md",
+  "parts": [
+   "Одноклассники",
+   "Разработка",
+   "Параметры запуска"
+  ],
+  "chars": 6409
+ },
+ {
+  "category": "odnoklassniki",
+  "title": "Работа с API Одноклассников",
+  "breadcrumb": "Одноклассники → Разработка → Работа с API Одноклассников",
+  "path": "odnoklassniki/razrabotka-rabota-s-api-odnoklassnikov.md",
+  "parts": [
+   "Одноклассники",
+   "Разработка",
+   "Работа с API Одноклассников"
+  ],
+  "chars": 10365
+ },
+ {
+  "category": "rules",
+  "title": "Одобренные способы оплаты",
+  "breadcrumb": "Правила → Одобренные способы оплаты",
+  "path": "rules/odobrennye-sposoby-oplaty.md",
+  "parts": [
+   "Правила",
+   "Одобренные способы оплаты"
+  ],
+  "chars": 762
+ },
+ {
+  "category": "rules",
+  "title": "Оферта на оказание услуг по привлечению пользователей к Сайту",
+  "breadcrumb": "Правила → Оферта на оказание услуг по привлечению пользователей к Сайту",
+  "path": "rules/oferta-na-okazanie-uslug-po-privlecheniyu-polzovateley-k-say.md",
+  "parts": [
+   "Правила",
+   "Оферта на оказание услуг по привлечению пользователей к Сайту"
+  ],
+  "chars": 32737
+ },
+ {
+  "category": "rules",
+  "title": "Оферта на оказание услуг по размещению рекламы",
+  "breadcrumb": "Правила → Оферта на оказание услуг по размещению рекламы",
+  "path": "rules/oferta-na-okazanie-uslug-po-razmescheniyu-reklamy.md",
+  "parts": [
+   "Правила",
+   "Оферта на оказание услуг по размещению рекламы"
+  ],
+  "chars": 19448
+ },
+ {
+  "category": "rules",
+  "title": "Правила для ботов",
+  "breadcrumb": "Правила → Правила для ботов",
+  "path": "rules/pravila-dlya-botov.md",
+  "parts": [
+   "Правила",
+   "Правила для ботов"
+  ],
+  "chars": 9914
+ },
+ {
+  "category": "rules",
+  "title": "Правила платформы",
+  "breadcrumb": "Правила → Правила платформы",
+  "path": "rules/pravila-platformy.md",
+  "parts": [
+   "Правила",
+   "Правила платформы"
+  ],
+  "chars": 21691
+ },
+ {
+  "category": "rules",
+  "title": "Правила размещения приложений-магазинов",
+  "breadcrumb": "Правила → Правила размещения приложений-магазинов",
+  "path": "rules/pravila-razmescheniya-prilozheniy-magazinov.md",
+  "parts": [
+   "Правила",
+   "Правила размещения приложений-магазинов"
+  ],
+  "chars": 4162
+ },
+ {
+  "category": "rules",
+  "title": "Правила размещения сервисов на платформе VK Mini Apps",
+  "breadcrumb": "Правила → Правила размещения сервисов на платформе VK Mini Apps",
+  "path": "rules/pravila-razmescheniya-servisov-na-platforme-vk-mini-apps.md",
+  "parts": [
+   "Правила",
+   "Правила размещения сервисов на платформе VK Mini Apps"
+  ],
+  "chars": 57585
+ },
+ {
+  "category": "rules",
+  "title": "Типовая политика конфиденциальности",
+  "breadcrumb": "Правила → Типовая политика конфиденциальности",
+  "path": "rules/tipovaya-politika-konfidencialnosti.md",
+  "parts": [
+   "Правила",
+   "Типовая политика конфиденциальности"
+  ],
+  "chars": 14645
+ },
+ {
+  "category": "rules",
+  "title": "Типовое пользовательское соглашение",
+  "breadcrumb": "Правила → Типовое пользовательское соглашение",
+  "path": "rules/tipovoe-polzovatelskoe-soglashenie.md",
+  "parts": [
+   "Правила",
+   "Типовое пользовательское соглашение"
+  ],
+  "chars": 11717
+ },
+ {
+  "category": "stories",
+  "title": "Стикеры в историях",
+  "breadcrumb": "Стикеры в историях",
+  "path": "stories/stikery-v-istoriyah.md",
+  "parts": [
+   "Стикеры в историях"
+  ],
+  "chars": 1848
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSecureTokenGetInfo",
+  "breadcrumb": "VK Bridge → Аутентификация → VKWebAppSecureTokenGetInfo",
+  "path": "vk-bridge/autentifikaciya-vkwebappsecuretokengetinfo.md",
+  "parts": [
+   "VK Bridge",
+   "Аутентификация",
+   "VKWebAppSecureTokenGetInfo"
+  ],
+  "chars": 4864
+ },
+ {
+  "category": "vk-bridge",
+  "title": "Быстрый старт",
+  "breadcrumb": "VK Bridge → Быстрый старт",
+  "path": "vk-bridge/bystryy-start.md",
+  "parts": [
+   "VK Bridge",
+   "Быстрый старт"
+  ],
+  "chars": 8954
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowInviteBox",
+  "breadcrumb": "VK Bridge → Игры → VKWebAppShowInviteBox",
+  "path": "vk-bridge/igry-vkwebappshowinvitebox.md",
+  "parts": [
+   "VK Bridge",
+   "Игры",
+   "VKWebAppShowInviteBox"
+  ],
+  "chars": 5107
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppResizeWindow",
+  "breadcrumb": "VK Bridge → Интерфейс и навигация → VKWebAppResizeWindow",
+  "path": "vk-bridge/interfeys-i-navigaciya-vkwebappresizewindow.md",
+  "parts": [
+   "VK Bridge",
+   "Интерфейс и навигация",
+   "VKWebAppResizeWindow"
+  ],
+  "chars": 2858
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppOpenCodeReader",
+  "breadcrumb": "VK Bridge → Общие события → VKWebAppOpenCodeReader",
+  "path": "vk-bridge/obschie-sobytiya-vkwebappopencodereader.md",
+  "parts": [
+   "VK Bridge",
+   "Общие события",
+   "VKWebAppOpenCodeReader"
+  ],
+  "chars": 2730
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppOpenWallPost",
+  "breadcrumb": "VK Bridge → Общие события → VKWebAppOpenWallPost",
+  "path": "vk-bridge/obschie-sobytiya-vkwebappopenwallpost.md",
+  "parts": [
+   "VK Bridge",
+   "Общие события",
+   "VKWebAppOpenWallPost"
+  ],
+  "chars": 3085
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowImages",
+  "breadcrumb": "VK Bridge → Общие события → VKWebAppShowImages",
+  "path": "vk-bridge/obschie-sobytiya-vkwebappshowimages.md",
+  "parts": [
+   "VK Bridge",
+   "Общие события",
+   "VKWebAppShowImages"
+  ],
+  "chars": 3008
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppTranslate",
+  "breadcrumb": "VK Bridge → Общие события → VKWebAppTranslate",
+  "path": "vk-bridge/obschie-sobytiya-vkwebapptranslate.md",
+  "parts": [
+   "VK Bridge",
+   "Общие события",
+   "VKWebAppTranslate"
+  ],
+  "chars": 5312
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowSubscriptionBox",
+  "breadcrumb": "VK Bridge → Платежи → VKWebAppShowSubscriptionBox",
+  "path": "vk-bridge/platezhi-vkwebappshowsubscriptionbox.md",
+  "parts": [
+   "VK Bridge",
+   "Платежи",
+   "VKWebAppShowSubscriptionBox"
+  ],
+  "chars": 6283
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetGeodata",
+  "breadcrumb": "VK Bridge → Пользователи → VKWebAppGetGeodata",
+  "path": "vk-bridge/polzovateli-vkwebappgetgeodata.md",
+  "parts": [
+   "VK Bridge",
+   "Пользователи",
+   "VKWebAppGetGeodata"
+  ],
+  "chars": 8576
+ },
+ {
+  "category": "vk-bridge",
+  "title": "Позвонить пользователю",
+  "breadcrumb": "VK Bridge → Позвонить пользователю",
+  "path": "vk-bridge/pozvonit-polzovatelyu.md",
+  "parts": [
+   "VK Bridge",
+   "Позвонить пользователю"
+  ],
+  "chars": 349
+ },
+ {
+  "category": "vk-bridge",
+  "title": "Работа VK Bridge в фоновом режиме",
+  "breadcrumb": "VK Bridge → Работа VK Bridge в фоновом режиме",
+  "path": "vk-bridge/rabota-vk-bridge-v-fonovom-rezhime.md",
+  "parts": [
+   "VK Bridge",
+   "Работа VK Bridge в фоновом режиме"
+  ],
+  "chars": 2359
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppStorageGetKeys",
+  "breadcrumb": "VK Bridge → Секция Storage → VKWebAppStorageGetKeys",
+  "path": "vk-bridge/sekciya-storage-vkwebappstoragegetkeys.md",
+  "parts": [
+   "VK Bridge",
+   "Секция Storage",
+   "VKWebAppStorageGetKeys"
+  ],
+  "chars": 2997
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppLocationChanged",
+  "breadcrumb": "VK Bridge → События жизненного цикла → VKWebAppLocationChanged",
+  "path": "vk-bridge/sobytiya-zhiznennogo-cikla-vkwebapplocationchanged.md",
+  "parts": [
+   "VK Bridge",
+   "События жизненного цикла",
+   "VKWebAppLocationChanged"
+  ],
+  "chars": 1198
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAllowMessagesFromGroup",
+  "breadcrumb": "VK Bridge → Сообщества → VKWebAppAllowMessagesFromGroup",
+  "path": "vk-bridge/soobschestva-vkwebappallowmessagesfromgroup.md",
+  "parts": [
+   "VK Bridge",
+   "Сообщества",
+   "VKWebAppAllowMessagesFromGroup"
+  ],
+  "chars": 3522
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppJoinGroup",
+  "breadcrumb": "VK Bridge → Сообщества → VKWebAppJoinGroup",
+  "path": "vk-bridge/soobschestva-vkwebappjoingroup.md",
+  "parts": [
+   "VK Bridge",
+   "Сообщества",
+   "VKWebAppJoinGroup"
+  ],
+  "chars": 2902
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppFlashSetLevel",
+  "breadcrumb": "VK Bridge → Управление фонариком → VKWebAppFlashSetLevel",
+  "path": "vk-bridge/upravlenie-fonarikom-vkwebappflashsetlevel.md",
+  "parts": [
+   "VK Bridge",
+   "Управление фонариком",
+   "VKWebAppFlashSetLevel"
+  ],
+  "chars": 2643
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppTapticNotificationOccurred",
+  "breadcrumb": "VK Bridge → Виброотклик (Taptic Engine) → VKWebAppTapticNotificationOccurred",
+  "path": "vk-bridge/vibrootklik-taptic-engine-vkwebapptapticnotificationoccurred.md",
+  "parts": [
+   "VK Bridge",
+   "Виброотклик (Taptic Engine)",
+   "VKWebAppTapticNotificationOccurred"
+  ],
+  "chars": 4372
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppTapticSelectionChanged",
+  "breadcrumb": "VK Bridge → Виброотклик (Taptic Engine) → VKWebAppTapticSelectionChanged",
+  "path": "vk-bridge/vibrootklik-taptic-engine-vkwebapptapticselectionchanged.md",
+  "parts": [
+   "VK Bridge",
+   "Виброотклик (Taptic Engine)",
+   "VKWebAppTapticSelectionChanged"
+  ],
+  "chars": 4234
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAccelerometerStart",
+  "breadcrumb": "VK Bridge → VKWebAppAccelerometerStart",
+  "path": "vk-bridge/vkwebappaccelerometerstart.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAccelerometerStart"
+  ],
+  "chars": 5225
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAccelerometerStop",
+  "breadcrumb": "VK Bridge → VKWebAppAccelerometerStop",
+  "path": "vk-bridge/vkwebappaccelerometerstop.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAccelerometerStop"
+  ],
+  "chars": 2649
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAddToChat",
+  "breadcrumb": "VK Bridge → VKWebAppAddToChat",
+  "path": "vk-bridge/vkwebappaddtochat.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAddToChat"
+  ],
+  "chars": 4361
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAddToCommunity",
+  "breadcrumb": "VK Bridge → VKWebAppAddToCommunity",
+  "path": "vk-bridge/vkwebappaddtocommunity.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAddToCommunity"
+  ],
+  "chars": 3868
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAddToFavorites",
+  "breadcrumb": "VK Bridge → VKWebAppAddToFavorites",
+  "path": "vk-bridge/vkwebappaddtofavorites.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAddToFavorites"
+  ],
+  "chars": 3426
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAddToHomeScreen",
+  "breadcrumb": "VK Bridge → VKWebAppAddToHomeScreen",
+  "path": "vk-bridge/vkwebappaddtohomescreen.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAddToHomeScreen"
+  ],
+  "chars": 3232
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAddToHomeScreenInfo",
+  "breadcrumb": "VK Bridge → VKWebAppAddToHomeScreenInfo",
+  "path": "vk-bridge/vkwebappaddtohomescreeninfo.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAddToHomeScreenInfo"
+  ],
+  "chars": 3561
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppAllowNotifications",
+  "breadcrumb": "VK Bridge → VKWebAppAllowNotifications",
+  "path": "vk-bridge/vkwebappallownotifications.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppAllowNotifications"
+  ],
+  "chars": 3975
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppBannerAdClosedByUser",
+  "breadcrumb": "VK Bridge → VKWebAppBannerAdClosedByUser",
+  "path": "vk-bridge/vkwebappbanneradclosedbyuser.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppBannerAdClosedByUser"
+  ],
+  "chars": 3767
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppBannerAdUpdated",
+  "breadcrumb": "VK Bridge → VKWebAppBannerAdUpdated",
+  "path": "vk-bridge/vkwebappbanneradupdated.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppBannerAdUpdated"
+  ],
+  "chars": 3744
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallAPIMethod",
+  "breadcrumb": "VK Bridge → VKWebAppCallAPIMethod",
+  "path": "vk-bridge/vkwebappcallapimethod.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallAPIMethod"
+  ],
+  "chars": 4760
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallFinished",
+  "breadcrumb": "VK Bridge → VKWebAppCallFinished",
+  "path": "vk-bridge/vkwebappcallfinished.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallFinished"
+  ],
+  "chars": 1407
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallGetStatus",
+  "breadcrumb": "VK Bridge → VKWebAppCallGetStatus",
+  "path": "vk-bridge/vkwebappcallgetstatus.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallGetStatus"
+  ],
+  "chars": 2898
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallJoin",
+  "breadcrumb": "VK Bridge → VKWebAppCallJoin",
+  "path": "vk-bridge/vkwebappcalljoin.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallJoin"
+  ],
+  "chars": 3348
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallLeft",
+  "breadcrumb": "VK Bridge → VKWebAppCallLeft",
+  "path": "vk-bridge/vkwebappcallleft.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallLeft"
+  ],
+  "chars": 1398
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCallStart",
+  "breadcrumb": "VK Bridge → VKWebAppCallStart",
+  "path": "vk-bridge/vkwebappcallstart.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCallStart"
+  ],
+  "chars": 2951
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppChangeFragment",
+  "breadcrumb": "VK Bridge → VKWebAppChangeFragment",
+  "path": "vk-bridge/vkwebappchangefragment.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppChangeFragment"
+  ],
+  "chars": 2870
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCheckAllowedScopes",
+  "breadcrumb": "VK Bridge → VKWebAppCheckAllowedScopes",
+  "path": "vk-bridge/vkwebappcheckallowedscopes.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCheckAllowedScopes"
+  ],
+  "chars": 6026
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCheckBannerAd",
+  "breadcrumb": "VK Bridge → VKWebAppCheckBannerAd",
+  "path": "vk-bridge/vkwebappcheckbannerad.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCheckBannerAd"
+  ],
+  "chars": 5369
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCheckNativeAds",
+  "breadcrumb": "VK Bridge → VKWebAppCheckNativeAds",
+  "path": "vk-bridge/vkwebappchecknativeads.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCheckNativeAds"
+  ],
+  "chars": 6951
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppClose",
+  "breadcrumb": "VK Bridge → VKWebAppClose",
+  "path": "vk-bridge/vkwebappclose.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppClose"
+  ],
+  "chars": 3785
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppConversionHit",
+  "breadcrumb": "VK Bridge → VKWebAppConversionHit",
+  "path": "vk-bridge/vkwebappconversionhit.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppConversionHit"
+  ],
+  "chars": 5566
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCopyText",
+  "breadcrumb": "VK Bridge → VKWebAppCopyText",
+  "path": "vk-bridge/vkwebappcopytext.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCopyText"
+  ],
+  "chars": 2929
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppCreateHash",
+  "breadcrumb": "VK Bridge → VKWebAppCreateHash",
+  "path": "vk-bridge/vkwebappcreatehash.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppCreateHash"
+  ],
+  "chars": 4712
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppDenyNotifications",
+  "breadcrumb": "VK Bridge → VKWebAppDenyNotifications",
+  "path": "vk-bridge/vkwebappdenynotifications.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppDenyNotifications"
+  ],
+  "chars": 3448
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppDeviceMotionStart",
+  "breadcrumb": "VK Bridge → VKWebAppDeviceMotionStart",
+  "path": "vk-bridge/vkwebappdevicemotionstart.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppDeviceMotionStart"
+  ],
+  "chars": 6338
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppDeviceMotionStop",
+  "breadcrumb": "VK Bridge → VKWebAppDeviceMotionStop",
+  "path": "vk-bridge/vkwebappdevicemotionstop.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppDeviceMotionStop"
+  ],
+  "chars": 2758
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppDownloadFile",
+  "breadcrumb": "VK Bridge → VKWebAppDownloadFile",
+  "path": "vk-bridge/vkwebappdownloadfile.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppDownloadFile"
+  ],
+  "chars": 3449
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppFlashGetInfo",
+  "breadcrumb": "VK Bridge → VKWebAppFlashGetInfo",
+  "path": "vk-bridge/vkwebappflashgetinfo.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppFlashGetInfo"
+  ],
+  "chars": 2755
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetAuthToken",
+  "breadcrumb": "VK Bridge → VKWebAppGetAuthToken",
+  "path": "vk-bridge/vkwebappgetauthtoken.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetAuthToken"
+  ],
+  "chars": 6327
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetClientVersion",
+  "breadcrumb": "VK Bridge → VKWebAppGetClientVersion",
+  "path": "vk-bridge/vkwebappgetclientversion.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetClientVersion"
+  ],
+  "chars": 4212
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetCommunityToken",
+  "breadcrumb": "VK Bridge → VKWebAppGetCommunityToken",
+  "path": "vk-bridge/vkwebappgetcommunitytoken.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetCommunityToken"
+  ],
+  "chars": 4315
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetConfig",
+  "breadcrumb": "VK Bridge → VKWebAppGetConfig",
+  "path": "vk-bridge/vkwebappgetconfig.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetConfig"
+  ],
+  "chars": 6646
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetEmail",
+  "breadcrumb": "VK Bridge → VKWebAppGetEmail",
+  "path": "vk-bridge/vkwebappgetemail.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetEmail"
+  ],
+  "chars": 5125
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetFriends",
+  "breadcrumb": "VK Bridge → VKWebAppGetFriends",
+  "path": "vk-bridge/vkwebappgetfriends.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetFriends"
+  ],
+  "chars": 4729
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetGrantedPermissions",
+  "breadcrumb": "VK Bridge → VKWebAppGetGrantedPermissions",
+  "path": "vk-bridge/vkwebappgetgrantedpermissions.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetGrantedPermissions"
+  ],
+  "chars": 3315
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetGroupInfo",
+  "breadcrumb": "VK Bridge → VKWebAppGetGroupInfo",
+  "path": "vk-bridge/vkwebappgetgroupinfo.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetGroupInfo"
+  ],
+  "chars": 6457
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetLaunchParams",
+  "breadcrumb": "VK Bridge → VKWebAppGetLaunchParams",
+  "path": "vk-bridge/vkwebappgetlaunchparams.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetLaunchParams"
+  ],
+  "chars": 3729
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetPersonalCard",
+  "breadcrumb": "VK Bridge → VKWebAppGetPersonalCard",
+  "path": "vk-bridge/vkwebappgetpersonalcard.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetPersonalCard"
+  ],
+  "chars": 4934
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetPhoneNumber",
+  "breadcrumb": "VK Bridge → VKWebAppGetPhoneNumber",
+  "path": "vk-bridge/vkwebappgetphonenumber.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetPhoneNumber"
+  ],
+  "chars": 4777
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGetUserInfo",
+  "breadcrumb": "VK Bridge → VKWebAppGetUserInfo",
+  "path": "vk-bridge/vkwebappgetuserinfo.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGetUserInfo"
+  ],
+  "chars": 8510
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGyroscopeStart",
+  "breadcrumb": "VK Bridge → VKWebAppGyroscopeStart",
+  "path": "vk-bridge/vkwebappgyroscopestart.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGyroscopeStart"
+  ],
+  "chars": 4910
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppGyroscopeStop",
+  "breadcrumb": "VK Bridge → VKWebAppGyroscopeStop",
+  "path": "vk-bridge/vkwebappgyroscopestop.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppGyroscopeStop"
+  ],
+  "chars": 2596
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppHideBannerAd",
+  "breadcrumb": "VK Bridge → VKWebAppHideBannerAd",
+  "path": "vk-bridge/vkwebapphidebannerad.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppHideBannerAd"
+  ],
+  "chars": 5184
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppInit",
+  "breadcrumb": "VK Bridge → VKWebAppInit",
+  "path": "vk-bridge/vkwebappinit.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppInit"
+  ],
+  "chars": 3778
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppLeaveGroup",
+  "breadcrumb": "VK Bridge → VKWebAppLeaveGroup",
+  "path": "vk-bridge/vkwebappleavegroup.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppLeaveGroup"
+  ],
+  "chars": 2913
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppOpenApp",
+  "breadcrumb": "VK Bridge → VKWebAppOpenApp",
+  "path": "vk-bridge/vkwebappopenapp.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppOpenApp"
+  ],
+  "chars": 3939
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppOpenContacts",
+  "breadcrumb": "VK Bridge → VKWebAppOpenContacts",
+  "path": "vk-bridge/vkwebappopencontacts.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppOpenContacts"
+  ],
+  "chars": 3129
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppOpenPayForm",
+  "breadcrumb": "VK Bridge → VKWebAppOpenPayForm",
+  "path": "vk-bridge/vkwebappopenpayform.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppOpenPayForm"
+  ],
+  "chars": 4823
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppRecommend",
+  "breadcrumb": "VK Bridge → VKWebAppRecommend",
+  "path": "vk-bridge/vkwebapprecommend.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppRecommend"
+  ],
+  "chars": 3539
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppRetargetingPixel",
+  "breadcrumb": "VK Bridge → VKWebAppRetargetingPixel",
+  "path": "vk-bridge/vkwebappretargetingpixel.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppRetargetingPixel"
+  ],
+  "chars": 5987
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppScroll",
+  "breadcrumb": "VK Bridge → VKWebAppScroll",
+  "path": "vk-bridge/vkwebappscroll.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppScroll"
+  ],
+  "chars": 2895
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppScrollTop",
+  "breadcrumb": "VK Bridge → VKWebAppScrollTop",
+  "path": "vk-bridge/vkwebappscrolltop.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppScrollTop"
+  ],
+  "chars": 2500
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppScrollTopStart",
+  "breadcrumb": "VK Bridge → VKWebAppScrollTopStart",
+  "path": "vk-bridge/vkwebappscrolltopstart.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppScrollTopStart"
+  ],
+  "chars": 2672
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppScrollTopStop",
+  "breadcrumb": "VK Bridge → VKWebAppScrollTopStop",
+  "path": "vk-bridge/vkwebappscrolltopstop.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppScrollTopStop"
+  ],
+  "chars": 2586
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSecureTokenGet",
+  "breadcrumb": "VK Bridge → VKWebAppSecureTokenGet",
+  "path": "vk-bridge/vkwebappsecuretokenget.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSecureTokenGet"
+  ],
+  "chars": 3769
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSecureTokenRemove",
+  "breadcrumb": "VK Bridge → VKWebAppSecureTokenRemove",
+  "path": "vk-bridge/vkwebappsecuretokenremove.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSecureTokenRemove"
+  ],
+  "chars": 3660
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSecureTokenRequestAccess",
+  "breadcrumb": "VK Bridge → VKWebAppSecureTokenRequestAccess",
+  "path": "vk-bridge/vkwebappsecuretokenrequestaccess.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSecureTokenRequestAccess"
+  ],
+  "chars": 3782
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSecureTokenSet",
+  "breadcrumb": "VK Bridge → VKWebAppSecureTokenSet",
+  "path": "vk-bridge/vkwebappsecuretokenset.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSecureTokenSet"
+  ],
+  "chars": 4132
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSendPayload",
+  "breadcrumb": "VK Bridge → VKWebAppSendPayload",
+  "path": "vk-bridge/vkwebappsendpayload.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSendPayload"
+  ],
+  "chars": 3391
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSendToClient",
+  "breadcrumb": "VK Bridge → VKWebAppSendToClient",
+  "path": "vk-bridge/vkwebappsendtoclient.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSendToClient"
+  ],
+  "chars": 2804
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSetLocation",
+  "breadcrumb": "VK Bridge → VKWebAppSetLocation",
+  "path": "vk-bridge/vkwebappsetlocation.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSetLocation"
+  ],
+  "chars": 2965
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSetSwipeSettings",
+  "breadcrumb": "VK Bridge → VKWebAppSetSwipeSettings",
+  "path": "vk-bridge/vkwebappsetswipesettings.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSetSwipeSettings"
+  ],
+  "chars": 2756
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppSetViewSettings",
+  "breadcrumb": "VK Bridge → VKWebAppSetViewSettings",
+  "path": "vk-bridge/vkwebappsetviewsettings.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppSetViewSettings"
+  ],
+  "chars": 3121
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShare",
+  "breadcrumb": "VK Bridge → VKWebAppShare",
+  "path": "vk-bridge/vkwebappshare.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShare"
+  ],
+  "chars": 4918
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowBannerAd",
+  "breadcrumb": "VK Bridge → VKWebAppShowBannerAd",
+  "path": "vk-bridge/vkwebappshowbannerad.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowBannerAd"
+  ],
+  "chars": 7955
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowCommunityWidgetPreviewBox",
+  "breadcrumb": "VK Bridge → VKWebAppShowCommunityWidgetPreviewBox",
+  "path": "vk-bridge/vkwebappshowcommunitywidgetpreviewbox.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowCommunityWidgetPreviewBox"
+  ],
+  "chars": 4533
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowLeaderBoardBox",
+  "breadcrumb": "VK Bridge → VKWebAppShowLeaderBoardBox",
+  "path": "vk-bridge/vkwebappshowleaderboardbox.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowLeaderBoardBox"
+  ],
+  "chars": 5311
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowNativeAds",
+  "breadcrumb": "VK Bridge → VKWebAppShowNativeAds",
+  "path": "vk-bridge/vkwebappshownativeads.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowNativeAds"
+  ],
+  "chars": 6424
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowOrderBox",
+  "breadcrumb": "VK Bridge → VKWebAppShowOrderBox",
+  "path": "vk-bridge/vkwebappshoworderbox.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowOrderBox"
+  ],
+  "chars": 4269
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowRequestBox",
+  "breadcrumb": "VK Bridge → VKWebAppShowRequestBox",
+  "path": "vk-bridge/vkwebappshowrequestbox.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowRequestBox"
+  ],
+  "chars": 4935
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowSlidesSheet",
+  "breadcrumb": "VK Bridge → VKWebAppShowSlidesSheet",
+  "path": "vk-bridge/vkwebappshowslidessheet.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowSlidesSheet"
+  ],
+  "chars": 4773
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppShowStoryBox",
+  "breadcrumb": "VK Bridge → VKWebAppShowStoryBox",
+  "path": "vk-bridge/vkwebappshowstorybox.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppShowStoryBox"
+  ],
+  "chars": 28051
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppStorageGet",
+  "breadcrumb": "VK Bridge → VKWebAppStorageGet",
+  "path": "vk-bridge/vkwebappstorageget.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppStorageGet"
+  ],
+  "chars": 3303
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppStorageSet",
+  "breadcrumb": "VK Bridge → VKWebAppStorageSet",
+  "path": "vk-bridge/vkwebappstorageset.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppStorageSet"
+  ],
+  "chars": 5418
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppTapticImpactOccurred",
+  "breadcrumb": "VK Bridge → VKWebAppTapticImpactOccurred",
+  "path": "vk-bridge/vkwebapptapticimpactoccurred.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppTapticImpactOccurred"
+  ],
+  "chars": 4322
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppTrackEvent",
+  "breadcrumb": "VK Bridge → VKWebAppTrackEvent",
+  "path": "vk-bridge/vkwebapptrackevent.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppTrackEvent"
+  ],
+  "chars": 3762
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppUpdateConfig",
+  "breadcrumb": "VK Bridge → VKWebAppUpdateConfig",
+  "path": "vk-bridge/vkwebappupdateconfig.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppUpdateConfig"
+  ],
+  "chars": 5259
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppViewHide",
+  "breadcrumb": "VK Bridge → VKWebAppViewHide",
+  "path": "vk-bridge/vkwebappviewhide.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppViewHide"
+  ],
+  "chars": 2191
+ },
+ {
+  "category": "vk-bridge",
+  "title": "VKWebAppViewRestore",
+  "breadcrumb": "VK Bridge → VKWebAppViewRestore",
+  "path": "vk-bridge/vkwebappviewrestore.md",
+  "parts": [
+   "VK Bridge",
+   "VKWebAppViewRestore"
+  ],
+  "chars": 2311
+ },
+ {
+  "category": "vk-bridge",
+  "title": "Введение",
+  "breadcrumb": "VK Bridge → Введение",
+  "path": "vk-bridge/vvedenie.md",
+  "parts": [
+   "VK Bridge",
+   "Введение"
+  ],
+  "chars": 16414
+ },
+ {
+  "category": "vk-games",
+  "title": "Изменения в играх от 8 августа 2024 года",
+  "breadcrumb": "VK Games → Архив → Изменения в играх от 8 августа 2024 года",
+  "path": "vk-games/arhiv-izmeneniya-v-igrah-ot-8-avgusta-2024-goda.md",
+  "parts": [
+   "VK Games",
+   "Архив",
+   "Изменения в играх от 8 августа 2024 года"
+  ],
+  "chars": 4362
+ },
+ {
+  "category": "vk-games",
+  "title": "Права доступа",
+  "breadcrumb": "VK Games → Архив → Права доступа",
+  "path": "vk-games/arhiv-prava-dostupa.md",
+  "parts": [
+   "VK Games",
+   "Архив",
+   "Права доступа"
+  ],
+  "chars": 14747
+ },
+ {
+  "category": "vk-games",
+  "title": "Устаревшие параметры запуска",
+  "breadcrumb": "VK Games → Архив → Устаревшие параметры запуска",
+  "path": "vk-games/arhiv-ustarevshie-parametry-zapuska.md",
+  "parts": [
+   "VK Games",
+   "Архив",
+   "Устаревшие параметры запуска"
+  ],
+  "chars": 15526
+ },
+ {
+  "category": "vk-games",
+  "title": "Библиотека VK Bridge",
+  "breadcrumb": "VK Games → Библиотека VK Bridge",
+  "path": "vk-games/biblioteka-vk-bridge.md",
+  "parts": [
+   "VK Games",
+   "Библиотека VK Bridge"
+  ],
+  "chars": 1070
+ },
+ {
+  "category": "vk-games",
+  "title": "Частые вопросы",
+  "breadcrumb": "VK Games → Частые вопросы",
+  "path": "vk-games/chastye-voprosy.md",
+  "parts": [
+   "VK Games",
+   "Частые вопросы"
+  ],
+  "chars": 6463
+ },
+ {
+  "category": "vk-games",
+  "title": "Игровая платформа",
+  "breadcrumb": "VK Games → Игровая платформа",
+  "path": "vk-games/igrovaya-platforma.md",
+  "parts": [
+   "VK Games",
+   "Игровая платформа"
+  ],
+  "chars": 2110
+ },
+ {
+  "category": "vk-games",
+  "title": "Как попасть в каталоги ВКонтакте и Одноклассников",
+  "breadcrumb": "VK Games → Каталоги → Как попасть в каталоги ВКонтакте и Одноклассников",
+  "path": "vk-games/katalogi-kak-popast-v-katalogi-vkontakte-i-odnoklassnikov.md",
+  "parts": [
+   "VK Games",
+   "Каталоги",
+   "Как попасть в каталоги ВКонтакте и Одноклассников"
+  ],
+  "chars": 9016
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Каталоги → Обзор",
+  "path": "vk-games/katalogi-obzor.md",
+  "parts": [
+   "VK Games",
+   "Каталоги",
+   "Обзор"
+  ],
+  "chars": 5088
+ },
+ {
+  "category": "vk-games",
+  "title": "Продажа игровых товаров",
+  "breadcrumb": "VK Games → Монетизация → Продажа игровых товаров",
+  "path": "vk-games/monetizaciya-prodazha-igrovyh-tovarov.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Продажа игровых товаров"
+  ],
+  "chars": 8229
+ },
+ {
+  "category": "vk-games",
+  "title": "Баннерная реклама",
+  "breadcrumb": "VK Games → Монетизация → Реклама в играх → Баннерная реклама",
+  "path": "vk-games/monetizaciya-reklama-v-igrah-bannernaya-reklama.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Реклама в играх",
+   "Баннерная реклама"
+  ],
+  "chars": 4547
+ },
+ {
+  "category": "vk-games",
+  "title": "Добавление рекламы в код игры",
+  "breadcrumb": "VK Games → Монетизация → Реклама в играх → Добавление рекламы в код игры",
+  "path": "vk-games/monetizaciya-reklama-v-igrah-dobavlenie-reklamy-v-kod-igry.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Реклама в играх",
+   "Добавление рекламы в код игры"
+  ],
+  "chars": 7483
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Монетизация → Реклама в играх → Обзор",
+  "path": "vk-games/monetizaciya-reklama-v-igrah-obzor.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Реклама в играх",
+   "Обзор"
+  ],
+  "chars": 5470
+ },
+ {
+  "category": "vk-games",
+  "title": "Правила показа рекламы",
+  "breadcrumb": "VK Games → Монетизация → Реклама в играх → Правила показа рекламы",
+  "path": "vk-games/monetizaciya-reklama-v-igrah-pravila-pokaza-reklamy.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Реклама в играх",
+   "Правила показа рекламы"
+  ],
+  "chars": 3055
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Монетизация → Вывод средств → Обзор",
+  "path": "vk-games/monetizaciya-vyvod-sredstv-obzor.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Вывод средств",
+   "Обзор"
+  ],
+  "chars": 1627
+ },
+ {
+  "category": "vk-games",
+  "title": "Самозанятые — Россия",
+  "breadcrumb": "VK Games → Монетизация → Вывод средств → Самозанятые — Россия",
+  "path": "vk-games/monetizaciya-vyvod-sredstv-samozanyatye-rossiya.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Вывод средств",
+   "Самозанятые — Россия"
+  ],
+  "chars": 8933
+ },
+ {
+  "category": "vk-games",
+  "title": "Юрлица и ИП — Россия",
+  "breadcrumb": "VK Games → Монетизация → Вывод средств → Юрлица и ИП — Россия",
+  "path": "vk-games/monetizaciya-vyvod-sredstv-yurlica-i-ip-rossiya.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Вывод средств",
+   "Юрлица и ИП — Россия"
+  ],
+  "chars": 11679
+ },
+ {
+  "category": "vk-games",
+  "title": "Зарубежные авторы",
+  "breadcrumb": "VK Games → Монетизация → Вывод средств → Зарубежные авторы",
+  "path": "vk-games/monetizaciya-vyvod-sredstv-zarubezhnye-avtory.md",
+  "parts": [
+   "VK Games",
+   "Монетизация",
+   "Вывод средств",
+   "Зарубежные авторы"
+  ],
+  "chars": 369
+ },
+ {
+  "category": "vk-games",
+  "title": "Где используются настройки в интерфейсе ВКонтакте",
+  "breadcrumb": "VK Games → Настройки → Где используются настройки в интерфейсе ВКонтакте",
+  "path": "vk-games/nastroyki-gde-ispolzuyutsya-nastroyki-v-interfeyse-vkontakte.md",
+  "parts": [
+   "VK Games",
+   "Настройки",
+   "Где используются настройки в интерфейсе ВКонтакте"
+  ],
+  "chars": 2426
+ },
+ {
+  "category": "vk-games",
+  "title": "Администраторы",
+  "breadcrumb": "VK Games → Панель управления → Администраторы",
+  "path": "vk-games/panel-upravleniya-administratory.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Администраторы"
+  ],
+  "chars": 9050
+ },
+ {
+  "category": "vk-games",
+  "title": "Доступ к приложению",
+  "breadcrumb": "VK Games → Панель управления → Доступ к приложению",
+  "path": "vk-games/panel-upravleniya-dostup-k-prilozheniyu.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Доступ к приложению"
+  ],
+  "chars": 2630
+ },
+ {
+  "category": "vk-games",
+  "title": "Фичеринг",
+  "breadcrumb": "VK Games → Панель управления → Фичеринг",
+  "path": "vk-games/panel-upravleniya-fichering.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Фичеринг"
+  ],
+  "chars": 1350
+ },
+ {
+  "category": "vk-games",
+  "title": "Модерация",
+  "breadcrumb": "VK Games → Панель управления → Модерация",
+  "path": "vk-games/panel-upravleniya-moderaciya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Модерация"
+  ],
+  "chars": 4905
+ },
+ {
+  "category": "vk-games",
+  "title": "Монетизация",
+  "breadcrumb": "VK Games → Панель управления → Монетизация",
+  "path": "vk-games/panel-upravleniya-monetizaciya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Монетизация"
+  ],
+  "chars": 1585
+ },
+ {
+  "category": "vk-games",
+  "title": "Дополнительные",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Дополнительные",
+  "path": "vk-games/panel-upravleniya-nastroyki-dopolnitelnye.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Дополнительные"
+  ],
+  "chars": 4430
+ },
+ {
+  "category": "vk-games",
+  "title": "Другие площадки",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Другие площадки",
+  "path": "vk-games/panel-upravleniya-nastroyki-drugie-ploschadki.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Другие площадки"
+  ],
+  "chars": 2491
+ },
+ {
+  "category": "vk-games",
+  "title": "Информация",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Информация",
+  "path": "vk-games/panel-upravleniya-nastroyki-informaciya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Информация"
+  ],
+  "chars": 5533
+ },
+ {
+  "category": "vk-games",
+  "title": "Оформление",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Оформление",
+  "path": "vk-games/panel-upravleniya-nastroyki-oformlenie.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Оформление"
+  ],
+  "chars": 7594
+ },
+ {
+  "category": "vk-games",
+  "title": "Отображение",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Отображение",
+  "path": "vk-games/panel-upravleniya-nastroyki-otobrazhenie.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Отображение"
+  ],
+  "chars": 3701
+ },
+ {
+  "category": "vk-games",
+  "title": "Помощь",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Помощь",
+  "path": "vk-games/panel-upravleniya-nastroyki-pomosch.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Помощь"
+  ],
+  "chars": 736
+ },
+ {
+  "category": "vk-games",
+  "title": "Правовые документы",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Правовые документы",
+  "path": "vk-games/panel-upravleniya-nastroyki-pravovye-dokumenty.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Правовые документы"
+  ],
+  "chars": 1194
+ },
+ {
+  "category": "vk-games",
+  "title": "Размещение",
+  "breadcrumb": "VK Games → Панель управления → Настройки → Размещение",
+  "path": "vk-games/panel-upravleniya-nastroyki-razmeschenie.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Настройки",
+   "Размещение"
+  ],
+  "chars": 4535
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Панель управления → Обзор",
+  "path": "vk-games/panel-upravleniya-obzor.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Обзор"
+  ],
+  "chars": 2218
+ },
+ {
+  "category": "vk-games",
+  "title": "Подключение",
+  "breadcrumb": "VK Games → Панель управления → Платежи → Подключение",
+  "path": "vk-games/panel-upravleniya-platezhi-podklyuchenie.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Платежи",
+   "Подключение"
+  ],
+  "chars": 6491
+ },
+ {
+  "category": "vk-games",
+  "title": "Транзакции",
+  "breadcrumb": "VK Games → Панель управления → Платежи → Транзакции",
+  "path": "vk-games/panel-upravleniya-platezhi-tranzakcii.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Платежи",
+   "Транзакции"
+  ],
+  "chars": 1948
+ },
+ {
+  "category": "vk-games",
+  "title": "Вывод",
+  "breadcrumb": "VK Games → Панель управления → Платежи → Вывод",
+  "path": "vk-games/panel-upravleniya-platezhi-vyvod.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Платежи",
+   "Вывод"
+  ],
+  "chars": 1298
+ },
+ {
+  "category": "vk-games",
+  "title": "Хранимые процедуры",
+  "breadcrumb": "VK Games → Панель управления → Разработка → Хранимые процедуры",
+  "path": "vk-games/panel-upravleniya-razrabotka-hranimye-procedury.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Разработка",
+   "Хранимые процедуры"
+  ],
+  "chars": 6423
+ },
+ {
+  "category": "vk-games",
+  "title": "Ключи доступа",
+  "breadcrumb": "VK Games → Панель управления → Разработка → Ключи доступа",
+  "path": "vk-games/panel-upravleniya-razrabotka-klyuchi-dostupa.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Разработка",
+   "Ключи доступа"
+  ],
+  "chars": 2760
+ },
+ {
+  "category": "vk-games",
+  "title": "События приложения",
+  "breadcrumb": "VK Games → Панель управления → События приложения",
+  "path": "vk-games/panel-upravleniya-sobytiya-prilozheniya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "События приложения"
+  ],
+  "chars": 1354
+ },
+ {
+  "category": "vk-games",
+  "title": "Миссии",
+  "breadcrumb": "VK Games → Панель управления → Соц. механики → Миссии",
+  "path": "vk-games/panel-upravleniya-soc-mehaniki-missii.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Соц. механики",
+   "Миссии"
+  ],
+  "chars": 3713
+ },
+ {
+  "category": "vk-games",
+  "title": "Уведомления",
+  "breadcrumb": "VK Games → Панель управления → Соц. механики → Уведомления",
+  "path": "vk-games/panel-upravleniya-soc-mehaniki-uvedomleniya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Соц. механики",
+   "Уведомления"
+  ],
+  "chars": 5126
+ },
+ {
+  "category": "vk-games",
+  "title": "Аудитория",
+  "breadcrumb": "VK Games → Панель управления → Статистика → Аудитория",
+  "path": "vk-games/panel-upravleniya-statistika-auditoriya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Статистика",
+   "Аудитория"
+  ],
+  "chars": 2648
+ },
+ {
+  "category": "vk-games",
+  "title": "Платежи",
+  "breadcrumb": "VK Games → Панель управления → Статистика → Платежи",
+  "path": "vk-games/panel-upravleniya-statistika-platezhi.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Статистика",
+   "Платежи"
+  ],
+  "chars": 2814
+ },
+ {
+  "category": "vk-games",
+  "title": "Рекламная монетизация",
+  "breadcrumb": "VK Games → Панель управления → Статистика → Рекламная монетизация",
+  "path": "vk-games/panel-upravleniya-statistika-reklamnaya-monetizaciya.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Статистика",
+   "Рекламная монетизация"
+  ],
+  "chars": 3065
+ },
+ {
+  "category": "vk-games",
+  "title": "Рейтинг популярности",
+  "breadcrumb": "VK Games → Панель управления → Статистика → Рейтинг популярности",
+  "path": "vk-games/panel-upravleniya-statistika-reyting-populyarnosti.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Статистика",
+   "Рейтинг популярности"
+  ],
+  "chars": 1484
+ },
+ {
+  "category": "vk-games",
+  "title": "Запросы к API",
+  "breadcrumb": "VK Games → Панель управления → Статистика → Запросы к API",
+  "path": "vk-games/panel-upravleniya-statistika-zaprosy-k-api.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Статистика",
+   "Запросы к API"
+  ],
+  "chars": 1618
+ },
+ {
+  "category": "vk-games",
+  "title": "Тестовые группы",
+  "breadcrumb": "VK Games → Панель управления → Тестовые группы",
+  "path": "vk-games/panel-upravleniya-testovye-gruppy.md",
+  "parts": [
+   "VK Games",
+   "Панель управления",
+   "Тестовые группы"
+  ],
+  "chars": 4105
+ },
+ {
+  "category": "vk-games",
+  "title": "Первые шаги",
+  "breadcrumb": "VK Games → Первые шаги",
+  "path": "vk-games/pervye-shagi.md",
+  "parts": [
+   "VK Games",
+   "Первые шаги"
+  ],
+  "chars": 16406
+ },
+ {
+  "category": "vk-games",
+  "title": "Преимущества для разработчиков и издателей",
+  "breadcrumb": "VK Games → Преимущества для разработчиков и издателей",
+  "path": "vk-games/preimuschestva-dlya-razrabotchikov-i-izdateley.md",
+  "parts": [
+   "VK Games",
+   "Преимущества для разработчиков и издателей"
+  ],
+  "chars": 1297
+ },
+ {
+  "category": "vk-games",
+  "title": "Добавление на главный экран устройства",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Добавление на главный экран устройства",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-dobavlenie-na-glav.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Добавление на главный экран устройства"
+  ],
+  "chars": 3190
+ },
+ {
+  "category": "vk-games",
+  "title": "Лента активности друзей",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Лента активности друзей",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-lenta-aktivnosti-d.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Лента активности друзей"
+  ],
+  "chars": 3962
+ },
+ {
+  "category": "vk-games",
+  "title": "Миссии",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Миссии",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-missii.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Миссии"
+  ],
+  "chars": 4917
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Обзор",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-obzor.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Обзор"
+  ],
+  "chars": 3836
+ },
+ {
+  "category": "vk-games",
+  "title": "Официальное сообщество для игры и мини‑приложения",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Официальное сообщество для игры и мини‑приложения",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-oficialnoe-soobsch.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Официальное сообщество для игры и мини‑приложения"
+  ],
+  "chars": 6322
+ },
+ {
+  "category": "vk-games",
+  "title": "Сниппеты игр",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Сниппеты игр",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-snippety-igr.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Сниппеты игр"
+  ],
+  "chars": 5943
+ },
+ {
+  "category": "vk-games",
+  "title": "Таблица результатов",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Таблица результатов",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-tablica-rezultatov.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Таблица результатов"
+  ],
+  "chars": 3864
+ },
+ {
+  "category": "vk-games",
+  "title": "Неактивным пользователям",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Уведомления → Неактивным пользователям",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-uvedomleniya-neakt.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Уведомления",
+   "Неактивным пользователям"
+  ],
+  "chars": 2880
+ },
+ {
+  "category": "vk-games",
+  "title": "Разовые",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Уведомления → Разовые",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-uvedomleniya-razov.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Уведомления",
+   "Разовые"
+  ],
+  "chars": 4996
+ },
+ {
+  "category": "vk-games",
+  "title": "Всем пользователям",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Уведомления → Всем пользователям",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-uvedomleniya-vsem.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Уведомления",
+   "Всем пользователям"
+  ],
+  "chars": 5004
+ },
+ {
+  "category": "vk-games",
+  "title": "Уведомления",
+  "breadcrumb": "VK Games → Продвижение → Игровые и социальные механики → Уведомления",
+  "path": "vk-games/prodvizhenie-igrovye-i-socialnye-mehaniki-uvedomleniya.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Игровые и социальные механики",
+   "Уведомления"
+  ],
+  "chars": 2956
+ },
+ {
+  "category": "vk-games",
+  "title": "Подборки игр в десктопной версии сайта ВКонтакте",
+  "breadcrumb": "VK Games → Продвижение → Подборки игр в десктопной версии сайта ВКонтакте",
+  "path": "vk-games/prodvizhenie-podborki-igr-v-desktopnoy-versii-sayta-vkontakt.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Подборки игр в десктопной версии сайта ВКонтакте"
+  ],
+  "chars": 8595
+ },
+ {
+  "category": "vk-games",
+  "title": "Подборки игр в каталоге ВКонтакте",
+  "breadcrumb": "VK Games → Продвижение → Подборки игр в каталоге ВКонтакте",
+  "path": "vk-games/prodvizhenie-podborki-igr-v-kataloge-vkontakte.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Подборки игр в каталоге ВКонтакте"
+  ],
+  "chars": 1849
+ },
+ {
+  "category": "vk-games",
+  "title": "Подборки игр в мобильном приложении ВКонтакте для iOS",
+  "breadcrumb": "VK Games → Продвижение → Подборки игр в мобильном приложении ВКонтакте для iOS",
+  "path": "vk-games/prodvizhenie-podborki-igr-v-mobilnom-prilozhenii-vkontakte-d.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Подборки игр в мобильном приложении ВКонтакте для iOS"
+  ],
+  "chars": 6136
+ },
+ {
+  "category": "vk-games",
+  "title": "Подборки в мобильном приложении ВКонтакте для Android",
+  "breadcrumb": "VK Games → Продвижение → Подборки → Подборки в мобильном приложении ВКонтакте для Android",
+  "path": "vk-games/prodvizhenie-podborki-podborki-v-mobilnom-prilozhenii-vkonta.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Подборки",
+   "Подборки в мобильном приложении ВКонтакте для Android"
+  ],
+  "chars": 8922
+ },
+ {
+  "category": "vk-games",
+  "title": "Подборки в мобильной версии сайта ВКонтакте",
+  "breadcrumb": "VK Games → Продвижение → Подборки в мобильной версии сайта ВКонтакте",
+  "path": "vk-games/prodvizhenie-podborki-v-mobilnoy-versii-sayta-vkontakte.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Подборки в мобильной версии сайта ВКонтакте"
+  ],
+  "chars": 8096
+ },
+ {
+  "category": "vk-games",
+  "title": "Рекламные объявления",
+  "breadcrumb": "VK Games → Продвижение → Рекламные объявления",
+  "path": "vk-games/prodvizhenie-reklamnye-obyavleniya.md",
+  "parts": [
+   "VK Games",
+   "Продвижение",
+   "Рекламные объявления"
+  ],
+  "chars": 7715
+ },
+ {
+  "category": "vk-games",
+  "title": "API-вызовы в игре",
+  "breadcrumb": "VK Games → Разработка → API-вызовы в игре",
+  "path": "vk-games/razrabotka-api-vyzovy-v-igre.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "API-вызовы в игре"
+  ],
+  "chars": 2038
+ },
+ {
+  "category": "vk-games",
+  "title": "Экран запуска",
+  "breadcrumb": "VK Games → Разработка → Экран запуска",
+  "path": "vk-games/razrabotka-ekran-zapuska.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Экран запуска"
+  ],
+  "chars": 2902
+ },
+ {
+  "category": "vk-games",
+  "title": "Добавление файлов на хостинг из автоматических сборок",
+  "breadcrumb": "VK Games → Разработка → ХХостинг статики → Добавление файлов на хостинг из автоматических сборок",
+  "path": "vk-games/razrabotka-hhosting-statiki-dobavlenie-faylov-na-hosting-iz.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "ХХостинг статики",
+   "Добавление файлов на хостинг из автоматических сборок"
+  ],
+  "chars": 4671
+ },
+ {
+  "category": "vk-games",
+  "title": "Файл vk-hosting-config.json",
+  "breadcrumb": "VK Games → Разработка → Хостинг статики → Файл vk-hosting-config.json",
+  "path": "vk-games/razrabotka-hosting-statiki-fayl-vk-hosting-config-json.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Хостинг статики",
+   "Файл vk-hosting-config.json"
+  ],
+  "chars": 2776
+ },
+ {
+  "category": "vk-games",
+  "title": "Обзор",
+  "breadcrumb": "VK Games → Разработка → Хостинг статики → Обзор",
+  "path": "vk-games/razrabotka-hosting-statiki-obzor.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Хостинг статики",
+   "Обзор"
+  ],
+  "chars": 9082
+ },
+ {
+  "category": "vk-games",
+  "title": "Обработка событий сворачивания и восстановления экрана игры",
+  "breadcrumb": "VK Games → Разработка → Обработка событий сворачивания и восстановления экрана игры",
+  "path": "vk-games/razrabotka-obrabotka-sobytiy-svorachivaniya-i-vosstanovleniy.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Обработка событий сворачивания и восстановления экрана игры"
+  ],
+  "chars": 4992
+ },
+ {
+  "category": "vk-games",
+  "title": "Отладка",
+  "breadcrumb": "VK Games → Разработка → Отладка",
+  "path": "vk-games/razrabotka-otladka.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Отладка"
+  ],
+  "chars": 6503
+ },
+ {
+  "category": "vk-games",
+  "title": "vk_ref",
+  "breadcrumb": "VK Games → Разработка → Параметры запуска → vk_ref",
+  "path": "vk-games/razrabotka-parametry-zapuska-vk-ref.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Параметры запуска",
+   "vk_ref"
+  ],
+  "chars": 4143
+ },
+ {
+  "category": "vk-games",
+  "title": "Параметры запуска",
+  "breadcrumb": "VK Games → Разработка → Параметры запуска",
+  "path": "vk-games/razrabotka-parametry-zapuska.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Параметры запуска"
+  ],
+  "chars": 10937
+ },
+ {
+  "category": "vk-games",
+  "title": "Подпись параметров запуска",
+  "breadcrumb": "VK Games → Разработка → Подпись параметров запуска",
+  "path": "vk-games/razrabotka-podpis-parametrov-zapuska.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Подпись параметров запуска"
+  ],
+  "chars": 10633
+ },
+ {
+  "category": "vk-games",
+  "title": "Работа кеша приложений",
+  "breadcrumb": "VK Games → Разработка → Работа кеша приложений",
+  "path": "vk-games/razrabotka-rabota-kesha-prilozheniy.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Работа кеша приложений"
+  ],
+  "chars": 3791
+ },
+ {
+  "category": "vk-games",
+  "title": "Управление группами тестировщиков",
+  "breadcrumb": "VK Games → Разработка → Управление группами тестировщиков",
+  "path": "vk-games/razrabotka-upravlenie-gruppami-testirovschikov.md",
+  "parts": [
+   "VK Games",
+   "Разработка",
+   "Управление группами тестировщиков"
+  ],
+  "chars": 3361
+ },
+ {
+  "category": "vk-games",
+  "title": "Советы по созданию и продвижению",
+  "breadcrumb": "VK Games → Советы по созданию и продвижению",
+  "path": "vk-games/sovety-po-sozdaniyu-i-prodvizheniyu.md",
+  "parts": [
+   "VK Games",
+   "Советы по созданию и продвижению"
+  ],
+  "chars": 3962
+ },
+ {
+  "category": "vk-games",
+  "title": "Техническая поддержка и ресурсы",
+  "breadcrumb": "VK Games → Техническая поддержка и ресурсы",
+  "path": "vk-games/tehnicheskaya-podderzhka-i-resursy.md",
+  "parts": [
+   "VK Games",
+   "Техническая поддержка и ресурсы"
+  ],
+  "chars": 1908
+ },
+ {
+  "category": "vk-games",
+  "title": "Запуск игры",
+  "breadcrumb": "VK Games → Запуск игры",
+  "path": "vk-games/zapusk-igry.md",
+  "parts": [
+   "VK Games",
+   "Запуск игры"
+  ],
+  "chars": 4894
+ },
+ {
+  "category": "vk-id",
+  "title": "Авторизация от VK",
+  "breadcrumb": "Авторизация от VK",
+  "path": "vk-id/avtorizaciya-ot-vk.md",
+  "parts": [
+   "Авторизация от VK"
+  ],
+  "chars": 4097
+ },
+ {
+  "category": "vk-maps",
+  "title": "Использование API VK Карт",
+  "breadcrumb": "VK Карты → Общая информация → Использование API VK Карт",
+  "path": "vk-maps/obschaya-informaciya-ispolzovanie-api-vk-kart.md",
+  "parts": [
+   "VK Карты",
+   "Общая информация",
+   "Использование API VK Карт"
+  ],
+  "chars": 2894
+ },
+ {
+  "category": "vk-maps",
+  "title": "О VK Картах",
+  "breadcrumb": "VK Карты → Общая информация → О VK Картах",
+  "path": "vk-maps/obschaya-informaciya-o-vk-kartah.md",
+  "parts": [
+   "VK Карты",
+   "Общая информация",
+   "О VK Картах"
+  ],
+  "chars": 3317
+ },
+ {
+  "category": "vk-pay",
+  "title": "Подпись ответа",
+  "breadcrumb": "VK Pay → API платёжной системы → Формат ответа → Подпись ответа",
+  "path": "vk-pay/api-platezhnoy-sistemy-format-otveta-podpis-otveta.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Формат ответа",
+   "Подпись ответа"
+  ],
+  "chars": 2409
+ },
+ {
+  "category": "vk-pay",
+  "title": "Формат ответа",
+  "breadcrumb": "VK Pay → API платёжной системы → Формат ответа",
+  "path": "vk-pay/api-platezhnoy-sistemy-format-otveta.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Формат ответа"
+  ],
+  "chars": 3923
+ },
+ {
+  "category": "vk-pay",
+  "title": "Ошибки запроса",
+  "breadcrumb": "VK Pay → API платёжной системы → Как сделать запрос → Ошибки запроса",
+  "path": "vk-pay/api-platezhnoy-sistemy-kak-sdelat-zapros-oshibki-zaprosa.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Как сделать запрос",
+   "Ошибки запроса"
+  ],
+  "chars": 1399
+ },
+ {
+  "category": "vk-pay",
+  "title": "Подпись запроса",
+  "breadcrumb": "VK Pay → API платёжной системы → Как сделать запрос → Подпись запроса",
+  "path": "vk-pay/api-platezhnoy-sistemy-kak-sdelat-zapros-podpis-zaprosa.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Как сделать запрос",
+   "Подпись запроса"
+  ],
+  "chars": 2418
+ },
+ {
+  "category": "vk-pay",
+  "title": "Как сделать запрос",
+  "breadcrumb": "VK Pay → API платёжной системы → Как сделать запрос",
+  "path": "vk-pay/api-platezhnoy-sistemy-kak-sdelat-zapros.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Как сделать запрос"
+  ],
+  "chars": 2592
+ },
+ {
+  "category": "vk-pay",
+  "title": "Общее описание",
+  "breadcrumb": "VK Pay → API платёжной системы → Общее описание",
+  "path": "vk-pay/api-platezhnoy-sistemy-obschee-opisanie.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Общее описание"
+  ],
+  "chars": 3029
+ },
+ {
+  "category": "vk-pay",
+  "title": "Отмена и возврат платежа",
+  "breadcrumb": "VK Pay → API платёжной системы → Отмена и возврат платежа",
+  "path": "vk-pay/api-platezhnoy-sistemy-otmena-i-vozvrat-platezha.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Отмена и возврат платежа"
+  ],
+  "chars": 10759
+ },
+ {
+  "category": "vk-pay",
+  "title": "Проверка статуса транзакции",
+  "breadcrumb": "VK Pay → API платёжной системы → Проверка статуса транзакции",
+  "path": "vk-pay/api-platezhnoy-sistemy-proverka-statusa-tranzakcii.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Проверка статуса транзакции"
+  ],
+  "chars": 7731
+ },
+ {
+  "category": "vk-pay",
+  "title": "Уведомления",
+  "breadcrumb": "VK Pay → API платёжной системы → Уведомления",
+  "path": "vk-pay/api-platezhnoy-sistemy-uvedomleniya.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Уведомления"
+  ],
+  "chars": 27806
+ },
+ {
+  "category": "vk-pay",
+  "title": "Запрос информации о транзакции",
+  "breadcrumb": "VK Pay → API платёжной системы → Запрос информации о транзакции",
+  "path": "vk-pay/api-platezhnoy-sistemy-zapros-informacii-o-tranzakcii.md",
+  "parts": [
+   "VK Pay",
+   "API платёжной системы",
+   "Запрос информации о транзакции"
+  ],
+  "chars": 18382
+ },
+ {
+  "category": "vk-pay",
+  "title": "Как подключить",
+  "breadcrumb": "VK Pay → Как подключить",
+  "path": "vk-pay/kak-podklyuchit.md",
+  "parts": [
+   "VK Pay",
+   "Как подключить"
+  ],
+  "chars": 7148
+ },
+ {
+  "category": "vk-pay",
+  "title": "О VK Pay",
+  "breadcrumb": "VK Pay → О VK Pay",
+  "path": "vk-pay/o-vk-pay.md",
+  "parts": [
+   "VK Pay",
+   "О VK Pay"
+  ],
+  "chars": 9575
+ },
+ {
+  "category": "vk-pay",
+  "title": "Для плательщиков",
+  "breadcrumb": "VK Pay → Платёжное окно → Для плательщиков",
+  "path": "vk-pay/platezhnoe-okno-dlya-platelschikov.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для плательщиков"
+  ],
+  "chars": 3501
+ },
+ {
+  "category": "vk-pay",
+  "title": "Как сделать платёж",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Как сделать платёж",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-kak-sdelat-platezh.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Как сделать платёж"
+  ],
+  "chars": 15644
+ },
+ {
+  "category": "vk-pay",
+  "title": "Обработка ошибок",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Обработка ошибок",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-obrabotka-oshibok.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Обработка ошибок"
+  ],
+  "chars": 2467
+ },
+ {
+  "category": "vk-pay",
+  "title": "Отслеживание результата платежа",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Отслеживание результата платежа",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-otslezhivanie-rezultata.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Отслеживание результата платежа"
+  ],
+  "chars": 3179
+ },
+ {
+  "category": "vk-pay",
+  "title": "Подпись приложения",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Подпись приложения",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-podpis-prilozheniya.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Подпись приложения"
+  ],
+  "chars": 3627
+ },
+ {
+  "category": "vk-pay",
+  "title": "Подпись продавца",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Подпись продавца",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-podpis-prodavca.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Подпись продавца"
+  ],
+  "chars": 3574
+ },
+ {
+  "category": "vk-pay",
+  "title": "Тестирование платёжного окна",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков → Тестирование платёжного окна",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov-testirovanie-platezhnogo.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков",
+   "Тестирование платёжного окна"
+  ],
+  "chars": 3037
+ },
+ {
+  "category": "vk-pay",
+  "title": "Для разработчиков",
+  "breadcrumb": "VK Pay → Платёжное окно → Для разработчиков",
+  "path": "vk-pay/platezhnoe-okno-dlya-razrabotchikov.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Для разработчиков"
+  ],
+  "chars": 4657
+ },
+ {
+  "category": "vk-pay",
+  "title": "Общее описание",
+  "breadcrumb": "VK Pay → Платёжное окно → Общее описание",
+  "path": "vk-pay/platezhnoe-okno-obschee-opisanie.md",
+  "parts": [
+   "VK Pay",
+   "Платёжное окно",
+   "Общее описание"
+  ],
+  "chars": 3653
+ },
+ {
+  "category": "vk-testers",
+  "title": "Как протестировать продукт",
+  "breadcrumb": "VK Testers → Как протестировать продукт",
+  "path": "vk-testers/kak-protestirovat-produkt.md",
+  "parts": [
+   "VK Testers",
+   "Как протестировать продукт"
+  ],
+  "chars": 4775
+ },
+ {
+  "category": "vk-testers",
+  "title": "Ключи доступа",
+  "breadcrumb": "VK Testers → Открытый API → Ключи доступа",
+  "path": "vk-testers/otkrytyy-api-klyuchi-dostupa.md",
+  "parts": [
+   "VK Testers",
+   "Открытый API",
+   "Ключи доступа"
+  ],
+  "chars": 1919
+ },
+ {
+  "category": "vk-testers",
+  "title": "Обзор",
+  "breadcrumb": "VK Testers → Открытый API → Обзор",
+  "path": "vk-testers/otkrytyy-api-obzor.md",
+  "parts": [
+   "VK Testers",
+   "Открытый API",
+   "Обзор"
+  ],
+  "chars": 1532
+ },
+ {
+  "category": "vk-testers",
+  "title": "Публикация обновлений продуктов",
+  "breadcrumb": "VK Testers → Открытый API → Публикация обновлений продуктов",
+  "path": "vk-testers/otkrytyy-api-publikaciya-obnovleniy-produktov.md",
+  "parts": [
+   "VK Testers",
+   "Открытый API",
+   "Публикация обновлений продуктов"
+  ],
+  "chars": 1992
+ },
+ {
+  "category": "vk-testers",
+  "title": "Загрузка и публикация тестовых сборок",
+  "breadcrumb": "VK Testers → Открытый API → Загрузка и публикация тестовых сборок",
+  "path": "vk-testers/otkrytyy-api-zagruzka-i-publikaciya-testovyh-sborok.md",
+  "parts": [
+   "VK Testers",
+   "Открытый API",
+   "Загрузка и публикация тестовых сборок"
+  ],
+  "chars": 5301
+ },
+ {
+  "category": "vk-testers",
+  "title": "Компания",
+  "breadcrumb": "VK Testers → Устройство платформы → Компания",
+  "path": "vk-testers/ustroystvo-platformy-kompaniya.md",
+  "parts": [
+   "VK Testers",
+   "Устройство платформы",
+   "Компания"
+  ],
+  "chars": 1576
+ },
+ {
+  "category": "vk-testers",
+  "title": "Обзор",
+  "breadcrumb": "VK Testers → Устройство платформы → Обзор",
+  "path": "vk-testers/ustroystvo-platformy-obzor.md",
+  "parts": [
+   "VK Testers",
+   "Устройство платформы",
+   "Обзор"
+  ],
+  "chars": 2851
+ },
+ {
+  "category": "vk-testers",
+  "title": "Продукт",
+  "breadcrumb": "VK Testers → Устройство платформы → Продукт",
+  "path": "vk-testers/ustroystvo-platformy-produkt.md",
+  "parts": [
+   "VK Testers",
+   "Устройство платформы",
+   "Продукт"
+  ],
+  "chars": 5768
+ },
+ {
+  "category": "vk-testers",
+  "title": "Сотрудники",
+  "breadcrumb": "VK Testers → Устройство платформы → Сотрудники",
+  "path": "vk-testers/ustroystvo-platformy-sotrudniki.md",
+  "parts": [
+   "VK Testers",
+   "Устройство платформы",
+   "Сотрудники"
+  ],
+  "chars": 4246
+ },
+ {
+  "category": "vk-testers",
+  "title": "Участники VK Testers",
+  "breadcrumb": "VK Testers → Устройство платформы → Участники VK Testers",
+  "path": "vk-testers/ustroystvo-platformy-uchastniki-vk-testers.md",
+  "parts": [
+   "VK Testers",
+   "Устройство платформы",
+   "Участники VK Testers"
+  ],
+  "chars": 2755
+ }
+]
