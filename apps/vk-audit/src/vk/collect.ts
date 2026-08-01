@@ -1,8 +1,8 @@
 /** Сбор данных страницы: профиль/сообщество, посты, статистика. */
 
-import { DEFAULT_MAX_POSTS, DEFAULT_PERIOD_DAYS } from '../config';
+import { DEFAULT_MAX_POSTS, DEFAULT_PERIOD_DAYS } from './defaults';
 import type { PostReach, Profile, RawPost, RawStatsDay, Snapshot, TargetKind } from '../engine/types';
-import { VKApi, VKError } from './api';
+import type { ApiClient } from './client';
 
 const USER_FIELDS = [
   'photo_200', 'screen_name', 'counters', 'followers_count', 'city', 'country',
@@ -27,7 +27,7 @@ export function parseTarget(raw: string): string {
 }
 
 export async function resolveTarget(
-  api: VKApi, raw: string,
+  api: ApiClient, raw: string,
 ): Promise<{ kind: TargetKind; ownerId: number; screenName: string }> {
   const name = parseTarget(raw);
   if (!name) throw new Error('Пустой адрес страницы');
@@ -63,7 +63,7 @@ export interface AdminGroup {
 }
 
 /** Сообщества, где вошедший — админ, редактор или модератор. */
-export async function listAdminGroups(api: VKApi): Promise<AdminGroup[]> {
+export async function listAdminGroups(api: ApiClient): Promise<AdminGroup[]> {
   const resp = await api.call<{ items?: Array<Record<string, unknown>> }>('groups.get', {
     filter: 'admin,editor,moder',
     extended: 1,
@@ -134,7 +134,7 @@ function profileFromGroup(g: Record<string, any>): Profile {
 
 /** Стена владельца до `sinceTs`; закреплённый пост не обрывает выборку. */
 async function fetchPosts(
-  api: VKApi, ownerId: number, sinceTs: number, maxPosts: number,
+  api: ApiClient, ownerId: number, sinceTs: number, maxPosts: number,
   onProgress?: (loaded: number) => void,
 ): Promise<RawPost[]> {
   const posts: RawPost[] = [];
@@ -164,7 +164,7 @@ async function fetchPosts(
 
 /** Статистика сообщества доступна очень по-разному — любую ошибку глотаем. */
 async function fetchGroupStats(
-  api: VKApi, groupId: number, sinceTs: number, untilTs: number,
+  api: ApiClient, groupId: number, sinceTs: number, untilTs: number,
 ): Promise<[RawStatsDay[] | null, string | null]> {
   try {
     const resp = await api.call<RawStatsDay[]>('stats.get', {
@@ -182,7 +182,7 @@ async function fetchGroupStats(
 
 /** `stats.getPostReach` — только для админов сообщества, пачками по 30. */
 async function fetchPostReach(
-  api: VKApi, ownerId: number, postIds: number[],
+  api: ApiClient, ownerId: number, postIds: number[],
 ): Promise<[Record<string, PostReach>, string | null]> {
   const reach: Record<string, PostReach> = {};
   let problem: string | null = null;
@@ -208,7 +208,7 @@ export interface CollectOptions {
 }
 
 export async function collect(
-  api: VKApi, target: string, options: CollectOptions = {},
+  api: ApiClient, target: string, options: CollectOptions = {},
 ): Promise<Snapshot> {
   const {
     periodDays = DEFAULT_PERIOD_DAYS,
@@ -313,4 +313,3 @@ export async function collect(
   };
 }
 
-export { VKError };

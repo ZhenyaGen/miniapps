@@ -2,29 +2,12 @@
 
 import bridge from '@vkontakte/vk-bridge';
 
-import { API_VERSION, RATE_LIMIT_RPS } from '../config';
+import { API_VERSION, RATE_LIMIT_RPS } from './defaults';
+import { describeError, VKError, type ApiClient } from './client';
 
-export class VKError extends Error {
-  readonly code: number;
-
-  constructor(code: number, message: string) {
-    super(message);
-    this.name = 'VKError';
-    this.code = code;
-  }
-}
+export { VKError };
 
 const RETRY_CODES = new Set([6, 29]); // «слишком часто» и «превышен лимит»
-
-const ERROR_HINTS: Record<number, string> = {
-  5: 'Ключ доступа не принят — войдите заново.',
-  15: 'Доступ к этой странице закрыт её настройками приватности.',
-  18: 'Страница удалена или заблокирована.',
-  27: 'Ключом сообщества стену читать нельзя — нужен ключ пользователя.',
-  30: 'Профиль закрыт: данные доступны только друзьям.',
-  100: 'ВК не понял параметры запроса.',
-  203: 'Нет доступа к этому сообществу.',
-};
 
 interface Transport {
   (method: string, params: Record<string, string | number>): Promise<unknown>;
@@ -75,7 +58,7 @@ function toVKError(raw: unknown): VKError {
   const reason = typeof inner.error_reason === 'object' ? inner.error_reason : undefined;
   const code = inner.error_code ?? reason?.error_code ?? 0;
   const message = inner.error_msg ?? reason?.error_msg ?? err.error_type ?? 'Неизвестная ошибка ВК';
-  return new VKError(code, ERROR_HINTS[code] ? `${ERROR_HINTS[code]} (код ${code})` : `${message} (код ${code})`);
+  return new VKError(code, describeError(code, message));
 }
 
 const sleep = (ms: number) => new Promise((resolve) => { setTimeout(resolve, ms); });
@@ -87,7 +70,7 @@ const sleep = (ms: number) => new Promise((resolve) => { setTimeout(resolve, ms)
  * выстраиваются в очередь: параллелить смысла нет, а код 6 стоит дороже
  * ожидания.
  */
-export class VKApi {
+export class VKApi implements ApiClient {
   private readonly transport: Transport;
 
   private queue: Promise<unknown> = Promise.resolve();

@@ -4,8 +4,8 @@ import { compute } from '../engine/metrics';
 import {
   buildCard, compare, comparisonWarnings, topGaps, type RivalCard, type RivalsReport,
 } from '../engine/rivals';
-import { DEFAULT_TZ_OFFSET } from '../config';
-import type { VKApi } from './api';
+import { DEFAULT_TZ_OFFSET } from './defaults';
+import type { ApiClient } from './client';
 import { collect, parseTarget } from './collect';
 
 /**
@@ -40,7 +40,7 @@ export interface CollectRivalsOptions {
  * полугодовые медианы с трёхмесячными нельзя.
  */
 export async function collectRivals(
-  api: VKApi,
+  api: ApiClient,
   clientTarget: string,
   rivalTargets: string[],
   options: CollectRivalsOptions = {},

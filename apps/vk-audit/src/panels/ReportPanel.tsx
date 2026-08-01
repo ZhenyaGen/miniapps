@@ -12,6 +12,7 @@ import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
+import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
 import { buildBrief } from '../report/brief';
 
@@ -88,7 +89,14 @@ export function ReportPanel({
         </Tabs>
       </Group>
 
-      {tab === 'summary' && <Summary report={report} />}
+      {tab === 'summary' && (
+        <>
+          <Summary report={report} />
+          {report.snapshot.meta.source !== 'demo' && (
+            <SubscribeCard target={report.snapshot.profile.screen_name} period="раз в неделю" />
+          )}
+        </>
+      )}
       {tab === 'zones' && <GrowthZones findings={report.findings} />}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
