@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  Avatar, Banner, Button, Div, Group, HorizontalScroll, PanelHeader,
-  PanelHeaderBack, Snackbar, Tabs, TabsItem,
+  Avatar, Banner, Button, Div, Footnote, Group, Header, HorizontalScroll,
+  PanelHeader, PanelHeaderBack, Snackbar, Spacing, Tabs, TabsItem,
 } from '@vkontakte/vkui';
 
 import type { Report } from '../App';
@@ -15,6 +15,7 @@ import { RivalsView } from '../components/RivalsView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
 import { buildBrief } from '../report/brief';
+import { DEEPSEEK_CHAT_URL } from '../config';
 
 type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
@@ -51,13 +52,16 @@ export function ReportPanel({
     const text = buildBrief(report, rivals);
     try {
       await bridge.send('VKWebAppCopyText', { text });
-      setToast('Бриф скопирован — можно вставить в чат с ИИ');
+      setToast('Бриф скопирован — вставьте его в чат с ИИ');
+      return true;
     } catch {
       try {
         await navigator.clipboard.writeText(text);
         setToast('Бриф скопирован в буфер обмена');
+        return true;
       } catch {
         setToast('Скопировать не удалось — браузер запретил доступ к буферу');
+        return false;
       }
     }
   };
@@ -114,11 +118,33 @@ export function ReportPanel({
       )}
       {tab === 'audience' && <AudienceView metrics={report.metrics} />}
 
-      <Group>
+      <Group header={<Header subtitle="весь отчёт текстом: метрики, зоны роста, план и тексты постов">
+        Разобрать с ИИ
+      </Header>}
+      >
         <Div>
-          <Button size="l" stretched mode="secondary" onClick={copyBrief}>
-            Скопировать бриф для ИИ
+          <Button
+            size="l"
+            stretched
+            href={DEEPSEEK_CHAT_URL}
+            target="_blank"
+            rel="noreferrer"
+            // копируем в том же клике: открытие вкладки браузер разрешает
+            // только синхронно, поэтому ссылку не подменяем на window.open
+            onClick={copyBrief}
+          >
+            Открыть DeepSeek и вставить бриф
           </Button>
+          <Spacing size={8} />
+          <Button size="l" stretched mode="secondary" onClick={copyBrief}>
+            Просто скопировать бриф
+          </Button>
+          <Spacing size={8} />
+          <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
+            Ключ не нужен: бриф уезжает в буфер обмена, а разбор пишет ИИ
+            в своём чате. Числа в брифе уже посчитаны — просить пересчитать
+            их не нужно.
+          </Footnote>
         </Div>
       </Group>
 

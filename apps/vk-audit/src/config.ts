@@ -28,6 +28,14 @@ export const VK_APP_ID = Number(import.meta.env?.VITE_VK_APP_ID || DEFAULT_APP_I
 export const VK_BOT_GROUP_ID = Number(import.meta.env?.VITE_VK_BOT_GROUP_ID ?? 0);
 
 /**
+ * Чат DeepSeek — куда уходит кнопка «Разобрать с ИИ».
+ *
+ * Ключ модели в приложении не нужен и не может быть: бандл распаковывается.
+ * Бриф уезжает в буфер обмена, разбор человек получает в своём чате.
+ */
+export const DEEPSEEK_CHAT_URL = 'https://chat.deepseek.com/';
+
+/**
  * Права, которые запрашиваются у пользователя.
  *
  * `groups` — список сообществ, где он администратор; `stats` — охваты и
