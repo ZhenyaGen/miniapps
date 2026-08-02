@@ -3,7 +3,9 @@
   // берёт собранное приложение из dist/ и раздаёт его как обычный сайт.
   // Серверного кода тут нет — Worker работает только файловой раздачей.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "vk-audit",
+  // Имя должно совпадать с именем проекта в Cloudflare, иначе при сборке
+  // выводится предупреждение и Workers Builds открывает лишний pull request.
+  "name": "2miniapps",
   "compatibility_date": "2026-08-01",
   "assets": {
     "directory": "./dist",
