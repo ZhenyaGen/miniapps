@@ -17,7 +17,7 @@ import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
-import { DEEPSEEK_CHAT_URL } from '../config';
+import { AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, FEEDBACK_URL } from '../config';
 
 type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
@@ -158,6 +158,38 @@ export function ReportPanel({
             в своём чате. Числа в брифе уже посчитаны — просить пересчитать
             их не нужно.
           </Footnote>
+        </Div>
+      </Group>
+
+      <Group header={<Header>Сделать за вас</Header>}>
+        <Div>
+          <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
+            Разбор показывает, что не так. Если нужно, чтобы это починили —
+            позиционирование, айдентика, контент-план под ваш бизнес —
+            напишите мне.
+          </Footnote>
+          <Button
+            size="l"
+            stretched
+            href={AUTHOR_MESSAGE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {`Написать · ${AUTHOR_NAME}`}
+          </Button>
+          {FEEDBACK_URL && (
+            <Button
+              size="l"
+              stretched
+              mode="tertiary"
+              href={FEEDBACK_URL}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginTop: 8 }}
+            >
+              Оставить отзыв о приложении
+            </Button>
+          )}
         </Div>
       </Group>
 
