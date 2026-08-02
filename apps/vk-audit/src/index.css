@@ -5,11 +5,226 @@ body,
   margin: 0;
 }
 
+/* --------------------------------------------------------------- палитра
+   Акценты для карточек и статусов. Значения в HSL, чтобы одним параметром
+   получать и насыщенный цвет, и его бледную подложку. */
+:root {
+  --accent-blue: 211 100% 50%;
+  --accent-violet: 265 76% 60%;
+  --accent-green: 152 62% 42%;
+  --accent-amber: 38 96% 50%;
+  --accent-red: 4 78% 57%;
+  --accent-teal: 187 74% 42%;
+  --tint: 12%;
+  --tint-border: 26%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tint: 20%;
+    --tint-border: 34%;
+  }
+}
+
+:root[data-theme='dark'] {
+  --tint: 20%;
+  --tint-border: 34%;
+}
+
+/* ------------------------------------------------------------- анимации */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* Появление блоков: лёгкий подъём, с задержкой по порядку. */
+.rise {
+  animation: rise 0.34s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.rise-1 { animation-delay: 0.04s; }
+.rise-2 { animation-delay: 0.08s; }
+.rise-3 { animation-delay: 0.12s; }
+.rise-4 { animation-delay: 0.16s; }
+.rise-5 { animation-delay: 0.2s; }
+.rise-6 { animation-delay: 0.24s; }
+
+/* Тем, кто просил уменьшить движение, анимации не показываем. */
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .bar,
+  .kpi {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------------------------------------------------------- KPI-карточки */
+.kpi {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg,
+      hsl(var(--kpi-color) / calc(var(--tint) * 1.4)),
+      hsl(var(--kpi-color) / calc(var(--tint) * 0.5)));
+  border: 1px solid hsl(var(--kpi-color) / calc(var(--tint-border) * 1%));
+  transition: transform 0.18s ease;
+}
+
+.kpi:active {
+  transform: scale(0.98);
+}
+
+.kpi__icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.kpi__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: hsl(var(--kpi-color));
+}
+
+.kpi__label {
+  font-size: 0.8125rem;
+  color: var(--vkui--color_text_secondary);
+}
+
+.kpi__hint {
+  font-size: 0.75rem;
+  color: var(--vkui--color_text_tertiary);
+  margin-top: 2px;
+}
+
+/* ------------------------------------------------------------- заголовок */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 20px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg,
+    hsl(var(--accent-blue)) 0%,
+    hsl(var(--accent-violet)) 100%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero__title {
+  position: relative;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.hero__subtitle {
+  position: relative;
+  font-size: 0.9375rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ------------------------------------------------ шапка отчёта и статусы */
+.report-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg,
+    hsl(var(--accent-blue) / 0.14),
+    hsl(var(--accent-teal) / 0.1));
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: hsl(var(--badge-color) / calc(var(--tint) * 1.6));
+  color: hsl(var(--badge-color));
+}
+
+.zone-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: hsl(var(--badge-color) / calc(var(--tint) * 1.7));
+  color: hsl(var(--badge-color));
+}
+
+/* ---------------------------------------------------- полосы и диаграммы */
+.bar-track {
+  background: var(--vkui--color_background_secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 4px;
+  transform-origin: left center;
+  animation: grow-bar 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  background: linear-gradient(90deg,
+    hsl(var(--bar-color, var(--accent-blue))),
+    hsl(var(--bar-color, var(--accent-blue)) / 0.65));
+}
+
 /* Тепловая карта «день недели × 3-часовой слот» */
 .heatmap {
   display: grid;
   grid-template-columns: 2.2rem repeat(8, 1fr);
-  gap: 2px;
+  gap: 3px;
   font-size: 0.6875rem;
 }
 
@@ -29,29 +244,39 @@ body,
 
 .heatmap__cell {
   aspect-ratio: 1 / 1;
-  border-radius: 4px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--vkui--color_text_contrast);
-  background: var(--vkui--color_background_secondary);
+  font-weight: 600;
+  transition: transform 0.15s ease;
 }
 
-.bar {
-  height: 6px;
-  border-radius: 3px;
-  background: var(--vkui--color_background_accent);
-  min-width: 2px;
+.heatmap__cell:active {
+  transform: scale(1.12);
 }
 
-.bar-track {
-  background: var(--vkui--color_background_secondary);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
+/* ---------------------------------------------------------------- прочее */
 .chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.footer-credit {
+  text-align: center;
+  padding: 18px 16px 26px;
+  color: var(--vkui--color_text_tertiary);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.footer-credit a {
+  color: hsl(var(--accent-blue));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.spinner-dot {
+  animation: pulse-soft 1.4s ease-in-out infinite;
 }

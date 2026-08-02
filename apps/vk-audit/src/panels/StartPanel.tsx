@@ -5,6 +5,7 @@ import {
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
+import { Footer } from '../components/Footer';
 import type { AdminGroup } from '../vk/collect';
 
 interface Props {
@@ -25,6 +26,16 @@ export function StartPanel({
   return (
     <>
       <PanelHeader>Аудит страницы ВК</PanelHeader>
+
+      <Div>
+        <div className="hero rise">
+          <h1 className="hero__title">Что мешает странице расти</h1>
+          <p className="hero__subtitle">
+            Метрики, зоны роста и план на 4 недели — по любому открытому
+            сообществу ВКонтакте
+          </p>
+        </div>
+      </Div>
 
       {error && (
         <Div>
@@ -100,6 +111,8 @@ export function StartPanel({
           </Button>
         </Div>
       </Group>
+
+      <Footer />
     </>
   );
 }

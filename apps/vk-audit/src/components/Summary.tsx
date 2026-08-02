@@ -1,15 +1,35 @@
-import { Card, CardGrid, Div, Footnote, Group, Header, MiniInfoCell, SimpleCell, Title } from '@vkontakte/vkui';
+import type { CSSProperties } from 'react';
+import { Div, Footnote, Group, Header, SimpleCell } from '@vkontakte/vkui';
 
 import type { Report } from '../App';
+import type { Severity } from '../engine/types';
 import { f } from '../engine/util';
 
-function Kpi({ label, value, hint }: { label: string; value: string; hint?: string }) {
+/** Цвета берутся из палитры в index.css — там же светлая и тёмная темы. */
+const SEVERITY_COLOR: Record<Severity, string> = {
+  high: 'var(--accent-red)',
+  mid: 'var(--accent-amber)',
+  low: 'var(--accent-teal)',
+};
+
+function Kpi({ icon, label, value, hint, color, index }: {
+  icon: string;
+  label: string;
+  value: string;
+  hint?: string;
+  color: string;
+  index: number;
+}) {
   return (
-    <Card mode="shadow" style={{ padding: 12, minWidth: 0 }}>
-      <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>{label}</Footnote>
-      <Title level="2" style={{ margin: '4px 0 2px' }}>{value}</Title>
-      {hint && <Footnote style={{ color: 'var(--vkui--color_text_tertiary)' }}>{hint}</Footnote>}
-    </Card>
+    <div
+      className={`kpi rise rise-${index}`}
+      style={{ '--kpi-color': color } as CSSProperties}
+    >
+      <span className="kpi__icon">{icon}</span>
+      <div className="kpi__value">{value}</div>
+      <div className="kpi__label">{label}</div>
+      {hint && <div className="kpi__hint">{hint}</div>}
+    </div>
   );
 }
 
@@ -20,35 +40,71 @@ export function Summary({ report }: { report: Report }) {
   return (
     <>
       <Group header={<Header>Ключевые цифры</Header>}>
-        <CardGrid size="s">
+        <Div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Kpi
+            index={1}
+            icon="👥"
+            color="var(--accent-blue)"
             label={m.audience_label}
             value={f(m.audience, 0)}
             hint={m.views_per_audience ? `охват ${f(m.views_per_audience)}% базы` : undefined}
           />
-          <Kpi label="Постов за период" value={String(m.posts_total)} hint={`${f(m.per_week)} в неделю`} />
           <Kpi
+            index={2}
+            icon="📝"
+            color="var(--accent-violet)"
+            label="Постов за период"
+            value={String(m.posts_total)}
+            hint={`${f(m.per_week)} в неделю`}
+          />
+          <Kpi
+            index={3}
+            icon="🔥"
+            color={m.er >= 3 ? 'var(--accent-green)' : m.er >= 1 ? 'var(--accent-amber)' : 'var(--accent-red)'}
             label={m.er_basis_label}
             value={`${f(m.er, 2)}%`}
             hint={`медиана ${f(m.er_median, 2)}%`}
           />
-          <Kpi label="Просмотров на пост" value={f(m.avg.views, 0)} />
-          <Kpi label="Реакций на пост" value={f(m.avg.engagement, 1)} />
           <Kpi
+            index={4}
+            icon="👁"
+            color="var(--accent-teal)"
+            label="Просмотров на пост"
+            value={f(m.avg.views, 0)}
+          />
+          <Kpi
+            index={5}
+            icon="💬"
+            color="var(--accent-green)"
+            label="Реакций на пост"
+            value={f(m.avg.engagement, 1)}
+          />
+          <Kpi
+            index={6}
+            icon={m.silent_days > 30 ? '😴' : '⏱'}
+            color={m.silent_days > 30 ? 'var(--accent-red)' : 'var(--accent-blue)'}
             label="Молчит"
             value={`${f(m.silent_days, 0)} дн.`}
             hint={m.gap.max ? `макс. пауза ${f(m.gap.max, 0)} дн.` : undefined}
           />
-        </CardGrid>
+        </Div>
       </Group>
 
       {top.length > 0 && (
         <Group header={<Header>Что чинить первым</Header>}>
-          {top.map((item) => (
+          {top.map((item, i) => (
             <SimpleCell
               key={item.id}
               multiline
-              before={<Title level="3" style={{ width: 24, textAlign: 'center' }}>{item.rank}</Title>}
+              className={`rise rise-${Math.min(i + 1, 6)}`}
+              before={(
+                <div
+                  className="zone-rank"
+                  style={{ '--badge-color': SEVERITY_COLOR[item.severity] } as CSSProperties}
+                >
+                  {item.rank}
+                </div>
+              )}
               subtitle={item.evidence}
             >
               {item.title}
@@ -58,11 +114,31 @@ export function Summary({ report }: { report: Report }) {
       )}
 
       <Group header={<Header>Цели на 90 дней</Header>}>
-        {report.targets.map((t) => (
-          <MiniInfoCell key={t.label} textWrap="full">
-            {`${t.label}: ${t.now} → ${t.goal}`}
-          </MiniInfoCell>
-        ))}
+        <Div style={{ display: 'grid', gap: 8 }}>
+          {report.targets.map((t) => (
+            <div
+              key={t.label}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+                gap: 12,
+                padding: '10px 12px',
+                borderRadius: 10,
+                background: 'var(--vkui--color_background_secondary)',
+              }}
+            >
+              <span style={{ color: 'var(--vkui--color_text_secondary)', fontSize: '0.875rem' }}>
+                {t.label}
+              </span>
+              <span style={{ whiteSpace: 'nowrap', fontWeight: 600 }}>
+                <span style={{ color: 'var(--vkui--color_text_tertiary)' }}>{t.now}</span>
+                <span style={{ color: 'var(--vkui--color_text_tertiary)' }}> → </span>
+                <span style={{ color: 'hsl(var(--accent-green))' }}>{t.goal}</span>
+              </span>
+            </div>
+          ))}
+        </Div>
       </Group>
 
       <Group header={<Header>Упаковка страницы</Header>}>
@@ -70,7 +146,11 @@ export function Summary({ report }: { report: Report }) {
           <SimpleCell
             key={check.key}
             multiline
-            before={<span style={{ fontSize: 18 }}>{check.ok ? '✅' : '⛔️'}</span>}
+            before={(
+              <span style={{ fontSize: 18, filter: check.ok ? 'none' : 'grayscale(0.2)' }}>
+                {check.ok ? '✅' : '⛔️'}
+              </span>
+            )}
             subtitle={check.ok ? undefined : check.hint}
           >
             {check.label}
