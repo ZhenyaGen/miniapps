@@ -3,10 +3,11 @@ name: Публикация на GitHub Pages
 # Собирает приложение и публикует его на GitHub Pages — хостинг прямо
 # в репозитории, без сторонних сервисов и без подтверждения по телефону.
 #
-# Перед первым запуском включите Pages: Settings → Pages → Source →
-# GitHub Actions. Для приватного репозитория Pages доступен на платных
-# тарифах; на бесплатном сделайте репозиторий публичным либо возьмите
-# Cloudflare Pages (см. С-ТЕЛЕФОНА.md).
+# Зачем: домены *.workers.dev и *.vercel.app в России заблокированы, а
+# github.io открывается. Перед первым запуском включите Pages:
+# Settings → Pages → Source → GitHub Actions. Для приватного репозитория
+# Pages доступен только на платных тарифах — на бесплатном сделайте
+# репозиторий публичным (секретов в нём нет: ключи только в .env).
 
 on:
   push:
@@ -29,9 +30,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/vk-audit
 
     steps:
       - uses: actions/checkout@v4
@@ -39,25 +37,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: npm
-          cache-dependency-path: apps/vk-audit/package-lock.json
-
-      - run: npm ci
 
       - name: Сверить расчёт с десктопной версией
-        run: npm test
+        run: npm --prefix apps/vk-audit ci && npm --prefix apps/vk-audit test
 
       - name: Собрать
         env:
           VITE_VK_APP_ID: ${{ vars.VK_APP_ID }}
           VITE_VK_BOT_GROUP_ID: ${{ vars.VK_BOT_GROUP_ID }}
+        # сборка из корня — тот же скрипт, что запускают хостинги
         run: npm run build
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/vk-audit/dist
+          path: dist
 
   deploy:
     needs: build
