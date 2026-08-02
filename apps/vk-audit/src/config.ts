@@ -31,6 +31,9 @@ export const VK_BOT_GROUP_ID = Number(import.meta.env?.VITE_VK_BOT_GROUP_ID ?? 0
 export const AUTHOR_NAME = 'Евгений Тюрин';
 export const AUTHOR_URL = 'https://vk.ru/ea_tyurin';
 
+/** Личные сообщения автору — куда ведёт предложение услуг в отчёте. */
+export const AUTHOR_MESSAGE_URL = 'https://vk.me/ea_tyurin';
+
 /**
  * Чат DeepSeek — куда уходит кнопка «Разобрать с ИИ».
  *

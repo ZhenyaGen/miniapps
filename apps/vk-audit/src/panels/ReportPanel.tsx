@@ -14,6 +14,7 @@ import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
+import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
 import { DEEPSEEK_CHAT_URL } from '../config';
@@ -108,6 +109,7 @@ export function ReportPanel({
       {tab === 'summary' && (
         <>
           <Summary report={report} />
+          <OfferCard findings={report.findings} />
           {report.snapshot.meta.source !== 'demo' && (
             <SubscribeCard target={report.snapshot.profile.screen_name} period="раз в неделю" />
           )}
