@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Сторис 1 · крючок: одна цифра, которая понятна без объяснений -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2688eb"/><stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="900" cy="260" r="340" fill="#ffffff" opacity="0.1"/>
+  <circle cx="140" cy="1660" r="260" fill="#ffffff" opacity="0.08"/>
+
+  <text x="90" y="620" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="62" fill="#ffffff" opacity="0.9">Ваши посты видит</text>
+  <text x="90" y="820" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="200" font-weight="700" fill="#ffffff" letter-spacing="-6">3%</text>
+  <text x="90" y="930" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="62" fill="#ffffff" opacity="0.9">подписчиков</text>
+
+  <rect x="90" y="1030" width="900" height="4" rx="2" fill="#ffffff" opacity="0.3"/>
+
+  <text x="90" y="1150" font-family="-apple-system, sans-serif" font-size="46"
+        fill="#ffffff" opacity="0.85">У конкурента в вашей нише</text>
+  <text x="90" y="1250" font-family="-apple-system, sans-serif" font-size="92"
+        font-weight="700" fill="#ffffff">28%</text>
+
+  <g transform="translate(90, 1400)">
+    <rect width="900" height="130" rx="28" fill="url(#card)"/>
+    <text x="46" y="60" font-family="-apple-system, sans-serif" font-size="38"
+          fill="#ffffff" opacity="0.8">Разница видна за минуту</text>
+    <text x="46" y="106" font-family="-apple-system, sans-serif" font-size="34"
+          fill="#ffffff" opacity="0.6">и её можно посчитать по своей странице</text>
+  </g>
+</svg>

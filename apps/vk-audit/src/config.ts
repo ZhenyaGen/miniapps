@@ -27,12 +27,27 @@ export const VK_APP_ID = Number(import.meta.env?.VITE_VK_APP_ID || DEFAULT_APP_I
  */
 export const VK_BOT_GROUP_ID = Number(import.meta.env?.VITE_VK_BOT_GROUP_ID ?? 0);
 
+/**
+ * Материнский проект: приложения выпускаются под ним, поэтому имя стоит
+ * рядом с авторским — так у следующих приложений будет узнаваемая подпись.
+ */
+export const BRAND_NAME = 'ЖеняГенерирует';
+
 /** Автор проекта — подпись в интерфейсе. */
 export const AUTHOR_NAME = 'Евгений Тюрин';
 export const AUTHOR_URL = 'https://vk.ru/ea_tyurin';
 
 /** Личные сообщения автору — куда ведёт предложение услуг в отчёте. */
 export const AUTHOR_MESSAGE_URL = 'https://vk.me/ea_tyurin';
+
+/**
+ * Куда сложить отзывы. Обсуждение в сообществе или форма VK Forms — что
+ * угодно с публичным адресом. Пусто — кнопка не показывается.
+ */
+export const FEEDBACK_URL = '';
+
+/** Политика конфиденциальности лежит рядом со сборкой, статической страницей. */
+export const PRIVACY_URL = 'privacy.html';
 
 /**
  * Чат DeepSeek — куда уходит кнопка «Разобрать с ИИ».

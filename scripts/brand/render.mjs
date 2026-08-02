@@ -20,6 +20,9 @@ const TARGETS = [
   { svg: 'icon.svg', name: 'ekran-zapuska-96.png', width: 96, height: 96 },
   { svg: 'banner.svg', name: 'oblozhka-1590x400.png', width: 1590, height: 400 },
   { svg: 'snippet.svg', name: 'bolshoy-snippet-1120x630.png', width: 1120, height: 630 },
+  { svg: 'story-1.svg', name: 'storis-1-kryuchok.png', width: 1080, height: 1920 },
+  { svg: 'story-2.svg', name: 'storis-2-nahodki.png', width: 1080, height: 1920 },
+  { svg: 'story-3.svg', name: 'storis-3-priglashenie.png', width: 1080, height: 1920 },
 ];
 
 await mkdir(out, { recursive: true });
