@@ -1,0 +1,18 @@
+# Настройки на случай, если приложение подключают к Netlify через GitHub:
+# сборка идёт из подпапки, поэтому base указывает на неё, а publish —
+# на готовую статику внутри этой же подпапки.
+
+[build]
+  base = "apps/vk-audit"
+  command = "npm run build"
+  publish = "apps/vk-audit/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Приложение одностраничное: любой путь должен отдавать index.html,
+# иначе обновление страницы внутри отчёта даст 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
