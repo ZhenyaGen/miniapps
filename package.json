@@ -1,0 +1,14 @@
+{
+  "name": "miniapps",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Мини-приложения ВКонтакте: аудит страницы и бот с разборами",
+  "scripts": {
+    "build": "npm --prefix apps/vk-audit ci && npm --prefix apps/vk-audit run build && node scripts/collect-dist.mjs",
+    "test": "npm --prefix apps/vk-audit test && npm --prefix apps/vk-bot test",
+    "dev": "npm --prefix apps/vk-audit run dev"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
