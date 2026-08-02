@@ -1,0 +1,70 @@
+name: Публикация на GitHub Pages
+
+# Собирает приложение и публикует его на GitHub Pages — хостинг прямо
+# в репозитории, без сторонних сервисов и без подтверждения по телефону.
+#
+# Перед первым запуском включите Pages: Settings → Pages → Source →
+# GitHub Actions. Для приватного репозитория Pages доступен на платных
+# тарифах; на бесплатном сделайте репозиторий публичным либо возьмите
+# Cloudflare Pages (см. С-ТЕЛЕФОНА.md).
+
+on:
+  push:
+    branches: ['claude/vk-mini-apps-knowledge-base-kos6be', 'main']
+    paths:
+      - 'apps/vk-audit/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Параллельные выкладки мешают друг другу: пусть новая ждёт завершения старой.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/vk-audit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: apps/vk-audit/package-lock.json
+
+      - run: npm ci
+
+      - name: Сверить расчёт с десктопной версией
+        run: npm test
+
+      - name: Собрать
+        env:
+          VITE_VK_APP_ID: ${{ vars.VK_APP_ID }}
+          VITE_VK_BOT_GROUP_ID: ${{ vars.VK_BOT_GROUP_ID }}
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/vk-audit/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
