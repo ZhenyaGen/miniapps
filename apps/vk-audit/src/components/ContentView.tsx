@@ -1,14 +1,22 @@
+import type { CSSProperties } from 'react';
 import { Div, Footnote, Group, Header, SimpleCell, Text } from '@vkontakte/vkui';
 
 import type { Metrics, Post } from '../engine/types';
 import { f } from '../engine/util';
 import { Heatmap } from './Heatmap';
 
-function Bar({ value, max }: { value: number; max: number }) {
+function Bar({ value, max, color = 'var(--accent-blue)' }: {
+  value: number;
+  max: number;
+  color?: string;
+}) {
   const width = max ? Math.max((value / max) * 100, 2) : 0;
   return (
-    <div className="bar-track" style={{ width: '100%' }}>
-      <div className="bar" style={{ width: `${width}%` }} />
+    <div className="bar-track">
+      <div
+        className="bar"
+        style={{ width: `${width}%`, '--bar-color': color } as CSSProperties}
+      />
     </div>
   );
 }
@@ -37,7 +45,7 @@ export function ContentView({ metrics: m }: { metrics: Metrics }) {
   return (
     <>
       <Group header={<Header subtitle="Отсортировано по вовлечённости">Форматы</Header>}>
-        {m.by_type.map((row) => (
+        {m.by_type.map((row, i) => (
           <SimpleCell
             key={row.type}
             multiline
@@ -47,7 +55,13 @@ export function ContentView({ metrics: m }: { metrics: Metrics }) {
           >
             <div>
               <Text>{row.label}</Text>
-              <div style={{ marginTop: 6 }}><Bar value={row.avg_er} max={maxTypeEr} /></div>
+              <div style={{ marginTop: 6 }}>
+                <Bar
+                  value={row.avg_er}
+                  max={maxTypeEr}
+                  color={i === 0 ? 'var(--accent-green)' : 'var(--accent-blue)'}
+                />
+              </div>
             </div>
           </SimpleCell>
         ))}
@@ -73,7 +87,9 @@ export function ContentView({ metrics: m }: { metrics: Metrics }) {
             <SimpleCell key={row.label} multiline subtitle={`${row.n} постов`} indicator={`${f(row.avg_er, 2)}%`}>
               <div>
                 <Text>{`${row.label} знаков`}</Text>
-                <div style={{ marginTop: 6 }}><Bar value={row.avg_er} max={maxLenEr} /></div>
+                <div style={{ marginTop: 6 }}>
+                  <Bar value={row.avg_er} max={maxLenEr} color="var(--accent-violet)" />
+                </div>
               </div>
             </SimpleCell>
           ))}

@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { Accordion, Div, Footnote, Group, Header, Placeholder, Text } from '@vkontakte/vkui';
 
 import type { Finding, Severity } from '../engine/types';
@@ -9,9 +10,9 @@ const SEVERITY_LABEL: Record<Severity, string> = {
 };
 
 const SEVERITY_COLOR: Record<Severity, string> = {
-  high: 'var(--vkui--color_text_negative)',
-  mid: 'var(--vkui--color_text_accent)',
-  low: 'var(--vkui--color_text_secondary)',
+  high: 'var(--accent-red)',
+  mid: 'var(--accent-amber)',
+  low: 'var(--accent-teal)',
 };
 
 export function GrowthZones({ findings }: { findings: Finding[] }) {
@@ -28,18 +29,30 @@ export function GrowthZones({ findings }: { findings: Finding[] }) {
 
   return (
     <Group header={<Header>{`Найдено зон роста: ${findings.length}`}</Header>}>
-      {findings.map((item) => (
+      {findings.map((item, i) => (
         <Accordion key={item.id}>
           <Accordion.Summary
             multiline
+            className={`rise rise-${Math.min(i + 1, 6)}`}
+            before={(
+              <div
+                className="zone-rank"
+                style={{ '--badge-color': SEVERITY_COLOR[item.severity] } as CSSProperties}
+              >
+                {item.rank}
+              </div>
+            )}
             subtitle={(
-              <span style={{ color: SEVERITY_COLOR[item.severity] }}>
+              <span
+                className="badge"
+                style={{ '--badge-color': SEVERITY_COLOR[item.severity] } as CSSProperties}
+              >
                 {`${item.area} · ${SEVERITY_LABEL[item.severity]}`}
                 {item.blocker ? ' · блокирует остальное' : ''}
               </span>
             )}
           >
-            {`${item.rank}. ${item.title}`}
+            {item.title}
           </Accordion.Summary>
           <Accordion.Content>
             <Div>
@@ -55,8 +68,14 @@ export function GrowthZones({ findings }: { findings: Finding[] }) {
                   </li>
                 ))}
               </ul>
-              <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
-                {`Цель: ${item.kpi} · неделя ${item.stage} плана`}
+              <div
+                className="badge"
+                style={{ '--badge-color': 'var(--accent-green)' } as CSSProperties}
+              >
+                {`Цель: ${item.kpi}`}
+              </div>
+              <Footnote style={{ color: 'var(--vkui--color_text_tertiary)', display: 'block', marginTop: 8 }}>
+                {`Неделя ${item.stage} плана`}
               </Footnote>
             </Div>
           </Accordion.Content>

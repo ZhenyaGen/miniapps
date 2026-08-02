@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  Avatar, Banner, Button, Div, Footnote, Group, Header, HorizontalScroll,
-  PanelHeader, PanelHeaderBack, Snackbar, Spacing, Tabs, TabsItem,
+  Avatar, Button, Div, Footnote, Group, Header, HorizontalScroll,
+  PanelHeader, PanelHeaderBack, Snackbar, Tabs, TabsItem,
 } from '@vkontakte/vkui';
 
 import type { Report } from '../App';
@@ -14,6 +14,7 @@ import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
+import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
 import { DEEPSEEK_CHAT_URL } from '../config';
 
@@ -73,11 +74,22 @@ export function ReportPanel({
       </PanelHeader>
 
       <Group>
-        <Banner
-          before={<Avatar size={48} src={profile.photo ?? undefined} />}
-          title={profile.name}
-          subtitle={`${profile.url.replace('https://', '')} · период ${report.metrics.period.from} — ${report.metrics.period.to}`}
-        />
+        <Div>
+          <div className="report-head rise">
+            <Avatar size={52} src={profile.photo ?? undefined} initials={profile.name.slice(0, 1)} />
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontWeight: 700, fontSize: '1.0625rem', lineHeight: 1.25 }}>
+                {profile.name}
+              </div>
+              <div style={{ color: 'var(--vkui--color_text_secondary)', fontSize: '0.8125rem', marginTop: 2 }}>
+                {profile.url.replace('https://', '')}
+              </div>
+              <div style={{ color: 'var(--vkui--color_text_tertiary)', fontSize: '0.75rem', marginTop: 2 }}>
+                {`${report.metrics.period.from} — ${report.metrics.period.to}`}
+              </div>
+            </div>
+          </div>
+        </Div>
         <Tabs
           layoutFillMode="shrinked"
           withScrollToSelectedTab
@@ -122,10 +134,11 @@ export function ReportPanel({
         Разобрать с ИИ
       </Header>}
       >
-        <Div>
+        <Div style={{ display: 'grid', gap: 10 }}>
           <Button
             size="l"
             stretched
+            appearance="positive"
             href={DEEPSEEK_CHAT_URL}
             target="_blank"
             rel="noreferrer"
@@ -133,13 +146,11 @@ export function ReportPanel({
             // только синхронно, поэтому ссылку не подменяем на window.open
             onClick={copyBrief}
           >
-            Открыть DeepSeek и вставить бриф
+            🤖 Открыть DeepSeek
           </Button>
-          <Spacing size={8} />
           <Button size="l" stretched mode="secondary" onClick={copyBrief}>
-            Просто скопировать бриф
+            📋 Скопировать бриф
           </Button>
-          <Spacing size={8} />
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
             Ключ не нужен: бриф уезжает в буфер обмена, а разбор пишет ИИ
             в своём чате. Числа в брифе уже посчитаны — просить пересчитать
@@ -147,6 +158,8 @@ export function ReportPanel({
           </Footnote>
         </Div>
       </Group>
+
+      <Footer />
 
       {toast && <Snackbar onClose={() => setToast(null)} onClosed={() => setToast(null)}>{toast}</Snackbar>}
     </>

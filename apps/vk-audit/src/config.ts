@@ -27,6 +27,10 @@ export const VK_APP_ID = Number(import.meta.env?.VITE_VK_APP_ID || DEFAULT_APP_I
  */
 export const VK_BOT_GROUP_ID = Number(import.meta.env?.VITE_VK_BOT_GROUP_ID ?? 0);
 
+/** Автор проекта — подпись в интерфейсе. */
+export const AUTHOR_NAME = 'Евгений Тюрин';
+export const AUTHOR_URL = 'https://vk.ru/ea_tyurin';
+
 /**
  * Чат DeepSeek — куда уходит кнопка «Разобрать с ИИ».
  *

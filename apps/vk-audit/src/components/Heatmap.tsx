@@ -7,12 +7,17 @@ import type { HeatCell } from '../engine/types';
 /** Насыщенность клетки — доля от лучшего ER в сетке. */
 function cellStyle(cell: HeatCell, max: number) {
   if (!cell.n || !cell.avg_er) {
-    return { background: 'var(--vkui--color_background_secondary)', color: 'var(--vkui--color_text_tertiary)' };
+    return {
+      background: 'var(--vkui--color_background_secondary)',
+      color: 'var(--vkui--color_text_tertiary)',
+    };
   }
+  // от бирюзового к фиолетовому: слабые слоты холодные, сильные — насыщенные
   const strength = Math.min(cell.avg_er / max, 1);
+  const hue = 187 - strength * 100;
   return {
-    background: `color-mix(in srgb, var(--vkui--color_background_accent) ${Math.round(20 + strength * 80)}%, transparent)`,
-    color: strength > 0.55 ? 'var(--vkui--color_text_contrast)' : 'var(--vkui--color_text_primary)',
+    background: `hsl(${hue} 74% ${58 - strength * 16}% / ${0.25 + strength * 0.75})`,
+    color: strength > 0.5 ? '#fff' : 'var(--vkui--color_text_primary)',
   };
 }
 
