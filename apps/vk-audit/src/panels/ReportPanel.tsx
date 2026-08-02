@@ -17,7 +17,9 @@ import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
-import { AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, FEEDBACK_URL } from '../config';
+import {
+  AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
+} from '../config';
 
 type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
@@ -192,6 +194,28 @@ export function ReportPanel({
           )}
         </Div>
       </Group>
+
+      {DONATE_URL && (
+        <Group header={<Header>Поддержать</Header>}>
+          <Div>
+            <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
+              Отчёт бесплатный и таким останется. Если он оказался полезным —
+              можно закинуть на развитие: это оплачивает время на новые правила
+              и метрики.
+            </Footnote>
+            <Button
+              size="l"
+              stretched
+              mode="secondary"
+              href={DONATE_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              💜 Поддержать проект
+            </Button>
+          </Div>
+        </Group>
+      )}
 
       <Footer />
 
