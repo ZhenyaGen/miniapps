@@ -1,0 +1,172 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Panel, SplitCol, SplitLayout, View } from '@vkontakte/vkui';
+
+import { DEFAULT_TZ_OFFSET } from './config';
+import { buildPlan, buildTargets, findGrowthZones } from './engine/insights';
+import { compute } from './engine/metrics';
+import type { Finding, Metrics, PlanStage, Snapshot, Target } from './engine/types';
+import { LoadingPanel } from './panels/LoadingPanel';
+import { ReportPanel } from './panels/ReportPanel';
+import { StartPanel } from './panels/StartPanel';
+import { VKApi } from './vk/api';
+import {
+  authorizeViaBridge, isInsideVK, loadSession, readSessionFromRedirect, saveSession,
+  startStandaloneAuth, type Session,
+} from './vk/auth';
+import { collect, listAdminGroups, type AdminGroup } from './vk/collect';
+import { buildDemoSnapshot } from './vk/demo';
+import { buildDemoRivals, collectRivals, parseRivalList } from './vk/rivals';
+import type { RivalsReport } from './engine/rivals';
+
+export interface Report {
+  snapshot: Snapshot;
+  metrics: Metrics;
+  findings: Finding[];
+  plan: PlanStage[];
+  targets: Target[];
+}
+
+/** Один и тот же расчёт для живых данных и для демо. */
+function buildReport(snapshot: Snapshot): Report {
+  const metrics = compute(snapshot, DEFAULT_TZ_OFFSET);
+  const findings = findGrowthZones(metrics, snapshot.profile);
+  return {
+    snapshot,
+    metrics,
+    findings,
+    plan: buildPlan(findings, metrics),
+    targets: buildTargets(metrics),
+  };
+}
+
+export function App() {
+  const [session, setSession] = useState<Session | null>(null);
+  const [adminGroups, setAdminGroups] = useState<AdminGroup[]>([]);
+  const [panel, setPanel] = useState<'start' | 'loading' | 'report'>('start');
+  const [stage, setStage] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [report, setReport] = useState<Report | null>(null);
+  const [rivals, setRivals] = useState<RivalsReport | null>(null);
+  const [rivalsBusy, setRivalsBusy] = useState(false);
+  const [rivalsStage, setRivalsStage] = useState('');
+
+  const insideVK = useMemo(isInsideVK, []);
+
+  useEffect(() => {
+    const restored = readSessionFromRedirect() ?? loadSession();
+    if (restored) setSession(restored);
+  }, []);
+
+  // список своих сообществ подтягивается сразу после входа: чаще всего
+  // аудируют именно их, и вводить ссылку руками не нужно
+  useEffect(() => {
+    if (!session) return;
+    const api = new VKApi(session.token, session.transport);
+    listAdminGroups(api)
+      .then(setAdminGroups)
+      .catch(() => setAdminGroups([]));
+  }, [session]);
+
+  const signIn = useCallback(async () => {
+    setError(null);
+    if (!insideVK) {
+      startStandaloneAuth();
+      return;
+    }
+    try {
+      const next = await authorizeViaBridge();
+      saveSession(next);
+      setSession(next);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Войти не удалось');
+    }
+  }, [insideVK]);
+
+  const runAudit = useCallback(async (target: string) => {
+    if (!session) {
+      await signIn();
+      return;
+    }
+    setError(null);
+    setRivals(null);
+    setPanel('loading');
+    setStage('Подключаемся к ВКонтакте');
+    try {
+      const api = new VKApi(session.token, session.transport);
+      const snapshot = await collect(api, target, { onProgress: setStage });
+      setStage('Считаем метрики и зоны роста');
+      setReport(buildReport(snapshot));
+      setPanel('report');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось собрать аудит');
+      setPanel('start');
+    }
+  }, [session, signIn]);
+
+  const runDemo = useCallback(() => {
+    setError(null);
+    setRivals(null);
+    setReport(buildReport(buildDemoSnapshot()));
+    setPanel('report');
+  }, []);
+
+  const runRivals = useCallback(async (raw: string) => {
+    if (!session || !report) return;
+    const targets = parseRivalList(raw);
+    if (!targets.length) return;
+    setRivalsBusy(true);
+    setRivalsStage('');
+    try {
+      const api = new VKApi(session.token, session.transport);
+      setRivals(await collectRivals(api, report.snapshot.meta.target, targets, {
+        onProgress: setRivalsStage,
+      }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось собрать сравнение');
+    } finally {
+      setRivalsBusy(false);
+    }
+  }, [session, report]);
+
+  const runDemoRivals = useCallback(async () => {
+    setRivals(await buildDemoRivals());
+  }, []);
+
+  return (
+    <SplitLayout>
+      <SplitCol autoSpaced>
+        <View activePanel={panel}>
+          <Panel id="start">
+            <StartPanel
+              signedIn={Boolean(session)}
+              insideVK={insideVK}
+              adminGroups={adminGroups}
+              error={error}
+              onSignIn={signIn}
+              onAudit={runAudit}
+              onDemo={runDemo}
+            />
+          </Panel>
+          <Panel id="loading">
+            <LoadingPanel stage={stage} />
+          </Panel>
+          <Panel id="report">
+            {report && (
+              <ReportPanel
+                report={report}
+                rivals={rivals}
+                rivalsBusy={rivalsBusy}
+                rivalsStage={rivalsStage}
+                canCollectRivals={Boolean(session)}
+                onCollectRivals={runRivals}
+                onDemoRivals={runDemoRivals}
+                onResetRivals={() => setRivals(null)}
+                onBack={() => setPanel('start')}
+              />
+            )}
+          </Panel>
+        </View>
+      </SplitCol>
+    </SplitLayout>
+  );
+}

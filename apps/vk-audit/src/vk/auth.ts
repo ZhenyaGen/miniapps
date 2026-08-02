@@ -1,0 +1,92 @@
+/** Вход: внутри ВК — через мост, снаружи — через тот же redirect, что у exe. */
+
+import bridge from '@vkontakte/vk-bridge';
+
+import { AUTH_SCOPE, OAUTH_REDIRECT_URI, VK_APP_ID } from '../config';
+
+export interface Session {
+  token: string;
+  scope: string[];
+  /** Каким транспортом ходить в API: изнутри ВК — мостом. */
+  transport: 'bridge' | 'http';
+}
+
+const STORAGE_KEY = 'vk-audit:session';
+
+/** Приложение открыто в клиенте ВКонтакте, а не просто в браузере. */
+export function isInsideVK(): boolean {
+  const params = new URLSearchParams(window.location.search);
+  return params.has('vk_app_id') || params.has('vk_user_id');
+}
+
+/** Вход внутри ВК: платформа сама покажет окно с правами. */
+export async function authorizeViaBridge(): Promise<Session> {
+  const data = await bridge.send('VKWebAppGetAuthToken', {
+    app_id: VK_APP_ID,
+    scope: AUTH_SCOPE,
+  });
+  return {
+    token: data.access_token,
+    scope: (data.scope ?? '').split(',').filter(Boolean),
+    transport: 'bridge',
+  };
+}
+
+/**
+ * Вход вне ВК — тот же implicit flow, что в десктопной версии: браузер уходит
+ * на страницу разрешений и возвращается на `OAUTH_REDIRECT_URI` с ключом
+ * в hash. Адрес возврата должен быть прописан в настройках приложения на
+ * dev.vk.ru как доверенный, иначе ВК ответит `redirect_uri is incorrect`.
+ */
+export function startStandaloneAuth(): void {
+  const url = new URL('https://oauth.vk.com/authorize');
+  url.searchParams.set('client_id', String(VK_APP_ID));
+  url.searchParams.set('redirect_uri', OAUTH_REDIRECT_URI);
+  url.searchParams.set('scope', AUTH_SCOPE);
+  url.searchParams.set('response_type', 'token');
+  url.searchParams.set('display', 'page');
+  url.searchParams.set('revoke', '1');
+  window.location.assign(url.toString());
+}
+
+/** Ключ из адресной строки после возврата с oauth.vk.com. */
+export function readSessionFromRedirect(): Session | null {
+  const hash = window.location.hash.replace(/^#/, '');
+  if (!hash.includes('access_token=')) return null;
+  const params = new URLSearchParams(hash);
+  const token = params.get('access_token');
+  if (!token) return null;
+  const session: Session = {
+    token,
+    scope: (params.get('scope') ?? '').split(',').filter(Boolean),
+    transport: 'http',
+  };
+  saveSession(session);
+  window.history.replaceState(null, '', window.location.pathname);
+  return session;
+}
+
+export function saveSession(session: Session): void {
+  try {
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  } catch {
+    // приватный режим — просто работаем без сохранения
+  }
+}
+
+export function loadSession(): Session | null {
+  try {
+    const raw = window.sessionStorage.getItem(STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as Session) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function clearSession(): void {
+  try {
+    window.sessionStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // нечего чистить
+  }
+}

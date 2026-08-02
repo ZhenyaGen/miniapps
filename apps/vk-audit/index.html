@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Аудит страницы ВК</title>
+  </head>
+  <body>
+    <!--
+      Заглушка внутри #root: React затирает её при запуске. Видна она только
+      если файл открыли двойным кликом — тогда браузер блокирует загрузку CSS
+      и JS с file:// (политика CORS), и без этой подсказки был бы белый экран.
+    -->
+    <div id="root">
+      <div style="max-width: 30rem; margin: 3rem auto; padding: 0 1.5rem;
+                  font: 16px/1.5 -apple-system, 'Segoe UI', Roboto, sans-serif;
+                  color: #2c2d2e;">
+        <h1 style="font-size: 1.35rem; margin: 0 0 1rem;">Файл открыт напрямую с диска</h1>
+        <p style="margin: 0 0 1rem;">
+          Так приложение не заработает: браузер запрещает страницам с диска
+          загружать свои же файлы. Нужен веб-адрес — любой из трёх:
+        </p>
+        <ol style="margin: 0 0 1.5rem; padding-left: 1.25rem;">
+          <li style="margin-bottom: .75rem;">
+            <b>Выложить за минуту.</b> Перетащите папку целиком на
+            <a href="https://app.netlify.com/drop" style="color: #2688eb;">app.netlify.com/drop</a> —
+            получите адрес вида <code>https://…netlify.app</code>.
+          </li>
+          <li style="margin-bottom: .75rem;">
+            <b>Открыть внутри ВКонтакте.</b> Адрес из первого пункта впишите
+            в настройки приложения на dev.vk.ru и откройте
+            <code>vk.com/app…</code> — так работают вход и сбор данных.
+          </li>
+          <li>
+            <b>Запустить у себя.</b> В папке с исходниками:
+            <code>npm install</code>, затем <code>npm run dev</code>,
+            и открыть <code>http://localhost:8910</code>.
+          </li>
+        </ol>
+        <p style="margin: 0; color: #818c99; font-size: .875rem;">
+          Подробности — файл ИНСТРУКЦИЯ.md в репозитории.
+        </p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
