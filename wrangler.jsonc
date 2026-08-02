@@ -1,0 +1,14 @@
+{
+  // Настройки для Cloudflare Workers со статикой: команда `npx wrangler deploy`
+  // берёт собранное приложение из dist/ и раздаёт его как обычный сайт.
+  // Серверного кода тут нет — Worker работает только файловой раздачей.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vk-audit",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./dist",
+    // приложение одностраничное: любой путь должен отдавать index.html,
+    // иначе обновление страницы внутри отчёта даст 404
+    "not_found_handling": "single-page-application"
+  }
+}
