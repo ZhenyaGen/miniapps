@@ -152,17 +152,20 @@ export function StartPanel({
               </HorizontalScroll>
             </FormItem>
 
-            <Div style={{ paddingTop: 0 }}>
-              <Button
-                size="l"
-                stretched
-                mode={mode === 'user' && selfId !== null ? 'secondary' : 'primary'}
-                disabled={!target.trim()}
-                onClick={() => onAudit(target.trim())}
-              >
-                {copy.submit}
-              </Button>
-            </Div>
+            {/* кнопка появляется вместе с адресом: серая неактивная кнопка
+                под пустым полем ничего не сообщает, а место занимает */}
+            {target.trim() && (
+              <Div style={{ paddingTop: 0 }}>
+                <Button
+                  size="l"
+                  stretched
+                  className="rise"
+                  onClick={() => onAudit(target.trim())}
+                >
+                  {copy.submit}
+                </Button>
+              </Div>
+            )}
           </Group>
 
           {!signedIn && (

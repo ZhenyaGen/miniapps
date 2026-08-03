@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { Div, Group, Header, HorizontalScroll, Tabs, TabsItem } from '@vkontakte/vkui';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Button, Div, Footnote, Group, Header, HorizontalScroll, Tabs, TabsItem,
+} from '@vkontakte/vkui';
 
 /**
  * Вкладка «Инструкция»: что показывает каждый экран отчёта.
@@ -99,21 +101,72 @@ const STEPS: Step[] = [
   },
 ];
 
+/** Насколько палец должен уехать вбок, чтобы это считалось листанием. */
+const SWIPE_DISTANCE = 48;
+
+/**
+ * И насколько горизонтальное движение должно перевешивать вертикальное.
+ * Без этого страница перестала бы прокручиваться: почти любая прокрутка
+ * идёт немного вбок.
+ */
+const SWIPE_RATIO = 1.6;
+
 export function GuideView() {
-  const [active, setActive] = useState(STEPS[0].id);
-  const step = STEPS.find((s) => s.id === active) ?? STEPS[0];
+  const [index, setIndex] = useState(0);
+  // направление последнего перехода — от него зависит, с какой стороны
+  // выезжает новый экран
+  const [dir, setDir] = useState<'left' | 'right'>('left');
+  const touch = useRef<{ x: number; y: number } | null>(null);
+
+  const step = STEPS[index];
+
+  const go = useCallback((next: number) => {
+    const clamped = Math.max(0, Math.min(STEPS.length - 1, next));
+    if (clamped === index) return;
+    setDir(clamped > index ? 'left' : 'right');
+    setIndex(clamped);
+  }, [index]);
+
+  // стрелки на клавиатуре — для тех, кто открыл приложение с компьютера
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') go(index + 1);
+      if (e.key === 'ArrowLeft') go(index - 1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [go, index]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const point = e.changedTouches[0];
+    touch.current = { x: point.clientX, y: point.clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start) return;
+
+    const point = e.changedTouches[0];
+    const dx = point.clientX - start.x;
+    const dy = point.clientY - start.y;
+    if (Math.abs(dx) < SWIPE_DISTANCE) return;
+    if (Math.abs(dx) < Math.abs(dy) * SWIPE_RATIO) return;
+
+    go(dx < 0 ? index + 1 : index - 1);
+  };
 
   return (
     <>
       <Group>
         <Tabs layoutFillMode="shrinked" withScrollToSelectedTab scrollBehaviorToSelectedTab="center">
           <HorizontalScroll arrowSize="m">
-            {STEPS.map((item) => (
+            {STEPS.map((item, i) => (
               <TabsItem
                 key={item.id}
                 id={item.id}
-                selected={item.id === active}
-                onClick={() => setActive(item.id)}
+                selected={i === index}
+                onClick={() => go(i)}
               >
                 {item.tab}
               </TabsItem>
@@ -123,12 +176,16 @@ export function GuideView() {
       </Group>
 
       <Group header={<Header>{step.title}</Header>}>
-        <Div>
-          <p className="guide__lead rise">{step.lead}</p>
+        <Div
+          className={`guide__slide guide__slide--${dir}`}
+          key={step.id}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <p className="guide__lead">{step.lead}</p>
 
-          <div className="guide__shot rise rise-1">
+          <div className="guide__shot">
             <img
-              key={step.screen}
               src={`./screens/${step.screen}`}
               alt={step.title}
               loading="lazy"
@@ -138,14 +195,48 @@ export function GuideView() {
           </div>
 
           <ul className="guide__list">
-            {step.points.map(([term, text], i) => (
-              <li key={term} className={`guide__point rise rise-${Math.min(i + 2, 6)}`}>
+            {step.points.map(([term, text]) => (
+              <li key={term} className="guide__point">
                 <b>{term}</b>
                 {' — '}
                 {text}
               </li>
             ))}
           </ul>
+        </Div>
+
+        <Div className="guide__nav">
+          <Button
+            mode="tertiary"
+            size="m"
+            disabled={index === 0}
+            onClick={() => go(index - 1)}
+            aria-label="Предыдущий шаг"
+          >
+            ←
+          </Button>
+
+          <div className="guide__dots" aria-hidden>
+            {STEPS.map((item, i) => (
+              <span key={item.id} className={`guide__dot${i === index ? ' guide__dot--on' : ''}`} />
+            ))}
+          </div>
+
+          <Button
+            mode="tertiary"
+            size="m"
+            disabled={index === STEPS.length - 1}
+            onClick={() => go(index + 1)}
+            aria-label="Следующий шаг"
+          >
+            →
+          </Button>
+        </Div>
+
+        <Div style={{ paddingTop: 0 }}>
+          <Footnote style={{ color: 'var(--vkui--color_text_tertiary)', textAlign: 'center', display: 'block' }}>
+            {`Шаг ${index + 1} из ${STEPS.length} — листайте влево и вправо`}
+          </Footnote>
         </Div>
       </Group>
     </>
