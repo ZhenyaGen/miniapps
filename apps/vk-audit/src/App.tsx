@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Panel, SplitCol, SplitLayout, View } from '@vkontakte/vkui';
 
-import { DEFAULT_TZ_OFFSET } from './config';
+import { DEFAULT_PERIOD_DAYS, DEFAULT_TZ_OFFSET } from './config';
 import { buildPlan, buildTargets, findGrowthZones } from './engine/insights';
 import { compute } from './engine/metrics';
 import type { Finding, Metrics, PlanStage, Snapshot, Target } from './engine/types';
@@ -49,6 +49,7 @@ export function App() {
   const [rivals, setRivals] = useState<RivalsReport | null>(null);
   const [rivalsBusy, setRivalsBusy] = useState(false);
   const [rivalsStage, setRivalsStage] = useState('');
+  const [periodDays, setPeriodDays] = useState(DEFAULT_PERIOD_DAYS);
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -97,7 +98,7 @@ export function App() {
     setStage('Подключаемся к ВКонтакте');
     try {
       const api = new VKApi(session.token, session.transport);
-      const snapshot = await collect(api, target, { onProgress: setStage });
+      const snapshot = await collect(api, target, { periodDays, onProgress: setStage });
       setStage('Считаем метрики и зоны роста');
       setReport(buildReport(snapshot));
       setPanel('report');
@@ -105,7 +106,7 @@ export function App() {
       setError(err instanceof Error ? err.message : 'Не удалось собрать аудит');
       setPanel('start');
     }
-  }, [session, signIn]);
+  }, [session, signIn, periodDays]);
 
   const runDemo = useCallback(() => {
     setError(null);
@@ -146,6 +147,8 @@ export function App() {
               insideVK={insideVK}
               selfId={selfId}
               adminGroups={adminGroups}
+              periodDays={periodDays}
+              onPeriodChange={setPeriodDays}
               error={error}
               onSignIn={signIn}
               onAudit={runAudit}
