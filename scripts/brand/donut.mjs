@@ -42,7 +42,16 @@ const LEVELS = [
     to: '#c44dff',
   },
   {
-    file: 'uroven-3-partner.png',
+    file: 'uroven-3-generaciya.png',
+    mark: '✦',
+    title: 'Генерация',
+    price: '2500 ₽ в месяц',
+    line: 'Ваш сюжет — роликом раз в месяц',
+    from: '#c44dff',
+    to: '#ff4d94',
+  },
+  {
+    file: 'uroven-4-partner.png',
     mark: '★',
     title: 'Партнёр',
     price: '5000 ₽ в месяц',
