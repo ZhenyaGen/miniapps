@@ -44,6 +44,7 @@
 
 | Что | Файлы |
 |---|---|
+| Обложки уровней VK Донат | `donut/` — там же готовые тексты уровней |
 | Сторис для набора тестировщиков | `storis-1-kryuchok.png`, `storis-2-nahodki.png`, `storis-3-priglashenie.png` |
 | Сторис-инструкция, 8 кадров | `storis-instrukciya/` |
 | Обложки анкет обратной связи | `forma-otzyvy-oblozhka.png`, `forma-testirovshchiki-oblozhka.png` |
@@ -60,6 +61,7 @@ node scripts/brand/story-guide.mjs            # сторис-инструкци�
 node scripts/brand/render.mjs                 # иконки, обложка, сниппет, сторис
 node scripts/brand/splash-lottie.mjs          # экран запуска
 node scripts/brand/lottie-preview.mjs         # и раскладка его кадров
+node scripts/brand/donut.mjs                  # обложки уровней доната
 ```
 
 Порядок важен для первых трёх: сторис-инструкция берёт готовые
