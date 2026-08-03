@@ -37,7 +37,14 @@ async function main(): Promise<void> {
     log('Ключ DeepSeek не задан — разборы уйдут сухими фактами.');
   }
 
-  const bot = new Bot({ groupApi, readApi, store, llm, tzOffset: config.tzOffset, log });
+  if (config.dryRun) {
+    log('РЕЖИМ БЕЗ ОТПРАВКИ (BOT_DRY_RUN=1): сообщения печатаются в лог, '
+      + 'messages.send не вызывается');
+  }
+
+  const bot = new Bot({
+    groupApi, readApi, store, llm, tzOffset: config.tzOffset, log, dryRun: config.dryRun,
+  });
 
   const longPoll = new LongPoll(
     groupApi,

@@ -1,5 +1,21 @@
 /** Настройки бота. Всё секретное — только из окружения, ничего в коде. */
 
+/**
+ * Читаем `.env`, если он лежит рядом.
+ *
+ * Инструкция велит скопировать `.env.example` в `.env` — без этой строки
+ * файл никто не читал бы, и бот падал бы на «не задана переменная»
+ * при заполненном файле. В окружении, где переменные уже заданы
+ * (сервер, systemd, CI), файла нет и вызов молча ничего не делает.
+ */
+export function loadEnvFile(path = '.env'): void {
+  try {
+    process.loadEnvFile(path);
+  } catch {
+    // файла нет — значит, переменные приходят из окружения
+  }
+}
+
 function required(name: string): string {
   const value = process.env[name]?.trim();
   if (!value) {
@@ -35,9 +51,16 @@ export interface BotConfig {
   /** Файл с подписками. */
   storePath: string;
   tzOffset: number;
+  /**
+   * Режим без отправки: бот слушает, считает и пишет в лог то, что отправил бы,
+   * но `messages.send` не вызывает. Так проверяют формулировки и расписание,
+   * не рискуя разослать черновик живым людям.
+   */
+  dryRun: boolean;
 }
 
 export function loadConfig(): BotConfig {
+  loadEnvFile();
   return {
     groupToken: required('VK_GROUP_TOKEN'),
     groupId: Number(required('VK_GROUP_ID')),
@@ -48,6 +71,7 @@ export function loadConfig(): BotConfig {
     tickMinutes: Number(optional('BOT_TICK_MINUTES', '15')),
     storePath: optional('BOT_STORE', 'data/subscriptions.json'),
     tzOffset: Number(optional('BOT_TZ_OFFSET', '3')),
+    dryRun: optional('BOT_DRY_RUN', '') === '1',
   };
 }
 
