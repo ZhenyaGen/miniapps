@@ -10,8 +10,8 @@ import { ReportPanel } from './panels/ReportPanel';
 import { StartPanel } from './panels/StartPanel';
 import { VKApi } from './vk/api';
 import {
-  authorizeViaBridge, isInsideVK, loadSession, readSessionFromRedirect, saveSession,
-  startStandaloneAuth, type Session,
+  authorizeViaBridge, isInsideVK, launchUserId, loadSession, readSessionFromRedirect,
+  saveSession, startStandaloneAuth, type Session,
 } from './vk/auth';
 import { collect, listAdminGroups, type AdminGroup } from './vk/collect';
 import { buildDemoSnapshot } from './vk/demo';
@@ -51,6 +51,10 @@ export function App() {
   const [rivalsStage, setRivalsStage] = useState('');
 
   const insideVK = useMemo(isInsideVK, []);
+
+  // внутри ВК идентификатор приезжает в параметрах запуска, снаружи — вместе
+  // с ключом доступа; без него кнопку «моя страница» показывать нечему
+  const selfId = useMemo(() => launchUserId(), []) ?? session?.userId ?? null;
 
   useEffect(() => {
     const restored = readSessionFromRedirect() ?? loadSession();
@@ -140,6 +144,7 @@ export function App() {
             <StartPanel
               signedIn={Boolean(session)}
               insideVK={insideVK}
+              selfId={selfId}
               adminGroups={adminGroups}
               error={error}
               onSignIn={signIn}

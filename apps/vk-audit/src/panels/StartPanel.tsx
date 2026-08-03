@@ -1,16 +1,49 @@
 import { useState } from 'react';
 import {
   Avatar, Banner, Button, Div, FormItem, Group, Header, Input, PanelHeader,
-  Placeholder, SimpleCell, Spacing, Text,
+  Placeholder, SegmentedControl, SimpleCell, Spacing, Text,
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
 import { Footer } from '../components/Footer';
 import type { AdminGroup } from '../vk/collect';
 
+type Mode = 'user' | 'group';
+
+/**
+ * Подписи под выбранный тип страницы.
+ *
+ * Тип — только подсказка для человека: что именно разбирать, приложение
+ * всё равно определяет по ответу `utils.resolveScreenName`. Ошибиться
+ * кнопкой не страшно — отчёт соберётся по тому, что на самом деле лежит
+ * по адресу.
+ */
+const MODES: Record<Mode, {
+  placeholder: string;
+  top: string;
+  bottom: string;
+  submit: string;
+}> = {
+  user: {
+    placeholder: 'vk.com/ea_tyurin',
+    top: 'Ссылка на страницу человека',
+    bottom: 'Или короткое имя: ea_tyurin. Подойдёт любая открытая страница — '
+      + 'своя, коллеги или автора, у которого хочется подсмотреть, что работает.',
+    submit: 'Проверить личную страницу',
+  },
+  group: {
+    placeholder: 'vk.com/my_group',
+    top: 'Ссылка на сообщество',
+    bottom: 'Например, vk.com/vkappsdev — подойдёт любое открытое сообщество, '
+      + 'не только своё.',
+    submit: 'Проверить сообщество',
+  },
+};
+
 interface Props {
   signedIn: boolean;
   insideVK: boolean;
+  selfId: number | null;
   adminGroups: AdminGroup[];
   error: string | null;
   onSignIn: () => void;
@@ -19,9 +52,11 @@ interface Props {
 }
 
 export function StartPanel({
-  signedIn, insideVK, adminGroups, error, onSignIn, onAudit, onDemo,
+  signedIn, insideVK, selfId, adminGroups, error, onSignIn, onAudit, onDemo,
 }: Props) {
+  const [mode, setMode] = useState<Mode>('user');
   const [target, setTarget] = useState('');
+  const copy = MODES[mode];
 
   return (
     <>
@@ -31,8 +66,8 @@ export function StartPanel({
         <div className="hero rise">
           <h1 className="hero__title">Что мешает странице расти</h1>
           <p className="hero__subtitle">
-            Метрики, зоны роста и план на 4 недели — по любому открытому
-            сообществу ВКонтакте
+            Метрики, зоны роста и план на 4 недели — по личной странице
+            или сообществу ВКонтакте
           </p>
         </div>
       </Div>
@@ -44,27 +79,44 @@ export function StartPanel({
       )}
 
       <Group header={<Header>Что проверяем</Header>}>
-        <FormItem
-          top="Ссылка на сообщество или страницу"
-          bottom="Например, vk.com/vkappsdev — подойдёт любое открытое сообщество, не только своё"
-        >
+        <Div>
+          <SegmentedControl
+            value={mode}
+            onChange={(value) => setMode(value as Mode)}
+            options={[
+              { label: 'Личная страница', value: 'user', 'aria-label': 'Личная страница' },
+              { label: 'Сообщество', value: 'group', 'aria-label': 'Сообщество' },
+            ]}
+          />
+        </Div>
+
+        {mode === 'user' && selfId !== null && (
+          <Div style={{ paddingTop: 0 }}>
+            <Button size="l" stretched onClick={() => onAudit(`id${selfId}`)}>
+              Проверить мою страницу
+            </Button>
+          </Div>
+        )}
+
+        <FormItem top={copy.top} bottom={copy.bottom}>
           <Input
             value={target}
-            placeholder="vk.com/my_group"
+            placeholder={copy.placeholder}
             onChange={(e) => setTarget(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && target.trim()) onAudit(target.trim());
             }}
           />
         </FormItem>
-        <Div>
+        <Div style={{ paddingTop: 0 }}>
           <Button
             size="l"
             stretched
+            mode={mode === 'user' && selfId !== null ? 'secondary' : 'primary'}
             disabled={!target.trim()}
             onClick={() => onAudit(target.trim())}
           >
-            Собрать аудит
+            {copy.submit}
           </Button>
         </Div>
       </Group>
@@ -84,7 +136,7 @@ export function StartPanel({
         </Group>
       )}
 
-      {adminGroups.length > 0 && (
+      {mode === 'group' && adminGroups.length > 0 && (
         <Group header={<Header>Ваши сообщества</Header>}>
           {adminGroups.slice(0, 10).map((group) => (
             <SimpleCell

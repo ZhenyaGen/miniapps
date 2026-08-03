@@ -9,6 +9,8 @@ export interface Session {
   scope: string[];
   /** Каким транспортом ходить в API: изнутри ВК — мостом. */
   transport: 'bridge' | 'http';
+  /** Кто вошёл — чтобы предложить разобрать свою страницу одной кнопкой. */
+  userId?: number;
 }
 
 const STORAGE_KEY = 'vk-audit:session';
@@ -17,6 +19,18 @@ const STORAGE_KEY = 'vk-audit:session';
 export function isInsideVK(): boolean {
   const params = new URLSearchParams(window.location.search);
   return params.has('vk_app_id') || params.has('vk_user_id');
+}
+
+/**
+ * Идентификатор зрителя из параметров запуска.
+ *
+ * ВК подставляет `vk_user_id` при открытии мини-приложения; вне ВК его нет
+ * и число приезжает вместе с ключом доступа после входа.
+ */
+export function launchUserId(): number | null {
+  const raw = new URLSearchParams(window.location.search).get('vk_user_id');
+  const id = Number(raw);
+  return Number.isFinite(id) && id > 0 ? id : null;
 }
 
 /** Вход внутри ВК: платформа сама покажет окно с правами. */
@@ -56,10 +70,12 @@ export function readSessionFromRedirect(): Session | null {
   const params = new URLSearchParams(hash);
   const token = params.get('access_token');
   if (!token) return null;
+  const ownerId = Number(params.get('user_id'));
   const session: Session = {
     token,
     scope: (params.get('scope') ?? '').split(',').filter(Boolean),
     transport: 'http',
+    userId: Number.isFinite(ownerId) && ownerId > 0 ? ownerId : undefined,
   };
   saveSession(session);
   window.history.replaceState(null, '', window.location.pathname);
