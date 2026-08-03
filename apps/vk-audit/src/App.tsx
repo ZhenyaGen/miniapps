@@ -15,7 +15,9 @@ import {
 } from './vk/auth';
 import { collect, listAdminGroups, type AdminGroup } from './vk/collect';
 import { buildDemoSnapshot } from './vk/demo';
-import { buildDemoRivals, collectRivals, parseRivalList } from './vk/rivals';
+import {
+  buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Candidate,
+} from './vk/rivals';
 import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
@@ -50,6 +52,9 @@ export function App() {
   const [rivalsBusy, setRivalsBusy] = useState(false);
   const [rivalsStage, setRivalsStage] = useState('');
   const [periodDays, setPeriodDays] = useState(DEFAULT_PERIOD_DAYS);
+  const [suggestion, setSuggestion] = useState<
+    { found: Candidate[]; queries: string[] } | null
+  >(null);
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -94,6 +99,7 @@ export function App() {
     }
     setError(null);
     setRivals(null);
+    setSuggestion(null);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -133,6 +139,23 @@ export function App() {
     }
   }, [session, report]);
 
+  /** Подобрать конкурентов самому — по нише страницы. */
+  const runSuggest = useCallback(async () => {
+    if (!session || !report) return;
+    setRivalsBusy(true);
+    setRivalsStage('Подбираем похожие сообщества');
+    try {
+      const api = new VKApi(session.token, session.transport);
+      setSuggestion(await suggestRivals(api, report.snapshot.profile, report.metrics, {
+        onProgress: setRivalsStage,
+      }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось подобрать конкурентов');
+    } finally {
+      setRivalsBusy(false);
+    }
+  }, [session, report]);
+
   const runDemoRivals = useCallback(async () => {
     setRivals(await buildDemoRivals());
   }, []);
@@ -166,7 +189,10 @@ export function App() {
                 rivalsBusy={rivalsBusy}
                 rivalsStage={rivalsStage}
                 canCollectRivals={Boolean(session)}
+                canSuggestRivals={report.snapshot.profile.kind === 'group'}
+                rivalsSuggestion={suggestion}
                 onCollectRivals={runRivals}
+                onSuggestRivals={runSuggest}
                 onDemoRivals={runDemoRivals}
                 onResetRivals={() => setRivals(null)}
                 onBack={() => setPanel('start')}

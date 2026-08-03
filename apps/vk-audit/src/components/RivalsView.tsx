@@ -6,7 +6,7 @@ import {
 
 import type { CompareRow, RivalsReport, Verdict } from '../engine/rivals';
 import { f } from '../engine/util';
-import { MAX_RIVALS } from '../vk/rivals';
+import { MAX_RIVALS, type Candidate } from '../vk/rivals';
 
 const VERDICT_LABEL: Record<Exclude<Verdict, null>, string> = {
   ahead: 'впереди',
@@ -54,13 +54,18 @@ interface Props {
   stage: string;
   canCollect: boolean;
   isDemo: boolean;
+  /** Подбор ищет сообщества, поэтому для личных страниц он недоступен. */
+  canSuggest: boolean;
+  suggestion: { found: Candidate[]; queries: string[] } | null;
   onCollect: (targets: string) => void;
+  onSuggest: () => void;
   onDemo: () => void;
   onReset: () => void;
 }
 
 export function RivalsView({
-  report, busy, stage, canCollect, isDemo, onCollect, onDemo, onReset,
+  report, busy, stage, canCollect, isDemo, canSuggest, suggestion,
+  onCollect, onSuggest, onDemo, onReset,
 }: Props) {
   const [raw, setRaw] = useState('');
 
@@ -78,10 +83,72 @@ export function RivalsView({
   if (!report) {
     return (
       <>
+        {canSuggest && (
+          <Group header={<Header subtitle="по категории и темам вашей страницы">
+            Подобрать конкурентов
+          </Header>}
+          >
+            <Div>
+              <Button
+                size="l"
+                stretched
+                mode="secondary"
+                disabled={!canCollect}
+                onClick={onSuggest}
+              >
+                🔎 Найти три похожих сообщества
+              </Button>
+
+              {suggestion && (
+                <div className="rise" style={{ marginTop: 12 }}>
+                  {suggestion.found.length ? (
+                    <>
+                      {suggestion.found.map((item) => (
+                        <SimpleCell
+                          key={item.screenName}
+                          subtitle={`${f(item.members, 0)} подписчиков`}
+                          after={(
+                            <Button
+                              size="s"
+                              mode="tertiary"
+                              onClick={() => setRaw((prev) => (
+                                prev.includes(item.screenName)
+                                  ? prev
+                                  : `${prev.trim()}\n${item.screenName}`.trim()
+                              ))}
+                            >
+                              добавить
+                            </Button>
+                          )}
+                        >
+                          {item.name}
+                        </SimpleCell>
+                      ))}
+                      <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
+                        {`Искал по запросам: ${suggestion.queries.join(', ')}. `}
+                        Проверьте список — поиск ВК находит и мёртвые паблики.
+                        Лишнее удалите из поля ниже, своё допишите руками.
+                      </Footnote>
+                    </>
+                  ) : (
+                    <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block' }}>
+                      Похожих сообществ подходящего размера не нашлось.
+                      Так бывает у узких ниш и у личных страниц — впишите
+                      конкурентов руками, вы знаете их лучше поиска.
+                    </Footnote>
+                  )}
+                </div>
+              )}
+            </Div>
+          </Group>
+        )}
+
         <Group header={<Header>Сравнение с конкурентами</Header>}>
           <FormItem
             top="Ссылки на похожие сообщества, по одной в строке"
-            bottom={`Достаточно 3–5 сообществ вашей тематики. Максимум — ${MAX_RIVALS}.`}
+            bottom={`Достаточно 3–5 сообществ вашей тематики. Максимум — ${MAX_RIVALS}. `
+              + 'Берите сопоставимые по размеру: сравнение с миллионником '
+              + 'красит всё в красный и не говорит ничего.'}
           >
             <Textarea
               rows={5}
