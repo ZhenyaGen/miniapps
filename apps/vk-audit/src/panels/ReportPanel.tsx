@@ -7,7 +7,7 @@ import {
 
 import type { Report } from '../App';
 import type { RivalsReport } from '../engine/rivals';
-import type { Candidate } from '../vk/rivals';
+import type { Suggestion } from '../vk/rivals';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
@@ -39,8 +39,7 @@ interface Props {
   rivalsBusy: boolean;
   rivalsStage: string;
   canCollectRivals: boolean;
-  canSuggestRivals: boolean;
-  rivalsSuggestion: { found: Candidate[]; queries: string[] } | null;
+  rivalsSuggestion: Suggestion | null;
   onCollectRivals: (targets: string) => void;
   onSuggestRivals: () => void;
   onDemoRivals: () => void;
@@ -49,7 +48,7 @@ interface Props {
 }
 
 export function ReportPanel({
-  report, rivals, rivalsBusy, rivalsStage, canCollectRivals, canSuggestRivals,
+  report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
   rivalsSuggestion, onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
@@ -130,7 +129,7 @@ export function ReportPanel({
           busy={rivalsBusy}
           stage={rivalsStage}
           canCollect={canCollectRivals}
-          canSuggest={canSuggestRivals}
+          isGroup={report.snapshot.profile.kind === 'group'}
           suggestion={rivalsSuggestion}
           isDemo={report.snapshot.meta.source === 'demo'}
           onCollect={onCollectRivals}

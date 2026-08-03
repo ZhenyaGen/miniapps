@@ -190,24 +190,81 @@ export interface SuggestOptions {
   limit?: number;
 }
 
+export interface Suggestion {
+  found: Candidate[];
+  /** По каким запросам искали — их видит человек, чтобы понять логику. */
+  queries: string[];
+  /**
+   * Откуда взялись кандидаты. У сообществ и профилей источники разные,
+   * и подписи в интерфейсе тоже должны быть разные: «нашёл похожие»
+   * и «вот на кого вы подписаны» — это не одно и то же обещание.
+   */
+  source: 'поиск' | 'подписки' | 'нет';
+}
+
 /**
- * Найти конкурентов самому — по нише страницы.
+ * Кандидаты для личной страницы — из её подписок на других людей.
  *
- * Работает только для сообществ: у личных страниц нет категории,
- * а `groups.search` ищет сообщества. Для профиля возвращается пустой
- * список, и человек вводит конкурентов руками.
+ * Прямого способа найти «похожего автора» у ВК нет: `users.search`
+ * ищет по имени и анкете, а не по тому, о чём человек пишет. Зато
+ * авторы в одной нише почти всегда читают друг друга — подписки
+ * оказываются лучшим доступным сигналом.
+ *
+ * Это именно кандидаты, а не вердикт: среди подписок будут и друзья,
+ * и случайные страницы. Поэтому в интерфейсе они и подписаны честно.
+ */
+async function fromSubscriptions(
+  api: ApiClient,
+  profile: Profile,
+  limit: number,
+  onProgress?: (stage: string) => void,
+): Promise<Candidate[]> {
+  onProgress?.('Смотрим, кого читает эта страница');
+  try {
+    const resp = await api.call<{ items?: Array<Record<string, any>> }>(
+      'users.getSubscriptions',
+      { user_id: profile.id, extended: 1, fields: 'followers_count,screen_name', count: 200 },
+    );
+    const people = (resp?.items ?? [])
+      .filter((item) => item.type !== 'page' && item.type !== 'group' && !item.name)
+      .map((item) => ({
+        id: Number(item.id),
+        name: `${item.first_name ?? ''} ${item.last_name ?? ''}`.trim(),
+        screenName: String(item.screen_name ?? `id${item.id}`),
+        members: Number(item.followers_count ?? 0),
+        isClosed: Boolean(item.is_closed) && !item.can_access_closed,
+      }));
+    return pickRivals(people, profile.id, profile.audience, limit);
+  } catch {
+    // подписки часто закрыты настройками приватности — это не ошибка
+    return [];
+  }
+}
+
+/**
+ * Найти кандидатов в конкуренты.
+ *
+ * У сообществ и профилей разные пути: сообщества ищутся поиском
+ * по нише, личные страницы — через подписки. Обещания в интерфейсе
+ * тоже разные, поэтому источник возвращается наружу.
  */
 export async function suggestRivals(
   api: ApiClient,
   profile: Profile,
   metrics: Metrics,
   options: SuggestOptions = {},
-): Promise<{ found: Candidate[]; queries: string[] }> {
+): Promise<Suggestion> {
   const { onProgress, limit = AUTO_RIVALS } = options;
+
+  if (profile.kind === 'user') {
+    const found = await fromSubscriptions(api, profile, limit, onProgress);
+    return { found, queries: [], source: found.length ? 'подписки' : 'нет' };
+  }
+
   const niche = detectNiche(profile, metrics);
   const queries = rivalQueries(niche);
 
-  if (!queries.length) return { found: [], queries: [] };
+  if (!queries.length) return { found: [], queries: [], source: 'нет' };
 
   const seen = new Map<number, Candidate>();
   for (const query of queries) {
@@ -235,8 +292,6 @@ export async function suggestRivals(
     }
   }
 
-  return {
-    found: pickRivals([...seen.values()], Math.abs(profile.id), profile.audience, limit),
-    queries,
-  };
+  const found = pickRivals([...seen.values()], Math.abs(profile.id), profile.audience, limit);
+  return { found, queries, source: found.length ? 'поиск' : 'нет' };
 }
