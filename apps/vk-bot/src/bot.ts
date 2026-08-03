@@ -17,6 +17,15 @@ export interface BotDeps {
   llm: DeepSeek | null;
   tzOffset: number;
   log?: (message: string) => void;
+  /**
+   * Не отправлять сообщения, а печатать их в лог.
+   *
+   * Всё остальное работает как обычно: Long Poll слушается, данные
+   * собираются, подписки сохраняются. Не происходит ровно одного —
+   * `messages.send`. Это и есть разница между «проверить на себе»
+   * и «разослать черновик живым людям».
+   */
+  dryRun?: boolean;
 }
 
 export class Bot {
@@ -26,8 +35,12 @@ export class Bot {
     this.log = deps.log ?? console.log;
   }
 
-  private say(userId: number, text: string): Promise<void> {
-    return sendMessage(this.deps.groupApi, userId, text);
+  private async say(userId: number, text: string): Promise<void> {
+    if (this.deps.dryRun) {
+      this.log(`[без отправки] → ${userId}:\n${text}\n`);
+      return;
+    }
+    await sendMessage(this.deps.groupApi, userId, text);
   }
 
   /** Единая точка входа для всего, что приходит из Long Poll. */

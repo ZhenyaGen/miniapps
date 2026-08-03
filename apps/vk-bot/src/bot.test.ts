@@ -222,4 +222,48 @@ describe('сценарий подписки', () => {
     await reopened.load();
     expect(reopened.get(7)?.target).toBe('demo_marketing');
   });
+
+  describe('режим без отправки', () => {
+    let logged: string[];
+    let dryBot: Bot;
+
+    beforeEach(() => {
+      logged = [];
+      const api = fakeApi();
+      dryBot = new Bot({
+        groupApi: api,
+        readApi: api,
+        store,
+        llm: null,
+        tzOffset: 3,
+        log: (message) => logged.push(message),
+        dryRun: true,
+      });
+    });
+
+    it('не вызывает messages.send, но показывает текст в логе', async () => {
+      await dryBot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
+
+      expect(sent).toEqual([]);
+      expect(logged.some((line) => line.includes('Демо-сообщество'))).toBe(true);
+      expect(logged.some((line) => line.includes('[без отправки] → 7'))).toBe(true);
+    });
+
+    it('всё остальное работает как обычно: подписка и метрики сохраняются', async () => {
+      await dryBot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
+
+      const subscription = store.get(7);
+      expect(subscription?.target).toBe('demo_marketing');
+      expect(subscription?.lastSentAt).toBeGreaterThan(0);
+      expect(subscription?.lastMetrics?.findings).toBeGreaterThan(0);
+    });
+
+    it('планировщик отрабатывает срок, ничего не отправляя', async () => {
+      await dryBot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
+      const later = Math.floor(Date.now() / 1000) + PERIOD_DAYS.week * 86400;
+
+      expect(await dryBot.tick(later)).toBe(1);
+      expect(sent).toEqual([]);
+    });
+  });
 });
