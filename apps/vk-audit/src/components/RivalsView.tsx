@@ -6,7 +6,7 @@ import {
 
 import type { CompareRow, RivalsReport, Verdict } from '../engine/rivals';
 import { f } from '../engine/util';
-import { MAX_RIVALS, type Candidate } from '../vk/rivals';
+import { MAX_RIVALS, type Suggestion } from '../vk/rivals';
 
 const VERDICT_LABEL: Record<Exclude<Verdict, null>, string> = {
   ahead: 'впереди',
@@ -54,9 +54,9 @@ interface Props {
   stage: string;
   canCollect: boolean;
   isDemo: boolean;
-  /** Подбор ищет сообщества, поэтому для личных страниц он недоступен. */
-  canSuggest: boolean;
-  suggestion: { found: Candidate[]; queries: string[] } | null;
+  /** Тип страницы: от него зависит, откуда берутся кандидаты. */
+  isGroup: boolean;
+  suggestion: Suggestion | null;
   onCollect: (targets: string) => void;
   onSuggest: () => void;
   onDemo: () => void;
@@ -64,7 +64,7 @@ interface Props {
 }
 
 export function RivalsView({
-  report, busy, stage, canCollect, isDemo, canSuggest, suggestion,
+  report, busy, stage, canCollect, isDemo, isGroup, suggestion,
   onCollect, onSuggest, onDemo, onReset,
 }: Props) {
   const [raw, setRaw] = useState('');
@@ -83,21 +83,33 @@ export function RivalsView({
   if (!report) {
     return (
       <>
-        {canSuggest && (
-          <Group header={<Header subtitle="по категории и темам вашей страницы">
-            Подобрать конкурентов
-          </Header>}
-          >
-            <Div>
-              <Button
-                size="l"
-                stretched
-                mode="secondary"
-                disabled={!canCollect}
-                onClick={onSuggest}
-              >
-                🔎 Найти три похожих сообщества
-              </Button>
+        <Group header={<Header subtitle={isGroup
+          ? 'по категории и темам вашей страницы'
+          : 'у личных страниц — из тех, на кого она подписана'}
+        >
+          Подобрать конкурентов
+        </Header>}
+        >
+          <Div>
+            <Button
+              size="l"
+              stretched
+              mode="secondary"
+              disabled={!canCollect}
+              onClick={onSuggest}
+            >
+              {isGroup ? '🔎 Найти три похожих сообщества' : '🔎 Подобрать три страницы'}
+            </Button>
+
+            {!isGroup && !suggestion && (
+              <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
+                Искать «похожего автора» ВКонтакте не умеет: поиск людей
+                смотрит на имя и анкету, а не на то, о чём человек пишет.
+                Зато авторы одной темы обычно читают друг друга — поэтому
+                кандидаты берутся из подписок. Это подсказка, а не вердикт:
+                проверьте список и допишите своих.
+              </Footnote>
+            )}
 
               {suggestion && (
                 <div className="rise" style={{ marginTop: 12 }}>
@@ -125,23 +137,29 @@ export function RivalsView({
                         </SimpleCell>
                       ))}
                       <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
-                        {`Искал по запросам: ${suggestion.queries.join(', ')}. `}
-                        Проверьте список — поиск ВК находит и мёртвые паблики.
-                        Лишнее удалите из поля ниже, своё допишите руками.
+                        {suggestion.queries.length
+                          ? `Искал по запросам: ${suggestion.queries.join(', ')}. `
+                            + 'Проверьте список — поиск ВК находит и мёртвые паблики.'
+                          : 'Это страницы из подписок, отобранные по числу '
+                            + 'подписчиков. Среди них могут быть просто знакомые.'}
+                        {' Лишнее не добавляйте, своё допишите руками.'}
                       </Footnote>
                     </>
                   ) : (
                     <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block' }}>
-                      Похожих сообществ подходящего размера не нашлось.
-                      Так бывает у узких ниш и у личных страниц — впишите
-                      конкурентов руками, вы знаете их лучше поиска.
+                      {isGroup
+                        ? 'Похожих сообществ подходящего размера не нашлось — '
+                          + 'так бывает у узких ниш. Впишите конкурентов руками.'
+                        : 'Подходящих страниц не нашлось: подписки могут быть '
+                          + 'закрыты настройками приватности, а среди открытых '
+                          + 'не оказалось сопоставимых по числу подписчиков. '
+                          + 'Впишите руками — вы знаете своих коллег лучше поиска.'}
                     </Footnote>
                   )}
                 </div>
               )}
-            </Div>
-          </Group>
-        )}
+          </Div>
+        </Group>
 
         <Group header={<Header>Сравнение с конкурентами</Header>}>
           <FormItem

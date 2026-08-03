@@ -16,7 +16,7 @@ import {
 import { collect, listAdminGroups, type AdminGroup } from './vk/collect';
 import { buildDemoSnapshot } from './vk/demo';
 import {
-  buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Candidate,
+  buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Suggestion,
 } from './vk/rivals';
 import type { RivalsReport } from './engine/rivals';
 
@@ -52,9 +52,7 @@ export function App() {
   const [rivalsBusy, setRivalsBusy] = useState(false);
   const [rivalsStage, setRivalsStage] = useState('');
   const [periodDays, setPeriodDays] = useState(DEFAULT_PERIOD_DAYS);
-  const [suggestion, setSuggestion] = useState<
-    { found: Candidate[]; queries: string[] } | null
-  >(null);
+  const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -139,11 +137,14 @@ export function App() {
     }
   }, [session, report]);
 
-  /** Подобрать конкурентов самому — по нише страницы. */
+  /**
+   * Подобрать кандидатов: сообществам — поиском по нише, личным
+   * страницам — из подписок. Способы разные, кнопка одна.
+   */
   const runSuggest = useCallback(async () => {
     if (!session || !report) return;
     setRivalsBusy(true);
-    setRivalsStage('Подбираем похожие сообщества');
+    setRivalsStage('Подбираем кандидатов');
     try {
       const api = new VKApi(session.token, session.transport);
       setSuggestion(await suggestRivals(api, report.snapshot.profile, report.metrics, {
@@ -189,7 +190,6 @@ export function App() {
                 rivalsBusy={rivalsBusy}
                 rivalsStage={rivalsStage}
                 canCollectRivals={Boolean(session)}
-                canSuggestRivals={report.snapshot.profile.kind === 'group'}
                 rivalsSuggestion={suggestion}
                 onCollectRivals={runRivals}
                 onSuggestRivals={runSuggest}
