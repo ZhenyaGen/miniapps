@@ -79,6 +79,9 @@ body,
   .bar,
   .kpi,
   .chip,
+  .guide__slide--left,
+  .guide__slide--right,
+  .guide__dot,
   .chip--on,
   .spinner-dot,
   .hero--live,
@@ -449,4 +452,65 @@ body,
   background: linear-gradient(135deg,
     hsl(var(--accent-blue)),
     hsl(var(--accent-violet)));
+}
+
+/* ------------------------------------------------ листание инструкции */
+@keyframes slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Экран выезжает с той стороны, откуда пришёл палец: свайп влево
+   листает вперёд, и следующий шаг приходит справа. */
+.guide__slide--left {
+  animation: slide-from-right 0.26s ease-out both;
+}
+
+.guide__slide--right {
+  animation: slide-from-left 0.26s ease-out both;
+}
+
+.guide__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 4px;
+}
+
+.guide__dots {
+  display: flex;
+  gap: 7px;
+}
+
+.guide__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--vkui--color_icon_tertiary);
+  opacity: 0.35;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.guide__dot--on {
+  opacity: 1;
+  transform: scale(1.25);
+  background: hsl(var(--accent-blue));
 }
