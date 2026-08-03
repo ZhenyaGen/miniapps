@@ -10,6 +10,9 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { Bot } from './bot';
 import { parseCommand } from './commands';
+import { longTrend, movement, planStalled } from './compare';
+import { compute } from './engine';
+import { detectNiche, systemPrompt } from './niche';
 import { toEvent } from './longpoll';
 import { due, PERIOD_DAYS, Store } from './store';
 import { splitMessage } from './vk';
@@ -38,9 +41,151 @@ describe('команды', () => {
     }
   });
 
-  it('не принимает за адрес обычную фразу', () => {
-    expect(parseCommand('а что ты умеешь делать')).toEqual({ kind: 'unknown' });
+  it('различает периодичность, включая две недели', () => {
+    expect(parseCommand('две недели')).toEqual({ kind: 'setPeriod', period: 'biweek' });
+    expect(parseCommand('раз в две недели')).toEqual({ kind: 'setPeriod', period: 'biweek' });
+    expect(parseCommand('2 недели')).toEqual({ kind: 'setPeriod', period: 'biweek' });
+    // «неделя» отдельно от «двух недель» — иначе biweek никогда бы не сработал
+    expect(parseCommand('неделя')).toEqual({ kind: 'setPeriod', period: 'week' });
+  });
+
+  it('обычную фразу считает вопросом, а не адресом', () => {
+    expect(parseCommand('а что ты умеешь делать'))
+      .toEqual({ kind: 'question', text: 'а что ты умеешь делать' });
+    expect(parseCommand('почему упали просмотры?'))
+      .toEqual({ kind: 'question', text: 'почему упали просмотры?' });
     expect(parseCommand('')).toEqual({ kind: 'unknown' });
+    expect(parseCommand('ага')).toEqual({ kind: 'unknown' });
+  });
+});
+
+describe('победы и поражения', () => {
+  const post = (daysAgo: number, views: number, engagement: number, now: number) => ({
+    id: daysAgo, url: '', ts: now - daysAgo * 86400, date_label: '', month: '', dow: 1,
+    hour: 12, text: '', excerpt: '', len: 100, type: 'Фото' as const, is_repost: false,
+    is_pinned: false, is_ad: false, hashtags: [], has_link: false, has_question: false,
+    has_cta: false, likes: engagement, comments: 0, reposts: 0, views,
+    engagement, er: views ? (engagement / views) * 100 : null, er_aud: 0,
+  });
+
+  const now = 1_800_000_000;
+  /** Свежее окно лучше предыдущего: больше просмотров и реакций. */
+  const grown = {
+    posts: [
+      ...[2, 5, 9, 12].map((d) => post(d, 1000, 30, now)),
+      ...[16, 20, 24, 27].map((d) => post(d, 600, 12, now)),
+    ],
+  } as never;
+
+  it('видит рост и не путает его с падением', () => {
+    const move = movement(grown, 14, now);
+    expect(move.reliable).toBe(true);
+    expect(move.wins.some((w) => w.includes('Просмотры на пост'))).toBe(true);
+    expect(move.wins.some((w) => w.includes('Вовлечённость'))).toBe(true);
+    expect(move.losses).toEqual([]);
+  });
+
+  it('мелкие колебания не считает движением', () => {
+    const flat = {
+      posts: [
+        ...[2, 5, 9, 12].map((d) => post(d, 1000, 20, now)),
+        ...[16, 20, 24, 27].map((d) => post(d, 1030, 20, now)),
+      ],
+    } as never;
+    const move = movement(flat, 14, now);
+    expect(move.wins).toEqual([]);
+    expect(move.losses).toEqual([]);
+  });
+
+  it('молчание называет отдельно и ставит первым', () => {
+    const silent = { posts: [16, 20, 24, 27].map((d) => post(d, 600, 12, now)) } as never;
+    const move = movement(silent, 14, now);
+    expect(move.losses[0]).toContain('не вышло ни одного поста');
+  });
+
+  it('на двух постах честно говорит, что сравнение ненадёжно', () => {
+    const thin = { posts: [post(2, 1000, 30, now), post(20, 600, 12, now)] } as never;
+    expect(movement(thin, 14, now).reliable).toBe(false);
+  });
+
+  it('находит лучший пост свежего окна', () => {
+    const move = movement(grown, 14, now);
+    expect(move.best?.ts).toBeGreaterThan(now - 14 * 86400);
+  });
+});
+
+describe('длинная дистанция', () => {
+  const point = (weeksAgo: number, er: number) => ({
+    at: 1_800_000_000 - weeksAgo * 604800,
+    er, perWeek: 2, avgViews: 500, audience: 1000, findings: 5,
+  });
+
+  it('на трёх точках молчит — это ещё не дистанция', () => {
+    expect(longTrend([point(3, 1), point(2, 1.2), point(1, 1.4)])).toEqual([]);
+  });
+
+  it('сравнивает первую треть с последней', () => {
+    const lines = longTrend([
+      point(6, 1.0), point(5, 1.1), point(4, 1.2),
+      point(3, 1.6), point(2, 1.8), point(1, 2.0),
+    ]);
+    expect(lines[0]).toContain('недель наблюдений');
+    expect(lines.some((l) => l.startsWith('Вовлечённость'))).toBe(true);
+  });
+
+  it('ровный ряд поводом для вывода не считает', () => {
+    const flat = [1, 2, 3, 4, 5, 6].map((w) => point(w, 1.5));
+    expect(longTrend(flat)).toEqual([]);
+  });
+});
+
+describe('ниша и промпт', () => {
+  it('без ниши промпт остаётся общим', () => {
+    expect(systemPrompt()).not.toContain('нише');
+    expect(systemPrompt({ label: '', source: 'не определена', keywords: [] })).not.toContain('нише');
+  });
+
+  it('с нишей добавляет её и словарь страницы', () => {
+    const prompt = systemPrompt({
+      label: 'автосервис', source: 'категория', keywords: ['подвеска', 'диагностика'],
+    });
+    expect(prompt).toContain('автосервис');
+    expect(prompt).toContain('подвеска');
+    // правила про числа никуда не деваются
+    expect(prompt).toContain('ЖЁСТКОЕ ПРАВИЛО');
+  });
+
+  it('берёт нишу из категории сообщества, когда она есть', () => {
+    const snapshot = { ...demoSnapshot } as never;
+    const metrics = compute(snapshot, 3);
+    const niche = detectNiche(
+      { ...(demoSnapshot as never as { profile: object }).profile, kind: 'group', occupation: 'Маркетинг' } as never,
+      metrics,
+    );
+    expect(niche.label).toBe('маркетинг');
+    expect(niche.source).toBe('категория');
+  });
+});
+
+describe('напоминание про план', () => {
+  const move = (wins: string[], reliable: boolean) => (
+    { wins, losses: [], best: null, worst: null, reliable } as never
+  );
+
+  it('молчит, когда советов ещё не было', () => {
+    expect(planStalled(move([], true), [])).toBe(false);
+  });
+
+  it('срабатывает, когда советы были, а роста нет', () => {
+    expect(planStalled(move([], true), ['Поднять частоту'])).toBe(true);
+  });
+
+  it('не срабатывает, если что-то выросло', () => {
+    expect(planStalled(move(['ER вырос'], true), ['Поднять частоту'])).toBe(false);
+  });
+
+  it('не срабатывает на ненадёжной выборке', () => {
+    expect(planStalled(move([], false), ['Поднять частоту'])).toBe(false);
   });
 });
 
@@ -214,6 +359,51 @@ describe('сценарий подписки', () => {
     await bot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
     await bot.handleEvent({ kind: 'deny', userId: 7 });
     expect(store.get(7)?.active).toBe(false);
+  });
+
+  it('пишет историю и отвечает на вопрос по последнему разбору', async () => {
+    await bot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
+
+    const subscription = store.get(7);
+    expect(subscription?.history).toHaveLength(1);
+    expect(subscription?.history?.[0].at).toBeGreaterThan(0);
+    // факты сохранены — по ним бот и отвечает на уточняющие вопросы
+    expect(subscription?.lastFacts).toContain('Демо-сообщество');
+    expect(subscription?.lastAdvice?.length).toBeGreaterThan(0);
+
+    sent = [];
+    await bot.handleMessage({ userId: 7, text: 'почему просели просмотры?' });
+    // модели в тесте нет, и бот честно говорит об этом, а не выдумывает ответ
+    expect(sent[0].text).toContain('моделью');
+  });
+
+  it('на вопрос без разбора зовёт сначала прислать ссылку', async () => {
+    await bot.handleMessage({ userId: 7, text: 'а что вообще происходит с охватом' });
+    expect(sent[0].text).toContain('пришлите ссылку');
+  });
+
+  it('история копится и обрезается до двенадцати точек', async () => {
+    for (let i = 0; i < 14; i += 1) {
+      await store.pushHistory(7, {
+        at: i, er: i, perWeek: 1, avgViews: 100, audience: 10, findings: 1,
+      });
+    }
+    const history = store.get(7)?.history ?? [];
+    expect(history).toHaveLength(12);
+    // обрезаются старые, свежие остаются
+    expect(history[history.length - 1].er).toBe(13);
+  });
+
+  it('переключается на раз в две недели', async () => {
+    await bot.handleMessage({ userId: 7, text: 'vk.com/demo_marketing' });
+    await bot.handleMessage({ userId: 7, text: 'две недели' });
+    expect(store.get(7)?.period).toBe('biweek');
+
+    const later = Math.floor(Date.now() / 1000) + PERIOD_DAYS.biweek * 86400;
+    expect(await bot.tick(later)).toBe(1);
+    // через неделю после разбора двухнедельная подписка ещё молчит
+    await store.upsert(7, { lastSentAt: Math.floor(Date.now() / 1000) });
+    expect(await bot.tick(Math.floor(Date.now() / 1000) + 8 * 86400)).toBe(0);
   });
 
   it('подписки переживают перезапуск', async () => {

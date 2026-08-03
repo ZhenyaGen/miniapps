@@ -6,12 +6,7 @@
  * в отчёте появляются проценты с потолка.
  */
 
-const SYSTEM = 'Ты — практикующий SMM-редактор. Пишешь по-русски, коротко и по делу, '
-  + 'без канцелярита, без воды и без обращений «дорогие друзья». '
-  + 'ЖЁСТКОЕ ПРАВИЛО: все числа бери только из блока ДАННЫЕ, никогда не выдумывай '
-  + 'и не округляй метрики. Если данных для вывода не хватает — так и напиши. '
-  + 'Это личное сообщение во ВКонтакте: без заголовков, без markdown, без списков '
-  + 'со звёздочками. Обычный текст, короткие абзацы, не длиннее 1800 знаков.';
+import { systemPrompt } from './niche';
 
 export class LLMError extends Error {}
 
@@ -49,7 +44,18 @@ export class DeepSeek {
     this.timeoutMs = timeoutMs ?? 120_000;
   }
 
-  async chat(prompt: string, maxTokens = 1200, temperature = 0.6): Promise<string> {
+  /**
+   * Один запрос к модели.
+   *
+   * `system` подставляется под нишу страницы: правила в нём одни и те же,
+   * меняются словарь и примеры. Без ниши уходит общий промпт.
+   */
+  async chat(
+    prompt: string,
+    maxTokens = 1200,
+    temperature = 0.6,
+    system = systemPrompt(),
+  ): Promise<string> {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), this.timeoutMs);
     try {
@@ -62,7 +68,7 @@ export class DeepSeek {
         body: JSON.stringify({
           model: this.model,
           messages: [
-            { role: 'system', content: SYSTEM },
+            { role: 'system', content: system },
             { role: 'user', content: prompt },
           ],
           max_tokens: maxTokens,
@@ -90,6 +96,27 @@ export class DeepSeek {
     } finally {
       clearTimeout(timer);
     }
+  }
+
+  /**
+   * Ответ на уточняющий вопрос по последнему разбору.
+   *
+   * Факты те же, что уходили в письмо, — поэтому ответ не разойдётся
+   * с цифрами, которые человек уже прочитал. Отвечать «не знаю» модели
+   * разрешено прямо: выдуманный ответ на вопрос о своей же странице
+   * человек заметит сразу и перестанет верить всему остальному.
+   */
+  async ask(question: string, facts: string, system = systemPrompt()): Promise<string> {
+    return this.chat(
+      `ДАННЫЕ ПОСЛЕДНЕГО РАЗБОРА\n${facts}\n\n`
+      + `ВОПРОС ВЛАДЕЛЬЦА СТРАНИЦЫ\n${question}\n\n`
+      + 'Ответь коротко, двумя-тремя абзацами, опираясь только на данные выше. '
+      + 'Если в данных нет того, о чём спрашивают, — так и скажи и предложи, '
+      + 'что для этого нужно посмотреть.',
+      900,
+      0.5,
+      system,
+    );
   }
 
   /** Проверка ключа при старте — чтобы не выяснять это в момент рассылки. */

@@ -11,6 +11,7 @@ export type Command =
   | { kind: 'now' }
   | { kind: 'stop' }
   | { kind: 'status' }
+  | { kind: 'question'; text: string }
   | { kind: 'unknown' };
 
 const START = ['начать', 'старт', 'привет', 'start', 'begin'];
@@ -19,6 +20,10 @@ const NOW = ['разбор', 'сейчас', 'проверь', 'обнови'];
 const STOP = ['стоп', 'stop', 'отписаться', 'хватит', 'отключи'];
 const STATUS = ['статус', 'настройки'];
 const WEEK = ['неделя', 'неделю', 'еженедельно', 'week'];
+const BIWEEK = [
+  'две недели', 'раз в две недели', 'каждые две недели', 'двe недели',
+  'полмесяца', '2 недели', 'biweek',
+];
 const MONTH = ['месяц', 'ежемесячно', 'month'];
 
 /** Ссылка на страницу ВК — единственное, что бот принимает «как есть». */
@@ -33,6 +38,8 @@ export function parseCommand(raw: string): Command {
   if (STOP.some((w) => text === w)) return { kind: 'stop' };
   if (STATUS.some((w) => text === w)) return { kind: 'status' };
   if (NOW.some((w) => text === w)) return { kind: 'now' };
+  // две недели проверяем раньше недели: «раз в две недели» содержит «недели»
+  if (BIWEEK.some((w) => text === w)) return { kind: 'setPeriod', period: 'biweek' };
   if (WEEK.some((w) => text === w)) return { kind: 'setPeriod', period: 'week' };
   if (MONTH.some((w) => text === w)) return { kind: 'setPeriod', period: 'month' };
 
@@ -47,20 +54,31 @@ export function parseCommand(raw: string): Command {
     return { kind: 'setTarget', target: raw.trim() };
   }
 
+  // всё остальное осмысленной длины — вопрос к разбору, а не мусор.
+  // Отвечать «не понял» на живой вопрос человека дороже, чем изредка
+  // принять за вопрос случайную фразу.
+  const text0 = raw.trim();
+  if (text0.length >= 8) return { kind: 'question', text: text0 };
+
   return { kind: 'unknown' };
 }
 
 export const GREETING = 'Я слежу за страницей во ВКонтакте и присылаю разбор: '
   + 'что изменилось, где просело и что делать дальше.\n\n'
   + 'Пришлите ссылку на сообщество или страницу — например, vk.com/vkappsdev. '
-  + 'Дальше буду присылать разбор раз в неделю, это меняется словом «месяц».';
+  + 'Дальше буду присылать разбор раз в неделю — это меняется словами '
+  + '«две недели» или «месяц».\n\n'
+  + 'После разбора можно спрашивать по нему что угодно: почему просел охват, '
+  + 'о чём написать на следующей неделе, стоит ли менять формат.';
 
 export const HELP_TEXT = 'Что я понимаю:\n'
   + '— ссылка на страницу: слежу за ней\n'
-  + '— «неделя» или «месяц»: как часто присылать\n'
+  + '— «неделя», «две недели» или «месяц»: как часто присылать\n'
   + '— «разбор»: собрать прямо сейчас\n'
   + '— «статус»: что настроено\n'
-  + '— «стоп»: отключить рассылку';
+  + '— «стоп»: отключить рассылку\n\n'
+  + 'Любой другой вопрос отвечу по цифрам последнего разбора — '
+  + 'например, «почему упали просмотры» или «что постить на этой неделе».';
 
 export function statusText(target: string, period: Period, lastSentAt: number): string {
   const last = lastSentAt
