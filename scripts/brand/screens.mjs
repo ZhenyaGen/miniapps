@@ -70,7 +70,9 @@ const page = await browser.newPage({
 // параметры запуска — чтобы приложение считало, что открыто внутри ВК:
 // иначе на первом экране рисуется подсказка про возврат на localhost:8910,
 // а её в каталоге видеть никто не должен
-const LAUNCH = 'vk_app_id=54693601&vk_platform=mobile_web&vk_is_app_user=1';
+// vk_user_id нужен ещё и для кнопки «Проверить мою страницу»: внутри ВК она
+// есть всегда, и на кадре для каталога должна быть тоже
+const LAUNCH = 'vk_app_id=54693601&vk_user_id=1&vk_platform=mobile_web&vk_is_app_user=1';
 await page.goto(`http://127.0.0.1:${port}/?${LAUNCH}`, { waitUntil: 'networkidle' });
 
 for (const shot of SHOTS) {
