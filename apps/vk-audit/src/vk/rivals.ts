@@ -4,9 +4,11 @@ import { compute } from '../engine/metrics';
 import {
   buildCard, compare, comparisonWarnings, topGaps, type RivalCard, type RivalsReport,
 } from '../engine/rivals';
+import type { Metrics, Profile } from '../engine/types';
 import { DEFAULT_TZ_OFFSET } from './defaults';
 import type { ApiClient } from './client';
 import { collect, parseTarget } from './collect';
+import { detectNiche, type Niche } from './niche';
 
 /**
  * Период сравнения короче, чем у аудита: свежие 90 дней честнее показывают,
@@ -107,5 +109,134 @@ export async function buildDemoRivals(): Promise<RivalsReport> {
       ...comparisonWarnings(client, rivals),
     ],
     period_days: RIVALS_PERIOD_DAYS,
+  };
+}
+
+/**
+ * Сколько сообществ просмотреть в поиске, чтобы отобрать три.
+ *
+ * Выдача ВК по короткому запросу состоит наполовину из мёртвых пабликов
+ * и барахолок, поэтому берём с запасом и отсеиваем сами.
+ */
+const SEARCH_POOL = 40;
+
+/** Сколько конкурентов подбираем автоматически. */
+export const AUTO_RIVALS = 3;
+
+export interface Candidate {
+  id: number;
+  name: string;
+  screenName: string;
+  members: number;
+  isClosed: boolean;
+}
+
+/**
+ * Отобрать из выдачи поиска тех, с кем сравнение имеет смысл.
+ *
+ * Главный критерий — размер. Сравнивать сообщество на две тысячи
+ * с миллионником бесполезно: у них разные механики охвата, и все
+ * проценты уедут в красное без единого полезного вывода. Берём тех,
+ * кто от трети до трёх размеров клиента, и сортируем по близости.
+ *
+ * Вынесено отдельно от запроса, чтобы правила отбора можно было
+ * проверить без сети.
+ */
+export function pickRivals(
+  candidates: Candidate[],
+  clientId: number,
+  clientMembers: number,
+  limit = AUTO_RIVALS,
+): Candidate[] {
+  const low = clientMembers * 0.3;
+  const high = clientMembers * 3;
+
+  return candidates
+    .filter((c) => c.id !== clientId)
+    // закрытое сообщество не отдаст стену, и карточка выйдет пустой
+    .filter((c) => !c.isClosed)
+    // совсем мелкие не показательны: у страницы на сто подписчиков
+    // любая метрика скачет от одного случайного поста
+    .filter((c) => c.members >= 300)
+    .filter((c) => (clientMembers ? c.members >= low && c.members <= high : true))
+    .sort((a, b) => {
+      const da = Math.abs(Math.log((a.members || 1) / (clientMembers || 1)));
+      const db = Math.abs(Math.log((b.members || 1) / (clientMembers || 1)));
+      return da - db;
+    })
+    .slice(0, limit);
+}
+
+/**
+ * Из чего собирается поисковый запрос.
+ *
+ * Категория сообщества — самый честный сигнал, её выбирал владелец.
+ * Если её нет, идут ключевые слова ниши. Название страницы в запрос
+ * не берём: по нему находится она сама и её зеркала, а не конкуренты.
+ */
+export function rivalQueries(niche: Niche): string[] {
+  const out: string[] = [];
+  if (niche.label) out.push(niche.label);
+  out.push(...niche.keywords.slice(0, 3));
+  return out
+    .map((q) => q.trim())
+    .filter((q) => q.length >= 4)
+    .filter((q, i, all) => all.indexOf(q) === i)
+    .slice(0, 3);
+}
+
+export interface SuggestOptions {
+  onProgress?: (stage: string) => void;
+  limit?: number;
+}
+
+/**
+ * Найти конкурентов самому — по нише страницы.
+ *
+ * Работает только для сообществ: у личных страниц нет категории,
+ * а `groups.search` ищет сообщества. Для профиля возвращается пустой
+ * список, и человек вводит конкурентов руками.
+ */
+export async function suggestRivals(
+  api: ApiClient,
+  profile: Profile,
+  metrics: Metrics,
+  options: SuggestOptions = {},
+): Promise<{ found: Candidate[]; queries: string[] }> {
+  const { onProgress, limit = AUTO_RIVALS } = options;
+  const niche = detectNiche(profile, metrics);
+  const queries = rivalQueries(niche);
+
+  if (!queries.length) return { found: [], queries: [] };
+
+  const seen = new Map<number, Candidate>();
+  for (const query of queries) {
+    onProgress?.(`Ищем по запросу «${query}»`);
+    try {
+      const resp = await api.call<{ items?: Array<Record<string, any>> }>('groups.search', {
+        q: query,
+        type: 'group,page',
+        count: SEARCH_POOL,
+        sort: 0,
+      });
+      for (const item of resp?.items ?? []) {
+        const id = Number(item.id);
+        if (!id || seen.has(id)) continue;
+        seen.set(id, {
+          id,
+          name: String(item.name ?? ''),
+          screenName: String(item.screen_name ?? `club${id}`),
+          members: Number(item.members_count ?? 0),
+          isClosed: Boolean(item.is_closed),
+        });
+      }
+    } catch {
+      // один неудачный запрос не должен ронять подбор целиком
+    }
+  }
+
+  return {
+    found: pickRivals([...seen.values()], Math.abs(profile.id), profile.audience, limit),
+    queries,
   };
 }
