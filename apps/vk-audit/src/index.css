@@ -77,7 +77,13 @@ body,
 @media (prefers-reduced-motion: reduce) {
   .rise,
   .bar,
-  .kpi {
+  .kpi,
+  .chip,
+  .chip--on,
+  .spinner-dot,
+  .hero--live,
+  .hero--live::before,
+  .hero--live::after {
     animation: none !important;
     transition: none !important;
   }
@@ -279,4 +285,168 @@ body,
 
 .spinner-dot {
   animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------- переливы
+   Медленный сдвиг градиента: заметен, если смотреть, и не мешает, если
+   читаешь. Всё под `prefers-reduced-motion` в конце файла. */
+@keyframes drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-18px, 14px) scale(1.12);
+  }
+}
+
+@keyframes sheen {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+/* Живая шапка: трёхцветный градиент шире контейнера, поэтому его можно
+   двигать, и блик, проезжающий раз в несколько секунд. */
+.hero--live {
+  background: linear-gradient(115deg,
+    hsl(var(--accent-blue)) 0%,
+    hsl(var(--accent-violet)) 45%,
+    hsl(var(--accent-teal)) 75%,
+    hsl(var(--accent-blue)) 100%);
+  background-size: 280% 280%;
+  animation: drift 18s ease-in-out infinite;
+}
+
+.hero--live::after {
+  animation: float-blob 11s ease-in-out infinite;
+}
+
+.hero--live::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%);
+  width: 45%;
+  animation: sheen 7s ease-in-out infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+}
+
+/* Карточки показателей чуть светятся на своей подложке. */
+.kpi {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------- выбор периода */
+.chips--nowrap {
+  flex-wrap: nowrap;
+  padding: 2px 0;
+}
+
+.chip {
+  flex: none;
+  appearance: none;
+  border: 1px solid var(--vkui--color_field_border_alpha);
+  background: var(--vkui--color_background_secondary);
+  color: var(--vkui--color_text_primary);
+  border-radius: 10px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+.chip--on {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(120deg,
+    hsl(var(--accent-blue)) 0%,
+    hsl(var(--accent-violet)) 55%,
+    hsl(var(--accent-blue)) 100%);
+  background-size: 220% 100%;
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------ инструкция */
+.guide__lead {
+  margin: 0 0 14px;
+  color: var(--vkui--color_text_secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.guide__shot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--vkui--color_field_border_alpha);
+  background: var(--vkui--color_background_secondary);
+  max-width: 270px;
+  margin: 0 auto 16px;
+}
+
+.guide__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.guide__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide__point {
+  position: relative;
+  padding: 0 0 0 16px;
+  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--vkui--color_text_secondary);
+}
+
+.guide__point b {
+  color: var(--vkui--color_text_primary);
+}
+
+.guide__point::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    hsl(var(--accent-blue)),
+    hsl(var(--accent-violet)));
 }

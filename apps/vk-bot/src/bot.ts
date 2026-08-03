@@ -5,6 +5,7 @@ import { GREETING, HELP_TEXT, parseCommand, statusText } from './commands';
 import type { DeepSeek } from './deepseek';
 import { buildDigest } from './digest';
 import type { IncomingMessage, LongPollEvent } from './longpoll';
+import { systemPrompt } from './niche';
 import { due, PERIOD_LABEL, type Store, type Subscription } from './store';
 import { sendMessage } from './vk';
 
@@ -119,8 +120,48 @@ export class Bot {
         return;
       }
 
+      case 'question':
+        await this.answer(userId, command.text, current);
+        return;
+
       default:
         await this.say(userId, `Не понял.\n\n${HELP_TEXT}`);
+    }
+  }
+
+  /**
+   * Ответ на уточняющий вопрос по последнему разбору.
+   *
+   * Отвечаем только по фактам, которые уже ушли человеку: так ответ
+   * не разойдётся с письмом, которое он читал. Без модели или без
+   * разбора честно говорим, чего не хватает, — выдумывать ответ
+   * про чужую страницу нельзя.
+   */
+  async answer(userId: number, question: string, subscription?: Subscription): Promise<void> {
+    const { llm } = this.deps;
+
+    if (!subscription?.lastFacts) {
+      await this.say(userId, 'Пока не по чему отвечать — сначала пришлите ссылку '
+        + `на страницу, и я соберу разбор.\n\n${HELP_TEXT}`);
+      return;
+    }
+    if (!llm) {
+      await this.say(userId, 'Отвечать на вопросы я умею только с подключённой '
+        + `моделью, а её сейчас нет.\n\n${HELP_TEXT}`);
+      return;
+    }
+
+    try {
+      const text = await llm.ask(
+        question, subscription.lastFacts, systemPrompt(subscription.niche),
+      );
+      await this.say(userId, text);
+      this.log(`Ответ на вопрос ${userId}: ${question.slice(0, 60)}`);
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err);
+      this.log(`Не ответил ${userId}: ${reason}`);
+      await this.say(userId, 'Не получилось ответить: модель молчит. '
+        + 'Попробуйте ещё раз через несколько минут.');
     }
   }
 
@@ -133,12 +174,18 @@ export class Bot {
     try {
       const digest = await buildDigest(readApi, subscription, llm, tzOffset);
       await this.say(userId, digest.text);
+      const now = Math.floor(Date.now() / 1000);
       await store.upsert(userId, {
         title: digest.title,
-        lastSentAt: Math.floor(Date.now() / 1000),
+        lastSentAt: now,
         lastMetrics: digest.metrics,
+        lastFacts: digest.facts,
+        lastAdvice: digest.advice,
+        niche: digest.niche.label || undefined,
         failures: 0,
       });
+      // история пишется после метрик: по ней считается длинная дистанция
+      await store.pushHistory(userId, { at: now, ...digest.metrics });
       this.log(`Разбор отправлен ${userId} (${digest.title}${digest.usedLLM ? '' : ', без DeepSeek'})`);
     } catch (err) {
       const failures = (subscription.failures ?? 0) + 1;

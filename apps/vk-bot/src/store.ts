@@ -9,14 +9,26 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
-export type Period = 'week' | 'month';
+export type Period = 'week' | 'biweek' | 'month';
 
-export const PERIOD_DAYS: Record<Period, number> = { week: 7, month: 30 };
+export const PERIOD_DAYS: Record<Period, number> = { week: 7, biweek: 14, month: 30 };
 
 export const PERIOD_LABEL: Record<Period, string> = {
   week: 'раз в неделю',
+  biweek: 'раз в две недели',
   month: 'раз в месяц',
 };
+
+/** Ключевые цифры одного разбора — из них складывается история. */
+export interface Snapshot {
+  /** Когда сняли, unix-время. */
+  at: number;
+  er: number;
+  perWeek: number;
+  avgViews: number;
+  audience: number;
+  findings: number;
+}
 
 export interface Subscription {
   userId: number;
@@ -28,13 +40,26 @@ export interface Subscription {
   /** Когда отправили прошлый разбор, unix-время. */
   lastSentAt: number;
   /** Ключевые цифры прошлого разбора — для строки «было → стало». */
-  lastMetrics?: {
-    er: number;
-    perWeek: number;
-    avgViews: number;
-    audience: number;
-    findings: number;
-  };
+  lastMetrics?: Omit<Snapshot, 'at'>;
+  /**
+   * Все прошлые срезы, старые впереди. Нужны для разбора на длинной
+   * дистанции: «за три месяца ER вырос, но просмотры падают» видно
+   * только по ряду, а не по паре соседних значений.
+   *
+   * Держим последние двенадцать: при месячной подписке это год,
+   * при недельной — квартал. Дальше история перестаёт быть похожей
+   * на нынешнюю страницу.
+   */
+  history?: Snapshot[];
+  /** Ниша и тема страницы — под них настраивается системный промпт. */
+  niche?: string;
+  /**
+   * Что бот советовал в прошлый раз. По следующему разбору видно,
+   * сделали это или нет, — и от ответа зависит тон письма.
+   */
+  lastAdvice?: string[];
+  /** Факты прошлого разбора: контекст для уточняющих вопросов. */
+  lastFacts?: string;
   createdAt: number;
   /** Отписался, но историю не теряем: вернётся — вспомним страницу. */
   active: boolean;
@@ -103,6 +128,12 @@ export class Store {
     }
     await this.save();
     return next;
+  }
+
+  /** Дописать срез в историю, обрезав её до последних двенадцати. */
+  async pushHistory(userId: number, snapshot: Snapshot): Promise<Subscription> {
+    const history = [...(this.get(userId)?.history ?? []), snapshot].slice(-12);
+    return this.upsert(userId, { history });
   }
 
   async remove(userId: number): Promise<void> {
