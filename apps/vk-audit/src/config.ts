@@ -110,7 +110,9 @@ export const DEEPSEEK_CHAT_URL = 'https://chat.deepseek.com/';
  *
  * `groups` — список сообществ, где он администратор; `stats` — охваты
  * и демография этих сообществ; `video` — просмотры роликов, которых нет
- * в данных стены. Публичные записи читаются и без всего этого.
+ * в данных стены; `photos` — лайки и комментарии под самими снимками,
+ * которых нет в реакциях записи. Публичные записи читаются и без всего
+ * этого.
  */
-export const AUTH_SCOPE = 'groups,stats,video';
+export const AUTH_SCOPE = 'groups,stats,video,photos';
 

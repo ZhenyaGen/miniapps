@@ -4,6 +4,8 @@ import {
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
+import { ColumnChart } from './Chart';
+import { thinNote } from '../report/mix';
 import type { CommentReport, VideoReport } from '../video/analyze';
 import { videoFindings } from '../video/analyze';
 
@@ -87,6 +89,7 @@ export function VideoView({
   }
 
   const findings = videoFindings(video, comments);
+  const thin = thinNote(video.count, 'Видео');
 
   return (
     <>
@@ -123,6 +126,11 @@ export function VideoView({
             <div className="kpi__label">комментариев к видео</div>
           </div>
         </Div>
+        {thin && (
+          <Div style={{ paddingTop: 0 }}>
+            <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>{thin}</Footnote>
+          </Div>
+        )}
       </Group>
 
       {video.clips.count > 0 && (
@@ -170,6 +178,15 @@ export function VideoView({
           Какая длина заходит
         </Header>}
         >
+          <Div>
+            <ColumnChart
+              points={video.byDuration.map((row) => ({
+                label: row.label.replace(' сек', 'с').replace('больше ', '>'),
+                value: row.medianViews,
+                note: `${row.count} шт.`,
+              }))}
+            />
+          </Div>
           {video.byDuration.map((row) => (
             <SimpleCell
               key={row.label}

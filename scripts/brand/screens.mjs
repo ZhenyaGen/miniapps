@@ -47,6 +47,7 @@ const SHOTS = [
   // когда открывает вкладку впервые
   { name: '7-klipy.png', tab: 'Клипы' },
   { name: '8-roliki.png', tab: 'Видео' },
+  { name: '9-foto.png', tab: 'Фото' },
 ];
 
 const server = createServer(async (req, res) => {

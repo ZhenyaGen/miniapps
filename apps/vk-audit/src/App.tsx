@@ -23,8 +23,13 @@ import {
 } from './vk/video';
 import { analyzeComments, analyzeVideos } from './video/analyze';
 import { analyzeClips } from './video/clips';
+import { collectPhotos } from './photos/collect';
+import { analyzePhotos } from './photos/analyze';
 import type { ClipsReport } from './video/clips';
 import type { CommentReport, VideoReport } from './video/analyze';
+import type { PhotoReport } from './photos/analyze';
+import type { PhotoStat } from './photos/collect';
+import type { VideoStat } from './vk/video';
 import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
@@ -64,6 +69,11 @@ export function App() {
   const [videoReport, setVideoReport] = useState<VideoReport | null>(null);
   const [commentReport, setCommentReport] = useState<CommentReport | null>(null);
   const [clipsReport, setClipsReport] = useState<ClipsReport | null>(null);
+  const [photoReport, setPhotoReport] = useState<PhotoReport | null>(null);
+  // полные списки нужны выгрузке в таблицу: в отчётах лежат только
+  // вершины и хвосты, а в файл человек ждёт всё
+  const [rawVideos, setRawVideos] = useState<VideoStat[]>([]);
+  const [rawPhotos, setRawPhotos] = useState<PhotoStat[]>([]);
   const [mediaBusy, setMediaBusy] = useState(false);
   const [mediaStage, setMediaStage] = useState('');
   const [mediaNote, setMediaNote] = useState('');
@@ -164,6 +174,9 @@ export function App() {
     setVideoReport(null);
     setCommentReport(null);
     setClipsReport(null);
+    setPhotoReport(null);
+    setRawVideos([]);
+    setRawPhotos([]);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -224,10 +237,12 @@ export function App() {
   }, [session, report]);
 
   /**
-   * Видео и комментарии — отдельным действием, а не вместе с отчётом.
+   * Медиа — отдельным действием, а не вместе с отчётом.
    *
    * Это ещё десятки запросов поверх сбора стены, и большинству они
-   * не нужны: вкладку открывают те, у кого лента из видео.
+   * не нужны. Зато собираются разом: клипы, видео, фотографии и
+   * комментарии считаются из одних и тех же данных, и просить человека
+   * нажать четыре кнопки вместо одной незачем.
    */
   const runMedia = useCallback(async () => {
     if (!session || !report) return;
@@ -245,6 +260,9 @@ export function App() {
         setMediaStage(`Читаем видео: ${done}`);
       });
       const { videos } = harvest;
+      const photos = await collectPhotos(api, ownerId, sinceTs, (done) => {
+        setMediaStage(`Читаем фотографии: ${done}`);
+      });
       const wallThreads = await collectComments(api, ownerId, posts, (done, total) => {
         setMediaStage(`Комментарии к записям: ${done} из ${total}`);
       });
@@ -261,6 +279,9 @@ export function App() {
 
       setVideoReport(analyzeVideos(videos, posts, harvest.foreign));
       setClipsReport(analyzeClips(videos));
+      setPhotoReport(analyzePhotos(photos.photos, posts));
+      setRawVideos(videos);
+      setRawPhotos(photos.photos);
       setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось разобрать видео');
@@ -308,6 +329,9 @@ export function App() {
                 video={videoReport}
                 comments={commentReport}
                 clips={clipsReport}
+                photos={photoReport}
+                rawVideos={rawVideos}
+                rawPhotos={rawPhotos}
                 mediaBusy={mediaBusy}
                 mediaStage={mediaStage}
                 mediaNote={mediaNote}

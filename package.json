@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm --prefix apps/vk-audit ci && npm --prefix apps/vk-audit run build && node scripts/collect-dist.mjs",
     "test": "npm --prefix apps/vk-audit test && npm --prefix apps/vk-bot test",
-    "dev": "npm --prefix apps/vk-audit run dev"
+    "dev": "npm --prefix apps/vk-audit run dev",
+    "smoke": "npm --prefix apps/vk-audit run build && node scripts/smoke.mjs"
   },
   "engines": {
     "node": ">=20"
