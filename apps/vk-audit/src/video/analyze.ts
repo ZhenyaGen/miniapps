@@ -47,6 +47,10 @@ export interface VideoReport {
   count: number;
   /** Просмотры самих роликов — не путать с просмотрами записей. */
   totalViews: number;
+  totalLikes: number;
+  totalReposts: number;
+  /** Среднее на ролик — рядом с суммой, чтобы понимать масштаб. */
+  avgViews: number;
   medianViews: number;
   medianDuration: number;
   totalComments: number;
@@ -99,6 +103,7 @@ export function analyzeVideos(
     .filter((v) => v > 0);
 
   const medianViews = median(views);
+  const totalViews = videos.reduce((sum, v) => sum + v.views, 0);
   const postViewsMedian = median(postViews);
 
   const byDuration = BUCKETS.map(([label, from, to]) => {
@@ -121,7 +126,10 @@ export function analyzeVideos(
 
   return {
     count: videos.length,
-    totalViews: videos.reduce((sum, v) => sum + v.views, 0),
+    totalViews,
+    totalLikes: videos.reduce((sum, v) => sum + v.likes, 0),
+    totalReposts: videos.reduce((sum, v) => sum + v.reposts, 0),
+    avgViews: videos.length ? totalViews / videos.length : 0,
     medianViews,
     medianDuration: median(videos.map((v) => v.duration)),
     totalComments: videos.reduce((sum, v) => sum + v.comments, 0),
