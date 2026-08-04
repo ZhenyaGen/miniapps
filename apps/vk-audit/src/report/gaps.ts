@@ -17,11 +17,9 @@
 import type { Metrics } from '../engine/types';
 import { f } from '../engine/util';
 import type { RivalsReport } from '../engine/rivals';
-import type { ClipsReport } from '../video/clips';
-import type { CommentReport, VideoReport } from '../video/analyze';
-import type { PhotoReport } from '../photos/analyze';
-import type { ContentMix } from './mix';
-import { MIN_SAMPLE } from './mix';
+
+/** Ниже этого числа записей формата медианы по нему — шум. */
+export const MIN_SAMPLE = 5;
 
 export interface Gap {
   key: string;
@@ -35,88 +33,48 @@ export interface Gap {
 
 export interface GapsInput {
   metrics: Metrics;
-  mix?: ContentMix | null;
-  video?: VideoReport | null;
-  clips?: ClipsReport | null;
-  photos?: PhotoReport | null;
-  comments?: CommentReport | null;
   rivals?: RivalsReport | null;
-  /** Собирались ли медиа: без этого о форматах судить нельзя. */
-  mediaCollected?: boolean;
 }
 
-export function findGaps(input: GapsInput): Gap[] {
-  const { metrics: m, video, clips, photos, comments, rivals, mediaCollected } = input;
+export function findGaps({ metrics: m, rivals }: GapsInput): Gap[] {
   const out: Gap[] = [];
 
-  // ------------------------------------------------------------- форматы
-  // Только когда медиа действительно читались: до разбора «нет клипов»
-  // означает лишь «мы не смотрели».
-  if (mediaCollected) {
-    if (!clips?.count) {
-      out.push({
-        key: 'no-clips',
-        label: 'Клипов нет вовсе',
-        detail: 'За период не вышло ни одного вертикального ролика.',
-        gain: 'Лента клипов — единственный источник охвата, который почти '
-          + 'не зависит от числа подписчиков. Это способ показаться тем, '
-          + 'кто на страницу не подписан.',
-      });
-    } else if (clips.count < MIN_SAMPLE) {
-      out.push({
-        key: 'few-clips',
-        label: 'Клипы есть, но их мало',
-        detail: `${clips.count} за период — судить по ним ещё нельзя.`,
-        gain: 'Лента клипов раздаёт охват рывками: чтобы попасть, нужна '
-          + 'серия, а не проба. Десяток клипов даст первую честную медиану.',
-      });
-    }
+  // -------------------------------------------------------- форматы записей
+  const share = (type: string) => m.by_type.find((t) => t.type === type)?.share ?? 0;
+  const count = (type: string) => m.by_type.find((t) => t.type === type)?.n ?? 0;
 
-    if (!video?.count) {
-      out.push({
-        key: 'no-video',
-        label: 'Обычного видео нет',
-        detail: 'В разделе «Видео» нет ни одного своего ролика за период.',
-        gain: 'Длинное видео удерживает дольше и живёт в поиске, а не только '
-          + 'в ленте. Формат для того, что не помещается в клип: разборы, '
-          + 'интервью, инструкции.',
-      });
-    }
-
-    if (!photos?.count) {
-      out.push({
-        key: 'no-photos',
-        label: 'Фотографий нет',
-        detail: 'За период не выложено ни одного снимка.',
-        gain: 'Фотография — самый дешёвый формат и единственный, который '
-          + 'продолжает собирать реакции месяцами: её находят альбомами '
-          + 'и поиском, когда запись уже ушла из ленты.',
-      });
-    }
-
-    if (photos?.count && photos.onWall === 0) {
-      out.push({
-        key: 'photos-off-wall',
-        label: 'Снимки не выкладываются записями',
-        detail: `Все ${photos.count} снимков лежат только в альбомах.`,
-        gain: 'В ленте их не видел никто из подписчиков. Готовый контент, '
-          + 'который остаётся только опубликовать.',
-      });
-    }
-
-    if (clips?.count && clips.offWall === clips.count) {
-      out.push({
-        key: 'clips-off-wall',
-        label: 'Клипы не дублируются записью',
-        detail: `Все ${clips.count} клипов опубликованы мимо стены.`,
-        gain: 'Подписчики их в ленте сообщества не увидят — только те, '
-          + 'кому клип покажет рекомендация. Дубль записью даёт второй охват '
-          + 'бесплатно.',
-      });
-    }
+  if (!count('video')) {
+    out.push({
+      key: 'no-video-posts',
+      label: 'В ленте нет видео',
+      detail: 'Ни одна запись за период не содержит ролика.',
+      gain: 'Видео и клипы ВКонтакте показывает не только подписчикам: '
+        + 'у них своя лента и свои рекомендации. Текстовая запись такого '
+        + 'источника охвата не даёт вовсе.',
+    });
   }
 
-  // ---------------------------------------------------------- приёмы в лентe
+  if (!count('photo') && m.posts_own >= MIN_SAMPLE) {
+    out.push({
+      key: 'no-photo-posts',
+      label: 'В ленте нет картинок',
+      detail: 'Ни одна запись за период не содержит фотографии.',
+      gain: 'Картинка занимает в ленте на телефоне вчетверо больше места, '
+        + 'чем строка текста, — и решает, остановится человек или пролистает.',
+    });
+  }
+
+  if (m.by_type.length === 1 && m.posts_own >= MIN_SAMPLE) {
+    out.push({
+      key: 'one-format',
+      label: 'Формат всего один',
+      detail: `Вся лента — «${m.by_type[0].label}» (${f(share(m.by_type[0].type), 0)}%).`,
+      gain: 'Разные форматы попадают в ленту по разным правилам. Пока формат '
+        + 'один, у страницы один канал охвата — и он же потолок.',
+    });
+  }
+
+  // ---------------------------------------------------------- приёмы в ленте
   if (!m.polls) {
     out.push({
       key: 'no-polls',
@@ -189,41 +147,22 @@ export function findGaps(input: GapsInput): Gap[] {
     });
   }
 
-  // -------------------------------------------------------------- диалог
-  if (comments?.posts) {
-    if (!comments.fromAuthor) {
-      out.push({
-        key: 'no-replies',
-        label: 'Автор не отвечает в комментариях',
-        detail: `Разобрано веток: ${comments.posts}, ответов автора — ни одного.`,
-        gain: 'Ответ считается вовлечённостью и вытягивает запись в ленте. '
-          + 'Это единственная работа с охватом, которая ничего не стоит.',
-      });
-    }
-    if (comments.unanswered.length) {
-      out.push({
-        key: 'unanswered',
-        label: 'Есть вопросы без ответа',
-        detail: `${comments.unanswered.length} вопросов остались без реакции.`,
-        gain: 'Человек уже написал — дешевле вовлечённости не бывает.',
-      });
-    }
-  } else if (mediaCollected) {
+  if (!m.avg.comments && m.posts_own >= MIN_SAMPLE) {
     out.push({
-      key: 'no-discussion',
-      label: 'Обсуждения нет',
-      detail: 'Ни под одной записью и ни под одним роликом нет комментариев.',
-      gain: 'Комментарии — то, по чему алгоритм отличает интересное от '
-        + 'проходного. Начинается это обычно с прямого вопроса в конце поста.',
+      key: 'no-comments',
+      label: 'Комментариев не пишут',
+      detail: 'За период под записями не оставили ни одного комментария.',
+      gain: 'Комментарии — то, по чему алгоритм отличает интересное '
+        + 'от проходного. Начинается это обычно с прямого вопроса в конце.',
     });
   }
 
-  // ------------------------------------------------------------- ритм
+  // ------------------------------------------------------------------ ритм
   if (m.per_week < 3) {
     out.push({
       key: 'rare',
       label: 'Постов выходит мало',
-      detail: `${m.per_week.toFixed(1)} записей в неделю.`,
+      detail: `${f(m.per_week, 1)} записей в неделю.`,
       gain: 'Алгоритму нужен регулярный сигнал: при трёх–пяти записях '
         + 'в неделю лента показывает страницу заметно чаще.',
     });
@@ -240,16 +179,6 @@ export function findGaps(input: GapsInput): Gap[] {
   }
 
   // -------------------------------------------------------- чего не смотрели
-  if (!mediaCollected) {
-    out.push({
-      key: 'media-not-collected',
-      label: 'Медиа не разбирались',
-      detail: 'Клипы, видео и фотографии в этом отчёте не читались.',
-      gain: 'У ролика и снимка свои просмотры и свои реакции, которых нет '
-        + 'в данных стены. Без них разбор видит меньше половины страницы.',
-    });
-  }
-
   if (!rivals?.rivals.length) {
     out.push({
       key: 'no-rivals',

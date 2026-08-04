@@ -1,17 +1,13 @@
 /**
  * «Чего нет» — список того, что в метрики не попадает по определению.
- * Проверяем, что он не молчит там, где формата нет, и не выдумывает
- * там, где данных для суждения ещё не собрали.
+ * Проверяем, что он не молчит там, где приёма нет, и что каждый пункт
+ * несёт и цифру, и пользу.
  */
 import { describe, expect, it } from 'vitest';
 
 import { findGaps } from './gaps';
 import type { GapsInput } from './gaps';
 import type { Metrics } from '../engine/types';
-import type { ClipsReport } from '../video/clips';
-import type { VideoReport } from '../video/analyze';
-import type { PhotoReport } from '../photos/analyze';
-import type { ContentMix } from './mix';
 
 /** Страница, к которой не придраться: все проверки должны молчать. */
 const healthy = (over: Partial<Metrics> = {}): Metrics => ({
@@ -24,6 +20,11 @@ const healthy = (over: Partial<Metrics> = {}): Metrics => ({
   per_week: 4,
   slots_used: 6,
   posts_own: 40,
+  avg: { comments: 3 },
+  by_type: [
+    { type: 'video', label: 'Видео', n: 8, share: 30 },
+    { type: 'photo', label: 'Фото', n: 20, share: 70 },
+  ],
   ...over,
 } as unknown as Metrics);
 
@@ -31,45 +32,18 @@ const keys = (input: GapsInput) => findGaps(input).map((g) => g.key);
 
 describe('чего нет на странице', () => {
   it('на здоровой странице молчит обо всём, кроме несобранного', () => {
-    const out = keys({ metrics: healthy() });
-    // медиа и конкуренты не читались — про это сказать надо
-    expect(out).toEqual(['media-not-collected', 'no-rivals']);
+    // конкуренты не читались — про это сказать надо
+    expect(keys({ metrics: healthy() })).toEqual(['no-rivals']);
   });
 
-  it('замечает отсутствующие форматы, но только после разбора медиа', () => {
-    const before = keys({ metrics: healthy() });
-    expect(before).not.toContain('no-clips');
-
-    const after = keys({
-      metrics: healthy(),
-      mix: {} as ContentMix,
-      mediaCollected: true,
-    });
-    expect(after).toContain('no-clips');
-    expect(after).toContain('no-video');
-    expect(after).toContain('no-photos');
-  });
-
-  it('о редком формате говорит иначе, чем об отсутствующем', () => {
+  it('замечает форматы, которых нет в ленте', () => {
     const out = keys({
-      metrics: healthy(),
-      clips: { count: 2, offWall: 0 } as ClipsReport,
-      mediaCollected: true,
+      metrics: healthy({
+        by_type: [{ type: 'text', label: 'Только текст', n: 40, share: 100 }],
+      } as unknown as Partial<Metrics>),
     });
-    expect(out).toContain('few-clips');
-    expect(out).not.toContain('no-clips');
-  });
 
-  it('замечает клипы и фото, не выложенные записями', () => {
-    const out = keys({
-      metrics: healthy(),
-      clips: { count: 8, offWall: 8 } as ClipsReport,
-      photos: { count: 5, onWall: 0 } as PhotoReport,
-      video: { count: 6 } as VideoReport,
-      mediaCollected: true,
-    });
-    expect(out).toContain('clips-off-wall');
-    expect(out).toContain('photos-off-wall');
+    expect(out).toEqual(expect.arrayContaining(['no-video-posts', 'no-photo-posts', 'one-format']));
   });
 
   it('замечает приёмы, которых нет в текстах', () => {
@@ -97,12 +71,16 @@ describe('чего нет на странице', () => {
     expect(out).not.toContain('no-pinned');
   });
 
-  it('замечает молчащего автора в комментариях', () => {
+  it('замечает молчащую ленту и один слот выхода', () => {
     const out = keys({
-      metrics: healthy(),
-      comments: { posts: 5, fromAuthor: 0, unanswered: [] } as never,
+      metrics: healthy({
+        per_week: 1,
+        slots_used: 1,
+        avg: { comments: 0 },
+      } as unknown as Partial<Metrics>),
     });
-    expect(out).toContain('no-replies');
+
+    expect(out).toEqual(expect.arrayContaining(['rare', 'one-slot', 'no-comments']));
   });
 
   it('у каждого пункта есть и цифра, и польза', () => {

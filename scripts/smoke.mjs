@@ -28,10 +28,7 @@ const MIME = {
   '.png': 'image/png',
 };
 
-const TABS = [
-  'Сводка', 'Зоны роста', 'План', 'Контент', 'Клипы', 'Видео', 'Фото',
-  'Конкуренты', 'Аудитория',
-];
+const TABS = ['Сводка', 'Зоны роста', 'План', 'Контент', 'Конкуренты', 'Аудитория'];
 
 const server = createServer(async (req, res) => {
   const url = new URL(req.url ?? '/', 'http://localhost');

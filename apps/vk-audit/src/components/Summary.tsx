@@ -5,7 +5,6 @@ import type { Report } from '../App';
 import type { Severity } from '../engine/types';
 import { f } from '../engine/util';
 import { LineChart } from './Chart';
-import type { ContentMix } from '../report/mix';
 
 /** Цвета берутся из палитры в index.css — там же светлая и тёмная темы. */
 const SEVERITY_COLOR: Record<Severity, string> = {
@@ -35,7 +34,7 @@ function Kpi({ icon, label, value, hint, color, index }: {
   );
 }
 
-export function Summary({ report, mix }: { report: Report; mix?: ContentMix | null }) {
+export function Summary({ report }: { report: Report }) {
   const m = report.metrics;
   const top = report.findings.slice(0, 5);
 
@@ -106,29 +105,6 @@ export function Summary({ report, mix }: { report: Report; mix?: ContentMix | nu
               color="var(--accent-teal)"
             />
           </Div>
-        </Group>
-      )}
-
-      {/*
-        Профиль контента появляется после разбора медиа: до него видно
-        только записи, и вывод «текстовая страница» был бы неправдой.
-      */}
-      {mix && (
-        <Group header={<Header subtitle={mix.label}>Чем страница живёт</Header>}>
-          <Div>
-            <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
-              {mix.summary}
-            </Footnote>
-          </Div>
-          {mix.rows.filter((row) => row.count > 0).map((row) => (
-            <SimpleCell
-              key={row.key}
-              subtitle={row.enough ? `${f(row.share, 0)}% всего выпущенного` : 'мало для выводов'}
-              indicator={f(row.count, 0)}
-            >
-              {row.label}
-            </SimpleCell>
-          ))}
         </Group>
       )}
 

@@ -8,39 +8,28 @@ import {
 import type { Report } from '../App';
 import type { RivalsReport } from '../engine/rivals';
 import type { Suggestion } from '../vk/rivals';
-import type { CommentReport, VideoReport } from '../video/analyze';
-import type { ClipsReport } from '../video/clips';
-import type { PhotoReport } from '../photos/analyze';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
-import { VideoView } from '../components/VideoView';
-import { ClipsView } from '../components/ClipsView';
-import { PhotosView } from '../components/PhotosView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
-import { buildMix } from '../report/mix';
 import { findGaps } from '../report/gaps';
 import {
   AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
 } from '../config';
 
-type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'clips' | 'video'
-  | 'photos' | 'rivals' | 'audience';
+type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
 const TABS: Array<[Tab, string]> = [
   ['summary', 'Сводка'],
   ['zones', 'Зоны роста'],
   ['plan', 'План'],
   ['content', 'Контент'],
-  ['clips', 'Клипы'],
-  ['video', 'Видео'],
-  ['photos', 'Фото'],
   ['rivals', 'Конкуренты'],
   ['audience', 'Аудитория'],
 ];
@@ -52,15 +41,6 @@ interface Props {
   rivalsStage: string;
   canCollectRivals: boolean;
   rivalsSuggestion: Suggestion | null;
-  video: VideoReport | null;
-  comments: CommentReport | null;
-  clips: ClipsReport | null;
-  photos: PhotoReport | null;
-  mediaBusy: boolean;
-  mediaStage: string;
-  /** Почему видео не собралось — если не собралось. */
-  mediaNote: string;
-  onCollectMedia: () => void;
   onCollectRivals: (targets: string) => void;
   onSuggestRivals: () => void;
   onDemoRivals: () => void;
@@ -70,19 +50,12 @@ interface Props {
 
 export function ReportPanel({
   report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
-  rivalsSuggestion, video, comments, clips, photos,
-  mediaBusy, mediaStage, mediaNote, onCollectMedia,
+  rivalsSuggestion,
   onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
   const [toast, setToast] = useState<string | null>(null);
   const { profile } = report.snapshot;
-  // профиль контента честен только после разбора медиа: до него видно
-  // одни записи, и вывод «текстовая страница» был бы неправдой
-  const mediaCollected = Boolean(video || clips || photos);
-  const mix = mediaCollected ? buildMix({ metrics: report.metrics, video, clips, photos }) : null;
-  const media = { video, clips, photos, comments, mix };
-
   /** Общий путь для любого текста: сначала мост, потом буфер браузера. */
   const copy = async (text: string, ok: string) => {
     try {
@@ -102,7 +75,7 @@ export function ReportPanel({
   };
 
   const copyBrief = () => copy(
-    buildBrief(report, rivals, media),
+    buildBrief(report, rivals),
     'Бриф скопирован — вставьте его в чат с ИИ',
   );
 
@@ -146,7 +119,7 @@ export function ReportPanel({
 
       {tab === 'summary' && (
         <>
-          <Summary report={report} mix={mix} />
+          <Summary report={report} />
           <OfferCard findings={report.findings} />
           {report.snapshot.meta.source !== 'demo' && (
             <SubscribeCard target={report.snapshot.profile.screen_name} period="раз в неделю" />
@@ -156,41 +129,11 @@ export function ReportPanel({
       {tab === 'zones' && (
         <GrowthZones
           findings={report.findings}
-          gaps={findGaps({
-            metrics: report.metrics,
-            mix,
-            video,
-            clips,
-            photos,
-            comments,
-            rivals,
-            mediaCollected,
-          })}
+          gaps={findGaps({ metrics: report.metrics, rivals })}
         />
       )}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
-      {tab === 'clips' && (
-        <ClipsView
-          report={clips}
-          busy={mediaBusy}
-          stage={mediaStage}
-          note={mediaNote}
-          canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
-          onCollect={onCollectMedia}
-        />
-      )}
-      {tab === 'video' && (
-        <VideoView
-          video={video}
-          comments={comments}
-          busy={mediaBusy}
-          stage={mediaStage}
-          note={mediaNote}
-          canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
-          onCollect={onCollectMedia}
-        />
-      )}
       {tab === 'rivals' && (
         <RivalsView
           report={rivals}
@@ -206,19 +149,9 @@ export function ReportPanel({
           onReset={onResetRivals}
         />
       )}
-      {tab === 'photos' && (
-        <PhotosView
-          report={photos}
-          busy={mediaBusy}
-          stage={mediaStage}
-          note={mediaNote}
-          canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
-          onCollect={onCollectMedia}
-        />
-      )}
       {tab === 'audience' && <AudienceView metrics={report.metrics} />}
 
-      <Group header={<Header subtitle="весь отчёт текстом: метрики, медиа, зоны роста, план и готовые ряды под диаграммы">
+      <Group header={<Header subtitle="весь отчёт текстом: метрики, форматы, зоны роста, план и готовые ряды под диаграммы">
         Разобрать с ИИ
       </Header>}
       >
