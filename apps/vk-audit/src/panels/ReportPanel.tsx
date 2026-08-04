@@ -9,12 +9,14 @@ import type { Report } from '../App';
 import type { RivalsReport } from '../engine/rivals';
 import type { Suggestion } from '../vk/rivals';
 import type { CommentReport, VideoReport } from '../video/analyze';
+import type { ClipsReport } from '../video/clips';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
 import { VideoView } from '../components/VideoView';
+import { ClipsView } from '../components/ClipsView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
@@ -24,13 +26,14 @@ import {
   AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
 } from '../config';
 
-type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'video' | 'rivals' | 'audience';
+type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'clips' | 'video' | 'rivals' | 'audience';
 
 const TABS: Array<[Tab, string]> = [
   ['summary', 'Сводка'],
   ['zones', 'Зоны роста'],
   ['plan', 'План'],
   ['content', 'Контент'],
+  ['clips', 'Клипы'],
   ['video', 'Ролики'],
   ['rivals', 'Конкуренты'],
   ['audience', 'Аудитория'],
@@ -45,6 +48,7 @@ interface Props {
   rivalsSuggestion: Suggestion | null;
   video: VideoReport | null;
   comments: CommentReport | null;
+  clips: ClipsReport | null;
   mediaBusy: boolean;
   mediaStage: string;
   onCollectMedia: () => void;
@@ -57,7 +61,7 @@ interface Props {
 
 export function ReportPanel({
   report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
-  rivalsSuggestion, video, comments, mediaBusy, mediaStage, onCollectMedia,
+  rivalsSuggestion, video, comments, clips, mediaBusy, mediaStage, onCollectMedia,
   onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
@@ -132,6 +136,15 @@ export function ReportPanel({
       {tab === 'zones' && <GrowthZones findings={report.findings} />}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
+      {tab === 'clips' && (
+        <ClipsView
+          report={clips}
+          busy={mediaBusy}
+          stage={mediaStage}
+          canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
+          onCollect={onCollectMedia}
+        />
+      )}
       {tab === 'video' && (
         <VideoView
           video={video}
