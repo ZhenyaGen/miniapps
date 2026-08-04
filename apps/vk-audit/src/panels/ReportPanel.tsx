@@ -8,11 +8,13 @@ import {
 import type { Report } from '../App';
 import type { RivalsReport } from '../engine/rivals';
 import type { Suggestion } from '../vk/rivals';
+import type { CommentReport, VideoReport } from '../video/analyze';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
+import { VideoView } from '../components/VideoView';
 import { SubscribeCard } from '../components/SubscribeCard';
 import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
@@ -22,13 +24,14 @@ import {
   AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
 } from '../config';
 
-type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
+type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'video' | 'rivals' | 'audience';
 
 const TABS: Array<[Tab, string]> = [
   ['summary', 'Сводка'],
   ['zones', 'Зоны роста'],
   ['plan', 'План'],
   ['content', 'Контент'],
+  ['video', 'Ролики'],
   ['rivals', 'Конкуренты'],
   ['audience', 'Аудитория'],
 ];
@@ -40,6 +43,11 @@ interface Props {
   rivalsStage: string;
   canCollectRivals: boolean;
   rivalsSuggestion: Suggestion | null;
+  video: VideoReport | null;
+  comments: CommentReport | null;
+  mediaBusy: boolean;
+  mediaStage: string;
+  onCollectMedia: () => void;
   onCollectRivals: (targets: string) => void;
   onSuggestRivals: () => void;
   onDemoRivals: () => void;
@@ -49,7 +57,8 @@ interface Props {
 
 export function ReportPanel({
   report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
-  rivalsSuggestion, onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
+  rivalsSuggestion, video, comments, mediaBusy, mediaStage, onCollectMedia,
+  onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
   const [toast, setToast] = useState<string | null>(null);
@@ -123,6 +132,16 @@ export function ReportPanel({
       {tab === 'zones' && <GrowthZones findings={report.findings} />}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
+      {tab === 'video' && (
+        <VideoView
+          video={video}
+          comments={comments}
+          busy={mediaBusy}
+          stage={mediaStage}
+          canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
+          onCollect={onCollectMedia}
+        />
+      )}
       {tab === 'rivals' && (
         <RivalsView
           report={rivals}

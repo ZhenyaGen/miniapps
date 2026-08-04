@@ -18,6 +18,9 @@ import { buildDemoSnapshot } from './vk/demo';
 import {
   buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Suggestion,
 } from './vk/rivals';
+import { collectComments, collectVideos, videoRefsFromPosts } from './vk/video';
+import { analyzeComments, analyzeVideos } from './video/analyze';
+import type { CommentReport, VideoReport } from './video/analyze';
 import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
@@ -53,6 +56,10 @@ export function App() {
   const [rivalsStage, setRivalsStage] = useState('');
   const [periodDays, setPeriodDays] = useState(DEFAULT_PERIOD_DAYS);
   const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
+  const [videoReport, setVideoReport] = useState<VideoReport | null>(null);
+  const [commentReport, setCommentReport] = useState<CommentReport | null>(null);
+  const [mediaBusy, setMediaBusy] = useState(false);
+  const [mediaStage, setMediaStage] = useState('');
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -98,6 +105,8 @@ export function App() {
     setError(null);
     setRivals(null);
     setSuggestion(null);
+    setVideoReport(null);
+    setCommentReport(null);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -157,6 +166,38 @@ export function App() {
     }
   }, [session, report]);
 
+  /**
+   * Ролики и комментарии — отдельным действием, а не вместе с отчётом.
+   *
+   * Это ещё десятки запросов поверх сбора стены, и большинству они
+   * не нужны: вкладку открывают те, у кого лента из видео.
+   */
+  const runMedia = useCallback(async () => {
+    if (!session || !report) return;
+    setMediaBusy(true);
+    setMediaStage('Ищем ролики в записях');
+    try {
+      const api = new VKApi(session.token, session.transport);
+      const posts = report.snapshot.posts;
+      const ownerId = report.snapshot.profile.id;
+
+      const refs = videoRefsFromPosts(posts);
+      const videos = await collectVideos(api, refs, (done, total) => {
+        setMediaStage(`Читаем ролики: ${done} из ${total}`);
+      });
+      const threads = await collectComments(api, ownerId, posts, (done, total) => {
+        setMediaStage(`Читаем комментарии: ${done} из ${total}`);
+      });
+
+      setVideoReport(analyzeVideos(videos, posts));
+      setCommentReport(analyzeComments(threads, ownerId));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось разобрать ролики');
+    } finally {
+      setMediaBusy(false);
+    }
+  }, [session, report]);
+
   const runDemoRivals = useCallback(async () => {
     setRivals(await buildDemoRivals());
   }, []);
@@ -191,6 +232,11 @@ export function App() {
                 rivalsStage={rivalsStage}
                 canCollectRivals={Boolean(session)}
                 rivalsSuggestion={suggestion}
+                video={videoReport}
+                comments={commentReport}
+                mediaBusy={mediaBusy}
+                mediaStage={mediaStage}
+                onCollectMedia={runMedia}
                 onCollectRivals={runRivals}
                 onSuggestRivals={runSuggest}
                 onDemoRivals={runDemoRivals}

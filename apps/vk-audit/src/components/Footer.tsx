@@ -1,4 +1,4 @@
-import { AUTHOR_NAME, AUTHOR_URL, BRAND_NAME, PRIVACY_URL } from '../config';
+import { AUTHOR_NAME, AUTHOR_URL, BRAND_NAME, privacyUrl } from '../config';
 
 /** Подпись проекта и автора — в самом низу каждого экрана. */
 export function Footer() {
@@ -8,7 +8,7 @@ export function Footer() {
       <br />
       Разработка — <a href={AUTHOR_URL} target="_blank" rel="noreferrer">{AUTHOR_NAME}</a>
       <br />
-      © {new Date().getFullYear()} · <a href={PRIVACY_URL} target="_blank" rel="noreferrer">Политика конфиденциальности</a>
+      © {new Date().getFullYear()} · <a href={privacyUrl()} target="_blank" rel="noreferrer noopener">Политика конфиденциальности</a>
     </div>
   );
 }
