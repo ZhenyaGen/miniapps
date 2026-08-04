@@ -51,6 +51,7 @@ function buildReport(snapshot: Snapshot): Report {
 export function App() {
   const [session, setSession] = useState<Session | null>(null);
   const [adminGroups, setAdminGroups] = useState<AdminGroup[]>([]);
+  const [adminGroupsState, setAdminGroupsState] = useState<'idle' | 'busy' | 'done'>('idle');
   const [panel, setPanel] = useState<'start' | 'loading' | 'report'>('start');
   const [stage, setStage] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -77,15 +78,17 @@ export function App() {
     if (restored) setSession(restored);
   }, []);
 
-  // список своих сообществ подтягивается сразу после входа: чаще всего
-  // аудируют именно их, и вводить ссылку руками не нужно
+  // как только ключ появился — список своих сообществ подтягивается сам:
+  // чаще всего аудируют именно их, и вводить ссылку руками не нужно
   useEffect(() => {
-    if (!session) return;
+    if (!session || adminGroupsState !== 'idle') return;
+    setAdminGroupsState('busy');
     const api = new VKApi(session.token, session.transport);
     listAdminGroups(api)
       .then(setAdminGroups)
-      .catch(() => setAdminGroups([]));
-  }, [session]);
+      .catch(() => setAdminGroups([]))
+      .finally(() => setAdminGroupsState('done'));
+  }, [session, adminGroupsState]);
 
   /**
    * Ключ доступа — по требованию, а не отдельным экраном входа.
@@ -112,6 +115,34 @@ export function App() {
     setSession(next);
     return next;
   }, [session, insideVK]);
+
+  /**
+   * Загрузить свои сообщества по кнопке.
+   *
+   * Раньше список появлялся сам после входа, но входа больше нет:
+   * внутри ВК ключ запрашивается только под действие. Показывать окно
+   * прав при открытии приложения нельзя — это ровно та навязчивость,
+   * из-за которой правила и требуют бесшовности. Поэтому список
+   * подтягивается по явному нажатию, а дальше сам.
+   */
+  const loadAdminGroups = useCallback(async () => {
+    if (adminGroupsState === 'busy') return;
+    setError(null);
+    setAdminGroupsState('busy');
+    try {
+      const active = await ensureSession();
+      if (!active) {
+        setAdminGroupsState('idle');
+        return;
+      }
+      const api = new VKApi(active.token, active.transport);
+      setAdminGroups(await listAdminGroups(api));
+      setAdminGroupsState('done');
+    } catch {
+      setAdminGroups([]);
+      setAdminGroupsState('done');
+    }
+  }, [ensureSession, adminGroupsState]);
 
   const runAudit = useCallback(async (target: string) => {
     setError(null);
@@ -244,6 +275,8 @@ export function App() {
               onSignIn={() => { void ensureSession().catch(() => undefined); }}
               selfId={selfId}
               adminGroups={adminGroups}
+              adminGroupsState={adminGroupsState}
+              onLoadAdminGroups={() => { void loadAdminGroups(); }}
               periodDays={periodDays}
               onPeriodChange={setPeriodDays}
               error={error}
