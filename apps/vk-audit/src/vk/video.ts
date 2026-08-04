@@ -23,7 +23,14 @@ import type { RawPost } from '../engine/types';
  */
 interface VideoAttachment {
   type: string;
-  video?: { id?: number; owner_id?: number; title?: string; duration?: number };
+  video?: {
+    id?: number;
+    owner_id?: number;
+    title?: string;
+    duration?: number;
+    type?: string;
+    is_short?: boolean;
+  };
 }
 
 export interface VideoRef {
@@ -31,6 +38,14 @@ export interface VideoRef {
   id: number;
   /** Из какой записи взято — чтобы связать ролик с реакциями поста. */
   postId: number;
+  /**
+   * Пометил ли ВК вложение клипом.
+   *
+   * Во вложении записи разметка честнее, чем в разделе «Видео»: клип,
+   * выложенный записью, приезжает с `type: 'short_video'` даже тогда,
+   * когда `video.get` отдаёт его как обычное видео.
+   */
+  isClip: boolean;
 }
 
 export interface VideoStat extends VideoRef {
@@ -51,21 +66,51 @@ export interface VideoStat extends VideoRef {
    * живут в разных лентах и собирают охват по-разному.
    */
   isClip: boolean;
+  /**
+   * Клип определён по формату, а не по разметке ВК.
+   *
+   * Такое бывает: раздел «Видео» иногда отдаёт клипы без единого признака.
+   * Тогда лучше показать разбор с оговоркой, чем пустую вкладку — но
+   * оговорку показать обязательно.
+   */
+  clipGuess?: boolean;
+  /** Вертикальная обложка — по ней и отличается клип от обычного видео. */
+  vertical?: boolean;
   /** Прикреплён ли ролик к записи на стене. */
   onWall: boolean;
 }
 
 /** Клип или нет — по тому, что прислал ВК, без догадок. */
 function detectClip(item: Record<string, any>): boolean {
-  return item.type === 'short_video' || item.is_short === true;
+  return item.type === 'short_video'
+    || item.is_short === true
+    || Boolean(item.short_video_info);
 }
 
-function toStat(item: Record<string, any>, postId: number | null): VideoStat {
+/**
+ * Вертикальная ли обложка.
+ *
+ * ВК кладёт превью в `image` (и `first_frame`) — набором размеров.
+ * Ориентация у всех одна, поэтому хватает первого размера с числами.
+ */
+function isVertical(item: Record<string, any>): boolean {
+  const sizes = [...(item.image ?? []), ...(item.first_frame ?? [])] as Array<{
+    width?: number; height?: number;
+  }>;
+  for (const size of sizes) {
+    const w = Number(size.width ?? 0);
+    const h = Number(size.height ?? 0);
+    if (w > 0 && h > 0) return h > w;
+  }
+  return false;
+}
+
+function toStat(item: Record<string, any>, ref: VideoRef | null): VideoStat {
   return {
     ownerId: Number(item.owner_id ?? 0),
     id: Number(item.id ?? 0),
-    postId: postId ?? 0,
-    onWall: postId !== null,
+    postId: ref?.postId ?? 0,
+    onWall: ref !== null,
     title: String(item.title ?? ''),
     duration: Number(item.duration ?? 0),
     views: Number(item.views ?? 0),
@@ -73,7 +118,8 @@ function toStat(item: Record<string, any>, postId: number | null): VideoStat {
     comments: Number(item.comments ?? 0),
     reposts: Number(item.reposts?.count ?? 0),
     date: Number(item.date ?? 0),
-    isClip: detectClip(item),
+    isClip: detectClip(item) || Boolean(ref?.isClip),
+    vertical: isVertical(item),
   };
 }
 
@@ -198,7 +244,12 @@ export function videoRefsFromPosts(posts: RawPost[]): VideoRef[] {
       const key = `${ownerId}_${id}`;
       if (seen.has(key)) continue;
       seen.add(key);
-      refs.push({ ownerId, id, postId: post.id });
+      refs.push({
+        ownerId,
+        id,
+        postId: post.id,
+        isClip: attachment.video.type === 'short_video' || attachment.video.is_short === true,
+      });
     }
   }
   return refs;
@@ -210,16 +261,35 @@ const VIDEO_BATCH = 100;
 /** Сколько роликов забираем максимум: дальше это уже не разбор, а выгрузка. */
 const VIDEO_MAX = 400;
 
+/** Предел длительности, до которого вертикальное видео можно счесть клипом. */
+const CLIP_MAX_SECONDS = 180;
+
+export interface VideoHarvest {
+  videos: VideoStat[];
+  /**
+   * Сколько чужих роликов со страницы отброшено.
+   *
+   * `video.get` отдаёт весь раздел «Видео», а туда попадает и то, что
+   * человек добавил к себе с других страниц. Считать это своим контентом
+   * нельзя: медианы и «лучшие ролики» уезжают в чужие цифры.
+   */
+  foreign: number;
+  /** Почему раздел не прочитался, если не прочитался. */
+  error: string | null;
+}
+
 /**
  * Все ролики страницы за период — и клипы, и обычные видео.
  *
- * Идём не от вложений в записях, а от самого раздела видео: клипы часто
- * публикуются только в ленту клипов, на стену не попадают, и разбор
- * «по вложениям» их бы не увидел вовсе. Привязка к записи проставляется
- * потом, по тем роликам, что всё-таки прикреплены к постам.
+ * Два источника, потому что ни один по отдельности не полон:
  *
- * Ошибки глотаем целиком: доступ к видео закрывают настройками, и
- * молчащая вкладка лучше упавшего отчёта.
+ * 1. раздел «Видео» (`video.get` без списка) — там лежат клипы,
+ *    опубликованные мимо стены, но вперемешку с чужими добавленными;
+ * 2. вложения записей — там ролик приезжает с честной пометкой
+ *    `short_video`, даже если раздел отдал его как обычное видео.
+ *
+ * Чужое отбрасывается по `owner_id`, пометки из обоих источников
+ * складываются.
  */
 export async function collectVideos(
   api: ApiClient,
@@ -227,12 +297,24 @@ export async function collectVideos(
   sinceTs: number,
   refs: VideoRef[],
   onProgress?: (done: number, total: number) => void,
-): Promise<VideoStat[]> {
-  const postByVideo = new Map(refs.map((r) => [`${r.ownerId}_${r.id}`, r.postId]));
-  const out: VideoStat[] = [];
+): Promise<VideoHarvest> {
+  const refByKey = new Map(refs.map((r) => [`${r.ownerId}_${r.id}`, r]));
+  const found = new Map<string, VideoStat>();
+  let foreign = 0;
+  let error: string | null = null;
+
+  const take = (item: Record<string, any>) => {
+    const key = `${item.owner_id}_${item.id}`;
+    if (found.has(key)) return;
+    if (Number(item.owner_id ?? 0) !== ownerId) {
+      foreign += 1;
+      return;
+    }
+    found.set(key, toStat(item, refByKey.get(key) ?? null));
+  };
 
   for (let offset = 0; offset < VIDEO_MAX; offset += VIDEO_BATCH) {
-    onProgress?.(out.length, VIDEO_MAX);
+    onProgress?.(found.size, VIDEO_MAX);
     let items: Array<Record<string, any>> = [];
     try {
       const resp = await api.call<{ items?: Array<Record<string, any>>; count?: number }>(
@@ -240,27 +322,65 @@ export async function collectVideos(
         { owner_id: ownerId, count: VIDEO_BATCH, offset },
       );
       items = resp?.items ?? [];
-    } catch {
+    } catch (err) {
+      error = err instanceof Error ? err.message : 'ВКонтакте не отдал раздел видео';
       break;
     }
     if (!items.length) break;
 
     let older = false;
     for (const item of items) {
+      // порядок выдачи задают свои ролики: у добавленных чужих в `date`
+      // лежит дата съёмки, и по ней страница выглядит «закончившейся»
+      // на первом же старом чужом видео
+      const own = Number(item.owner_id ?? 0) === ownerId;
       if (Number(item.date ?? 0) < sinceTs) {
-        older = true;
+        if (own) older = true;
         continue;
       }
-      const key = `${item.owner_id}_${item.id}`;
-      const postId = postByVideo.get(key);
-      out.push(toStat(item, postId ?? null));
+      take(item);
     }
     // выдача идёт от свежих к старым: как только пошли ролики старше
     // периода, дальше листать незачем
     if (older || items.length < VIDEO_BATCH) break;
   }
 
-  return out;
+  // ролики из записей, которых в разделе не оказалось: клип с чужого
+  // канала в разбор не берём, а свой — берём даже если раздел его скрыл
+  const missing = refs.filter(
+    (r) => r.ownerId === ownerId && !found.has(`${r.ownerId}_${r.id}`),
+  );
+  for (let i = 0; i < missing.length; i += VIDEO_BATCH) {
+    const chunk = missing.slice(i, i + VIDEO_BATCH);
+    try {
+      const resp = await api.call<{ items?: Array<Record<string, any>> }>('video.get', {
+        owner_id: ownerId,
+        videos: chunk.map((r) => `${r.ownerId}_${r.id}`).join(','),
+        count: VIDEO_BATCH,
+      });
+      for (const item of resp?.items ?? []) take(item);
+    } catch {
+      // раздел уже прочитан, добор — необязательная точность
+      break;
+    }
+  }
+
+  const videos = [...found.values()];
+
+  // Если ВК не пометил клипом ни один ролик, но вертикальные короткие
+  // среди них есть — это почти наверняка клипы: раздел «Видео» такую
+  // разметку отдаёт не всегда. Помечаем, но признаёмся, что догадались.
+  if (videos.length && !videos.some((v) => v.isClip)) {
+    for (const video of videos) {
+      if (video.vertical && video.duration > 0 && video.duration <= CLIP_MAX_SECONDS) {
+        video.isClip = true;
+        video.clipGuess = true;
+      }
+    }
+  }
+
+  videos.sort((a, b) => b.date - a.date);
+  return { videos, foreign, error };
 }
 
 /**
