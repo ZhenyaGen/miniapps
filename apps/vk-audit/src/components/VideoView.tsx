@@ -21,6 +21,13 @@ interface Props {
   onCollect: () => void;
 }
 
+/** Крупные числа — сокращённо, как их показывает сам ВКонтакте. */
+const big = (value: number): string => {
+  if (value >= 1_000_000) return `${f(value / 1_000_000, 1)} млн`;
+  if (value >= 10_000) return `${f(value / 1000, 0)} тыс.`;
+  return f(value, 0);
+};
+
 const duration = (seconds: number): string => {
   if (seconds < 60) return `${Math.round(seconds)} сек`;
   const min = Math.floor(seconds / 60);
@@ -100,31 +107,32 @@ export function VideoView({
       >
         <Div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <div className="kpi rise">
-            <span className="kpi__icon">🎬</span>
-            <div className="kpi__value">{f(video.count, 0)}</div>
-            <div className="kpi__label">видео</div>
-            <div className="kpi__hint">{`медиана ${duration(video.medianDuration)}`}</div>
+            <span className="kpi__icon">👁</span>
+            <div className="kpi__value">{big(video.totalViews)}</div>
+            <div className="kpi__label">просмотров всего</div>
+            <div className="kpi__hint">{`${f(video.avgViews, 0)} на видео`}</div>
           </div>
           <div className="kpi rise rise-1">
-            <span className="kpi__icon">👁</span>
-            <div className="kpi__value">{f(video.medianViews, 0)}</div>
-            <div className="kpi__label">просмотров на видео</div>
-            <div className="kpi__hint">{`всего ${f(video.totalViews, 0)}`}</div>
+            <span className="kpi__icon">❤</span>
+            <div className="kpi__value">{big(video.totalLikes)}</div>
+            <div className="kpi__label">лайков всего</div>
+            <div className="kpi__hint">{`видео за период ${f(video.count, 0)}`}</div>
           </div>
           <div className="kpi rise rise-2">
+            <span className="kpi__icon">💬</span>
+            <div className="kpi__value">{big(video.totalComments)}</div>
+            <div className="kpi__label">комментариев всего</div>
+            <div className="kpi__hint">{`${f(video.medianComments, 1)} на видео`}</div>
+          </div>
+          <div className="kpi rise rise-3">
             <span className="kpi__icon">📄</span>
             <div className="kpi__value">
               {video.postViewsMedian ? f(video.postViewsMedian, 0) : '—'}
             </div>
             <div className="kpi__label">просмотров у записи</div>
             <div className="kpi__hint">
-              {video.postViewsMedian ? 'то же видео на стене' : 'видео не выложено записями'}
+              {video.postViewsMedian ? 'серединная запись с этим видео' : 'видео не выложено записями'}
             </div>
-          </div>
-          <div className="kpi rise rise-3">
-            <span className="kpi__icon">💬</span>
-            <div className="kpi__value">{f(video.totalComments, 0)}</div>
-            <div className="kpi__label">комментариев к видео</div>
           </div>
         </Div>
         {thin && (
@@ -236,6 +244,18 @@ export function VideoView({
           ))}
         </Group>
       )}
+
+      <Group header={<Header subtitle="серединное видео — не среднее: показывает обычный уровень, без выбросов">
+        Серединное видео
+      </Header>}
+      >
+        <SimpleCell indicator={f(video.medianViews, 0)}>Просмотров</SimpleCell>
+        <SimpleCell indicator={duration(video.medianDuration)}>Длина</SimpleCell>
+        <SimpleCell indicator={video.viewsRatio === null ? '—' : `${f(video.viewsRatio, 2)}×`}>
+          Просмотры видео к просмотрам записи
+        </SimpleCell>
+        <SimpleCell indicator={f(video.offWall, 0)}>Не выложены записью</SimpleCell>
+      </Group>
 
       <Group header={<Header subtitle={comments.fromVideos
         ? `разобрано веток: ${comments.posts}, из них под видео ${comments.fromVideos}`

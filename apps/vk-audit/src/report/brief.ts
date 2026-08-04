@@ -101,13 +101,22 @@ export function buildBrief(
     lines.push(
       '',
       `## Клипы (${clips.count} за период${clips.count < MIN_SAMPLE ? ', мало для выводов' : ''})`,
-      `Просмотров всего: ${f(clips.totalViews, 0)}, медиана на клип: ${f(clips.medianViews, 0)}`,
+      'Суммы за период — то же, что показывает статистика сообщества:',
+      `Просмотров: ${f(clips.totalViews, 0)}`,
+      `Лайков: ${f(clips.totalLikes, 0)}`,
+      `Комментариев: ${f(clips.totalComments, 0)}`,
+      `Поделились: ${f(clips.totalReposts, 0)}`,
+      `На клип в среднем: ${f(clips.avgViews, 0)} просмотров, ${f(clips.avgLikes, 0)} лайков, `
+      + `${f(clips.avgComments, 1)} комментариев`,
+      `Серединный клип: ${f(clips.medianViews, 0)} просмотров`,
       `Лучший клип: ${f(clips.maxViews, 0)} просмотров`
       + (clips.spread === null ? '' : ` — в ${f(clips.spread, 1)} раза выше медианы`),
       `Выстрелов (больше трёх медиан): ${clips.hits}, они дали ${f(clips.hitsShare, 0)}% всех просмотров`,
       `Вовлечённость к просмотрам: ${f(clips.medianEr, 2)}%`,
       `Медианная длина: ${f(clips.medianDuration, 0)} сек`,
       `Не выложены записью на стену: ${clips.offWall}`,
+      'Охвата и среднего досмотра в открытых данных нет — их показывает '
+      + 'только статистика сообщества владельцу. Здесь просмотры и реакции.',
     );
     if (clips.guessed) {
       lines.push('ВНИМАНИЕ: ВКонтакте не разметил эти ролики клипами — '
@@ -126,12 +135,14 @@ export function buildBrief(
       '',
       `## Обычные видео, без клипов (${video.count} за период`
       + `${video.count < MIN_SAMPLE ? ', мало для выводов' : ''})`,
-      `Просмотров всего: ${f(video.totalViews, 0)}, медиана на видео: ${f(video.medianViews, 0)}`,
+      `Просмотров: ${f(video.totalViews, 0)}, лайков: ${f(video.totalLikes, 0)}, `
+      + `комментариев: ${f(video.totalComments, 0)}, поделились: ${f(video.totalReposts, 0)}`,
+      `На видео в среднем: ${f(video.avgViews, 0)} просмотров, серединное: ${f(video.medianViews, 0)}`,
       `Медиана просмотров у записей с этим видео: ${f(video.postViewsMedian, 0)}`,
       video.viewsRatio === null
         ? 'Связать видео с записями не удалось — они опубликованы мимо стены.'
         : `Видео смотрят в ${f(video.viewsRatio, 2)} раза чаще, чем открывают запись.`,
-      `Комментариев к видео: ${f(video.totalComments, 0)} (медиана ${f(video.medianComments, 1)})`,
+      `Комментариев на видео: ${f(video.medianComments, 1)}`,
       `Медианная длина: ${f(video.medianDuration, 0)} сек`,
       `Не выложены записью: ${video.offWall}`,
       `Чужих роликов на странице (в разбор не вошли): ${video.foreign}`,
@@ -257,8 +268,8 @@ export function buildBrief(
 
   if (clips?.byMonth.length) {
     lines.push('', 'Ряд 3. Клипы по месяцам',
-      'месяц | клипов | медиана просмотров',
-      ...clips.byMonth.map((r) => tsv([r.label, r.count, f(r.medianViews, 0)])));
+      'месяц | клипов | просмотров всего | серединный клип',
+      ...clips.byMonth.map((r) => tsv([r.label, r.count, f(r.views, 0), f(r.medianViews, 0)])));
   }
 
   if (photos?.byMonth.length) {
@@ -269,17 +280,20 @@ export function buildBrief(
 
   const compare: string[] = [];
   if (video?.count) {
-    compare.push(tsv(['обычные видео', video.count, f(video.medianViews, 0), f(video.medianComments, 1)]));
+    compare.push(tsv(['обычные видео', video.count, f(video.totalViews, 0),
+      f(video.totalLikes, 0), f(video.totalComments, 0)]));
   }
   if (clips?.count) {
-    compare.push(tsv(['клипы', clips.count, f(clips.medianViews, 0), f(clips.totalComments / clips.count, 1)]));
+    compare.push(tsv(['клипы', clips.count, f(clips.totalViews, 0),
+      f(clips.totalLikes, 0), f(clips.totalComments, 0)]));
   }
   if (photos?.count) {
-    compare.push(tsv(['фотографии', photos.count, '—', f(photos.medianComments, 1)]));
+    compare.push(tsv(['фотографии', photos.count, '—',
+      f(photos.totalLikes, 0), f(photos.totalComments, 0)]));
   }
   if (compare.length > 1) {
-    lines.push('', 'Ряд 5. Медиа между собой',
-      'формат | штук | медиана просмотров | медиана комментариев', ...compare);
+    lines.push('', 'Ряд 5. Медиа между собой (суммы за период)',
+      'формат | штук | просмотров | лайков | комментариев', ...compare);
   }
 
   if (m.top_posts.length) {

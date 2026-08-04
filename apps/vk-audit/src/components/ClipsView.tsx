@@ -21,6 +21,16 @@ interface Props {
 
 const seconds = (value: number): string => `${Math.round(value)} сек`;
 
+/**
+ * Крупные числа сокращаются: 6 800 000 в плитку не влезает и читается
+ * хуже, чем «6,8 млн» — так же, как их показывает сам ВКонтакте.
+ */
+const big = (value: number): string => {
+  if (value >= 1_000_000) return `${f(value / 1_000_000, 1)} млн`;
+  if (value >= 10_000) return `${f(value / 1000, 0)} тыс.`;
+  return f(value, 0);
+};
+
 export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: Props) {
   if (busy) {
     return (
@@ -77,26 +87,40 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
       <Group header={<Header subtitle="лента клипов, а не лента сообщества">Клипы</Header>}>
         <Div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <div className="kpi rise">
-            <span className="kpi__icon">⚡</span>
-            <div className="kpi__value">{f(report.count, 0)}</div>
-            <div className="kpi__label">клипов</div>
-            <div className="kpi__hint">{`медиана ${seconds(report.medianDuration)}`}</div>
+            <span className="kpi__icon">👁</span>
+            <div className="kpi__value">{big(report.totalViews)}</div>
+            <div className="kpi__label">просмотров всего</div>
+            <div className="kpi__hint">{`${f(report.avgViews, 0)} на клип`}</div>
           </div>
           <div className="kpi rise rise-1">
-            <span className="kpi__icon">👁</span>
-            <div className="kpi__value">{f(report.medianViews, 0)}</div>
-            <div className="kpi__label">просмотров на клип</div>
-            <div className="kpi__hint">{`всего ${f(report.totalViews, 0)}`}</div>
+            <span className="kpi__icon">❤</span>
+            <div className="kpi__value">{big(report.totalLikes)}</div>
+            <div className="kpi__label">лайков всего</div>
+            <div className="kpi__hint">{`${f(report.avgLikes, 0)} на клип`}</div>
           </div>
           <div className="kpi rise rise-2">
-            <span className="kpi__icon">🚀</span>
-            <div className="kpi__value">{f(report.maxViews, 0)}</div>
-            <div className="kpi__label">лучший клип</div>
-            <div className="kpi__hint">
-              {report.spread === null ? '' : `в ${f(report.spread, 1)} раза выше медианы`}
-            </div>
+            <span className="kpi__icon">💬</span>
+            <div className="kpi__value">{big(report.totalComments)}</div>
+            <div className="kpi__label">комментариев всего</div>
+            <div className="kpi__hint">{`${f(report.avgComments, 1)} на клип`}</div>
           </div>
           <div className="kpi rise rise-3">
+            <span className="kpi__icon">↗</span>
+            <div className="kpi__value">{big(report.totalReposts)}</div>
+            <div className="kpi__label">поделились</div>
+            <div className="kpi__hint">{`клипов за период ${f(report.count, 0)}`}</div>
+          </div>
+          <div className="kpi rise rise-4">
+            <span className="kpi__icon">🚀</span>
+            <div className="kpi__value">{big(report.maxViews)}</div>
+            <div className="kpi__label">лучший клип</div>
+            <div className="kpi__hint">
+              {report.totalViews
+                ? `${f((report.maxViews / report.totalViews) * 100, 0)}% всех просмотров`
+                : ''}
+            </div>
+          </div>
+          <div className="kpi rise rise-5">
             <span className="kpi__icon">🔥</span>
             <div className="kpi__value">{f(report.hits, 0)}</div>
             <div className="kpi__label">выстрелов</div>
@@ -105,9 +129,10 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
         </Div>
         <Div style={{ paddingTop: 0 }}>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
-            Выстрел — клип, набравший больше трёх медиан. У клипов важен
-            не средний уровень, а частота попаданий: лента раздаёт охват
-            рывками.
+            Суммы за период — то же, что показывает статистика сообщества.
+            Охвата и среднего досмотра в открытых данных нет: их отдаёт
+            только раздел статистики самому владельцу, поэтому здесь
+            считаются просмотры и реакции.
           </Footnote>
           {thin && (
             <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
@@ -167,7 +192,7 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
       )}
 
       {report.byMonth.length > 1 && (
-        <Group header={<Header subtitle="медиана просмотров по месяцам">
+        <Group header={<Header subtitle="все просмотры за месяц — как в статистике сообщества">
           Как менялось
         </Header>}
         >
@@ -175,7 +200,7 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
             <LineChart
               points={report.byMonth.map((row) => ({
                 label: row.label.split(' ')[0],
-                value: row.medianViews,
+                value: row.views,
               }))}
               color="var(--accent-amber)"
             />
@@ -183,8 +208,8 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
           {report.byMonth.map((row) => (
             <SimpleCell
               key={row.key}
-              subtitle={`${row.count} клипов`}
-              indicator={f(row.medianViews, 0)}
+              subtitle={`${row.count} клипов · серединный ${f(row.medianViews, 0)}`}
+              indicator={big(row.views)}
             >
               {row.label}
             </SimpleCell>
@@ -232,11 +257,18 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
         </Group>
       )}
 
-      <Group header={<Header>Ещё по клипам</Header>}>
+      <Group header={<Header subtitle="серединный клип — не средний: он показывает обычный уровень, без выбросов">
+        Серединный клип
+      </Header>}
+      >
+        <SimpleCell indicator={f(report.medianViews, 0)}>Просмотров</SimpleCell>
+        <SimpleCell indicator={seconds(report.medianDuration)}>Длина</SimpleCell>
+        <SimpleCell indicator={report.spread === null ? '—' : `${f(report.spread, 1)}×`}>
+          Лучший клип выше серединного
+        </SimpleCell>
         <SimpleCell indicator={`${f(report.medianEr, 2)}%`}>
           Вовлечённость к просмотрам
         </SimpleCell>
-        <SimpleCell indicator={f(report.totalComments, 0)}>Комментариев всего</SimpleCell>
         <SimpleCell indicator={f(report.offWall, 0)}>Не выложены на стену</SimpleCell>
       </Group>
     </>

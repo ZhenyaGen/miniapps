@@ -48,12 +48,28 @@ export interface ClipMonth {
   key: string;
   label: string;
   count: number;
+  /** Все просмотры месяца — так же, как рисует статистика сообщества. */
+  views: number;
   medianViews: number;
 }
 
 export interface ClipsReport {
   count: number;
+  /**
+   * Суммы — то же, что показывает статистика сообщества.
+   *
+   * Разговор про клипы всегда идёт в суммах: «шесть миллионов
+   * просмотров», а не «медиана двенадцать тысяч». Медианы остались
+   * ниже — они нужны, чтобы отличить ровный уровень от одного
+   * залетевшего клипа, но заголовок вкладки не про них.
+   */
   totalViews: number;
+  totalLikes: number;
+  totalReposts: number;
+  /** Среднее на клип — рядом с суммой, чтобы понимать масштаб. */
+  avgViews: number;
+  avgLikes: number;
+  avgComments: number;
   medianViews: number;
   /** Самый удачный клип периода: у клипов разброс важнее среднего. */
   maxViews: number;
@@ -132,14 +148,24 @@ export function analyzeClips(videos: VideoStat[]): ClipsReport {
       key,
       label: `${MONTHS[Number(key.slice(5)) - 1]} ${key.slice(0, 4)}`,
       count: list.length,
+      views: sum(list.map((c) => c.views)),
       medianViews: median(list.map((c) => c.views)),
     }));
 
   const ranked = [...clips].sort((a, b) => b.views - a.views);
 
+  const per = (total: number) => (clips.length ? total / clips.length : 0);
+  const totalLikes = sum(clips.map((c) => c.likes));
+  const totalComments = sum(clips.map((c) => c.comments));
+
   return {
     count: clips.length,
     totalViews,
+    totalLikes,
+    totalReposts: sum(clips.map((c) => c.reposts)),
+    avgViews: per(totalViews),
+    avgLikes: per(totalLikes),
+    avgComments: per(totalComments),
     medianViews,
     maxViews,
     spread: medianViews ? maxViews / medianViews : null,
@@ -147,7 +173,7 @@ export function analyzeClips(videos: VideoStat[]): ClipsReport {
     hitsShare: totalViews ? (hitViews / totalViews) * 100 : 0,
     medianEr: median(clips.map(er)),
     medianDuration: median(clips.map((c) => c.duration)),
-    totalComments: sum(clips.map((c) => c.comments)),
+    totalComments,
     byDuration,
     byMonth,
     offWall: clips.filter((c) => !c.onWall).length,
