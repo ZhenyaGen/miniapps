@@ -87,27 +87,46 @@ export function App() {
       .catch(() => setAdminGroups([]));
   }, [session]);
 
-  const signIn = useCallback(async () => {
-    setError(null);
+  /**
+   * Ключ доступа — по требованию, а не отдельным экраном входа.
+   *
+   * Внутри ВКонтакте человек уже авторизован параметрами запуска
+   * (`vk_user_id`), и просить его «войти» нельзя: правила платформы,
+   * пункт 1.2.2, считают отдельную авторизацию избыточной. Ключ нужен
+   * только для чтения страницы, поэтому и запрашивается в тот момент,
+   * когда человек нажал «собрать» — тогда же ВК показывает окно прав
+   * и понятно, зачем они.
+   *
+   * Возвращает сессию, а не полагается на состояние: после `setSession`
+   * значение появится только на следующем проходе, а собирать надо сразу.
+   */
+  const ensureSession = useCallback(async (): Promise<Session | null> => {
+    if (session) return session;
     if (!insideVK) {
+      // вне ВК параметров запуска нет — там остаётся обычный вход
       startStandaloneAuth();
-      return;
+      return null;
     }
-    try {
-      const next = await authorizeViaBridge();
-      saveSession(next);
-      setSession(next);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Войти не удалось');
-    }
-  }, [insideVK]);
+    const next = await authorizeViaBridge();
+    saveSession(next);
+    setSession(next);
+    return next;
+  }, [session, insideVK]);
 
   const runAudit = useCallback(async (target: string) => {
-    if (!session) {
-      await signIn();
+    setError(null);
+    let active: Session | null;
+    try {
+      active = await ensureSession();
+    } catch {
+      // отказ в правах — не ошибка приложения, объясняем и даём повторить
+      setError('Без доступа к данным ВКонтакте отчёт не собрать: приложение '
+        + 'читает записи и статистику страницы. Нажмите «собрать» ещё раз '
+        + 'и подтвердите доступ.');
       return;
     }
-    setError(null);
+    if (!active) return;
+
     setRivals(null);
     setSuggestion(null);
     setVideoReport(null);
@@ -116,7 +135,7 @@ export function App() {
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
-      const api = new VKApi(session.token, session.transport);
+      const api = new VKApi(active.token, active.transport);
       const snapshot = await collect(api, target, { periodDays, onProgress: setStage });
       setStage('Считаем метрики и зоны роста');
       setReport(buildReport(snapshot));
@@ -125,7 +144,7 @@ export function App() {
       setError(err instanceof Error ? err.message : 'Не удалось собрать аудит');
       setPanel('start');
     }
-  }, [session, signIn, periodDays]);
+  }, [ensureSession, periodDays]);
 
   const runDemo = useCallback(() => {
     setError(null);
@@ -222,12 +241,12 @@ export function App() {
             <StartPanel
               signedIn={Boolean(session)}
               insideVK={insideVK}
+              onSignIn={() => { void ensureSession().catch(() => undefined); }}
               selfId={selfId}
               adminGroups={adminGroups}
               periodDays={periodDays}
               onPeriodChange={setPeriodDays}
               error={error}
-              onSignIn={signIn}
               onAudit={runAudit}
               onDemo={runDemo}
             />
