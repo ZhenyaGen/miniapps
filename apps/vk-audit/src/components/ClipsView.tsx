@@ -10,13 +10,15 @@ interface Props {
   report: ClipsReport | null;
   busy: boolean;
   stage: string;
+  /** Что пошло не так при сборе — показываем вместо молчаливого нуля. */
+  note?: string;
   canCollect: boolean;
   onCollect: () => void;
 }
 
 const seconds = (value: number): string => `${Math.round(value)} сек`;
 
-export function ClipsView({ report, busy, stage, canCollect, onCollect }: Props) {
+export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: Props) {
   if (busy) {
     return (
       <Group>
@@ -56,8 +58,9 @@ export function ClipsView({ report, busy, stage, canCollect, onCollect }: Props)
     return (
       <Group>
         <Placeholder title="Клипов не нашлось">
-          За период у страницы нет клипов — либо ВКонтакте не пометил
-          ролики как клипы. Обычные видео смотрите на вкладке «Ролики».
+          {note || 'За период у страницы нет вертикальных роликов. '
+            + 'Обычные видео смотрите на вкладке «Ролики»: там считается '
+            + 'весь раздел «Видео» целиком.'}
         </Placeholder>
       </Group>
     );
@@ -102,6 +105,14 @@ export function ClipsView({ report, busy, stage, canCollect, onCollect }: Props)
             не средний уровень, а частота попаданий: лента раздаёт охват
             рывками.
           </Footnote>
+          {report.guessed && (
+            <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
+              ВКонтакте не пометил эти ролики клипами — мы определили их
+              по формату: вертикальная обложка и не длиннее трёх минут.
+              Если среди них попало обычное видео, цифры по нему тоже
+              учтены.
+            </Footnote>
+          )}
         </Div>
       </Group>
 

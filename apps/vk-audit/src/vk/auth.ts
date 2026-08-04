@@ -90,10 +90,27 @@ export function saveSession(session: Session): void {
   }
 }
 
+/**
+ * Сохранённый ключ — только если прав в нём хватает.
+ *
+ * Набор прав меняется вместе с приложением: раздел «Видео» появился
+ * позже стены, и старый ключ на `video.get` отвечает отказом. Ошибка
+ * при этом видна только внутри сбора, а человек видит пустую вкладку.
+ * Проще выбросить такой ключ и спросить права заново.
+ *
+ * Пустой `scope` не трогаем: некоторые клиенты его не возвращают,
+ * и по нему нельзя судить, чего в ключе нет.
+ */
 export function loadSession(): Session | null {
   try {
     const raw = window.sessionStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Session) : null;
+    if (!raw) return null;
+    const session = JSON.parse(raw) as Session;
+    const need = AUTH_SCOPE.split(',').map((s) => s.trim()).filter(Boolean);
+    if (session.scope?.length && need.some((s) => !session.scope.includes(s))) {
+      return null;
+    }
+    return session;
   } catch {
     return null;
   }

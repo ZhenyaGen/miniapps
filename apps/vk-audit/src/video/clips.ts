@@ -76,6 +76,14 @@ export interface ClipsReport {
   byMonth: ClipMonth[];
   /** Клипы, не прикреплённые ни к одной записи. */
   offWall: number;
+  /**
+   * Клипы опознаны по формату, а не по разметке ВКонтакте.
+   *
+   * Раздел «Видео» отдаёт пометку `short_video` не всегда, и тогда
+   * остаётся смотреть на вертикальную обложку и длину. Разбор от этого
+   * не портится, но человек должен знать, откуда взялось разделение.
+   */
+  guessed: boolean;
   top: VideoStat[];
   flop: VideoStat[];
 }
@@ -143,6 +151,7 @@ export function analyzeClips(videos: VideoStat[]): ClipsReport {
     byDuration,
     byMonth,
     offWall: clips.filter((c) => !c.onWall).length,
+    guessed: clips.length > 0 && clips.every((c) => c.clipGuess),
     top: ranked.slice(0, 5),
     flop: ranked.length >= 8 ? ranked.slice(-3).reverse() : [],
   };

@@ -41,7 +41,18 @@ describe('ролики из вложений', () => {
       { id: 3, date: 0, attachments: [{ type: 'photo' }] },
     ] as unknown as RawPost[];
 
-    expect(videoRefsFromPosts(posts)).toEqual([{ ownerId: -100, id: 5, postId: 1 }]);
+    expect(videoRefsFromPosts(posts))
+      .toEqual([{ ownerId: -100, id: 5, postId: 1, isClip: false }]);
+  });
+
+  it('запоминает пометку клипа из вложения', () => {
+    const posts = [{
+      id: 1,
+      date: 0,
+      attachments: [{ type: 'video', video: { id: 5, owner_id: -100, type: 'short_video' } }],
+    }] as unknown as RawPost[];
+
+    expect(videoRefsFromPosts(posts)[0].isClip).toBe(true);
   });
 
   it('пропускает вложения без идентификаторов', () => {

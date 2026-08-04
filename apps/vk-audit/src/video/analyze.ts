@@ -63,11 +63,22 @@ export interface VideoReport {
   regular: { count: number; medianViews: number; medianComments: number };
   /** Ролики, которых нет ни в одной записи — обычно опубликованы только в ленту клипов. */
   offWall: number;
+  /**
+   * Чужие ролики, добавленные на страницу и не попавшие в разбор.
+   *
+   * Показываем числом: иначе непонятно, почему в приложении роликов
+   * меньше, чем видно в разделе «Видео» на самой странице.
+   */
+  foreign: number;
 }
 
-export function analyzeVideos(videos: VideoStat[], posts: RawPost[]): VideoReport {
+export function analyzeVideos(
+  videos: VideoStat[], posts: RawPost[], foreign = 0,
+): VideoReport {
   const views = videos.map((v) => v.views).filter((v) => v > 0);
-  const withVideo = new Set(videos.map((v) => v.postId));
+  // ролики мимо стены записи не имеют: их `postId` — ноль, и в набор
+  // «записей с видео» он попадать не должен
+  const withVideo = new Set(videos.filter((v) => v.onWall).map((v) => v.postId));
   const postViews = posts
     .filter((p) => withVideo.has(p.id))
     .map((p) => Number((p as { views?: { count?: number } }).views?.count ?? 0))
@@ -110,6 +121,7 @@ export function analyzeVideos(videos: VideoStat[], posts: RawPost[]): VideoRepor
     clips: group(videos.filter((v) => v.isClip)),
     regular: group(videos.filter((v) => !v.isClip)),
     offWall: videos.filter((v) => !v.onWall).length,
+    foreign,
   };
 }
 
@@ -249,9 +261,15 @@ export function videoFindings(video: VideoReport, comments: CommentReport): stri
   }
 
   if (video.offWall) {
-    out.push(`Роликов мимо стены: ${video.offWall}. Они опубликованы только `
-      + 'в ленту клипов — подписчики в сообществе их не увидят. Дублируйте '
-      + 'записью, если хотите охват и там, и там.');
+    out.push(`Роликов мимо стены: ${video.offWall}. Записью они не выложены — `
+      + 'подписчики их в ленте не увидят, только те, кому ролик покажет '
+      + 'рекомендация. Дублируйте записью, если хотите охват и там, и там.');
+  }
+
+  if (video.foreign) {
+    out.push(`Чужих роликов на странице: ${video.foreign}. В разбор они не вошли — `
+      + 'это добавленное к себе видео других авторов, к охвату страницы '
+      + 'оно отношения не имеет.');
   }
 
   const best = [...video.byDuration].sort((a, b) => b.medianViews - a.medianViews)[0];

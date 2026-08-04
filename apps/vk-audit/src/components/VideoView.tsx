@@ -12,6 +12,8 @@ interface Props {
   comments: CommentReport | null;
   busy: boolean;
   stage: string;
+  /** Что пошло не так при сборе — показываем вместо молчаливого нуля. */
+  note?: string;
   canCollect: boolean;
   onCollect: () => void;
 }
@@ -23,7 +25,9 @@ const duration = (seconds: number): string => {
   return rest ? `${min} мин ${rest} сек` : `${min} мин`;
 };
 
-export function VideoView({ video, comments, busy, stage, canCollect, onCollect }: Props) {
+export function VideoView({
+  video, comments, busy, stage, note, canCollect, onCollect,
+}: Props) {
   const [showWords, setShowWords] = useState(false);
 
   if (busy) {
@@ -66,8 +70,12 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
     return (
       <Group>
         <Placeholder title="Роликов не нашлось">
-          За выбранный период у страницы нет ни видео, ни клипов — или
-          доступ к ним закрыт настройками.
+          {note || (video.foreign
+            ? `За период страница не публиковала своих роликов. Чужих, `
+              + `добавленных к себе, — ${video.foreign}: они к охвату страницы `
+              + 'отношения не имеют и в разбор не идут.'
+            : 'За выбранный период у страницы нет ни видео, ни клипов — или '
+              + 'доступ к ним закрыт настройками.')}
         </Placeholder>
       </Group>
     );
@@ -100,9 +108,13 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
           </div>
           <div className="kpi rise rise-2">
             <span className="kpi__icon">📄</span>
-            <div className="kpi__value">{f(video.postViewsMedian, 0)}</div>
+            <div className="kpi__value">
+              {video.postViewsMedian ? f(video.postViewsMedian, 0) : '—'}
+            </div>
             <div className="kpi__label">просмотров у записи</div>
-            <div className="kpi__hint">то же видео на стене</div>
+            <div className="kpi__hint">
+              {video.postViewsMedian ? 'то же видео на стене' : 'ролики не выложены записями'}
+            </div>
           </div>
           <div className="kpi rise rise-3">
             <span className="kpi__icon">💬</span>

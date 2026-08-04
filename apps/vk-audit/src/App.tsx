@@ -66,6 +66,7 @@ export function App() {
   const [clipsReport, setClipsReport] = useState<ClipsReport | null>(null);
   const [mediaBusy, setMediaBusy] = useState(false);
   const [mediaStage, setMediaStage] = useState('');
+  const [mediaNote, setMediaNote] = useState('');
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -232,6 +233,7 @@ export function App() {
     if (!session || !report) return;
     setMediaBusy(true);
     setMediaStage('Ищем ролики в записях');
+    setMediaNote('');
     try {
       const api = new VKApi(session.token, session.transport);
       const posts = report.snapshot.posts;
@@ -239,9 +241,10 @@ export function App() {
 
       const refs = videoRefsFromPosts(posts);
       const sinceTs = report.snapshot.meta.since_ts;
-      const videos = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
+      const harvest = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
         setMediaStage(`Читаем ролики: ${done}`);
       });
+      const { videos } = harvest;
       const wallThreads = await collectComments(api, ownerId, posts, (done, total) => {
         setMediaStage(`Комментарии к записям: ${done} из ${total}`);
       });
@@ -250,7 +253,13 @@ export function App() {
         setMediaStage(`Комментарии к роликам: ${done} из ${total}`);
       });
 
-      setVideoReport(analyzeVideos(videos, posts));
+      // пустая вкладка должна объяснять себя: молчаливый ноль выглядит
+      // поломкой, хотя чаще это закрытый настройками раздел
+      setMediaNote(harvest.error
+        ? `ВКонтакте не отдал раздел «Видео»: ${harvest.error}`
+        : '');
+
+      setVideoReport(analyzeVideos(videos, posts, harvest.foreign));
       setClipsReport(analyzeClips(videos));
       setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
     } catch (err) {
@@ -301,6 +310,7 @@ export function App() {
                 clips={clipsReport}
                 mediaBusy={mediaBusy}
                 mediaStage={mediaStage}
+                mediaNote={mediaNote}
                 onCollectMedia={runMedia}
                 onCollectRivals={runRivals}
                 onSuggestRivals={runSuggest}

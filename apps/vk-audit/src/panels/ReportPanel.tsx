@@ -51,6 +51,8 @@ interface Props {
   clips: ClipsReport | null;
   mediaBusy: boolean;
   mediaStage: string;
+  /** Почему ролики не собрались — если не собрались. */
+  mediaNote: string;
   onCollectMedia: () => void;
   onCollectRivals: (targets: string) => void;
   onSuggestRivals: () => void;
@@ -61,7 +63,7 @@ interface Props {
 
 export function ReportPanel({
   report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
-  rivalsSuggestion, video, comments, clips, mediaBusy, mediaStage, onCollectMedia,
+  rivalsSuggestion, video, comments, clips, mediaBusy, mediaStage, mediaNote, onCollectMedia,
   onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
@@ -141,6 +143,7 @@ export function ReportPanel({
           report={clips}
           busy={mediaBusy}
           stage={mediaStage}
+          note={mediaNote}
           canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
           onCollect={onCollectMedia}
         />
@@ -151,6 +154,7 @@ export function ReportPanel({
           comments={comments}
           busy={mediaBusy}
           stage={mediaStage}
+          note={mediaNote}
           canCollect={canCollectRivals && report.snapshot.meta.source !== 'demo'}
           onCollect={onCollectMedia}
         />
