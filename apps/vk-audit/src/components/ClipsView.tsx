@@ -3,6 +3,8 @@ import {
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
+import { ColumnChart, LineChart } from './Chart';
+import { thinNote } from '../report/mix';
 import type { ClipsReport } from '../video/clips';
 import { clipFindings } from '../video/clips';
 
@@ -67,6 +69,7 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
   }
 
   const findings = clipFindings(report);
+  const thin = thinNote(report.count, 'Клипов');
 
   return (
     <>
@@ -105,6 +108,11 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
             не средний уровень, а частота попаданий: лента раздаёт охват
             рывками.
           </Footnote>
+          {thin && (
+            <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
+              {thin}
+            </Footnote>
+          )}
           {report.guessed && (
             <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
               ВКонтакте не пометил эти ролики клипами — мы определили их
@@ -135,6 +143,16 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
           Длина клипа
         </Header>}
         >
+          <Div>
+            <ColumnChart
+              points={report.byDuration.map((row) => ({
+                label: row.label.replace(' сек', 'с').replace('больше минуты', '>1 мин'),
+                value: row.medianViews,
+                note: `${row.count} шт.`,
+              }))}
+              color="var(--accent-amber)"
+            />
+          </Div>
           {report.byDuration.map((row) => (
             <SimpleCell
               key={row.label}
@@ -152,6 +170,15 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
           Как менялось
         </Header>}
         >
+          <Div>
+            <LineChart
+              points={report.byMonth.map((row) => ({
+                label: row.label.split(' ')[0],
+                value: row.medianViews,
+              }))}
+              color="var(--accent-amber)"
+            />
+          </Div>
           {report.byMonth.map((row) => (
             <SimpleCell
               key={row.key}
