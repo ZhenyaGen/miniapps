@@ -42,10 +42,11 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
       <Group header={<Header>Ролики и обсуждение</Header>}>
         <Div>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 12 }}>
-            У записи с видео два разных счётчика просмотров: у самой записи
-            и у ролика внутри. Они расходятся в разы, и на странице,
-            где почти всё — видео, разбор по стене показывает не ту картину.
-            Здесь читаются настоящие просмотры роликов и тексты комментариев.
+            Здесь читаются все ролики страницы — и клипы, и обычные видео,
+            включая те, что опубликованы мимо стены. У записи с видео два
+            разных счётчика просмотров: у самой записи и у ролика внутри,
+            и расходятся они в разы. Плюс тексты комментариев: ВКонтакте
+            отдаёт их отдельно от стены.
           </Footnote>
           <Button size="l" stretched disabled={!canCollect} onClick={onCollect}>
             🎬 Разобрать ролики и комментарии
@@ -65,8 +66,8 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
     return (
       <Group>
         <Placeholder title="Роликов не нашлось">
-          За выбранный период в записях нет видео — или доступ к ним закрыт
-          настройками страницы.
+          За выбранный период у страницы нет ни видео, ни клипов — или
+          доступ к ним закрыт настройками.
         </Placeholder>
       </Group>
     );
@@ -85,7 +86,11 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
             <span className="kpi__icon">🎬</span>
             <div className="kpi__value">{f(video.count, 0)}</div>
             <div className="kpi__label">роликов</div>
-            <div className="kpi__hint">{`медиана ${duration(video.medianDuration)}`}</div>
+            <div className="kpi__hint">
+              {video.clips.count
+                ? `клипов ${f(video.clips.count, 0)} · медиана ${duration(video.medianDuration)}`
+                : `медиана ${duration(video.medianDuration)}`}
+            </div>
           </div>
           <div className="kpi rise rise-1">
             <span className="kpi__icon">👁</span>
@@ -106,6 +111,26 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
           </div>
         </Div>
       </Group>
+
+      {(video.clips.count > 0 && video.regular.count > 0) && (
+        <Group header={<Header subtitle="ВКонтакте раздаёт им охват из разных лент">
+          Клипы и обычные видео
+        </Header>}
+        >
+          <SimpleCell
+            subtitle={`${video.clips.count} шт. · комментариев ${f(video.clips.medianComments, 1)}`}
+            indicator={f(video.clips.medianViews, 0)}
+          >
+            Клипы
+          </SimpleCell>
+          <SimpleCell
+            subtitle={`${video.regular.count} шт. · комментариев ${f(video.regular.medianComments, 1)}`}
+            indicator={f(video.regular.medianViews, 0)}
+          >
+            Обычные видео
+          </SimpleCell>
+        </Group>
+      )}
 
       {findings.length > 0 && (
         <Group header={<Header>Что из этого следует</Header>}>

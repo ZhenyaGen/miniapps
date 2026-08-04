@@ -52,6 +52,17 @@ export interface VideoReport {
    */
   viewsRatio: number | null;
   postViewsMedian: number;
+  /**
+   * Клипы и обычные видео по отдельности.
+   *
+   * ВК раздаёт им охват из разных лент, и складывать их в одну медиану —
+   * то же самое, что усреднять сторис с постами. Если ВК ничего
+   * не разметил, `clips.count` будет нулём, и разделение не показывается.
+   */
+  clips: { count: number; medianViews: number; medianComments: number };
+  regular: { count: number; medianViews: number; medianComments: number };
+  /** Ролики, которых нет ни в одной записи — обычно опубликованы только в ленту клипов. */
+  offWall: number;
 }
 
 export function analyzeVideos(videos: VideoStat[], posts: RawPost[]): VideoReport {
@@ -77,6 +88,12 @@ export function analyzeVideos(videos: VideoStat[], posts: RawPost[]): VideoRepor
 
   const ranked = [...videos].sort((a, b) => b.views - a.views);
 
+  const group = (list: VideoStat[]) => ({
+    count: list.length,
+    medianViews: median(list.map((v) => v.views)),
+    medianComments: median(list.map((v) => v.comments)),
+  });
+
   return {
     count: videos.length,
     totalViews: videos.reduce((sum, v) => sum + v.views, 0),
@@ -90,6 +107,9 @@ export function analyzeVideos(videos: VideoStat[], posts: RawPost[]): VideoRepor
     flop: ranked.length >= 8 ? ranked.slice(-3).reverse() : [],
     viewsRatio: postViewsMedian ? medianViews / postViewsMedian : null,
     postViewsMedian,
+    clips: group(videos.filter((v) => v.isClip)),
+    regular: group(videos.filter((v) => !v.isClip)),
+    offWall: videos.filter((v) => !v.onWall).length,
   };
 }
 
@@ -206,6 +226,20 @@ export function videoFindings(video: VideoReport, comments: CommentReport): stri
   if (video.viewsRatio !== null && video.viewsRatio > 0 && video.viewsRatio <= 0.5) {
     out.push('Запись открывают чаще, чем досматривают ролик. Обычно так бывает, '
       + 'когда обложка обещает не то, что внутри.');
+  }
+
+  if (video.clips.count && video.regular.count) {
+    const stronger = video.clips.medianViews >= video.regular.medianViews ? 'Клипы' : 'Обычные видео';
+    out.push(`${stronger} собирают больше: клипы — медиана `
+      + `${Math.round(video.clips.medianViews)} просмотров (${video.clips.count} шт.), `
+      + `обычные видео — ${Math.round(video.regular.medianViews)} (${video.regular.count} шт.). `
+      + 'Это разные ленты, и охват они раздают по-разному.');
+  }
+
+  if (video.offWall) {
+    out.push(`Роликов мимо стены: ${video.offWall}. Они опубликованы только `
+      + 'в ленту клипов — подписчики в сообществе их не увидят. Дублируйте '
+      + 'записью, если хотите охват и там, и там.');
   }
 
   const best = [...video.byDuration].sort((a, b) => b.medianViews - a.medianViews)[0];

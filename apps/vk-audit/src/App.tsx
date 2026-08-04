@@ -182,8 +182,9 @@ export function App() {
       const ownerId = report.snapshot.profile.id;
 
       const refs = videoRefsFromPosts(posts);
-      const videos = await collectVideos(api, refs, (done, total) => {
-        setMediaStage(`Читаем ролики: ${done} из ${total}`);
+      const sinceTs = report.snapshot.meta.since_ts;
+      const videos = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
+        setMediaStage(`Читаем ролики: ${done}`);
       });
       const threads = await collectComments(api, ownerId, posts, (done, total) => {
         setMediaStage(`Читаем комментарии: ${done} из ${total}`);
