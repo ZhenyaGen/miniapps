@@ -34,6 +34,15 @@ export interface DurationRow {
   medianComments: number;
 }
 
+/**
+ * Разбор обычных видео — без клипов.
+ *
+ * Клипы живут в отдельной ленте и охват там раздаётся по другим
+ * правилам: у одного клипа бывает больше просмотров, чем у всей ленты
+ * видео вместе. В общей медиане это перекашивает всё, поэтому клипы
+ * посчитаны на своей вкладке, а сюда попадает только то, что лежит
+ * в разделе «Видео» как обычный ролик.
+ */
 export interface VideoReport {
   count: number;
   /** Просмотры самих роликов — не путать с просмотрами записей. */
@@ -41,6 +50,8 @@ export interface VideoReport {
   medianViews: number;
   medianDuration: number;
   totalComments: number;
+  /** Комментариев на ролик — чтобы сравнить с клипами теми же мерками. */
+  medianComments: number;
   byDuration: DurationRow[];
   top: VideoStat[];
   flop: VideoStat[];
@@ -53,15 +64,14 @@ export interface VideoReport {
   viewsRatio: number | null;
   postViewsMedian: number;
   /**
-   * Клипы и обычные видео по отдельности.
+   * Клипы, ушедшие на соседнюю вкладку.
    *
-   * ВК раздаёт им охват из разных лент, и складывать их в одну медиану —
-   * то же самое, что усреднять сторис с постами. Если ВК ничего
-   * не разметил, `clips.count` будет нулём, и разделение не показывается.
+   * В цифры выше они не входят — только для сравнения «где охват
+   * больше». Если ВК ничего не разметил, `clips.count` будет нулём,
+   * и сравнение не показывается.
    */
   clips: { count: number; medianViews: number; medianComments: number };
-  regular: { count: number; medianViews: number; medianComments: number };
-  /** Ролики, которых нет ни в одной записи — обычно опубликованы только в ленту клипов. */
+  /** Видео, которых нет ни в одной записи: лежат в разделе, но не выложены. */
   offWall: number;
   /**
    * Чужие ролики, добавленные на страницу и не попавшие в разбор.
@@ -73,8 +83,12 @@ export interface VideoReport {
 }
 
 export function analyzeVideos(
-  videos: VideoStat[], posts: RawPost[], foreign = 0,
+  all: VideoStat[], posts: RawPost[], foreign = 0,
 ): VideoReport {
+  // клипы считаются на своей вкладке: их охват из другой ленты, и
+  // в общей медиане один залетевший клип перечёркивает всю картину
+  const videos = all.filter((v) => !v.isClip);
+  const clips = all.filter((v) => v.isClip);
   const views = videos.map((v) => v.views).filter((v) => v > 0);
   // ролики мимо стены записи не имеют: их `postId` — ноль, и в набор
   // «записей с видео» он попадать не должен
@@ -111,6 +125,7 @@ export function analyzeVideos(
     medianViews,
     medianDuration: median(videos.map((v) => v.duration)),
     totalComments: videos.reduce((sum, v) => sum + v.comments, 0),
+    medianComments: median(videos.map((v) => v.comments)),
     byDuration,
     top: ranked.slice(0, 5),
     // хвост показываем, только когда роликов хватает: на пяти видео
@@ -118,8 +133,7 @@ export function analyzeVideos(
     flop: ranked.length >= 8 ? ranked.slice(-3).reverse() : [],
     viewsRatio: postViewsMedian ? medianViews / postViewsMedian : null,
     postViewsMedian,
-    clips: group(videos.filter((v) => v.isClip)),
-    regular: group(videos.filter((v) => !v.isClip)),
+    clips: group(clips),
     offWall: videos.filter((v) => !v.onWall).length,
     foreign,
   };
@@ -252,12 +266,13 @@ export function videoFindings(video: VideoReport, comments: CommentReport): stri
       + 'когда обложка обещает не то, что внутри.');
   }
 
-  if (video.clips.count && video.regular.count) {
-    const stronger = video.clips.medianViews >= video.regular.medianViews ? 'Клипы' : 'Обычные видео';
+  if (video.clips.count && video.count) {
+    const stronger = video.clips.medianViews >= video.medianViews ? 'Клипы' : 'Обычные видео';
     out.push(`${stronger} собирают больше: клипы — медиана `
       + `${Math.round(video.clips.medianViews)} просмотров (${video.clips.count} шт.), `
-      + `обычные видео — ${Math.round(video.regular.medianViews)} (${video.regular.count} шт.). `
-      + 'Это разные ленты, и охват они раздают по-разному.');
+      + `обычные видео — ${Math.round(video.medianViews)} (${video.count} шт.). `
+      + 'Это разные ленты, и охват они раздают по-разному. Клипы разобраны '
+      + 'на своей вкладке и в цифры выше не входят.');
   }
 
   if (video.offWall) {
