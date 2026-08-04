@@ -200,7 +200,10 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
         </Group>
       )}
 
-      <Group header={<Header subtitle={`разобрано записей: ${comments.posts}`}>
+      <Group header={<Header subtitle={comments.fromVideos
+        ? `разобрано веток: ${comments.posts}, из них под роликами ${comments.fromVideos}`
+        : `разобрано записей: ${comments.posts}`}
+      >
         Обсуждение
       </Header>}
       >
@@ -227,7 +230,14 @@ export function VideoView({ video, comments, busy, stage, canCollect, onCollect 
         </Header>}
         >
           {comments.unanswered.map((item, i) => (
-            <SimpleCell key={`${item.postId}:${i}`} multiline subtitle={`к записи ${item.postId}`}>
+            <SimpleCell
+              key={`${item.postId}:${i}`}
+              multiline
+              subtitle={item.where}
+              href={item.url ?? undefined}
+              target={item.url ? '_blank' : undefined}
+              rel={item.url ? 'noreferrer' : undefined}
+            >
               {item.text}
             </SimpleCell>
           ))}

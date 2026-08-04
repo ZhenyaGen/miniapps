@@ -92,6 +92,96 @@ export interface CommentThread {
   /** Сколько всего комментариев у записи по данным ВК. */
   total: number;
   items: CommentItem[];
+  /**
+   * Откуда ветка: со стены или из-под ролика.
+   *
+   * У клипа свои комментарии, и `wall.getComments` их не отдаёт —
+   * особенно у тех, что опубликованы мимо стены. Ветки собираются
+   * из двух источников и дальше считаются вместе.
+   */
+  source: 'wall' | 'video';
+  /** Ролик, под которым висит ветка, — для ссылки в интерфейсе. */
+  video?: { ownerId: number; id: number; title: string };
+}
+
+/** Разбор ответа `*.getComments` в наш вид: у стены и видео он одинаков. */
+function parseComments(
+  raw: Array<Record<string, any>>,
+  postId: number,
+): CommentItem[] {
+  const items: CommentItem[] = [];
+  for (const comment of raw) {
+    items.push({
+      postId,
+      fromId: Number(comment.from_id ?? 0),
+      date: Number(comment.date ?? 0),
+      text: String(comment.text ?? ''),
+      likes: Number(comment.likes?.count ?? 0),
+      isReply: Boolean(comment.reply_to_comment),
+    });
+    // ветки ответов ВК кладёт отдельно — без них диалог выглядит
+    // односторонним, а именно ответы автора и надо посчитать
+    for (const reply of comment.thread?.items ?? []) {
+      items.push({
+        postId,
+        fromId: Number(reply.from_id ?? 0),
+        date: Number(reply.date ?? 0),
+        text: String(reply.text ?? ''),
+        likes: Number(reply.likes?.count ?? 0),
+        isReply: true,
+      });
+    }
+  }
+  return items;
+}
+
+/** Сколько роликов разбирать по комментариям. */
+export const COMMENT_VIDEOS = 40;
+
+/**
+ * Комментарии под роликами.
+ *
+ * Клип, опубликованный только в ленту клипов, на стене не существует —
+ * и его обсуждение видно исключительно здесь. Берём ролики, у которых
+ * комментарии вообще есть, начиная с самых обсуждаемых.
+ */
+export async function collectVideoComments(
+  api: ApiClient,
+  videos: VideoStat[],
+  onProgress?: (done: number, total: number) => void,
+  limit = COMMENT_VIDEOS,
+): Promise<CommentThread[]> {
+  const targets = videos
+    .filter((v) => v.comments > 0)
+    .sort((a, b) => b.comments - a.comments)
+    .slice(0, limit);
+
+  const threads: CommentThread[] = [];
+  for (const [i, item] of targets.entries()) {
+    onProgress?.(i + 1, targets.length);
+    try {
+      const resp = await api.call<{ count?: number; items?: Array<Record<string, any>> }>(
+        'video.getComments',
+        {
+          owner_id: item.ownerId,
+          video_id: item.id,
+          count: 100,
+          thread_items_count: 10,
+          need_likes: 1,
+        },
+      );
+      threads.push({
+        postId: item.postId,
+        total: Number(resp?.count ?? 0),
+        items: parseComments(resp?.items ?? [], item.postId),
+        source: 'video',
+        video: { ownerId: item.ownerId, id: item.id, title: item.title },
+      });
+    } catch {
+      // комментарии к ролику закрыты — пропускаем молча
+    }
+  }
+  return threads;
 }
 
 /** Ролики из вложений: без повторов, в порядке появления в ленте. */
@@ -212,31 +302,13 @@ export async function collectComments(
           preview_length: 0,
         },
       );
-      const items: CommentItem[] = [];
-      for (const raw of resp?.items ?? []) {
-        const base: CommentItem = {
-          postId: post.id,
-          fromId: Number(raw.from_id ?? 0),
-          date: Number(raw.date ?? 0),
-          text: String(raw.text ?? ''),
-          likes: Number(raw.likes?.count ?? 0),
-          isReply: Boolean(raw.reply_to_comment),
-        };
-        items.push(base);
-        // ветки ответов ВК кладёт отдельно — без них диалог выглядит
-        // односторонним, а именно ответы автора и надо посчитать
-        for (const reply of raw.thread?.items ?? []) {
-          items.push({
-            postId: post.id,
-            fromId: Number(reply.from_id ?? 0),
-            date: Number(reply.date ?? 0),
-            text: String(reply.text ?? ''),
-            likes: Number(reply.likes?.count ?? 0),
-            isReply: true,
-          });
-        }
-      }
-      threads.push({ postId: post.id, total: Number(resp?.count ?? items.length), items });
+      const items = parseComments(resp?.items ?? [], post.id);
+      threads.push({
+        postId: post.id,
+        total: Number(resp?.count ?? items.length),
+        items,
+        source: 'wall',
+      });
     } catch {
       // комментарии закрыты у записи — пропускаем её молча
     }
