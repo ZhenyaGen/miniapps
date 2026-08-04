@@ -3,6 +3,7 @@ import {
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
+import { videoUrl } from '../vk/video';
 import { ColumnChart, LineChart } from './Chart';
 import { thinNote } from '../report/mix';
 import type { ClipsReport } from '../video/clips';
@@ -201,7 +202,7 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
             multiline
             subtitle={`${seconds(item.duration)} · ${f(item.likes, 0)} лайков · ${f(item.comments, 0)} комментариев`}
             indicator={f(item.views, 0)}
-            href={`https://vk.com/video${item.ownerId}_${item.id}`}
+            href={videoUrl(item)}
             target="_blank"
             rel="noreferrer"
           >
@@ -221,7 +222,7 @@ export function ClipsView({ report, busy, stage, note, canCollect, onCollect }: 
               multiline
               subtitle={seconds(item.duration)}
               indicator={f(item.views, 0)}
-              href={`https://vk.com/video${item.ownerId}_${item.id}`}
+              href={videoUrl(item)}
               target="_blank"
               rel="noreferrer"
             >

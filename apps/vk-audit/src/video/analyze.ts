@@ -208,9 +208,7 @@ export function analyzeComments(threads: CommentThread[], ownerId: number): Comm
       unanswered.push({
         postId: thread.postId,
         text: item.text.slice(0, 160),
-        url: thread.video
-          ? `https://vk.com/video${thread.video.ownerId}_${thread.video.id}`
-          : null,
+        url: thread.video?.url ?? null,
         where: thread.video
           ? `под роликом «${thread.video.title || 'без названия'}»`
           : `к записи ${thread.postId}`,

@@ -4,6 +4,7 @@ import {
 } from '@vkontakte/vkui';
 
 import { f } from '../engine/util';
+import { videoUrl } from '../vk/video';
 import { ColumnChart } from './Chart';
 import { thinNote } from '../report/mix';
 import type { CommentReport, VideoReport } from '../video/analyze';
@@ -206,7 +207,7 @@ export function VideoView({
             multiline
             subtitle={`${duration(item.duration)} · ${f(item.likes, 0)} лайков · ${f(item.comments, 0)} комментариев`}
             indicator={f(item.views, 0)}
-            href={`https://vk.com/video${item.ownerId}_${item.id}`}
+            href={videoUrl(item)}
             target="_blank"
             rel="noreferrer"
           >
@@ -226,7 +227,7 @@ export function VideoView({
               multiline
               subtitle={duration(item.duration)}
               indicator={f(item.views, 0)}
-              href={`https://vk.com/video${item.ownerId}_${item.id}`}
+              href={videoUrl(item)}
               target="_blank"
               rel="noreferrer"
             >

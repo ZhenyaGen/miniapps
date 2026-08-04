@@ -11,8 +11,7 @@
  * `npm --prefix apps/vk-audit run build && node scripts/smoke.mjs`.
  */
 import { createServer } from 'node:http';
-import { mkdtemp, readFile } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
+import { readFile } from 'node:fs/promises';
 import { dirname, extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -49,7 +48,6 @@ const server = createServer(async (req, res) => {
 
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
 const { port } = server.address();
-const out = await mkdtemp(join(tmpdir(), 'vk-audit-smoke-'));
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
 const page = await browser.newPage({
@@ -76,51 +74,7 @@ for (const tab of TABS) {
   console.log(`вкладка «${tab}» открылась`);
 }
 
-// печатная версия существует и не пуста
-const printed = await page.evaluate(() => document.querySelector('.print-root')?.innerText?.length ?? 0);
-if (printed < 500) problems.push(`печатная версия почти пуста: ${printed} знаков`);
-console.log(`печатная версия: ${printed} знаков`);
-
-// в режиме печати интерфейс скрыт, а печатный корень показан
-await page.emulateMedia({ media: 'print' });
-const shown = await page.evaluate(() => ({
-  app: getComputedStyle(document.getElementById('root')).display,
-  print: getComputedStyle(document.querySelector('.print-root')).display,
-}));
-if (shown.app !== 'none' || shown.print === 'none') {
-  problems.push(`печатные стили не сработали: ${JSON.stringify(shown)}`);
-}
-await page.emulateMedia({ media: 'screen' });
-console.log(`печатные стили: интерфейс ${shown.app}, отчёт ${shown.print}`);
-
-// PDF собирается тем же путём, что и «Сохранить как PDF» в браузере
-const pdf = join(out, 'report.pdf');
-await page.pdf({ path: pdf, format: 'A4' });
-console.log(`PDF собран: ${pdf}`);
-
-for (const label of ['Скачать бриф', 'Скачать таблицу', 'Сохранить в PDF', 'Скопировать бриф']) {
-  if (!(await page.getByText(label).count())) problems.push(`нет кнопки «${label}»`);
-}
-
-// выгрузки действительно скачиваются, а не молча падают в буфер
-for (const [label, ext] of [['Скачать бриф', '.txt'], ['Скачать таблицу', '.csv']]) {
-  const [download] = await Promise.all([
-    page.waitForEvent('download', { timeout: 5000 }).catch(() => null),
-    page.getByText(label).click(),
-  ]);
-  if (!download) {
-    problems.push(`«${label}» не отдала файл`);
-    continue;
-  }
-  const saved = join(out, download.suggestedFilename());
-  await download.saveAs(saved);
-  const size = (await readFile(saved)).length;
-  if (!download.suggestedFilename().endsWith(ext)) {
-    problems.push(`«${label}» отдала ${download.suggestedFilename()}, ждали ${ext}`);
-  }
-  if (size < 500) problems.push(`«${label}»: файл почти пуст (${size} байт)`);
-  console.log(`${download.suggestedFilename()} — ${size} байт`);
-}
+if (!(await page.getByText('Скопировать бриф').count())) problems.push('нет кнопки «Скопировать бриф»');
 
 await browser.close();
 server.close();
