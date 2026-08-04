@@ -243,12 +243,12 @@ export function videoFindings(video: VideoReport, comments: CommentReport): stri
   const out: string[] = [];
 
   if (video.viewsRatio !== null && video.viewsRatio >= 2) {
-    out.push(`Ролики смотрят в ${video.viewsRatio.toFixed(1)} раза чаще, чем открывают `
+    out.push(`Видео смотрят в ${video.viewsRatio.toFixed(1)} раза чаще, чем открывают `
       + `записи: ${Math.round(video.medianViews)} против ${Math.round(video.postViewsMedian)}. `
       + 'Значит, разбор по стене занижает охват — ориентируйтесь на просмотры видео.');
   }
   if (video.viewsRatio !== null && video.viewsRatio > 0 && video.viewsRatio <= 0.5) {
-    out.push('Запись открывают чаще, чем досматривают ролик. Обычно так бывает, '
+    out.push('Запись открывают чаще, чем досматривают видео. Обычно так бывает, '
       + 'когда обложка обещает не то, что внутри.');
   }
 
@@ -261,15 +261,15 @@ export function videoFindings(video: VideoReport, comments: CommentReport): stri
   }
 
   if (video.offWall) {
-    out.push(`Роликов мимо стены: ${video.offWall}. Записью они не выложены — `
-      + 'подписчики их в ленте не увидят, только те, кому ролик покажет '
+    out.push(`Видео мимо стены: ${video.offWall}. Записью оно не выложено — `
+      + 'подписчики его в ленте не увидят, только те, кому ролик покажет '
       + 'рекомендация. Дублируйте записью, если хотите охват и там, и там.');
   }
 
   if (video.foreign) {
-    out.push(`Чужих роликов на странице: ${video.foreign}. В разбор они не вошли — `
-      + 'это добавленное к себе видео других авторов, к охвату страницы '
-      + 'оно отношения не имеет.');
+    out.push(`Чужого видео на странице: ${video.foreign}. В разбор оно не вошло — `
+      + 'это добавленные к себе ролики других авторов, к охвату страницы '
+      + 'они отношения не имеют.');
   }
 
   const best = [...video.byDuration].sort((a, b) => b.medianViews - a.medianViews)[0];
