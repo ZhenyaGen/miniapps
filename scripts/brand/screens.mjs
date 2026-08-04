@@ -42,6 +42,11 @@ const SHOTS = [
   { name: '4-plan.png', tab: 'План' },
   { name: '5-kontent.png', tab: 'Контент' },
   { name: '6-konkurenty.png', tab: 'Конкуренты', rivals: true },
+  // клипы и ролики в демо показывают приглашение к сбору: живых данных
+  // у вымышленного сообщества нет, а это ровно то, что видит человек,
+  // когда открывает вкладку впервые
+  { name: '7-klipy.png', tab: 'Клипы' },
+  { name: '8-roliki.png', tab: 'Ролики' },
 ];
 
 const server = createServer(async (req, res) => {
