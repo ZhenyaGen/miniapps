@@ -224,7 +224,7 @@ export function App() {
   }, [session, report]);
 
   /**
-   * Ролики и комментарии — отдельным действием, а не вместе с отчётом.
+   * Видео и комментарии — отдельным действием, а не вместе с отчётом.
    *
    * Это ещё десятки запросов поверх сбора стены, и большинству они
    * не нужны: вкладку открывают те, у кого лента из видео.
@@ -232,7 +232,7 @@ export function App() {
   const runMedia = useCallback(async () => {
     if (!session || !report) return;
     setMediaBusy(true);
-    setMediaStage('Ищем ролики в записях');
+    setMediaStage('Ищем видео в записях');
     setMediaNote('');
     try {
       const api = new VKApi(session.token, session.transport);
@@ -242,7 +242,7 @@ export function App() {
       const refs = videoRefsFromPosts(posts);
       const sinceTs = report.snapshot.meta.since_ts;
       const harvest = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
-        setMediaStage(`Читаем ролики: ${done}`);
+        setMediaStage(`Читаем видео: ${done}`);
       });
       const { videos } = harvest;
       const wallThreads = await collectComments(api, ownerId, posts, (done, total) => {
@@ -250,7 +250,7 @@ export function App() {
       });
       // у роликов своё обсуждение: клип мимо стены живёт только здесь
       const videoThreads = await collectVideoComments(api, videos, (done, total) => {
-        setMediaStage(`Комментарии к роликам: ${done} из ${total}`);
+        setMediaStage(`Комментарии к видео: ${done} из ${total}`);
       });
 
       // пустая вкладка должна объяснять себя: молчаливый ноль выглядит
@@ -263,7 +263,7 @@ export function App() {
       setClipsReport(analyzeClips(videos));
       setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Не удалось разобрать ролики');
+      setError(err instanceof Error ? err.message : 'Не удалось разобрать видео');
     } finally {
       setMediaBusy(false);
     }

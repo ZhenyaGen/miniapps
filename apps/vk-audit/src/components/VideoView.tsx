@@ -33,7 +33,7 @@ export function VideoView({
   if (busy) {
     return (
       <Group>
-        <Placeholder icon={<Spinner size="l" />} title={stage || 'Читаем ролики'}>
+        <Placeholder icon={<Spinner size="l" />} title={stage || 'Читаем видео'}>
           Просмотры видео и тексты комментариев ВКонтакте отдаёт отдельно
           от стены, поэтому это ещё десяток-другой запросов.
         </Placeholder>
@@ -43,21 +43,22 @@ export function VideoView({
 
   if (!video || !comments) {
     return (
-      <Group header={<Header>Ролики и обсуждение</Header>}>
+      <Group header={<Header>Видео и обсуждение</Header>}>
         <Div>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 12 }}>
-            Здесь читаются все ролики страницы — и клипы, и обычные видео,
-            включая те, что опубликованы мимо стены. У записи с видео два
-            разных счётчика просмотров: у самой записи и у ролика внутри,
-            и расходятся они в разы. Плюс тексты комментариев: ВКонтакте
+            Здесь читается весь раздел «Видео» страницы — и обычные ролики,
+            и клипы, включая те, что опубликованы мимо стены. Чужое,
+            добавленное к себе, не в счёт. У записи с видео два разных
+            счётчика просмотров: у самой записи и у видео внутри, и
+            расходятся они в разы. Плюс тексты комментариев: ВКонтакте
             отдаёт их отдельно от стены.
           </Footnote>
           <Button size="l" stretched disabled={!canCollect} onClick={onCollect}>
-            🎬 Разобрать ролики и комментарии
+            🎬 Разобрать видео и комментарии
           </Button>
           {!canCollect && (
             <Footnote style={{ color: 'var(--vkui--color_text_secondary)', marginTop: 8, display: 'block' }}>
-              Нужен вход через ВКонтакте: ролики и комментарии читаются
+              Нужен вход через ВКонтакте: видео и комментарии читаются
               тем же ключом, что и стена.
             </Footnote>
           )}
@@ -69,11 +70,11 @@ export function VideoView({
   if (!video.count) {
     return (
       <Group>
-        <Placeholder title="Роликов не нашлось">
+        <Placeholder title="Видео не нашлось">
           {note || (video.foreign
-            ? `За период страница не публиковала своих роликов. Чужих, `
-              + `добавленных к себе, — ${video.foreign}: они к охвату страницы `
-              + 'отношения не имеют и в разбор не идут.'
+            ? `За период страница не публиковала своего видео. Чужого, `
+              + `добавленного к себе, — ${video.foreign}: к охвату страницы `
+              + 'оно отношения не имеет и в разбор не идёт.'
             : 'За выбранный период у страницы нет ни видео, ни клипов — или '
               + 'доступ к ним закрыт настройками.')}
         </Placeholder>
@@ -85,15 +86,15 @@ export function VideoView({
 
   return (
     <>
-      <Group header={<Header subtitle="просмотры самих роликов, а не записей">
-        Ролики
+      <Group header={<Header subtitle="просмотры самого видео, а не записей">
+        Видео
       </Header>}
       >
         <Div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <div className="kpi rise">
             <span className="kpi__icon">🎬</span>
             <div className="kpi__value">{f(video.count, 0)}</div>
-            <div className="kpi__label">роликов</div>
+            <div className="kpi__label">видео</div>
             <div className="kpi__hint">
               {video.clips.count
                 ? `клипов ${f(video.clips.count, 0)} · медиана ${duration(video.medianDuration)}`
@@ -103,7 +104,7 @@ export function VideoView({
           <div className="kpi rise rise-1">
             <span className="kpi__icon">👁</span>
             <div className="kpi__value">{f(video.medianViews, 0)}</div>
-            <div className="kpi__label">просмотров на ролик</div>
+            <div className="kpi__label">просмотров на видео</div>
             <div className="kpi__hint">{`всего ${f(video.totalViews, 0)}`}</div>
           </div>
           <div className="kpi rise rise-2">
@@ -113,13 +114,13 @@ export function VideoView({
             </div>
             <div className="kpi__label">просмотров у записи</div>
             <div className="kpi__hint">
-              {video.postViewsMedian ? 'то же видео на стене' : 'ролики не выложены записями'}
+              {video.postViewsMedian ? 'то же видео на стене' : 'видео не выложено записями'}
             </div>
           </div>
           <div className="kpi rise rise-3">
             <span className="kpi__icon">💬</span>
             <div className="kpi__value">{f(video.totalComments, 0)}</div>
-            <div className="kpi__label">комментариев к роликам</div>
+            <div className="kpi__label">комментариев к видео</div>
           </div>
         </Div>
       </Group>
@@ -166,7 +167,7 @@ export function VideoView({
           {video.byDuration.map((row) => (
             <SimpleCell
               key={row.label}
-              subtitle={`${row.count} роликов · комментариев ${f(row.medianComments, 1)}`}
+              subtitle={`${row.count} видео · комментариев ${f(row.medianComments, 1)}`}
               indicator={f(row.medianViews, 0)}
             >
               {row.label}
@@ -175,7 +176,7 @@ export function VideoView({
         </Group>
       )}
 
-      <Group header={<Header>Лучшие ролики</Header>}>
+      <Group header={<Header>Лучшие видео</Header>}>
         {video.top.map((item) => (
           <SimpleCell
             key={`${item.ownerId}_${item.id}`}
@@ -193,7 +194,7 @@ export function VideoView({
 
       {video.flop.length > 0 && (
         <Group header={<Header subtitle="сравните их с лучшими: чем отличаются обложка и первые секунды">
-          Слабые ролики
+          Слабые видео
         </Header>}
         >
           {video.flop.map((item) => (
@@ -213,7 +214,7 @@ export function VideoView({
       )}
 
       <Group header={<Header subtitle={comments.fromVideos
-        ? `разобрано веток: ${comments.posts}, из них под роликами ${comments.fromVideos}`
+        ? `разобрано веток: ${comments.posts}, из них под видео ${comments.fromVideos}`
         : `разобрано записей: ${comments.posts}`}
       >
         Обсуждение

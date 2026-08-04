@@ -34,7 +34,7 @@ const TABS: Array<[Tab, string]> = [
   ['plan', 'План'],
   ['content', 'Контент'],
   ['clips', 'Клипы'],
-  ['video', 'Ролики'],
+  ['video', 'Видео'],
   ['rivals', 'Конкуренты'],
   ['audience', 'Аудитория'],
 ];
@@ -51,7 +51,7 @@ interface Props {
   clips: ClipsReport | null;
   mediaBusy: boolean;
   mediaStage: string;
-  /** Почему ролики не собрались — если не собрались. */
+  /** Почему видео не собралось — если не собралось. */
   mediaNote: string;
   onCollectMedia: () => void;
   onCollectRivals: (targets: string) => void;
