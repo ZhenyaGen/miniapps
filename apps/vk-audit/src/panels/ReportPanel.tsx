@@ -11,8 +11,6 @@ import type { Suggestion } from '../vk/rivals';
 import type { CommentReport, VideoReport } from '../video/analyze';
 import type { ClipsReport } from '../video/clips';
 import type { PhotoReport } from '../photos/analyze';
-import type { PhotoStat } from '../photos/collect';
-import type { VideoStat } from '../vk/video';
 import { AudienceView } from '../components/AudienceView';
 import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
@@ -26,9 +24,6 @@ import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
-import { buildCsv, csvName, downloadCsv } from '../report/csv';
-import { downloadText, fileBase } from '../report/download';
-import { PrintReport } from '../components/PrintReport';
 import { buildMix } from '../report/mix';
 import { findGaps } from '../report/gaps';
 import {
@@ -61,9 +56,6 @@ interface Props {
   comments: CommentReport | null;
   clips: ClipsReport | null;
   photos: PhotoReport | null;
-  /** Полные списки медиа — только для выгрузки в таблицу. */
-  rawVideos: VideoStat[];
-  rawPhotos: PhotoStat[];
   mediaBusy: boolean;
   mediaStage: string;
   /** Почему видео не собралось — если не собралось. */
@@ -78,7 +70,7 @@ interface Props {
 
 export function ReportPanel({
   report, rivals, rivalsBusy, rivalsStage, canCollectRivals,
-  rivalsSuggestion, video, comments, clips, photos, rawVideos, rawPhotos,
+  rivalsSuggestion, video, comments, clips, photos,
   mediaBusy, mediaStage, mediaNote, onCollectMedia,
   onCollectRivals, onSuggestRivals, onDemoRivals, onResetRivals, onBack,
 }: Props) {
@@ -113,50 +105,6 @@ export function ReportPanel({
     buildBrief(report, rivals, media),
     'Бриф скопирован — вставьте его в чат с ИИ',
   );
-
-  /**
-   * Выгрузка таблицей: сначала честная загрузка файлом, а если
-   * приложение ВКонтакте её не дало — тем же текстом в буфер.
-   */
-  const exportCsv = async () => {
-    const text = buildCsv(report, {
-      video, clips, photos, allVideos: rawVideos, allPhotos: rawPhotos,
-    });
-    if (downloadCsv(text, csvName(report))) {
-      setToast('Таблица скачана — открывается в Excel и Google Таблицах');
-      return;
-    }
-    await copy(text, 'Загрузка запрещена — таблица скопирована в буфер');
-  };
-
-  /**
-   * Бриф текстовым файлом.
-   *
-   * То же самое, что уезжает в буфер, но файлом: буфер живёт до первой
-   * копии чего-нибудь ещё, а отчёт хочется сохранить и переслать.
-   */
-  const exportTxt = async () => {
-    const text = buildBrief(report, rivals, media);
-    const name = `${fileBase(profile.screen_name, report.metrics.period.to)}.txt`;
-    if (downloadText(text, name, 'text/plain')) {
-      setToast('Бриф сохранён текстовым файлом');
-      return;
-    }
-    await copy(text, 'Загрузка запрещена — бриф скопирован в буфер');
-  };
-
-  /**
-   * PDF — через печать браузера: «Сохранить как PDF» умеют все.
-   * Своей генерации нет намеренно: библиотека с кириллическим шрифтом
-   * весит больше, чем всё приложение.
-   */
-  const printReport = () => {
-    if (typeof window.print !== 'function') {
-      setToast('Печать недоступна в этом окне — откройте отчёт в браузере');
-      return;
-    }
-    window.print();
-  };
 
   return (
     <>
@@ -300,32 +248,6 @@ export function ReportPanel({
         </Div>
       </Group>
 
-      <Group header={<Header subtitle="таблицей в Excel или страницей в PDF">
-        Забрать файлом
-      </Header>}
-      >
-        <Div style={{ display: 'grid', gap: 10 }}>
-          <Button size="l" stretched mode="secondary" onClick={exportTxt}>
-            📄 Скачать бриф (TXT)
-          </Button>
-          <Button size="l" stretched mode="secondary" onClick={exportCsv}>
-            📊 Скачать таблицу (CSV)
-          </Button>
-          <Button size="l" stretched mode="secondary" onClick={printReport}>
-            🖨 Сохранить в PDF
-          </Button>
-          <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
-            TXT — тот же бриф, что уезжает в буфер, только файлом: буфер
-            живёт до первой копии чего-нибудь ещё. В таблице каждая строка —
-            запись, клип, видео или снимок, одними и теми же столбцами:
-            из неё сразу строится сводная. PDF печатается
-            средствами браузера — в диалоге печати выберите «Сохранить
-            как PDF». В приложении ВКонтакте печать бывает недоступна;
-            тогда откройте отчёт в браузере.
-          </Footnote>
-        </Div>
-      </Group>
-
       <Group header={<Header>Сделать за вас</Header>}>
         <Div>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
@@ -381,8 +303,6 @@ export function ReportPanel({
       )}
 
       <Footer />
-
-      <PrintReport report={report} rivals={rivals} media={media} />
 
       {toast && <Snackbar onClose={() => setToast(null)} onClosed={() => setToast(null)}>{toast}</Snackbar>}
     </>

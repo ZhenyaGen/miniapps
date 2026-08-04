@@ -6,7 +6,8 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { collectVideos, videoRefsFromPosts } from './video';
+import { collectVideoComments, collectVideos, videoRefsFromPosts, videoUrl } from './video';
+import type { VideoStat } from './video';
 import type { ApiClient } from './client';
 import type { RawPost } from '../engine/types';
 
@@ -163,5 +164,66 @@ describe('сбор роликов', () => {
 
     expect(videos).toEqual([]);
     expect(error).toContain('код 15');
+  });
+});
+
+describe('ссылки на ролики', () => {
+  const stat = (over: Partial<VideoStat> = {}): VideoStat => ({
+    ownerId: -100, id: 55, postId: 0, onWall: false, isClip: false,
+    title: '', duration: 20, views: 0, likes: 0, comments: 0, reposts: 0,
+    date: NOW, ...over,
+  });
+
+  it('клип ведёт в раздел клипов, а не в видео', () => {
+    expect(videoUrl(stat({ isClip: true }))).toBe('https://vk.com/clip-100_55');
+    expect(videoUrl(stat())).toBe('https://vk.com/video-100_55');
+  });
+
+  it('ключ доступа попадает в ссылку: без него ВК показывает «недоступно»', () => {
+    expect(videoUrl(stat({ isClip: true, accessKey: 'abc123' })))
+      .toBe('https://vk.com/clip-100_55?access_key=abc123');
+  });
+});
+
+describe('комментарии под роликами', () => {
+  const stat = (id: number, views: number, comments = 0): VideoStat => ({
+    ownerId: OWNER, id, postId: 0, onWall: false, isClip: true,
+    title: `Клип ${id}`, duration: 20, views, likes: 0, comments, reposts: 0,
+    date: NOW,
+  });
+
+  it('берёт ролики по просмотрам, а не по счётчику комментариев', async () => {
+    // в списке `video.get` у клипов `comments` часто приходит нулём —
+    // отбор «у кого комментарии есть» не брал ни одного
+    const videos = [stat(1, 5000), stat(2, 100)];
+    const api = fakeApi(({ params }) => (params.video_id === 1
+      ? { count: 42, items: [{ from_id: 7, text: 'огонь', date: NOW }] }
+      : { count: 0, items: [] }));
+
+    const threads = await collectVideoComments(api, videos);
+
+    expect(threads).toHaveLength(1);
+    expect(threads[0].total).toBe(42);
+    // счётчик у самого ролика чинится по ответу раздела комментариев
+    expect(videos[0].comments).toBe(42);
+  });
+
+  it('ссылка в ветке ведёт на клип', async () => {
+    const videos = [stat(1, 10)];
+    const api = fakeApi(() => ({ count: 1, items: [{ from_id: 7, text: '?', date: NOW }] }));
+
+    const threads = await collectVideoComments(api, videos);
+
+    expect(threads[0].video?.url).toBe(`https://vk.com/clip${OWNER}_1`);
+  });
+
+  it('ключ доступа уходит в запрос', async () => {
+    const videos = [stat(1, 10)];
+    videos[0].accessKey = 'zzz';
+    const api = fakeApi(() => ({ count: 0, items: [] }));
+
+    await collectVideoComments(api, videos);
+
+    expect(api.log[0].params.access_key).toBe('zzz');
   });
 });

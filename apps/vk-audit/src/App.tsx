@@ -28,8 +28,6 @@ import { analyzePhotos } from './photos/analyze';
 import type { ClipsReport } from './video/clips';
 import type { CommentReport, VideoReport } from './video/analyze';
 import type { PhotoReport } from './photos/analyze';
-import type { PhotoStat } from './photos/collect';
-import type { VideoStat } from './vk/video';
 import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
@@ -70,10 +68,6 @@ export function App() {
   const [commentReport, setCommentReport] = useState<CommentReport | null>(null);
   const [clipsReport, setClipsReport] = useState<ClipsReport | null>(null);
   const [photoReport, setPhotoReport] = useState<PhotoReport | null>(null);
-  // полные списки нужны выгрузке в таблицу: в отчётах лежат только
-  // вершины и хвосты, а в файл человек ждёт всё
-  const [rawVideos, setRawVideos] = useState<VideoStat[]>([]);
-  const [rawPhotos, setRawPhotos] = useState<PhotoStat[]>([]);
   const [mediaBusy, setMediaBusy] = useState(false);
   const [mediaStage, setMediaStage] = useState('');
   const [mediaNote, setMediaNote] = useState('');
@@ -175,8 +169,6 @@ export function App() {
     setCommentReport(null);
     setClipsReport(null);
     setPhotoReport(null);
-    setRawVideos([]);
-    setRawPhotos([]);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -280,8 +272,6 @@ export function App() {
       setVideoReport(analyzeVideos(videos, posts, harvest.foreign));
       setClipsReport(analyzeClips(videos));
       setPhotoReport(analyzePhotos(photos.photos, posts));
-      setRawVideos(videos);
-      setRawPhotos(photos.photos);
       setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось разобрать видео');
@@ -330,8 +320,6 @@ export function App() {
                 comments={commentReport}
                 clips={clipsReport}
                 photos={photoReport}
-                rawVideos={rawVideos}
-                rawPhotos={rawPhotos}
                 mediaBusy={mediaBusy}
                 mediaStage={mediaStage}
                 mediaNote={mediaNote}

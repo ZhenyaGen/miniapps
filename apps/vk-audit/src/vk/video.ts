@@ -30,6 +30,7 @@ interface VideoAttachment {
     duration?: number;
     type?: string;
     is_short?: boolean;
+    access_key?: string;
   };
 }
 
@@ -46,6 +47,8 @@ export interface VideoRef {
    * когда `video.get` отдаёт его как обычное видео.
    */
   isClip: boolean;
+  /** Ключ доступа из вложения: без него ВК не отдаст закрытый ролик. */
+  accessKey?: string;
 }
 
 export interface VideoStat extends VideoRef {
@@ -78,6 +81,27 @@ export interface VideoStat extends VideoRef {
   vertical?: boolean;
   /** Прикреплён ли ролик к записи на стене. */
   onWall: boolean;
+  /**
+   * Ключ доступа к ролику.
+   *
+   * Без него ссылка на всё, что не полностью публично, открывается
+   * страницей «видео недоступно» — ВК проверяет ключ, а не только
+   * идентификатор.
+   */
+  accessKey?: string;
+}
+
+/**
+ * Ссылка на ролик.
+ *
+ * У клипа свой раздел: `vk.com/clip…`, а не `vk.com/video…`. И ключ
+ * доступа обязателен — без него ВК показывает «видео недоступно»
+ * даже владельцу.
+ */
+export function videoUrl(video: VideoStat): string {
+  const section = video.isClip ? 'clip' : 'video';
+  const key = video.accessKey ? `?access_key=${video.accessKey}` : '';
+  return `https://vk.com/${section}${video.ownerId}_${video.id}${key}`;
 }
 
 /** Клип или нет — по тому, что прислал ВК, без догадок. */
@@ -113,13 +137,17 @@ function toStat(item: Record<string, any>, ref: VideoRef | null): VideoStat {
     onWall: ref !== null,
     title: String(item.title ?? ''),
     duration: Number(item.duration ?? 0),
-    views: Number(item.views ?? 0),
+    // ВК отдаёт два счётчика: `views` и `local_views`. У клипов они
+    // расходятся, и меньший занижает картину в разы — берём больший,
+    // а не первый попавшийся.
+    views: Math.max(Number(item.views ?? 0), Number(item.local_views ?? 0)),
     likes: Number(item.likes?.count ?? 0),
     comments: Number(item.comments ?? 0),
     reposts: Number(item.reposts?.count ?? 0),
     date: Number(item.date ?? 0),
     isClip: detectClip(item) || Boolean(ref?.isClip),
     vertical: isVertical(item),
+    accessKey: item.access_key ? String(item.access_key) : ref?.accessKey,
   };
 }
 
@@ -147,7 +175,7 @@ export interface CommentThread {
    */
   source: 'wall' | 'video';
   /** Ролик, под которым висит ветка, — для ссылки в интерфейсе. */
-  video?: { ownerId: number; id: number; title: string };
+  video?: { ownerId: number; id: number; title: string; url: string };
 }
 
 /** Разбор ответа `*.getComments` в наш вид: у стены и видео он одинаков. */
@@ -182,14 +210,22 @@ function parseComments(
 }
 
 /** Сколько роликов разбирать по комментариям. */
-export const COMMENT_VIDEOS = 40;
+export const COMMENT_VIDEOS = 60;
 
 /**
  * Комментарии под роликами.
  *
  * Клип, опубликованный только в ленту клипов, на стене не существует —
- * и его обсуждение видно исключительно здесь. Берём ролики, у которых
- * комментарии вообще есть, начиная с самых обсуждаемых.
+ * и его обсуждение видно исключительно здесь.
+ *
+ * Отбор идёт по просмотрам, а не по числу комментариев из `video.get`.
+ * Раньше было наоборот, и это молча теряло всё обсуждение: у клипов
+ * поле `comments` в списке часто приходит нулём, и «взять те, у кого
+ * комментарии есть» означало «не взять ни одного».
+ *
+ * Заодно функция чинит счётчик: `video.getComments` возвращает
+ * настоящее число, и оно проставляется обратно в ролик — дальше
+ * по нему считаются и вкладки, и бриф.
  */
 export async function collectVideoComments(
   api: ApiClient,
@@ -197,9 +233,8 @@ export async function collectVideoComments(
   onProgress?: (done: number, total: number) => void,
   limit = COMMENT_VIDEOS,
 ): Promise<CommentThread[]> {
-  const targets = videos
-    .filter((v) => v.comments > 0)
-    .sort((a, b) => b.comments - a.comments)
+  const targets = [...videos]
+    .sort((a, b) => b.views - a.views || b.comments - a.comments)
     .slice(0, limit);
 
   const threads: CommentThread[] = [];
@@ -214,14 +249,25 @@ export async function collectVideoComments(
           count: 100,
           thread_items_count: 10,
           need_likes: 1,
+          ...(item.accessKey ? { access_key: item.accessKey } : {}),
         },
       );
+      const parsed = parseComments(resp?.items ?? [], item.postId);
+      const total = Math.max(Number(resp?.count ?? 0), parsed.length);
+      // список врал — верим ответу самого раздела комментариев
+      item.comments = Math.max(item.comments, total);
+      if (!total) continue;
       threads.push({
         postId: item.postId,
-        total: Number(resp?.count ?? 0),
-        items: parseComments(resp?.items ?? [], item.postId),
+        total,
+        items: parsed,
         source: 'video',
-        video: { ownerId: item.ownerId, id: item.id, title: item.title },
+        video: {
+          ownerId: item.ownerId,
+          id: item.id,
+          title: item.title,
+          url: videoUrl(item),
+        },
       });
     } catch {
       // комментарии к ролику закрыты — пропускаем молча
@@ -249,6 +295,7 @@ export function videoRefsFromPosts(posts: RawPost[]): VideoRef[] {
         id,
         postId: post.id,
         isClip: attachment.video.type === 'short_video' || attachment.video.is_short === true,
+        accessKey: attachment.video.access_key,
       });
     }
   }
@@ -355,7 +402,11 @@ export async function collectVideos(
     try {
       const resp = await api.call<{ items?: Array<Record<string, any>> }>('video.get', {
         owner_id: ownerId,
-        videos: chunk.map((r) => `${r.ownerId}_${r.id}`).join(','),
+        // формат ВК — `owner_video_ключ`: без ключа закрытый ролик
+        // просто не приедет в ответе, и в разборе его не будет
+        videos: chunk
+          .map((r) => `${r.ownerId}_${r.id}${r.accessKey ? `_${r.accessKey}` : ''}`)
+          .join(','),
         count: VIDEO_BATCH,
       });
       for (const item of resp?.items ?? []) take(item);

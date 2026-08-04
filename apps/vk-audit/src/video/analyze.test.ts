@@ -169,7 +169,9 @@ describe('разбор комментариев', () => {
       postId: 0,
       source: 'video',
       total: 1,
-      video: { ownerId: -100, id: 55, title: 'Коты сквозь века' },
+      video: {
+        ownerId: -100, id: 55, title: 'Коты сквозь века', url: 'https://vk.com/clip-100_55',
+      },
       items: [{ postId: 0, fromId: 7, date: 0, text: 'а как это снято?', likes: 0, isReply: false }],
     };
 
@@ -179,7 +181,7 @@ describe('разбор комментариев', () => {
     expect(report.fromVideos).toBe(1);
     expect(report.total).toBe(2);
     // вопрос из-под ролика ведёт на сам ролик, а не на запись
-    expect(report.unanswered[0].url).toBe('https://vk.com/video-100_55');
+    expect(report.unanswered[0].url).toBe('https://vk.com/clip-100_55');
     expect(report.unanswered[0].where).toContain('Коты сквозь века');
   });
 });
