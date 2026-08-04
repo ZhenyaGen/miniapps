@@ -185,22 +185,41 @@ describe('разбор комментариев', () => {
 });
 
 describe('клипы и обычные видео', () => {
-  it('считает их по отдельности', () => {
+  it('клипы в цифры вкладки не попадают', () => {
     const report = analyzeVideos([
       video(1, 900, 20, 0, true), video(2, 1100, 25, 0, true),
       video(3, 100, 300), video(4, 200, 400),
     ], []);
 
+    // считаются только обычные ролики
+    expect(report.count).toBe(2);
+    expect(report.medianViews).toBe(150);
+    expect(report.totalViews).toBe(300);
+    // клипы остаются рядом — для сравнения, но в общих числах их нет
     expect(report.clips.count).toBe(2);
     expect(report.clips.medianViews).toBe(1000);
-    expect(report.regular.count).toBe(2);
-    expect(report.regular.medianViews).toBe(150);
+  });
+
+  it('корзины по длительности собираются без клипов', () => {
+    const report = analyzeVideos([
+      video(1, 900, 20, 0, true), video(2, 1100, 25, 0, true),
+      video(3, 100, 300),
+    ], []);
+
+    expect(report.byDuration.map((r) => [r.label, r.count])).toEqual([['3–10 мин', 1]]);
+    expect(report.top.map((v) => v.id)).toEqual([3]);
+  });
+
+  it('когда одни клипы, вкладка пустая, а клипы посчитаны', () => {
+    const report = analyzeVideos([video(1, 900, 20, 0, true)], []);
+    expect(report.count).toBe(0);
+    expect(report.clips.count).toBe(1);
   });
 
   it('когда ВК ничего не разметил, клипов просто нет', () => {
     const report = analyzeVideos([video(1, 100, 30), video(2, 200, 30)], []);
     expect(report.clips.count).toBe(0);
-    expect(report.regular.count).toBe(2);
+    expect(report.count).toBe(2);
   });
 
   it('замечает ролики мимо стены', () => {

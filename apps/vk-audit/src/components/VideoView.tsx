@@ -46,9 +46,10 @@ export function VideoView({
       <Group header={<Header>Видео и обсуждение</Header>}>
         <Div>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 12 }}>
-            Здесь читается весь раздел «Видео» страницы — и обычные ролики,
-            и клипы, включая те, что опубликованы мимо стены. Чужое,
-            добавленное к себе, не в счёт. У записи с видео два разных
+            Здесь обычные ролики из раздела «Видео» — без клипов, они
+            считаются на своей вкладке: охват там из другой ленты, и в общей
+            медиане один залетевший клип перечёркивает картину. Чужое,
+            добавленное к себе, тоже не в счёт. У записи с видео два разных
             счётчика просмотров: у самой записи и у видео внутри, и
             расходятся они в разы. Плюс тексты комментариев: ВКонтакте
             отдаёт их отдельно от стены.
@@ -72,11 +73,14 @@ export function VideoView({
       <Group>
         <Placeholder title="Видео не нашлось">
           {note || (video.foreign
-            ? `За период страница не публиковала своего видео. Чужого, `
+            ? `За период страница не публиковала обычных роликов. Чужого, `
               + `добавленного к себе, — ${video.foreign}: к охвату страницы `
               + 'оно отношения не имеет и в разбор не идёт.'
-            : 'За выбранный период у страницы нет ни видео, ни клипов — или '
-              + 'доступ к ним закрыт настройками.')}
+            : (video.clips.count
+              ? `За период страница выкладывала только клипы (${video.clips.count}) — `
+                + 'смотрите вкладку «Клипы».'
+              : 'За выбранный период у страницы нет ни видео, ни клипов — или '
+                + 'доступ к ним закрыт настройками.'))}
         </Placeholder>
       </Group>
     );
@@ -86,7 +90,7 @@ export function VideoView({
 
   return (
     <>
-      <Group header={<Header subtitle="просмотры самого видео, а не записей">
+      <Group header={<Header subtitle="обычные ролики без клипов: просмотры самого видео, а не записей">
         Видео
       </Header>}
       >
@@ -95,11 +99,7 @@ export function VideoView({
             <span className="kpi__icon">🎬</span>
             <div className="kpi__value">{f(video.count, 0)}</div>
             <div className="kpi__label">видео</div>
-            <div className="kpi__hint">
-              {video.clips.count
-                ? `клипов ${f(video.clips.count, 0)} · медиана ${duration(video.medianDuration)}`
-                : `медиана ${duration(video.medianDuration)}`}
-            </div>
+            <div className="kpi__hint">{`медиана ${duration(video.medianDuration)}`}</div>
           </div>
           <div className="kpi rise rise-1">
             <span className="kpi__icon">👁</span>
@@ -125,23 +125,29 @@ export function VideoView({
         </Div>
       </Group>
 
-      {(video.clips.count > 0 && video.regular.count > 0) && (
-        <Group header={<Header subtitle="ВКонтакте раздаёт им охват из разных лент">
-          Клипы и обычные видео
+      {video.clips.count > 0 && (
+        <Group header={<Header subtitle="медиана просмотров: ВКонтакте раздаёт охват из разных лент">
+          Против клипов
         </Header>}
         >
+          <SimpleCell
+            subtitle={`${video.count} шт. · комментариев ${f(video.medianComments, 1)}`}
+            indicator={f(video.medianViews, 0)}
+          >
+            Обычные видео
+          </SimpleCell>
           <SimpleCell
             subtitle={`${video.clips.count} шт. · комментариев ${f(video.clips.medianComments, 1)}`}
             indicator={f(video.clips.medianViews, 0)}
           >
             Клипы
           </SimpleCell>
-          <SimpleCell
-            subtitle={`${video.regular.count} шт. · комментариев ${f(video.regular.medianComments, 1)}`}
-            indicator={f(video.regular.medianViews, 0)}
-          >
-            Обычные видео
-          </SimpleCell>
+          <Div style={{ paddingTop: 0 }}>
+            <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
+              Клипы в остальные цифры этой вкладки не входят — они разобраны
+              на вкладке «Клипы».
+            </Footnote>
+          </Div>
         </Group>
       )}
 
