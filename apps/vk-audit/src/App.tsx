@@ -18,16 +18,6 @@ import { buildDemoSnapshot } from './vk/demo';
 import {
   buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Suggestion,
 } from './vk/rivals';
-import {
-  collectComments, collectVideoComments, collectVideos, videoRefsFromPosts,
-} from './vk/video';
-import { analyzeComments, analyzeVideos } from './video/analyze';
-import { analyzeClips } from './video/clips';
-import { collectPhotos } from './photos/collect';
-import { analyzePhotos } from './photos/analyze';
-import type { ClipsReport } from './video/clips';
-import type { CommentReport, VideoReport } from './video/analyze';
-import type { PhotoReport } from './photos/analyze';
 import type { RivalsReport } from './engine/rivals';
 
 export interface Report {
@@ -64,13 +54,6 @@ export function App() {
   const [rivalsStage, setRivalsStage] = useState('');
   const [periodDays, setPeriodDays] = useState(DEFAULT_PERIOD_DAYS);
   const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
-  const [videoReport, setVideoReport] = useState<VideoReport | null>(null);
-  const [commentReport, setCommentReport] = useState<CommentReport | null>(null);
-  const [clipsReport, setClipsReport] = useState<ClipsReport | null>(null);
-  const [photoReport, setPhotoReport] = useState<PhotoReport | null>(null);
-  const [mediaBusy, setMediaBusy] = useState(false);
-  const [mediaStage, setMediaStage] = useState('');
-  const [mediaNote, setMediaNote] = useState('');
 
   const insideVK = useMemo(isInsideVK, []);
 
@@ -165,10 +148,6 @@ export function App() {
 
     setRivals(null);
     setSuggestion(null);
-    setVideoReport(null);
-    setCommentReport(null);
-    setClipsReport(null);
-    setPhotoReport(null);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -228,58 +207,6 @@ export function App() {
     }
   }, [session, report]);
 
-  /**
-   * Медиа — отдельным действием, а не вместе с отчётом.
-   *
-   * Это ещё десятки запросов поверх сбора стены, и большинству они
-   * не нужны. Зато собираются разом: клипы, видео, фотографии и
-   * комментарии считаются из одних и тех же данных, и просить человека
-   * нажать четыре кнопки вместо одной незачем.
-   */
-  const runMedia = useCallback(async () => {
-    if (!session || !report) return;
-    setMediaBusy(true);
-    setMediaStage('Ищем видео в записях');
-    setMediaNote('');
-    try {
-      const api = new VKApi(session.token, session.transport);
-      const posts = report.snapshot.posts;
-      const ownerId = report.snapshot.profile.id;
-
-      const refs = videoRefsFromPosts(posts);
-      const sinceTs = report.snapshot.meta.since_ts;
-      const harvest = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
-        setMediaStage(`Читаем видео: ${done}`);
-      });
-      const { videos } = harvest;
-      const photos = await collectPhotos(api, ownerId, sinceTs, (done) => {
-        setMediaStage(`Читаем фотографии: ${done}`);
-      });
-      const wallThreads = await collectComments(api, ownerId, posts, (done, total) => {
-        setMediaStage(`Комментарии к записям: ${done} из ${total}`);
-      });
-      // у роликов своё обсуждение: клип мимо стены живёт только здесь
-      const videoThreads = await collectVideoComments(api, videos, (done, total) => {
-        setMediaStage(`Комментарии к видео: ${done} из ${total}`);
-      });
-
-      // пустая вкладка должна объяснять себя: молчаливый ноль выглядит
-      // поломкой, хотя чаще это закрытый настройками раздел
-      setMediaNote(harvest.error
-        ? `ВКонтакте не отдал раздел «Видео»: ${harvest.error}`
-        : '');
-
-      setVideoReport(analyzeVideos(videos, posts, harvest.foreign));
-      setClipsReport(analyzeClips(videos));
-      setPhotoReport(analyzePhotos(photos.photos, posts));
-      setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Не удалось разобрать видео');
-    } finally {
-      setMediaBusy(false);
-    }
-  }, [session, report]);
-
   const runDemoRivals = useCallback(async () => {
     setRivals(await buildDemoRivals());
   }, []);
@@ -316,14 +243,6 @@ export function App() {
                 rivalsStage={rivalsStage}
                 canCollectRivals={Boolean(session)}
                 rivalsSuggestion={suggestion}
-                video={videoReport}
-                comments={commentReport}
-                clips={clipsReport}
-                photos={photoReport}
-                mediaBusy={mediaBusy}
-                mediaStage={mediaStage}
-                mediaNote={mediaNote}
-                onCollectMedia={runMedia}
                 onCollectRivals={runRivals}
                 onSuggestRivals={runSuggest}
                 onDemoRivals={runDemoRivals}
