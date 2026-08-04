@@ -42,6 +42,39 @@ export interface VideoStat extends VideoRef {
   comments: number;
   reposts: number;
   date: number;
+  /**
+   * Клип это или обычное видео.
+   *
+   * ВК помечает клипы полем `type: 'short_video'`; в разных ответах
+   * встречается и флаг `is_short`. Проверяем оба и ничего не угадываем
+   * по длительности: короткое видео и клип — не одно и то же, они
+   * живут в разных лентах и собирают охват по-разному.
+   */
+  isClip: boolean;
+  /** Прикреплён ли ролик к записи на стене. */
+  onWall: boolean;
+}
+
+/** Клип или нет — по тому, что прислал ВК, без догадок. */
+function detectClip(item: Record<string, any>): boolean {
+  return item.type === 'short_video' || item.is_short === true;
+}
+
+function toStat(item: Record<string, any>, postId: number | null): VideoStat {
+  return {
+    ownerId: Number(item.owner_id ?? 0),
+    id: Number(item.id ?? 0),
+    postId: postId ?? 0,
+    onWall: postId !== null,
+    title: String(item.title ?? ''),
+    duration: Number(item.duration ?? 0),
+    views: Number(item.views ?? 0),
+    likes: Number(item.likes?.count ?? 0),
+    comments: Number(item.comments ?? 0),
+    reposts: Number(item.reposts?.count ?? 0),
+    date: Number(item.date ?? 0),
+    isClip: detectClip(item),
+  };
 }
 
 export interface CommentItem {
@@ -84,46 +117,59 @@ export function videoRefsFromPosts(posts: RawPost[]): VideoRef[] {
 /** ВК принимает до 200 идентификаторов за раз; берём с запасом поменьше. */
 const VIDEO_BATCH = 100;
 
+/** Сколько роликов забираем максимум: дальше это уже не разбор, а выгрузка. */
+const VIDEO_MAX = 400;
+
 /**
- * Настоящая статистика роликов.
+ * Все ролики страницы за период — и клипы, и обычные видео.
+ *
+ * Идём не от вложений в записях, а от самого раздела видео: клипы часто
+ * публикуются только в ленту клипов, на стену не попадают, и разбор
+ * «по вложениям» их бы не увидел вовсе. Привязка к записи проставляется
+ * потом, по тем роликам, что всё-таки прикреплены к постам.
  *
  * Ошибки глотаем целиком: доступ к видео закрывают настройками, и
  * молчащая вкладка лучше упавшего отчёта.
  */
 export async function collectVideos(
   api: ApiClient,
+  ownerId: number,
+  sinceTs: number,
   refs: VideoRef[],
   onProgress?: (done: number, total: number) => void,
 ): Promise<VideoStat[]> {
+  const postByVideo = new Map(refs.map((r) => [`${r.ownerId}_${r.id}`, r.postId]));
   const out: VideoStat[] = [];
-  const byKey = new Map(refs.map((r) => [`${r.ownerId}_${r.id}`, r]));
 
-  for (let i = 0; i < refs.length; i += VIDEO_BATCH) {
-    const batch = refs.slice(i, i + VIDEO_BATCH);
-    onProgress?.(Math.min(i + batch.length, refs.length), refs.length);
+  for (let offset = 0; offset < VIDEO_MAX; offset += VIDEO_BATCH) {
+    onProgress?.(out.length, VIDEO_MAX);
+    let items: Array<Record<string, any>> = [];
     try {
-      const resp = await api.call<{ items?: Array<Record<string, any>> }>('video.get', {
-        videos: batch.map((r) => `${r.ownerId}_${r.id}`).join(','),
-        count: VIDEO_BATCH,
-      });
-      for (const item of resp?.items ?? []) {
-        const ref = byKey.get(`${item.owner_id}_${item.id}`);
-        if (!ref) continue;
-        out.push({
-          ...ref,
-          title: String(item.title ?? ''),
-          duration: Number(item.duration ?? 0),
-          views: Number(item.views ?? 0),
-          likes: Number(item.likes?.count ?? 0),
-          comments: Number(item.comments ?? 0),
-          reposts: Number(item.reposts?.count ?? 0),
-          date: Number(item.date ?? 0),
-        });
-      }
+      const resp = await api.call<{ items?: Array<Record<string, any>>; count?: number }>(
+        'video.get',
+        { owner_id: ownerId, count: VIDEO_BATCH, offset },
+      );
+      items = resp?.items ?? [];
     } catch {
-      // видео закрыты или метод недоступен — вкладка просто останется пустой
+      break;
     }
+    if (!items.length) break;
+
+    let older = false;
+    for (const item of items) {
+      if (Number(item.date ?? 0) < sinceTs) {
+        older = true;
+        continue;
+      }
+      const key = `${item.owner_id}_${item.id}`;
+      const postId = postByVideo.get(key);
+      out.push(toStat(item, postId ?? null));
+    }
+    // выдача идёт от свежих к старым: как только пошли ролики старше
+    // периода, дальше листать незачем
+    if (older || items.length < VIDEO_BATCH) break;
   }
+
   return out;
 }
 

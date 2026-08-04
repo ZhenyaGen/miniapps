@@ -10,10 +10,14 @@ import { videoRefsFromPosts } from '../vk/video';
 import type { CommentThread, VideoStat } from '../vk/video';
 import type { RawPost } from '../engine/types';
 
-const video = (id: number, views: number, duration: number, comments = 0): VideoStat => ({
+const video = (
+  id: number, views: number, duration: number, comments = 0, isClip = false,
+): VideoStat => ({
   ownerId: -100,
   id,
   postId: id,
+  onWall: true,
+  isClip,
   title: `Ролик ${id}`,
   duration,
   views,
@@ -144,6 +148,34 @@ describe('разбор комментариев', () => {
     expect(report.total).toBe(0);
     expect(report.medianReplyHours).toBeNull();
     expect(report.answeredShare).toBe(0);
+  });
+});
+
+describe('клипы и обычные видео', () => {
+  it('считает их по отдельности', () => {
+    const report = analyzeVideos([
+      video(1, 900, 20, 0, true), video(2, 1100, 25, 0, true),
+      video(3, 100, 300), video(4, 200, 400),
+    ], []);
+
+    expect(report.clips.count).toBe(2);
+    expect(report.clips.medianViews).toBe(1000);
+    expect(report.regular.count).toBe(2);
+    expect(report.regular.medianViews).toBe(150);
+  });
+
+  it('когда ВК ничего не разметил, клипов просто нет', () => {
+    const report = analyzeVideos([video(1, 100, 30), video(2, 200, 30)], []);
+    expect(report.clips.count).toBe(0);
+    expect(report.regular.count).toBe(2);
+  });
+
+  it('замечает ролики мимо стены', () => {
+    const off = { ...video(1, 100, 30), onWall: false };
+    const report = analyzeVideos([off, video(2, 100, 30)], []);
+    expect(report.offWall).toBe(1);
+    expect(videoFindings(report, analyzeComments([], -100))
+      .some((t) => t.includes('мимо стены'))).toBe(true);
   });
 });
 
