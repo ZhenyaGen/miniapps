@@ -20,6 +20,8 @@ import {
 } from './vk/rivals';
 import { collectComments, collectVideos, videoRefsFromPosts } from './vk/video';
 import { analyzeComments, analyzeVideos } from './video/analyze';
+import { analyzeClips } from './video/clips';
+import type { ClipsReport } from './video/clips';
 import type { CommentReport, VideoReport } from './video/analyze';
 import type { RivalsReport } from './engine/rivals';
 
@@ -58,6 +60,7 @@ export function App() {
   const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
   const [videoReport, setVideoReport] = useState<VideoReport | null>(null);
   const [commentReport, setCommentReport] = useState<CommentReport | null>(null);
+  const [clipsReport, setClipsReport] = useState<ClipsReport | null>(null);
   const [mediaBusy, setMediaBusy] = useState(false);
   const [mediaStage, setMediaStage] = useState('');
 
@@ -107,6 +110,7 @@ export function App() {
     setSuggestion(null);
     setVideoReport(null);
     setCommentReport(null);
+    setClipsReport(null);
     setPanel('loading');
     setStage('Подключаемся к ВКонтакте');
     try {
@@ -191,6 +195,7 @@ export function App() {
       });
 
       setVideoReport(analyzeVideos(videos, posts));
+      setClipsReport(analyzeClips(videos));
       setCommentReport(analyzeComments(threads, ownerId));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось разобрать ролики');
@@ -235,6 +240,7 @@ export function App() {
                 rivalsSuggestion={suggestion}
                 video={videoReport}
                 comments={commentReport}
+                clips={clipsReport}
                 mediaBusy={mediaBusy}
                 mediaStage={mediaStage}
                 onCollectMedia={runMedia}
