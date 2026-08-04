@@ -134,8 +134,10 @@ export interface CommentReport {
   medianReplyHours: number | null;
   /** Доля комментариев с вопросом — на них ждут ответа сильнее всего. */
   questionShare: number;
+  /** Сколько веток пришло из-под роликов, а не со стены. */
+  fromVideos: number;
   /** Вопросы, оставшиеся без ответа автора в той же ветке. */
-  unanswered: Array<{ postId: number; text: string }>;
+  unanswered: Array<{ postId: number; text: string; url: string | null; where: string }>;
   topWords: Array<{ word: string; n: number }>;
   /** Самые обсуждаемые записи. */
   discussed: Array<{ postId: number; comments: number }>;
@@ -171,13 +173,22 @@ export function analyzeComments(threads: CommentThread[], ownerId: number): Comm
 
   const questions = fromPeople.filter((c) => c.text.includes('?'));
 
-  const unanswered: Array<{ postId: number; text: string }> = [];
+  const unanswered: CommentReport['unanswered'] = [];
   for (const thread of threads) {
     const authorReplied = thread.items.some((c) => isAuthor(c.fromId));
     if (authorReplied) continue;
     for (const item of thread.items) {
       if (isAuthor(item.fromId) || !item.text.includes('?')) continue;
-      unanswered.push({ postId: thread.postId, text: item.text.slice(0, 160) });
+      unanswered.push({
+        postId: thread.postId,
+        text: item.text.slice(0, 160),
+        url: thread.video
+          ? `https://vk.com/video${thread.video.ownerId}_${thread.video.id}`
+          : null,
+        where: thread.video
+          ? `под роликом «${thread.video.title || 'без названия'}»`
+          : `к записи ${thread.postId}`,
+      });
     }
   }
 
@@ -196,6 +207,7 @@ export function analyzeComments(threads: CommentThread[], ownerId: number): Comm
 
   return {
     posts: threads.length,
+    fromVideos: threads.filter((t) => t.source === 'video').length,
     total: all.length,
     fromPeople: fromPeople.length,
     fromAuthor: fromAuthor.length,

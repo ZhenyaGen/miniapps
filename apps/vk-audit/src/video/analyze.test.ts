@@ -98,6 +98,7 @@ describe('разбор комментариев', () => {
   const OWNER = -100;
   const thread = (postId: number, items: Array<[number, number, string]>): CommentThread => ({
     postId,
+    source: 'wall',
     total: items.length,
     items: items.map(([fromId, date, text]) => ({
       postId, fromId, date, text, likes: 0, isReply: false,
@@ -131,7 +132,9 @@ describe('разбор комментариев', () => {
     ], OWNER);
 
     // из второй ветки вопрос не попадает: автор в ней ответил
-    expect(report.unanswered).toEqual([{ postId: 1, text: 'а сколько это заняло?' }]);
+    expect(report.unanswered).toEqual([{
+      postId: 1, text: 'а сколько это заняло?', url: null, where: 'к записи 1',
+    }]);
     expect(report.questionShare).toBe(100);
   });
 
@@ -148,6 +151,25 @@ describe('разбор комментариев', () => {
     expect(report.total).toBe(0);
     expect(report.medianReplyHours).toBeNull();
     expect(report.answeredShare).toBe(0);
+  });
+
+  it('считает ветки из-под роликов вместе со стеной и помечает их', () => {
+    const underVideo: CommentThread = {
+      postId: 0,
+      source: 'video',
+      total: 1,
+      video: { ownerId: -100, id: 55, title: 'Коты сквозь века' },
+      items: [{ postId: 0, fromId: 7, date: 0, text: 'а как это снято?', likes: 0, isReply: false }],
+    };
+
+    const report = analyzeComments([thread(1, [[8, 0, 'огонь']]), underVideo], OWNER);
+
+    expect(report.posts).toBe(2);
+    expect(report.fromVideos).toBe(1);
+    expect(report.total).toBe(2);
+    // вопрос из-под ролика ведёт на сам ролик, а не на запись
+    expect(report.unanswered[0].url).toBe('https://vk.com/video-100_55');
+    expect(report.unanswered[0].where).toContain('Коты сквозь века');
   });
 });
 
@@ -196,6 +218,7 @@ describe('замечания', () => {
   it('замечает вопросы без ответа', () => {
     const comments = analyzeComments([{
       postId: 1,
+      source: 'wall',
       total: 1,
       items: [{ postId: 1, fromId: 7, date: 0, text: 'а как?', likes: 0, isReply: false }],
     }], -100);

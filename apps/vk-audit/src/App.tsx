@@ -18,7 +18,9 @@ import { buildDemoSnapshot } from './vk/demo';
 import {
   buildDemoRivals, collectRivals, parseRivalList, suggestRivals, type Suggestion,
 } from './vk/rivals';
-import { collectComments, collectVideos, videoRefsFromPosts } from './vk/video';
+import {
+  collectComments, collectVideoComments, collectVideos, videoRefsFromPosts,
+} from './vk/video';
 import { analyzeComments, analyzeVideos } from './video/analyze';
 import { analyzeClips } from './video/clips';
 import type { ClipsReport } from './video/clips';
@@ -190,13 +192,17 @@ export function App() {
       const videos = await collectVideos(api, ownerId, sinceTs, refs, (done) => {
         setMediaStage(`Читаем ролики: ${done}`);
       });
-      const threads = await collectComments(api, ownerId, posts, (done, total) => {
-        setMediaStage(`Читаем комментарии: ${done} из ${total}`);
+      const wallThreads = await collectComments(api, ownerId, posts, (done, total) => {
+        setMediaStage(`Комментарии к записям: ${done} из ${total}`);
+      });
+      // у роликов своё обсуждение: клип мимо стены живёт только здесь
+      const videoThreads = await collectVideoComments(api, videos, (done, total) => {
+        setMediaStage(`Комментарии к роликам: ${done} из ${total}`);
       });
 
       setVideoReport(analyzeVideos(videos, posts));
       setClipsReport(analyzeClips(videos));
-      setCommentReport(analyzeComments(threads, ownerId));
+      setCommentReport(analyzeComments([...wallThreads, ...videoThreads], ownerId));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось разобрать ролики');
     } finally {
