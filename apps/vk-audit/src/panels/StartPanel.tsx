@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import {
-  Avatar, Banner, Button, Div, FormItem, Group, Header, HorizontalScroll, Input,
-  PanelHeader, Placeholder, SegmentedControl, SimpleCell, Spacing, Tabs, TabsItem, Text,
+  Avatar, Banner, Button, Div, Footnote, FormItem, Group, Header, HorizontalScroll,
+  Input, PanelHeader, Placeholder, SegmentedControl, SimpleCell, Spacing, Tabs,
+  TabsItem, Text,
 } from '@vkontakte/vkui';
 
 import { PERIOD_OPTIONS } from '../config';
@@ -48,6 +49,9 @@ interface Props {
   insideVK: boolean;
   selfId: number | null;
   adminGroups: AdminGroup[];
+  /** Загружены ли уже свои сообщества: до первого запроса их нет. */
+  adminGroupsState: 'idle' | 'busy' | 'done';
+  onLoadAdminGroups: () => void;
   error: string | null;
   periodDays: number;
   onPeriodChange: (days: number) => void;
@@ -57,8 +61,8 @@ interface Props {
 }
 
 export function StartPanel({
-  signedIn, insideVK, selfId, adminGroups, error, periodDays,
-  onPeriodChange, onSignIn, onAudit, onDemo,
+  signedIn, insideVK, selfId, adminGroups, adminGroupsState, error, periodDays,
+  onPeriodChange, onLoadAdminGroups, onSignIn, onAudit, onDemo,
 }: Props) {
   const [screen, setScreen] = useState<Screen>('audit');
   const [mode, setMode] = useState<Mode>('user');
@@ -193,9 +197,12 @@ export function StartPanel({
             </Group>
           )}
 
-          {mode === 'group' && adminGroups.length > 0 && (
-            <Group header={<Header>Ваши сообщества</Header>}>
-              {adminGroups.slice(0, 10).map((group) => (
+          {mode === 'group' && (
+            <Group header={<Header subtitle="где вы администратор, редактор или модератор">
+              Ваши сообщества
+            </Header>}
+            >
+              {adminGroups.length > 0 && adminGroups.slice(0, 10).map((group) => (
                 <SimpleCell
                   key={group.id}
                   before={<Avatar size={40} src={group.photo} />}
@@ -205,6 +212,33 @@ export function StartPanel({
                   {group.name}
                 </SimpleCell>
               ))}
+
+              {adminGroupsState !== 'done' && adminGroups.length === 0 && (
+                <Div>
+                  <Button
+                    size="l"
+                    stretched
+                    mode="secondary"
+                    loading={adminGroupsState === 'busy'}
+                    onClick={onLoadAdminGroups}
+                  >
+                    Показать мои сообщества
+                  </Button>
+                  <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 8 }}>
+                    Список подтянется из ВКонтакте — тогда сообщество можно
+                    выбрать одним нажатием, не копируя ссылку.
+                  </Footnote>
+                </Div>
+              )}
+
+              {adminGroupsState === 'done' && adminGroups.length === 0 && (
+                <Div>
+                  <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block' }}>
+                    Сообществ, где вы администратор, не нашлось. Ссылку
+                    на чужое сообщество можно вставить в поле выше.
+                  </Footnote>
+                </Div>
+              )}
             </Group>
           )}
 
