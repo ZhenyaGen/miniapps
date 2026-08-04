@@ -11,6 +11,7 @@ import { photoFindings } from '../photos/analyze';
 import type { PhotoReport } from '../photos/analyze';
 import type { ContentMix } from './mix';
 import { MIN_SAMPLE } from './mix';
+import { findGaps } from './gaps';
 
 export interface BriefMedia {
   video?: VideoReport | null;
@@ -45,6 +46,9 @@ export function buildBrief(
     '   по месяцам и сравнение форматов между собой.',
     '3. Дай контент-план на месяц под тот формат, который здесь работает.',
     '4. Разбери тексты лучших и слабых постов: чем они отличаются.',
+    '5. Отдельно пройдись по разделу «Чего на странице нет»: что из этого',
+    '   стоит завести в первую очередь и что это даст. Если видишь другие',
+    '   упущенные форматы или рубрики — предложи их тоже.',
     '',
     `Важно: не делай выводов по форматам, где меньше ${MIN_SAMPLE} единиц`,
     'за период — такие пометки стоят ниже прямо в данных.',
@@ -185,6 +189,20 @@ export function buildBrief(
       lines.push('', 'Вопросы без ответа:',
         ...comments.unanswered.map((q) => `- ${q.where}: ${q.text}`));
     }
+  }
+
+  // ------------------------------------------------- чего нет, а могло бы быть
+  // Отсутствие в метрики не попадает: нет опросов — нет и строки про
+  // опросы. Поэтому список отдельным разделом, иначе его не увидит
+  // ни человек, ни модель.
+  const gaps = findGaps({
+    metrics: m, mix, video, clips, photos, comments, rivals, mediaCollected: Boolean(mix),
+  });
+  if (gaps.length) {
+    lines.push('', '## Чего на странице нет (и стоит ли заводить)');
+    gaps.forEach((gap) => {
+      lines.push(`- ${gap.label}. ${gap.detail} Что это дало бы: ${gap.gain}`);
+    });
   }
 
   lines.push('', '## Зоны роста');

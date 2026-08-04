@@ -27,8 +27,10 @@ import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
 import { buildCsv, csvName, downloadCsv } from '../report/csv';
+import { downloadText, fileBase } from '../report/download';
 import { PrintReport } from '../components/PrintReport';
 import { buildMix } from '../report/mix';
+import { findGaps } from '../report/gaps';
 import {
   AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
 } from '../config';
@@ -128,6 +130,22 @@ export function ReportPanel({
   };
 
   /**
+   * Бриф текстовым файлом.
+   *
+   * То же самое, что уезжает в буфер, но файлом: буфер живёт до первой
+   * копии чего-нибудь ещё, а отчёт хочется сохранить и переслать.
+   */
+  const exportTxt = async () => {
+    const text = buildBrief(report, rivals, media);
+    const name = `${fileBase(profile.screen_name, report.metrics.period.to)}.txt`;
+    if (downloadText(text, name, 'text/plain')) {
+      setToast('Бриф сохранён текстовым файлом');
+      return;
+    }
+    await copy(text, 'Загрузка запрещена — бриф скопирован в буфер');
+  };
+
+  /**
    * PDF — через печать браузера: «Сохранить как PDF» умеют все.
    * Своей генерации нет намеренно: библиотека с кириллическим шрифтом
    * весит больше, чем всё приложение.
@@ -187,7 +205,21 @@ export function ReportPanel({
           )}
         </>
       )}
-      {tab === 'zones' && <GrowthZones findings={report.findings} />}
+      {tab === 'zones' && (
+        <GrowthZones
+          findings={report.findings}
+          gaps={findGaps({
+            metrics: report.metrics,
+            mix,
+            video,
+            clips,
+            photos,
+            comments,
+            rivals,
+            mediaCollected,
+          })}
+        />
+      )}
       {tab === 'plan' && <PlanView plan={report.plan} />}
       {tab === 'content' && <ContentView metrics={report.metrics} />}
       {tab === 'clips' && (
@@ -273,6 +305,9 @@ export function ReportPanel({
       </Header>}
       >
         <Div style={{ display: 'grid', gap: 10 }}>
+          <Button size="l" stretched mode="secondary" onClick={exportTxt}>
+            📄 Скачать бриф (TXT)
+          </Button>
           <Button size="l" stretched mode="secondary" onClick={exportCsv}>
             📊 Скачать таблицу (CSV)
           </Button>
@@ -280,8 +315,10 @@ export function ReportPanel({
             🖨 Сохранить в PDF
           </Button>
           <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
-            В таблице каждая строка — запись, клип, видео или снимок, одними
-            и теми же столбцами: из неё сразу строится сводная. PDF печатается
+            TXT — тот же бриф, что уезжает в буфер, только файлом: буфер
+            живёт до первой копии чего-нибудь ещё. В таблице каждая строка —
+            запись, клип, видео или снимок, одними и теми же столбцами:
+            из неё сразу строится сводная. PDF печатается
             средствами браузера — в диалоге печати выберите «Сохранить
             как PDF». В приложении ВКонтакте печать бывает недоступна;
             тогда откройте отчёт в браузере.

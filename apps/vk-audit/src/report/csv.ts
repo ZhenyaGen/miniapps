@@ -17,6 +17,7 @@ import type { VideoReport } from '../video/analyze';
 import type { PhotoReport } from '../photos/analyze';
 import type { VideoStat } from '../vk/video';
 import type { PhotoStat } from '../photos/collect';
+import { downloadText, fileBase } from './download';
 
 export interface CsvInput {
   video?: VideoReport | null;
@@ -133,34 +134,10 @@ export function buildCsv(report: Report, input: CsvInput = {}): string {
 
 /** Имя файла: со страницей и датой, иначе в загрузках будет десять «report». */
 export function csvName(report: Report): string {
-  const name = report.snapshot.profile.screen_name.replace(/[^\w-]+/g, '') || 'vk';
-  return `vk-audit-${name}-${report.metrics.period.to}.csv`;
+  return `${fileBase(report.snapshot.profile.screen_name, report.metrics.period.to)}.csv`;
 }
 
-/**
- * Скачать выгрузку файлом.
- *
- * Возвращает `false`, когда браузер не дал: внутри приложения ВКонтакте
- * загрузки бывают запрещены, и тогда остаётся копирование в буфер —
- * вызывающий код это и делает.
- */
+/** Скачать выгрузку файлом. `false` — браузер не дал, зовите буфер обмена. */
 export function downloadCsv(text: string, filename: string): boolean {
-  try {
-    // BOM обязателен: без него Excel читает UTF-8 как ANSI и вместо
-    // кириллицы показывает кракозябры
-    const blob = new Blob([`﻿${text}`], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    link.rel = 'noopener';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    // отзываем не сразу: часть браузеров читает ссылку уже после клика
-    setTimeout(() => URL.revokeObjectURL(url), 10_000);
-    return true;
-  } catch {
-    return false;
-  }
+  return downloadText(text, filename, 'text/csv', true);
 }

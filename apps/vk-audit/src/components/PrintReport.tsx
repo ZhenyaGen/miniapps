@@ -18,6 +18,7 @@ import type { Report } from '../App';
 import type { RivalsReport } from '../engine/rivals';
 import { f } from '../engine/util';
 import type { BriefMedia } from '../report/brief';
+import { findGaps } from '../report/gaps';
 
 interface Props {
   report: Report;
@@ -44,6 +45,9 @@ export function PrintReport({ report, rivals, media }: Props) {
   const { metrics: m, snapshot, findings, plan, targets } = report;
   const p = snapshot.profile;
   const { video, clips, photos, comments, mix } = media;
+  const gaps = findGaps({
+    metrics: m, mix, video, clips, photos, comments, rivals, mediaCollected: Boolean(mix),
+  });
 
   const body = (
     <div className="print-root">
@@ -164,6 +168,20 @@ export function PrintReport({ report, rivals, media }: Props) {
           ))}
         </ol>
       </section>
+
+      {gaps.length > 0 && (
+        <section>
+          <h2>Чего на странице нет</h2>
+          <ul className="print-list">
+            {gaps.map((gap) => (
+              <li key={gap.key}>
+                <b>{gap.label}</b>
+                {`. ${gap.detail} Что это дало бы: ${gap.gain}`}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="print-break">
         <h2>План на 4 недели</h2>

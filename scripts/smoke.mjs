@@ -98,8 +98,28 @@ const pdf = join(out, 'report.pdf');
 await page.pdf({ path: pdf, format: 'A4' });
 console.log(`PDF собран: ${pdf}`);
 
-for (const label of ['Скачать таблицу', 'Сохранить в PDF', 'Скопировать бриф']) {
+for (const label of ['Скачать бриф', 'Скачать таблицу', 'Сохранить в PDF', 'Скопировать бриф']) {
   if (!(await page.getByText(label).count())) problems.push(`нет кнопки «${label}»`);
+}
+
+// выгрузки действительно скачиваются, а не молча падают в буфер
+for (const [label, ext] of [['Скачать бриф', '.txt'], ['Скачать таблицу', '.csv']]) {
+  const [download] = await Promise.all([
+    page.waitForEvent('download', { timeout: 5000 }).catch(() => null),
+    page.getByText(label).click(),
+  ]);
+  if (!download) {
+    problems.push(`«${label}» не отдала файл`);
+    continue;
+  }
+  const saved = join(out, download.suggestedFilename());
+  await download.saveAs(saved);
+  const size = (await readFile(saved)).length;
+  if (!download.suggestedFilename().endsWith(ext)) {
+    problems.push(`«${label}» отдала ${download.suggestedFilename()}, ждали ${ext}`);
+  }
+  if (size < 500) problems.push(`«${label}»: файл почти пуст (${size} байт)`);
+  console.log(`${download.suggestedFilename()} — ${size} байт`);
 }
 
 await browser.close();
