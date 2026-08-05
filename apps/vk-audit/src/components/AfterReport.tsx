@@ -27,6 +27,11 @@ export function AfterReport({ target }: { target: string }) {
   const [state, setState] = useState<State>('ask');
   const botReady = Boolean(VK_BOT_GROUP_ID);
 
+  // Пока сообщество бота не задано, блока нет вовсе: предлагать следить
+  // дальше, когда следить некому, — обещание, которое некому исполнить.
+  // Включится в тот день, когда бот поедет и появится VITE_VK_BOT_GROUP_ID.
+  if (!botReady) return null;
+
   const subscribe = async () => {
     setState('busy');
     try {
@@ -153,12 +158,7 @@ export function AfterReport({ target }: { target: string }) {
               </Footnote>
             )}
           </>
-        ) : (
-          <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block' }}>
-            Подписка скоро откроется: бот уже написан, осталось его запустить.
-            Чтобы не пропустить — подпишитесь на сообщество, я напишу там.
-          </Footnote>
-        )}
+        ) : null}
 
         {/*
           Ни слова про оплату и уровни: правила платформы, пункт 5.4.1,
