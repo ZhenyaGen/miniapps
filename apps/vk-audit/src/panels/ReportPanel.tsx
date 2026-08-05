@@ -13,7 +13,7 @@ import { ContentView } from '../components/ContentView';
 import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
-import { SubscribeCard } from '../components/SubscribeCard';
+import { AfterReport } from '../components/AfterReport';
 import { Summary } from '../components/Summary';
 import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
@@ -122,7 +122,7 @@ export function ReportPanel({
           <Summary report={report} onOpenContent={() => setTab('content')} />
           <OfferCard findings={report.findings} />
           {report.snapshot.meta.source !== 'demo' && (
-            <SubscribeCard target={report.snapshot.profile.screen_name} period="раз в неделю" />
+            <AfterReport target={report.snapshot.profile.screen_name} />
           )}
         </>
       )}
