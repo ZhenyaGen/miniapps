@@ -4,9 +4,7 @@ import {
   Button, Div, Footnote, Group, Header, SimpleCell, Text,
 } from '@vkontakte/vkui';
 
-import {
-  AUTHOR_MESSAGE_URL, DONATE_URL, FEEDBACK_URL, VK_BOT_GROUP_ID,
-} from '../config';
+import { AUTHOR_MESSAGE_URL, FEEDBACK_URL, VK_BOT_GROUP_ID } from '../config';
 
 /**
  * Что дальше — сразу после отчёта.
@@ -162,25 +160,16 @@ export function AfterReport({ target }: { target: string }) {
           </Footnote>
         )}
 
+        {/*
+          Ни слова про оплату и уровни: правила платформы, пункт 5.4.1,
+          запрещают в мобильных клиентах даже текстовые подсказки, где
+          можно заплатить. Что входит в платный уровень — человек узнаёт
+          в сообществе бота, куда приходит сам.
+        */}
         <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginTop: 12 }}>
-          Раз в месяц и сухими цифрами — бесплатно и навсегда. Еженедельно,
-          с разбором от ассистента и вопросами в переписке — по подписке
-          VK Donut: она же оплачивает нейросеть и сервер.
+          Отписаться можно в любой момент — словом «стоп» в переписке
+          или кнопкой в самом сообщении.
         </Footnote>
-
-        {DONATE_URL && (
-          <Button
-            size="m"
-            stretched
-            mode="tertiary"
-            href={DONATE_URL}
-            target="_blank"
-            rel="noreferrer"
-            style={{ marginTop: 8 }}
-          >
-            Что входит в подписку
-          </Button>
-        )}
       </Div>
     </Group>
   );

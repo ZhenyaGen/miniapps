@@ -15,12 +15,11 @@ import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
 import { AfterReport } from '../components/AfterReport';
 import { Summary } from '../components/Summary';
-import { OfferCard } from '../components/OfferCard';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
 import { findGaps } from '../report/gaps';
 import {
-  AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, DONATE_URL, FEEDBACK_URL,
+  AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, FEEDBACK_URL,
 } from '../config';
 
 type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
@@ -120,7 +119,6 @@ export function ReportPanel({
       {tab === 'summary' && (
         <>
           <Summary report={report} onOpenContent={() => setTab('content')} />
-          <OfferCard findings={report.findings} />
           {report.snapshot.meta.source !== 'demo' && (
             <AfterReport target={report.snapshot.profile.screen_name} />
           )}
@@ -181,48 +179,29 @@ export function ReportPanel({
         </Div>
       </Group>
 
-      {/* два блока рядом: оба про «что делать дальше», и по отдельности
-          каждый выглядел как призыв во всю ширину экрана */}
-      <div className="pair">
-        <Group header={<Header>Сделать за вас</Header>}>
-          <Div>
-            <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
-              {'Разбор показывает, что не так. Нужно, чтобы это починили — '}
-              {`позиционирование, айдентика, контент-план — напишите. ${AUTHOR_NAME}.`}
-            </Footnote>
-            <Button
-              size="m"
-              stretched
-              href={AUTHOR_MESSAGE_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              ✉ Написать
-            </Button>
-          </Div>
-        </Group>
-
-        {DONATE_URL && (
-          <Group header={<Header>Поддержать</Header>}>
-            <Div>
-              <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
-                Отчёт бесплатный и таким останется. Если пригодился — можно
-                закинуть на развитие.
-              </Footnote>
-              <Button
-                size="m"
-                stretched
-                mode="secondary"
-                href={DONATE_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                💜 Поддержать
-              </Button>
-            </Div>
-          </Group>
-        )}
-      </div>
+      {/*
+        Ни оплаты, ни упоминаний о ней: правила платформы, пункт 5.4.1,
+        запрещают в мобильных клиентах даже текстовые подсказки, где
+        можно заплатить. Здесь только связь с автором — это социальная
+        механика, а не продажа.
+      */}
+      <Group header={<Header>Вопросы по отчёту</Header>}>
+        <Div>
+          <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
+            {'Непонятно, откуда взялась цифра, или кажется, что правило '}
+            {`ошибается — напишите, разберёмся. ${AUTHOR_NAME}, автор приложения.`}
+          </Footnote>
+          <Button
+            size="l"
+            stretched
+            href={AUTHOR_MESSAGE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            ✉ Написать автору
+          </Button>
+        </Div>
+      </Group>
 
       {FEEDBACK_URL && (
         <Div>
