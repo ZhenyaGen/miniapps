@@ -42,10 +42,16 @@ function axisLabels(count: number): Set<number> {
  * а не про абсолютную высоту столбика. Зато подписано, между какими
  * значениями идёт линия.
  */
-export function LineChart({ points, color = 'var(--accent-blue)', unit = '' }: {
+export function LineChart({
+  points, color = 'var(--accent-blue)', unit = '', active, onSelect,
+}: {
   points: Point[];
   color?: string;
   unit?: string;
+  /** Выбранная точка — её кружок крупнее и подписана. */
+  active?: number;
+  /** Нажатие по точке. Без него график остаётся картинкой. */
+  onSelect?: (index: number) => void;
 }) {
   if (points.length < 2) return null;
 
@@ -68,7 +74,27 @@ export function LineChart({ points, color = 'var(--accent-blue)', unit = '' }: {
       <path d={area} fill={`hsl(${color} / 0.14)`} />
       <path d={line} fill="none" stroke={`hsl(${color})`} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
       {points.map((p, i) => (
-        <circle key={p.label} cx={x(i)} cy={y(p.value)} r={i === points.length - 1 ? 4 : 2.5} fill={`hsl(${color})`} />
+        <circle
+          key={p.label}
+          cx={x(i)}
+          cy={y(p.value)}
+          r={i === (active ?? points.length - 1) ? 5 : 2.5}
+          fill={`hsl(${color})`}
+        />
+      ))}
+      {/* прозрачные полосы во всю высоту: попасть пальцем в кружок
+          радиусом три пикселя невозможно, а в полосу — легко */}
+      {onSelect && points.map((p, i) => (
+        <rect
+          key={`hit-${p.label}`}
+          x={x(i) - (innerW / (points.length - 1)) / 2}
+          y={0}
+          width={innerW / (points.length - 1)}
+          height={H}
+          fill="transparent"
+          style={{ cursor: 'pointer' }}
+          onClick={() => onSelect(i)}
+        />
       ))}
       {/* крайние значения подписаны цифрами: без них график только про форму */}
       <text x={PAD_L} y={PAD_T - 5} fontSize="10" fill="var(--vkui--color_text_secondary)">

@@ -1,10 +1,11 @@
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { Div, Footnote, Group, Header, SimpleCell } from '@vkontakte/vkui';
 
 import type { Report } from '../App';
 import type { Severity } from '../engine/types';
 import { f } from '../engine/util';
 import { LineChart } from './Chart';
+import { plural } from './plural';
 
 /** Цвета берутся из палитры в index.css — там же светлая и тёмная темы. */
 const SEVERITY_COLOR: Record<Severity, string> = {
@@ -34,9 +35,16 @@ function Kpi({ icon, label, value, hint, color, index }: {
   );
 }
 
-export function Summary({ report }: { report: Report }) {
+export function Summary({ report, onOpenContent }: {
+  report: Report;
+  /** Переход на «Контент»: график — это вход в разбор, а не картинка. */
+  onOpenContent?: () => void;
+}) {
   const m = report.metrics;
   const top = report.findings.slice(0, 5);
+  // по умолчанию выбран последний месяц: он и есть «как сейчас»
+  const [month, setMonth] = useState(Math.max(m.monthly.length - 1, 0));
+  const picked = m.monthly[month] ?? m.monthly[m.monthly.length - 1];
 
   return (
     <>
@@ -92,19 +100,30 @@ export function Summary({ report }: { report: Report }) {
       </Group>
 
       {m.monthly.length > 1 && (
-        <Group header={<Header subtitle="просмотров на пост по месяцам">
+        <Group header={<Header subtitle="просмотров на пост · нажмите месяц">
           Куда идёт охват
         </Header>}
         >
-          <Div>
+          <Div style={{ paddingBottom: 4 }}>
             <LineChart
               points={m.monthly.map((row) => ({
                 label: row.label.split(' ')[0],
                 value: row.avg_views,
               }))}
               color="var(--accent-teal)"
+              active={month}
+              onSelect={setMonth}
             />
           </Div>
+          <SimpleCell
+            subtitle={`${picked.posts} ${plural(picked.posts, 'пост', 'поста', 'постов')}`
+              + ` · ER ${f(picked.avg_er, 2)}%`}
+            indicator={`${f(picked.avg_views, 0)} просмотров`}
+            onClick={onOpenContent}
+            chevron="always"
+          >
+            {picked.label}
+          </SimpleCell>
         </Group>
       )}
 
