@@ -119,7 +119,7 @@ export function ReportPanel({
 
       {tab === 'summary' && (
         <>
-          <Summary report={report} />
+          <Summary report={report} onOpenContent={() => setTab('content')} />
           <OfferCard findings={report.findings} />
           {report.snapshot.meta.source !== 'demo' && (
             <SubscribeCard target={report.snapshot.profile.screen_name} period="раз в неделю" />
@@ -181,58 +181,62 @@ export function ReportPanel({
         </Div>
       </Group>
 
-      <Group header={<Header>Сделать за вас</Header>}>
-        <Div>
-          <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
-            Разбор показывает, что не так. Если нужно, чтобы это починили —
-            позиционирование, айдентика, контент-план под ваш бизнес —
-            напишите мне.
-          </Footnote>
-          <Button
-            size="l"
-            stretched
-            href={AUTHOR_MESSAGE_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {`Написать · ${AUTHOR_NAME}`}
-          </Button>
-          {FEEDBACK_URL && (
-            <Button
-              size="l"
-              stretched
-              mode="tertiary"
-              href={FEEDBACK_URL}
-              target="_blank"
-              rel="noreferrer"
-              style={{ marginTop: 8 }}
-            >
-              Оставить отзыв о приложении
-            </Button>
-          )}
-        </Div>
-      </Group>
-
-      {DONATE_URL && (
-        <Group header={<Header>Поддержать</Header>}>
+      {/* два блока рядом: оба про «что делать дальше», и по отдельности
+          каждый выглядел как призыв во всю ширину экрана */}
+      <div className="pair">
+        <Group header={<Header>Сделать за вас</Header>}>
           <Div>
             <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
-              Отчёт бесплатный и таким останется. Если он оказался полезным —
-              можно закинуть на развитие: это оплачивает время на новые правила
-              и метрики.
+              {'Разбор показывает, что не так. Нужно, чтобы это починили — '}
+              {`позиционирование, айдентика, контент-план — напишите. ${AUTHOR_NAME}.`}
             </Footnote>
             <Button
-              size="l"
+              size="m"
               stretched
-              mode="secondary"
-              href={DONATE_URL}
+              href={AUTHOR_MESSAGE_URL}
               target="_blank"
               rel="noreferrer"
             >
-              💜 Поддержать проект
+              ✉ Написать
             </Button>
           </Div>
         </Group>
+
+        {DONATE_URL && (
+          <Group header={<Header>Поддержать</Header>}>
+            <Div>
+              <Footnote style={{ color: 'var(--vkui--color_text_secondary)', display: 'block', marginBottom: 10 }}>
+                Отчёт бесплатный и таким останется. Если пригодился — можно
+                закинуть на развитие.
+              </Footnote>
+              <Button
+                size="m"
+                stretched
+                mode="secondary"
+                href={DONATE_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                💜 Поддержать
+              </Button>
+            </Div>
+          </Group>
+        )}
+      </div>
+
+      {FEEDBACK_URL && (
+        <Div>
+          <Button
+            size="m"
+            stretched
+            mode="tertiary"
+            href={FEEDBACK_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Оставить отзыв о приложении
+          </Button>
+        </Div>
       )}
 
       <Footer />
