@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Panel, SplitCol, SplitLayout, View } from '@vkontakte/vkui';
 
+import { preloadInterstitial, showBanner, showInterstitial } from './ads';
 import { DEFAULT_PERIOD_DAYS, DEFAULT_TZ_OFFSET } from './config';
 import { buildPlan, buildTargets, findGrowthZones } from './engine/insights';
 import { compute } from './engine/metrics';
@@ -65,6 +66,16 @@ export function App() {
     const restored = readSessionFromRedirect() ?? loadSession();
     if (restored) setSession(restored);
   }, []);
+
+  // Реклама рекламной сети ВКонтакте — единственная монетизация, которую
+  // правила разрешают внутри приложения. Баннер поднимается сразу,
+  // материалы для рекламы между экранами просим заранее: показывать её
+  // будем в момент, когда отчёт готов, и ждать загрузки там нельзя.
+  useEffect(() => {
+    if (!insideVK) return;
+    void showBanner();
+    preloadInterstitial();
+  }, [insideVK]);
 
   // как только ключ появился — список своих сообществ подтягивается сам:
   // чаще всего аудируют именно их, и вводить ссылку руками не нужно
@@ -154,7 +165,11 @@ export function App() {
       const api = new VKApi(active.token, active.transport);
       const snapshot = await collect(api, target, { periodDays, onProgress: setStage });
       setStage('Считаем метрики и зоны роста');
-      setReport(buildReport(snapshot));
+      const built = buildReport(snapshot);
+      // реклама между экранами — на стыке «собрали» и «показали»:
+      // человек тут и так ждёт, а не читает
+      await showInterstitial();
+      setReport(built);
       setPanel('report');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось собрать аудит');
@@ -162,10 +177,12 @@ export function App() {
     }
   }, [ensureSession, periodDays]);
 
-  const runDemo = useCallback(() => {
+  const runDemo = useCallback(async () => {
     setError(null);
     setRivals(null);
-    setReport(buildReport(buildDemoSnapshot()));
+    const built = buildReport(buildDemoSnapshot());
+    await showInterstitial();
+    setReport(built);
     setPanel('report');
   }, []);
 
@@ -228,7 +245,7 @@ export function App() {
               onPeriodChange={setPeriodDays}
               error={error}
               onAudit={runAudit}
-              onDemo={runDemo}
+              onDemo={() => { void runDemo(); }}
             />
           </Panel>
           <Panel id="loading">
