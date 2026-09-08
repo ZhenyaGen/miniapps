@@ -14,13 +14,12 @@ import { GrowthZones } from '../components/GrowthZones';
 import { PlanView } from '../components/PlanView';
 import { RivalsView } from '../components/RivalsView';
 import { AfterReport } from '../components/AfterReport';
+import { BriefCard } from '../components/BriefCard';
 import { Summary } from '../components/Summary';
 import { Footer } from '../components/Footer';
 import { buildBrief } from '../report/brief';
 import { findGaps } from '../report/gaps';
-import {
-  AUTHOR_MESSAGE_URL, AUTHOR_NAME, DEEPSEEK_CHAT_URL, FEEDBACK_URL,
-} from '../config';
+import { AUTHOR_MESSAGE_URL, AUTHOR_NAME, FEEDBACK_URL } from '../config';
 
 type Tab = 'summary' | 'zones' | 'plan' | 'content' | 'rivals' | 'audience';
 
@@ -149,35 +148,7 @@ export function ReportPanel({
       )}
       {tab === 'audience' && <AudienceView metrics={report.metrics} />}
 
-      <Group header={<Header subtitle="весь отчёт текстом: метрики, форматы, зоны роста, план и готовые ряды под диаграммы">
-        Разобрать с ИИ
-      </Header>}
-      >
-        <Div style={{ display: 'grid', gap: 10 }}>
-          <Button
-            size="l"
-            stretched
-            appearance="positive"
-            href={DEEPSEEK_CHAT_URL}
-            target="_blank"
-            rel="noreferrer"
-            // копируем в том же клике: открытие вкладки браузер разрешает
-            // только синхронно, поэтому ссылку не подменяем на window.open
-            onClick={copyBrief}
-          >
-            🤖 Открыть DeepSeek
-          </Button>
-          <Button size="l" stretched mode="secondary" onClick={copyBrief}>
-            📋 Скопировать бриф
-          </Button>
-          <Footnote style={{ color: 'var(--vkui--color_text_secondary)' }}>
-            Ключ не нужен: бриф уезжает в буфер обмена, а разбор пишет ИИ
-            в своём чате. Числа в брифе уже посчитаны — просить пересчитать
-            их не нужно. В конце брифа лежат готовые ряды: по ним модель
-            рисует диаграммы, ничего не выдумывая.
-          </Footnote>
-        </Div>
-      </Group>
+      <BriefCard onCopy={copyBrief} />
 
       {/*
         Ни оплаты, ни упоминаний о ней: правила платформы, пункт 5.4.1,

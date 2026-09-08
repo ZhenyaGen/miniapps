@@ -5,14 +5,30 @@ import {
   TabsItem, Text,
 } from '@vkontakte/vkui';
 
-import { PERIOD_OPTIONS } from '../config';
+import { APP_NAME, PERIOD_OPTIONS } from '../config';
 import { f } from '../engine/util';
 import { Footer } from '../components/Footer';
 import { GuideView } from '../components/GuideView';
+import { FaqView } from '../components/FaqView';
 import type { AdminGroup } from '../vk/collect';
 
 type Mode = 'user' | 'group';
-type Screen = 'audit' | 'guide';
+type Screen = 'audit' | 'guide' | 'faq';
+
+/**
+ * Онбординг: три шага до результата.
+ *
+ * Требование модерации от 2 сентября 2026 — «добавить онбординг и faq,
+ * с помощью которых пользователи могли бы понять, какие инструменты,
+ * возможности и результат даст приложение». Держится без хранилища:
+ * это не всплывающий тур на первый запуск, а блок над формой, который
+ * не мешает тем, кто уже знает, что делать.
+ */
+const STEPS: Array<[string, string]> = [
+  ['🔗', 'Вставьте ссылку на страницу'],
+  ['📊', 'Через минуту — отчёт с планом'],
+  ['🤖', 'Бриф — в нейросеть за текстами'],
+];
 
 /**
  * Подписи под выбранный тип страницы.
@@ -72,14 +88,14 @@ export function StartPanel({
 
   return (
     <>
-      <PanelHeader>Аудит страницы ВК</PanelHeader>
+      <PanelHeader>{APP_NAME}</PanelHeader>
 
       <Div>
         <div className="hero hero--live rise">
           <h1 className="hero__title">Что мешает странице расти</h1>
           <p className="hero__subtitle">
-            Метрики, зоны роста и план на 4 недели — по личной странице
-            или сообществу ВКонтакте
+            Метрики, зоны роста и план на четыре недели — по личной
+            странице или сообществу
           </p>
         </div>
       </Div>
@@ -92,21 +108,49 @@ export function StartPanel({
           <TabsItem selected={screen === 'guide'} onClick={() => setScreen('guide')}>
             Инструкция
           </TabsItem>
+          <TabsItem selected={screen === 'faq'} onClick={() => setScreen('faq')}>
+            Вопросы
+          </TabsItem>
         </Tabs>
       </Group>
 
-      {screen === 'guide' ? (
+      {screen === 'guide' && (
         <>
           <GuideView />
           <Footer />
         </>
-      ) : (
+      )}
+
+      {screen === 'faq' && (
+        <>
+          <FaqView />
+          <Footer />
+        </>
+      )}
+
+      {screen === 'audit' && (
         <>
           {error && (
             <Div>
               <Banner mode="tint" title="Не получилось" subtitle={error} />
             </Div>
           )}
+
+          <Group header={<Header subtitle="без регистрации и без оплаты">
+            Как это работает
+          </Header>}
+          >
+            <Div>
+              <div className="onboard">
+                {STEPS.map(([icon, text], i) => (
+                  <div key={text} className={`onboard__step rise rise-${i + 1}`}>
+                    <span className="onboard__icon">{icon}</span>
+                    <span className="onboard__text">{text}</span>
+                  </div>
+                ))}
+              </div>
+            </Div>
+          </Group>
 
           <Group header={<Header>Что проверяем</Header>}>
             <Div>
