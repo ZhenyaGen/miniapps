@@ -42,6 +42,8 @@ const SHOTS = [
   { name: '4-plan.png', tab: 'План' },
   { name: '5-kontent.png', tab: 'Контент' },
   { name: '6-konkurenty.png', tab: 'Конкуренты', rivals: true },
+  // карточка разбора нейросетью висит внизу любой вкладки — доскроллим
+  { name: '7-ii.png', tab: 'Сводка', scrollTo: '.step-num' },
 ];
 
 const server = createServer(async (req, res) => {
@@ -96,7 +98,13 @@ for (const shot of SHOTS) {
   }
   // курсор уводим за пределы кадра, иначе вкладка остаётся подсвеченной наведением
   await page.mouse.move(WIDTH - 1, HEIGHT - 1);
-  await page.evaluate(() => window.scrollTo(0, 0));
+  if (shot.scrollTo) {
+    await page.evaluate((sel) => {
+      document.querySelector(sel)?.scrollIntoView({ block: 'center' });
+    }, shot.scrollTo);
+  } else {
+    await page.evaluate(() => window.scrollTo(0, 0));
+  }
   await page.waitForTimeout(300);
   await page.screenshot({ path: join(out, shot.name) });
   // веб-версия снимается тем же кадром: страница уже в нужном состоянии,
